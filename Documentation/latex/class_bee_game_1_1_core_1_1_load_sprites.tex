@@ -1,0 +1,118 @@
+\hypertarget{class_bee_game_1_1_core_1_1_load_sprites}{}\section{Bee\+Game.\+Core.\+Load\+Sprites Class Reference}
+\label{class_bee_game_1_1_core_1_1_load_sprites}\index{Bee\+Game.\+Core.\+Load\+Sprites@{Bee\+Game.\+Core.\+Load\+Sprites}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_bee_game_1_1_core_1_1_load_sprites_a501313d9f5961420d4a9a0ede72f6907}{Sprite\+Load} ()
+\begin{DoxyCompactList}\small\item\em Loads the sprites in the sprite file into the sprite dictionary \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static List$<$ List$<$ string $>$ $>$ \hyperlink{class_bee_game_1_1_core_1_1_load_sprites_a3dca64c0b272b40389047ae9722bfcd3}{Get\+Sprite\+Names} ()
+\begin{DoxyCompactList}\small\item\em Looks in the Sprite Names file for the sprite names and filenames \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{[}$\,$\mbox{]} \hyperlink{class_bee_game_1_1_core_1_1_load_sprites_aaef6cb35c513009a03c13d1307d5bcba}{split\+Characters} = new string\mbox{[}3\mbox{]} \{ \char`\"{}/\char`\"{}, \char`\"{}.\char`\"{}, \char`\"{},\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file Load\+Sprites.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_load_sprites_a3dca64c0b272b40389047ae9722bfcd3}\label{class_bee_game_1_1_core_1_1_load_sprites_a3dca64c0b272b40389047ae9722bfcd3}} 
+\index{Bee\+Game\+::\+Core\+::\+Load\+Sprites@{Bee\+Game\+::\+Core\+::\+Load\+Sprites}!Get\+Sprite\+Names@{Get\+Sprite\+Names}}
+\index{Get\+Sprite\+Names@{Get\+Sprite\+Names}!Bee\+Game\+::\+Core\+::\+Load\+Sprites@{Bee\+Game\+::\+Core\+::\+Load\+Sprites}}
+\subsubsection{\texorpdfstring{Get\+Sprite\+Names()}{GetSpriteNames()}}
+{\footnotesize\ttfamily static List$<$List$<$string$>$ $>$ Bee\+Game.\+Core.\+Load\+Sprites.\+Get\+Sprite\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Looks in the Sprite Names file for the sprite names and filenames 
+
+\begin{DoxyReturn}{Returns}
+Sprite Names and File names
+\end{DoxyReturn}
+
+
+Definition at line 29 of file Load\+Sprites.\+cs.
+
+
+\begin{DoxyCode}
+30         \{
+31             \textcolor{keywordtype}{string} path = Application.dataPath + \textcolor{stringliteral}{"/Resources/Sprites/SpriteNames.dat"};
+32             \textcolor{keywordtype}{string} lineText = \textcolor{stringliteral}{""};
+33             List<List<string>> returnSprites = \textcolor{keyword}{new} List<List<string>>();
+34 
+35             \textcolor{keywordflow}{if}(File.Exists(path))
+36             \{
+37                 StreamReader objReader;
+38                 objReader = \textcolor{keyword}{new} StreamReader(path);
+39 
+40                 \textcolor{keywordflow}{do}
+41                 \{
+42                     lineText = objReader.ReadLine();
+43                     \textcolor{keywordtype}{string}[] splitSprite = lineText.Split(\hyperlink{class_bee_game_1_1_core_1_1_load_sprites_aaef6cb35c513009a03c13d1307d5bcba}{splitCharacters}, 
+      StringSplitOptions.None);
+44 
+45                     List<string> temp = \textcolor{keyword}{new} List<string>() \{ splitSprite[0], splitSprite[1] \};
+46 
+47                     returnSprites.Add(temp);
+48 
+49                 \} \textcolor{keywordflow}{while} (objReader.Peek() != -1);
+50 
+51                 objReader.Close();
+52             \}
+53 
+54             \textcolor{keywordflow}{return} returnSprites;
+55         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_load_sprites_a501313d9f5961420d4a9a0ede72f6907}\label{class_bee_game_1_1_core_1_1_load_sprites_a501313d9f5961420d4a9a0ede72f6907}} 
+\index{Bee\+Game\+::\+Core\+::\+Load\+Sprites@{Bee\+Game\+::\+Core\+::\+Load\+Sprites}!Sprite\+Load@{Sprite\+Load}}
+\index{Sprite\+Load@{Sprite\+Load}!Bee\+Game\+::\+Core\+::\+Load\+Sprites@{Bee\+Game\+::\+Core\+::\+Load\+Sprites}}
+\subsubsection{\texorpdfstring{Sprite\+Load()}{SpriteLoad()}}
+{\footnotesize\ttfamily static void Bee\+Game.\+Core.\+Load\+Sprites.\+Sprite\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads the sprites in the sprite file into the sprite dictionary 
+
+
+
+Definition at line 15 of file Load\+Sprites.\+cs.
+
+
+\begin{DoxyCode}
+16         \{            
+17             List<List<string>> sprites = \hyperlink{class_bee_game_1_1_core_1_1_load_sprites_a3dca64c0b272b40389047ae9722bfcd3}{GetSpriteNames}();
+18             
+19             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < sprites.Count; i++)
+20             \{
+21                 SpriteDictionary.AddToSpriteDictionary(sprites[i][0], (Sprite)Resources.Load(\textcolor{stringliteral}{"Sprites/"} + 
+      sprites[i][1], typeof(Sprite)));
+22             \}
+23         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_load_sprites_aaef6cb35c513009a03c13d1307d5bcba}\label{class_bee_game_1_1_core_1_1_load_sprites_aaef6cb35c513009a03c13d1307d5bcba}} 
+\index{Bee\+Game\+::\+Core\+::\+Load\+Sprites@{Bee\+Game\+::\+Core\+::\+Load\+Sprites}!split\+Characters@{split\+Characters}}
+\index{split\+Characters@{split\+Characters}!Bee\+Game\+::\+Core\+::\+Load\+Sprites@{Bee\+Game\+::\+Core\+::\+Load\+Sprites}}
+\subsubsection{\texorpdfstring{split\+Characters}{splitCharacters}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} Bee\+Game.\+Core.\+Load\+Sprites.\+split\+Characters = new string\mbox{[}3\mbox{]} \{ \char`\"{}/\char`\"{}, \char`\"{}.\char`\"{}, \char`\"{},\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line 10 of file Load\+Sprites.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Toothless/\+Documents/\+Git\+Hub/\+Bee\+Game/\+Code/\+Bee\+Game/\+Bee\+Game/\+Core/\hyperlink{_load_sprites_8cs}{Load\+Sprites.\+cs}\end{DoxyCompactItemize}

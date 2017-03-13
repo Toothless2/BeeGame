@@ -1,0 +1,156 @@
+\hypertarget{class_bee_game_1_1_core_1_1_item_dictionary}{}\section{Bee\+Game.\+Core.\+Item\+Dictionary Class Reference}
+\label{class_bee_game_1_1_core_1_1_item_dictionary}\index{Bee\+Game.\+Core.\+Item\+Dictionary@{Bee\+Game.\+Core.\+Item\+Dictionary}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_a936e5313065bf33e4ed0cd766fa0fedb}{Get\+Item} (string item\+Id)
+\begin{DoxyCompactList}\small\item\em Returns an item from the dictionary \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_aa74683c6433f643da6967e10862ac026}{Add\+Item} (string \+\_\+item\+Id, \hyperlink{namespace_bee_game_1_1_enums_aa1fa1a04627915b8e72d3bb1c5c3fa82}{Item\+Type} \+\_\+item\+Type, string \+\_\+item\+Name, string \+\_\+item\+Description, bool \+\_\+is\+Placeable, int \+\_\+max\+Stack\+Count, string \+\_\+object\+Name, string \+\_\+sprite\+Name)
+\begin{DoxyCompactList}\small\item\em Adds and item to the item dictionary \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ string, \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} $>$ \hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_aa9828e91ace773227fd20008786b6a22}{items}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file Item\+Dictionary.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_item_dictionary_aa74683c6433f643da6967e10862ac026}\label{class_bee_game_1_1_core_1_1_item_dictionary_aa74683c6433f643da6967e10862ac026}} 
+\index{Bee\+Game\+::\+Core\+::\+Item\+Dictionary@{Bee\+Game\+::\+Core\+::\+Item\+Dictionary}!Add\+Item@{Add\+Item}}
+\index{Add\+Item@{Add\+Item}!Bee\+Game\+::\+Core\+::\+Item\+Dictionary@{Bee\+Game\+::\+Core\+::\+Item\+Dictionary}}
+\subsubsection{\texorpdfstring{Add\+Item()}{AddItem()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} Bee\+Game.\+Core.\+Item\+Dictionary.\+Add\+Item (\begin{DoxyParamCaption}\item[{string}]{\+\_\+item\+Id,  }\item[{\hyperlink{namespace_bee_game_1_1_enums_aa1fa1a04627915b8e72d3bb1c5c3fa82}{Item\+Type}}]{\+\_\+item\+Type,  }\item[{string}]{\+\_\+item\+Name,  }\item[{string}]{\+\_\+item\+Description,  }\item[{bool}]{\+\_\+is\+Placeable,  }\item[{int}]{\+\_\+max\+Stack\+Count,  }\item[{string}]{\+\_\+object\+Name,  }\item[{string}]{\+\_\+sprite\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Adds and item to the item dictionary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+item\+Id} & Id of the item\\
+\hline
+{\em \+\_\+item\+Type} & Item\+Type\\
+\hline
+{\em \+\_\+item\+Name} & Name of the item\\
+\hline
+{\em \+\_\+item\+Description} & Item\textquotesingle{}s description\\
+\hline
+{\em \+\_\+is\+Placeable} & Can the item be placed\\
+\hline
+{\em \+\_\+max\+Stack\+Count} & Max stack count of the item\\
+\hline
+{\em \+\_\+object\+Name} & Name of the items game object\\
+\hline
+{\em \+\_\+sprite\+Name} & Name of the items sprite\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Item with data
+\end{DoxyReturn}
+
+
+Definition at line 46 of file Item\+Dictionary.\+cs.
+
+
+\begin{DoxyCode}
+47         \{
+48             \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} newItem = \textcolor{keyword}{new} \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}();
+49 
+50             newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} = \_itemId;
+51             newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_a496672c00ab90403cbbbac6fab48f8ba}{itemType} = \_itemType;
+52             newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} = \_itemName;
+53             newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_a3173b5fb0a51e9063335e5cbf93c2e1b}{description} = \_itemDescription;
+54             newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_ae95da57ec69cdb64b656caa5aa42b8c7}{isPlaceable} = \_isPlaceable;
+55             newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_a045f162bbb378f44e8b89af901b29ff3}{maxStackCount} = \_maxStackCount;
+56 
+57             \textcolor{keywordflow}{if}(\_maxStackCount > 1)
+58             \{
+59                 newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_a2a58e4a805a560661ce6a4f1f21bfa1d}{isStackable} = \textcolor{keyword}{true};
+60             \}
+61             \textcolor{keywordflow}{else}
+62             \{
+63                 newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_a2a58e4a805a560661ce6a4f1f21bfa1d}{isStackable} = \textcolor{keyword}{false};
+64             \}
+65 
+66             newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_ade55c08e49c1c4017c91978119876387}{objectName} = \_objectName;
+67             newItem.\hyperlink{struct_bee_game_1_1_items_1_1_item_a268ba3cca2e9fa79fb5aff3c880f6505}{spriteName} = \_spriteName;
+68 
+69             \textcolor{keywordflow}{return} newItem;
+70         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_item_dictionary_a936e5313065bf33e4ed0cd766fa0fedb}\label{class_bee_game_1_1_core_1_1_item_dictionary_a936e5313065bf33e4ed0cd766fa0fedb}} 
+\index{Bee\+Game\+::\+Core\+::\+Item\+Dictionary@{Bee\+Game\+::\+Core\+::\+Item\+Dictionary}!Get\+Item@{Get\+Item}}
+\index{Get\+Item@{Get\+Item}!Bee\+Game\+::\+Core\+::\+Item\+Dictionary@{Bee\+Game\+::\+Core\+::\+Item\+Dictionary}}
+\subsubsection{\texorpdfstring{Get\+Item()}{GetItem()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} Bee\+Game.\+Core.\+Item\+Dictionary.\+Get\+Item (\begin{DoxyParamCaption}\item[{string}]{item\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns an item from the dictionary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item\+Id} & \hyperlink{namespace_bee_game_1_1_items}{Items} ID\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Item
+\end{DoxyReturn}
+
+
+Definition at line 22 of file Item\+Dictionary.\+cs.
+
+
+\begin{DoxyCode}
+23         \{
+24             \textcolor{keywordflow}{if}(\hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_aa9828e91ace773227fd20008786b6a22}{items}.Count > 0)
+25             \{
+26                 \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_aa9828e91ace773227fd20008786b6a22}{items}[itemId];
+27             \}
+28             \textcolor{keywordflow}{else}
+29             \{
+30                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}();
+31             \}            
+32         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_item_dictionary_aa9828e91ace773227fd20008786b6a22}\label{class_bee_game_1_1_core_1_1_item_dictionary_aa9828e91ace773227fd20008786b6a22}} 
+\index{Bee\+Game\+::\+Core\+::\+Item\+Dictionary@{Bee\+Game\+::\+Core\+::\+Item\+Dictionary}!items@{items}}
+\index{items@{items}!Bee\+Game\+::\+Core\+::\+Item\+Dictionary@{Bee\+Game\+::\+Core\+::\+Item\+Dictionary}}
+\subsubsection{\texorpdfstring{items}{items}}
+{\footnotesize\ttfamily Dictionary$<$string, \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}$>$ Bee\+Game.\+Core.\+Item\+Dictionary.\+items\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Dictionary<string, Item>()
+        \{
+            \{\textcolor{stringliteral}{"0"}, \hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_aa74683c6433f643da6967e10862ac026}{AddItem}(\textcolor{stringliteral}{"0"}, \hyperlink{namespace_bee_game_1_1_enums_aa1fa1a04627915b8e72d3bb1c5c3fa82}{ItemType}.ITEM, \textcolor{stringliteral}{"Test Item"}, \textcolor{stringliteral}{"Test \(\backslash\)n Item"}, \textcolor{keyword}{false}, 3, \textcolor{stringliteral}{"Bee"}, \textcolor{stringliteral}{
+      "Test\_Item"}) \},
+            \{\textcolor{stringliteral}{"1"}, \hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_aa74683c6433f643da6967e10862ac026}{AddItem}(\textcolor{stringliteral}{"1"}, \hyperlink{namespace_bee_game_1_1_enums_aa1fa1a04627915b8e72d3bb1c5c3fa82}{ItemType}.BEE, \textcolor{stringliteral}{"Bee"}, \textcolor{stringliteral}{"Bee"}, \textcolor{keyword}{false}, 1, \textcolor{stringliteral}{"Bee"}, \textcolor{stringliteral}{"Bee"}) \},
+            \{\textcolor{stringliteral}{"2"}, \hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_aa74683c6433f643da6967e10862ac026}{AddItem}(\textcolor{stringliteral}{"2"}, \hyperlink{namespace_bee_game_1_1_enums_aa1fa1a04627915b8e72d3bb1c5c3fa82}{ItemType}.ITEM, \textcolor{stringliteral}{"Chest"}, \textcolor{stringliteral}{"Chest"}, \textcolor{keyword}{true}, 64, \textcolor{stringliteral}{"Chest"}, \textcolor{stringliteral}{"Chest"}) 
+      \},
+            \{\textcolor{stringliteral}{"3"}, \hyperlink{class_bee_game_1_1_core_1_1_item_dictionary_aa74683c6433f643da6967e10862ac026}{AddItem}(\textcolor{stringliteral}{"3"}, \hyperlink{namespace_bee_game_1_1_enums_aa1fa1a04627915b8e72d3bb1c5c3fa82}{ItemType}.ITEM, \textcolor{stringliteral}{"Apiary"}, \textcolor{stringliteral}{"Apiary"}, \textcolor{keyword}{true}, 16, \textcolor{stringliteral}{"Apiary"}, \textcolor{stringliteral}{"
+      Apiary"}) \}
+        \}
+\end{DoxyCode}
+
+
+Definition at line 9 of file Item\+Dictionary.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Toothless/\+Documents/\+Git\+Hub/\+Bee\+Game/\+Code/\+Bee\+Game/\+Bee\+Game/\+Core/\hyperlink{_item_dictionary_8cs}{Item\+Dictionary.\+cs}\end{DoxyCompactItemize}

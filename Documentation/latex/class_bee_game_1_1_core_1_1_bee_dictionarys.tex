@@ -1,0 +1,289 @@
+\hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys}{}\section{Bee\+Game.\+Core.\+Bee\+Dictionarys Class Reference}
+\label{class_bee_game_1_1_core_1_1_bee_dictionarys}\index{Bee\+Game.\+Core.\+Bee\+Dictionarys@{Bee\+Game.\+Core.\+Bee\+Dictionarys}}
+
+
+ 
+
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_acc616a791a2b14382dbff21433551596}{Get\+Default\+Bee\+Data} (\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species} bee\+Species)
+\begin{DoxyCompactList}\small\item\em Returns the default bee data for a given species \end{DoxyCompactList}\item 
+static \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species} \mbox{[}$\,$\mbox{]} \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_ac2d555d589392daf8d2919b6bf1fbad1}{Get\+Combination} (\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species} species1, \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species} species2)
+\item 
+static float \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_adb5fe5760a94dbff606bc1d20ee67aaa}{Get\+Mutation\+Chance} (\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species} species)
+\item 
+static float \mbox{[}$\,$\mbox{]} \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_ae563db005a03a49d25cb6cdbd4d3a82e}{Get\+Mutation\+Chance} (\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}\mbox{[}$\,$\mbox{]} species)
+\begin{DoxyCompactList}\small\item\em Returns the mutation chances for each of the Bee\+Species\mbox{[}$\,$\mbox{]} that are given. Returns values in the same order they are given \end{DoxyCompactList}\item 
+static \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \mbox{[}$\,$\mbox{]} \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a2cd137701cfdcfeb25d5e7a73397e1b4}{Get\+Items} (\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species} species)
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}, \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} $>$ \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a4bd3dbe3fc155e206801656c07212a96}{bee\+Default\+Data}
+\begin{DoxyCompactList}\small\item\em Contains the default data for all the bee species, this will then be edited in the alveary/apiary according to the bees it is combined with \end{DoxyCompactList}\item 
+static Dictionary$<$ \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}\mbox{[}$\,$\mbox{]}, \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a1ebc1dfba158d134ff8b28082c9a2cb2}{bee\+Combinations}
+\item 
+static Dictionary$<$ \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}, float $>$ \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a8928aea7b0d5b04fbf7b5055a9921385}{bee\+Mutation\+Chance}
+\item 
+static Dictionary$<$ \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}, \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a08901f100e7fa17a7a441b32ec680146}{items}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]add summary tags to all dictionarys \end{DoxyRefDesc}
+
+
+Definition at line 12 of file Bee\+Dictionarys.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_ac2d555d589392daf8d2919b6bf1fbad1}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_ac2d555d589392daf8d2919b6bf1fbad1}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!Get\+Combination@{Get\+Combination}}
+\index{Get\+Combination@{Get\+Combination}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{Get\+Combination()}{GetCombination()}}
+{\footnotesize\ttfamily static \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species} \mbox{[}$\,$\mbox{]} Bee\+Game.\+Core.\+Bee\+Dictionarys.\+Get\+Combination (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}}]{species1,  }\item[{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}}]{species2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 50 of file Bee\+Dictionarys.\+cs.
+
+
+\begin{DoxyCode}
+51         \{
+52             \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}[] speciesArray = \textcolor{keyword}{new} \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}[2] \{ species1, species2 \};
+53 
+54             \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}[][] keyss = \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a1ebc1dfba158d134ff8b28082c9a2cb2}{beeCombinations}.Keys.ToArray();
+55             BeeDictionaryEqualityComparer comp = \textcolor{keyword}{new} BeeDictionaryEqualityComparer();
+56 
+57             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < keyss.Length; i++)
+58             \{
+59                 \textcolor{keywordflow}{if}(comp.Equals(keyss[i], speciesArray))
+60                 \{
+61                     \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a1ebc1dfba158d134ff8b28082c9a2cb2}{beeCombinations}[keyss[i]];
+62                 \}
+63             \}
+64 
+65             \textcolor{keywordflow}{return} null;
+66         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_acc616a791a2b14382dbff21433551596}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_acc616a791a2b14382dbff21433551596}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!Get\+Default\+Bee\+Data@{Get\+Default\+Bee\+Data}}
+\index{Get\+Default\+Bee\+Data@{Get\+Default\+Bee\+Data}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{Get\+Default\+Bee\+Data()}{GetDefaultBeeData()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} Bee\+Game.\+Core.\+Bee\+Dictionarys.\+Get\+Default\+Bee\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}}]{bee\+Species }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the default bee data for a given species 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bee\+Species} & Bee\+Species\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the default Bee\+Data for the given species
+\end{DoxyReturn}
+
+
+Definition at line 29 of file Bee\+Dictionarys.\+cs.
+
+
+\begin{DoxyCode}
+30         \{
+31             \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a4bd3dbe3fc155e206801656c07212a96}{beeDefaultData}.ContainsKey(beeSpecies))
+32             \{
+33                 \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData} bee = \textcolor{keyword}{new} \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData}(\hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a4bd3dbe3fc155e206801656c07212a96}{beeDefaultData}[beeSpecies]);
+34                 \textcolor{keywordflow}{return} bee;
+35             \}
+36             \textcolor{keywordflow}{else}
+37             \{
+38                 \textcolor{keywordflow}{return} null;
+39             \}
+40         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_a2cd137701cfdcfeb25d5e7a73397e1b4}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_a2cd137701cfdcfeb25d5e7a73397e1b4}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!Get\+Items@{Get\+Items}}
+\index{Get\+Items@{Get\+Items}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{Get\+Items()}{GetItems()}}
+{\footnotesize\ttfamily static \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \mbox{[}$\,$\mbox{]} Bee\+Game.\+Core.\+Bee\+Dictionarys.\+Get\+Items (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}}]{species }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 123 of file Bee\+Dictionarys.\+cs.
+
+
+\begin{DoxyCode}
+124         \{
+125             \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a08901f100e7fa17a7a441b32ec680146}{items}[species];
+126         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_adb5fe5760a94dbff606bc1d20ee67aaa}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_adb5fe5760a94dbff606bc1d20ee67aaa}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!Get\+Mutation\+Chance@{Get\+Mutation\+Chance}}
+\index{Get\+Mutation\+Chance@{Get\+Mutation\+Chance}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{Get\+Mutation\+Chance()}{GetMutationChance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static float Bee\+Game.\+Core.\+Bee\+Dictionarys.\+Get\+Mutation\+Chance (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}}]{species }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 76 of file Bee\+Dictionarys.\+cs.
+
+
+\begin{DoxyCode}
+77         \{
+78             \textcolor{keywordflow}{if}(\hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a8928aea7b0d5b04fbf7b5055a9921385}{beeMutationChance}.ContainsKey(species))
+79             \{
+80                 \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a8928aea7b0d5b04fbf7b5055a9921385}{beeMutationChance}[species];
+81             \}
+82             \textcolor{keywordflow}{else}
+83             \{
+84                 \textcolor{keywordflow}{return} 1f;
+85             \}
+86         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_ae563db005a03a49d25cb6cdbd4d3a82e}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_ae563db005a03a49d25cb6cdbd4d3a82e}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!Get\+Mutation\+Chance@{Get\+Mutation\+Chance}}
+\index{Get\+Mutation\+Chance@{Get\+Mutation\+Chance}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{Get\+Mutation\+Chance()}{GetMutationChance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static float \mbox{[}$\,$\mbox{]} Bee\+Game.\+Core.\+Bee\+Dictionarys.\+Get\+Mutation\+Chance (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species} \mbox{[}$\,$\mbox{]}}]{species }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the mutation chances for each of the Bee\+Species\mbox{[}$\,$\mbox{]} that are given. Returns values in the same order they are given 
+
+
+\begin{DoxyParams}{Parameters}
+{\em species} & Bee\+Species that the mutation chances are required for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return null if the Bee\+Species is not in the \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a8928aea7b0d5b04fbf7b5055a9921385}{bee\+Mutation\+Chance} dictionary else it will return the mutation chances as a float array
+\end{DoxyReturn}
+
+
+Definition at line 93 of file Bee\+Dictionarys.\+cs.
+
+
+\begin{DoxyCode}
+94         \{
+95             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < species.Length; i++)
+96             \{
+97                 \textcolor{keywordflow}{if}(!\hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a8928aea7b0d5b04fbf7b5055a9921385}{beeMutationChance}.ContainsKey(species[i]))
+98                 \{
+99                     \textcolor{keywordflow}{return} null;
+100                 \}
+101             \}
+102 
+103             \textcolor{keywordtype}{float}[] returnValues = \textcolor{keyword}{new} \textcolor{keywordtype}{float}[species.Length];
+104 
+105             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < species.Length; i++)
+106             \{
+107                 returnValues[i] = \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a8928aea7b0d5b04fbf7b5055a9921385}{beeMutationChance}[species[i]];
+108             \}
+109 
+110             \textcolor{keywordflow}{return} returnValues;
+111         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_a1ebc1dfba158d134ff8b28082c9a2cb2}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_a1ebc1dfba158d134ff8b28082c9a2cb2}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!bee\+Combinations@{bee\+Combinations}}
+\index{bee\+Combinations@{bee\+Combinations}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{bee\+Combinations}{beeCombinations}}
+{\footnotesize\ttfamily Dictionary$<$\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}\mbox{[}$\,$\mbox{]}, \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}\mbox{[}$\,$\mbox{]}$>$ Bee\+Game.\+Core.\+Bee\+Dictionarys.\+bee\+Combinations\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Dictionary<BeeSpecies[], BeeSpecies[]>(\textcolor{keyword}{new} BeeDictionaryEqualityComparer())
+        \{
+            \{\textcolor{keyword}{new} \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}[6] \{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.FOREST, 
+      \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.MEADOWS, \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.TROPICAL, \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.WINTRY, 
+      \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.MODEST, \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.MARSHY\}, \textcolor{keyword}{new} \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}[1] \{
+      \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.COMMON\} \},
+            \{\textcolor{keyword}{new} \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}[2] \{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.SETADFAST, 
+      \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.VALIANT\}, \textcolor{keyword}{new} \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}[1] \{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.HEROIC\} \}
+        \}
+\end{DoxyCode}
+
+
+Definition at line 44 of file Bee\+Dictionarys.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_a4bd3dbe3fc155e206801656c07212a96}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_a4bd3dbe3fc155e206801656c07212a96}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!bee\+Default\+Data@{bee\+Default\+Data}}
+\index{bee\+Default\+Data@{bee\+Default\+Data}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{bee\+Default\+Data}{beeDefaultData}}
+{\footnotesize\ttfamily Dictionary$<$\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}, \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data}$>$ Bee\+Game.\+Core.\+Bee\+Dictionarys.\+bee\+Default\+Data\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Dictionary<BeeSpecies, BeeData>()
+        \{
+            \{ \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.FOREST, \textcolor{keyword}{new} BeeData \{pSpecies = \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.FOREST, pLifespan =
+       \hyperlink{namespace_bee_game_1_1_enums_ae3853807ded2f4d99a0d4a7fb4b2bc46}{BeeLifeSpan}.NORMAL, pFertility = 3, pEffect = \hyperlink{namespace_bee_game_1_1_enums_acf7ae32a86385a40fc0c7b55af95c6c3}{BeeEffect}.NONE, pProdSpeed = 
+      \hyperlink{namespace_bee_game_1_1_enums_afee18200a21cc4b8e1d0cdb669930f14}{BeeProductionSpeed}.NORMAL, tempPref = \hyperlink{namespace_bee_game_1_1_enums_a9db0f9ac859fab168654d657f248b024}{BeeTempPreferance}.TEMPERATE, 
+      tempTol = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[] \{-1, 1\}, humidPref = \hyperlink{namespace_bee_game_1_1_enums_a66566cbc9da8d1d1e402156b4bd3bf9d}{BeeHumidityPreferance}.TEMPERATE, humidTol = \textcolor{keyword}{new} \textcolor{keywordtype}{int}
+      [] \{-1, 1\}, nocturnal = \textcolor{keyword}{false}, flyer = \textcolor{keyword}{false}\} \},
+            \{ \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.MEADOWS, \textcolor{keyword}{new} BeeData \{pSpecies = \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.MEADOWS, pLifespan
+       = \hyperlink{namespace_bee_game_1_1_enums_ae3853807ded2f4d99a0d4a7fb4b2bc46}{BeeLifeSpan}.NORMAL, pFertility = 3, pEffect = \hyperlink{namespace_bee_game_1_1_enums_acf7ae32a86385a40fc0c7b55af95c6c3}{BeeEffect}.NONE, pProdSpeed = 
+      \hyperlink{namespace_bee_game_1_1_enums_afee18200a21cc4b8e1d0cdb669930f14}{BeeProductionSpeed}.NORMAL, tempPref = \hyperlink{namespace_bee_game_1_1_enums_a9db0f9ac859fab168654d657f248b024}{BeeTempPreferance}.TEMPERATE, 
+      tempTol = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[] \{-1, 1\}, humidPref = \hyperlink{namespace_bee_game_1_1_enums_a66566cbc9da8d1d1e402156b4bd3bf9d}{BeeHumidityPreferance}.TEMPERATE, humidTol = \textcolor{keyword}{new} \textcolor{keywordtype}{int}
+      [] \{-1, 1\}, nocturnal = \textcolor{keyword}{false}, flyer = \textcolor{keyword}{false}\} \}
+        \}
+\end{DoxyCode}
+
+
+Contains the default data for all the bee species, this will then be edited in the alveary/apiary according to the bees it is combined with 
+
+
+
+Definition at line 18 of file Bee\+Dictionarys.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_a8928aea7b0d5b04fbf7b5055a9921385}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_a8928aea7b0d5b04fbf7b5055a9921385}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!bee\+Mutation\+Chance@{bee\+Mutation\+Chance}}
+\index{bee\+Mutation\+Chance@{bee\+Mutation\+Chance}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{bee\+Mutation\+Chance}{beeMutationChance}}
+{\footnotesize\ttfamily Dictionary$<$\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}, float$>$ Bee\+Game.\+Core.\+Bee\+Dictionarys.\+bee\+Mutation\+Chance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Dictionary<BeeSpecies, float>()
+        \{
+            \{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.COMMON, 0.15f \},
+            \{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.HEROIC, 0.06f \}
+        \}
+\end{DoxyCode}
+
+
+Definition at line 70 of file Bee\+Dictionarys.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_bee_dictionarys_a08901f100e7fa17a7a441b32ec680146}\label{class_bee_game_1_1_core_1_1_bee_dictionarys_a08901f100e7fa17a7a441b32ec680146}} 
+\index{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}!items@{items}}
+\index{items@{items}!Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys@{Bee\+Game\+::\+Core\+::\+Bee\+Dictionarys}}
+\subsubsection{\texorpdfstring{items}{items}}
+{\footnotesize\ttfamily Dictionary$<$\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{Bee\+Species}, \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}\mbox{[}$\,$\mbox{]}$>$ Bee\+Game.\+Core.\+Bee\+Dictionarys.\+items\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Dictionary<BeeSpecies, Item[]>()
+        \{
+            \{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.FOREST, \textcolor{keyword}{new} Item[1] \},
+            \{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.MEADOWS, \textcolor{keyword}{new} Item[1] \},
+            \{\hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619c}{BeeSpecies}.TROPICAL, \textcolor{keyword}{new} Item[1] \}
+        \}
+\end{DoxyCode}
+
+
+Definition at line 115 of file Bee\+Dictionarys.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Toothless/\+Documents/\+Git\+Hub/\+Bee\+Game/\+Code/\+Bee\+Game/\+Bee\+Game/\+Core/\hyperlink{_bee_dictionarys_8cs}{Bee\+Dictionarys.\+cs}\end{DoxyCompactItemize}

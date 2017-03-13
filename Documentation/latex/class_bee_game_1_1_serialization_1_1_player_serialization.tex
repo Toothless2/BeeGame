@@ -1,0 +1,193 @@
+\hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization}{}\section{Bee\+Game.\+Serialization.\+Player\+Serialization Class Reference}
+\label{class_bee_game_1_1_serialization_1_1_player_serialization}\index{Bee\+Game.\+Serialization.\+Player\+Serialization@{Bee\+Game.\+Serialization.\+Player\+Serialization}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a9be0b00db5f4f0395b8408587f219123}{Player\+Serialization} (Transform player\+Transform)
+\item 
+Vector3 \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a0dc185edb71e6952aeb2382ee0e51931}{Return\+Transform\+Position} ()
+\item 
+Quaternion \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a0c8bfc459f24a64f9e6d39305dba1fb2}{Return\+Transfom\+Rotation} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a36758d72f4f33b21f296f5e648b772a5}{x}
+\item 
+float \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_ada22143d639a1fbd59b52943362202ae}{y}
+\item 
+float \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a9836712a8e5f645bea8304e50fb84e51}{z}
+\item 
+float \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_af292d134d5b6171724f6797e390bde77}{rotw}
+\item 
+float \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a5c7c1d06654a4aad49a3fb3b9cd11835}{rotx}
+\item 
+float \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a5411f99b7942e8d4f848b001fc49c39f}{roty}
+\item 
+float \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_adfa5b8ed3fa3ef68460302186054dae5}{rotz}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_ade01db9a4725e62a34ec741336c197a3}{Player\+Serialization} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 239 of file Serialization.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_ade01db9a4725e62a34ec741336c197a3}\label{class_bee_game_1_1_serialization_1_1_player_serialization_ade01db9a4725e62a34ec741336c197a3}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!Player\+Serialization@{Player\+Serialization}}
+\index{Player\+Serialization@{Player\+Serialization}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{Player\+Serialization()}{PlayerSerialization()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bee\+Game.\+Serialization.\+Player\+Serialization.\+Player\+Serialization (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 250 of file Serialization.\+cs.
+
+
+\begin{DoxyCode}
+250 \{ \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_a9be0b00db5f4f0395b8408587f219123}\label{class_bee_game_1_1_serialization_1_1_player_serialization_a9be0b00db5f4f0395b8408587f219123}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!Player\+Serialization@{Player\+Serialization}}
+\index{Player\+Serialization@{Player\+Serialization}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{Player\+Serialization()}{PlayerSerialization()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bee\+Game.\+Serialization.\+Player\+Serialization.\+Player\+Serialization (\begin{DoxyParamCaption}\item[{Transform}]{player\+Transform }\end{DoxyParamCaption})}
+
+
+
+Definition at line 252 of file Serialization.\+cs.
+
+
+\begin{DoxyCode}
+253         \{
+254             \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a36758d72f4f33b21f296f5e648b772a5}{x} = playerTransform.position.x;
+255             \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_ada22143d639a1fbd59b52943362202ae}{y} = playerTransform.position.y;
+256             \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a9836712a8e5f645bea8304e50fb84e51}{z} = playerTransform.position.z;
+257 
+258             \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_af292d134d5b6171724f6797e390bde77}{rotw} = playerTransform.rotation.w;
+259             \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a5c7c1d06654a4aad49a3fb3b9cd11835}{rotx} = playerTransform.rotation.x;
+260             \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a5411f99b7942e8d4f848b001fc49c39f}{roty} = playerTransform.rotation.y;
+261             \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_adfa5b8ed3fa3ef68460302186054dae5}{rotz} = playerTransform.rotation.z;
+262         \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_a0c8bfc459f24a64f9e6d39305dba1fb2}\label{class_bee_game_1_1_serialization_1_1_player_serialization_a0c8bfc459f24a64f9e6d39305dba1fb2}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!Return\+Transfom\+Rotation@{Return\+Transfom\+Rotation}}
+\index{Return\+Transfom\+Rotation@{Return\+Transfom\+Rotation}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{Return\+Transfom\+Rotation()}{ReturnTransfomRotation()}}
+{\footnotesize\ttfamily Quaternion Bee\+Game.\+Serialization.\+Player\+Serialization.\+Return\+Transfom\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 269 of file Serialization.\+cs.
+
+
+\begin{DoxyCode}
+270         \{
+271             \textcolor{keywordflow}{return} \textcolor{keyword}{new} Quaternion(\hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a5c7c1d06654a4aad49a3fb3b9cd11835}{rotx}, \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a5411f99b7942e8d4f848b001fc49c39f}{roty}, \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_adfa5b8ed3fa3ef68460302186054dae5}{rotz}, \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_af292d134d5b6171724f6797e390bde77}{rotw});
+272         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_a0dc185edb71e6952aeb2382ee0e51931}\label{class_bee_game_1_1_serialization_1_1_player_serialization_a0dc185edb71e6952aeb2382ee0e51931}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!Return\+Transform\+Position@{Return\+Transform\+Position}}
+\index{Return\+Transform\+Position@{Return\+Transform\+Position}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{Return\+Transform\+Position()}{ReturnTransformPosition()}}
+{\footnotesize\ttfamily Vector3 Bee\+Game.\+Serialization.\+Player\+Serialization.\+Return\+Transform\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 264 of file Serialization.\+cs.
+
+
+\begin{DoxyCode}
+265         \{
+266             \textcolor{keywordflow}{return} \textcolor{keyword}{new} Vector3(\hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a36758d72f4f33b21f296f5e648b772a5}{x}, \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_ada22143d639a1fbd59b52943362202ae}{y}, \hyperlink{class_bee_game_1_1_serialization_1_1_player_serialization_a9836712a8e5f645bea8304e50fb84e51}{z});
+267         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_af292d134d5b6171724f6797e390bde77}\label{class_bee_game_1_1_serialization_1_1_player_serialization_af292d134d5b6171724f6797e390bde77}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!rotw@{rotw}}
+\index{rotw@{rotw}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{rotw}{rotw}}
+{\footnotesize\ttfamily float Bee\+Game.\+Serialization.\+Player\+Serialization.\+rotw}
+
+
+
+Definition at line 245 of file Serialization.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_a5c7c1d06654a4aad49a3fb3b9cd11835}\label{class_bee_game_1_1_serialization_1_1_player_serialization_a5c7c1d06654a4aad49a3fb3b9cd11835}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!rotx@{rotx}}
+\index{rotx@{rotx}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{rotx}{rotx}}
+{\footnotesize\ttfamily float Bee\+Game.\+Serialization.\+Player\+Serialization.\+rotx}
+
+
+
+Definition at line 246 of file Serialization.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_a5411f99b7942e8d4f848b001fc49c39f}\label{class_bee_game_1_1_serialization_1_1_player_serialization_a5411f99b7942e8d4f848b001fc49c39f}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!roty@{roty}}
+\index{roty@{roty}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{roty}{roty}}
+{\footnotesize\ttfamily float Bee\+Game.\+Serialization.\+Player\+Serialization.\+roty}
+
+
+
+Definition at line 247 of file Serialization.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_adfa5b8ed3fa3ef68460302186054dae5}\label{class_bee_game_1_1_serialization_1_1_player_serialization_adfa5b8ed3fa3ef68460302186054dae5}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!rotz@{rotz}}
+\index{rotz@{rotz}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{rotz}{rotz}}
+{\footnotesize\ttfamily float Bee\+Game.\+Serialization.\+Player\+Serialization.\+rotz}
+
+
+
+Definition at line 248 of file Serialization.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_a36758d72f4f33b21f296f5e648b772a5}\label{class_bee_game_1_1_serialization_1_1_player_serialization_a36758d72f4f33b21f296f5e648b772a5}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!x@{x}}
+\index{x@{x}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily float Bee\+Game.\+Serialization.\+Player\+Serialization.\+x}
+
+
+
+Definition at line 241 of file Serialization.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_ada22143d639a1fbd59b52943362202ae}\label{class_bee_game_1_1_serialization_1_1_player_serialization_ada22143d639a1fbd59b52943362202ae}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!y@{y}}
+\index{y@{y}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily float Bee\+Game.\+Serialization.\+Player\+Serialization.\+y}
+
+
+
+Definition at line 242 of file Serialization.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_serialization_1_1_player_serialization_a9836712a8e5f645bea8304e50fb84e51}\label{class_bee_game_1_1_serialization_1_1_player_serialization_a9836712a8e5f645bea8304e50fb84e51}} 
+\index{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}!z@{z}}
+\index{z@{z}!Bee\+Game\+::\+Serialization\+::\+Player\+Serialization@{Bee\+Game\+::\+Serialization\+::\+Player\+Serialization}}
+\subsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily float Bee\+Game.\+Serialization.\+Player\+Serialization.\+z}
+
+
+
+Definition at line 243 of file Serialization.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Toothless/\+Documents/\+Git\+Hub/\+Bee\+Game/\+Code/\+Bee\+Game/\+Bee\+Game/\+Serialization/\hyperlink{_serialization_8cs}{Serialization.\+cs}\end{DoxyCompactItemize}

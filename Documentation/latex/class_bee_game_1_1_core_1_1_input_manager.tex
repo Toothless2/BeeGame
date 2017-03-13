@@ -1,0 +1,167 @@
+\hypertarget{class_bee_game_1_1_core_1_1_input_manager}{}\section{Bee\+Game.\+Core.\+Input\+Manager Class Reference}
+\label{class_bee_game_1_1_core_1_1_input_manager}\index{Bee\+Game.\+Core.\+Input\+Manager@{Bee\+Game.\+Core.\+Input\+Manager}}
+
+
+My implementation of the unity input system. Acts as a buffer layer to the unity system so that the input keys can be changed at runtime  
+
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_bee_game_1_1_core_1_1_input_manager_ac90aab89652007118b67f60e962103c5}{Get\+Button\+Down} (string button)
+\begin{DoxyCompactList}\small\item\em Has the given button been pressed this update \end{DoxyCompactList}\item 
+static bool \hyperlink{class_bee_game_1_1_core_1_1_input_manager_a2bd5bb8dc1aaf482f50b9751037eb64c}{Get\+Button} (string button)
+\begin{DoxyCompactList}\small\item\em Is the given button currently being held down \end{DoxyCompactList}\item 
+static bool \hyperlink{class_bee_game_1_1_core_1_1_input_manager_a48509279629e2144c23c3d2a9dee4257}{Get\+Button\+Up} (string button)
+\begin{DoxyCompactList}\small\item\em Has the given button been relesed this update \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ string, Key\+Code $>$ \hyperlink{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}{input\+Buttons}
+\begin{DoxyCompactList}\small\item\em Button identifiers and Key\+Code \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+My implementation of the unity input system. Acts as a buffer layer to the unity system so that the input keys can be changed at runtime 
+
+
+
+Definition at line 11 of file Input\+Manager.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_input_manager_a2bd5bb8dc1aaf482f50b9751037eb64c}\label{class_bee_game_1_1_core_1_1_input_manager_a2bd5bb8dc1aaf482f50b9751037eb64c}} 
+\index{Bee\+Game\+::\+Core\+::\+Input\+Manager@{Bee\+Game\+::\+Core\+::\+Input\+Manager}!Get\+Button@{Get\+Button}}
+\index{Get\+Button@{Get\+Button}!Bee\+Game\+::\+Core\+::\+Input\+Manager@{Bee\+Game\+::\+Core\+::\+Input\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Button()}{GetButton()}}
+{\footnotesize\ttfamily static bool Bee\+Game.\+Core.\+Input\+Manager.\+Get\+Button (\begin{DoxyParamCaption}\item[{string}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Is the given button currently being held down 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & The button name eg \char`\"{}\+Forward\char`\"{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the given button is currently being held down
+\end{DoxyReturn}
+
+
+Definition at line 46 of file Input\+Manager.\+cs.
+
+
+\begin{DoxyCode}
+47         \{
+48             \textcolor{keywordflow}{if} (!\hyperlink{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}{inputButtons}.ContainsKey(button))
+49             \{
+50                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"Input Manager: Key button name not defined: "} + button);
+51             \}
+52 
+53             \textcolor{keywordflow}{return} Input.GetKey(\hyperlink{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}{inputButtons}[button]);
+54         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_input_manager_ac90aab89652007118b67f60e962103c5}\label{class_bee_game_1_1_core_1_1_input_manager_ac90aab89652007118b67f60e962103c5}} 
+\index{Bee\+Game\+::\+Core\+::\+Input\+Manager@{Bee\+Game\+::\+Core\+::\+Input\+Manager}!Get\+Button\+Down@{Get\+Button\+Down}}
+\index{Get\+Button\+Down@{Get\+Button\+Down}!Bee\+Game\+::\+Core\+::\+Input\+Manager@{Bee\+Game\+::\+Core\+::\+Input\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Button\+Down()}{GetButtonDown()}}
+{\footnotesize\ttfamily static bool Bee\+Game.\+Core.\+Input\+Manager.\+Get\+Button\+Down (\begin{DoxyParamCaption}\item[{string}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Has the given button been pressed this update 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & The button name eg \char`\"{}\+Inventory\char`\"{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the given button has been pressed this update
+\end{DoxyReturn}
+
+
+Definition at line 32 of file Input\+Manager.\+cs.
+
+
+\begin{DoxyCode}
+33         \{
+34             \textcolor{keywordflow}{if}(!\hyperlink{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}{inputButtons}.ContainsKey(button))
+35             \{
+36                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"Input Manager: Key button name not defined: "} + button);
+37             \}
+38 
+39             \textcolor{keywordflow}{return} Input.GetKeyDown(\hyperlink{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}{inputButtons}[button]);
+40         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_input_manager_a48509279629e2144c23c3d2a9dee4257}\label{class_bee_game_1_1_core_1_1_input_manager_a48509279629e2144c23c3d2a9dee4257}} 
+\index{Bee\+Game\+::\+Core\+::\+Input\+Manager@{Bee\+Game\+::\+Core\+::\+Input\+Manager}!Get\+Button\+Up@{Get\+Button\+Up}}
+\index{Get\+Button\+Up@{Get\+Button\+Up}!Bee\+Game\+::\+Core\+::\+Input\+Manager@{Bee\+Game\+::\+Core\+::\+Input\+Manager}}
+\subsubsection{\texorpdfstring{Get\+Button\+Up()}{GetButtonUp()}}
+{\footnotesize\ttfamily static bool Bee\+Game.\+Core.\+Input\+Manager.\+Get\+Button\+Up (\begin{DoxyParamCaption}\item[{string}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Has the given button been relesed this update 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & Button name eg \char`\"{}\+Inventory\char`\"{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the button has been relesed during this update
+\end{DoxyReturn}
+
+
+Definition at line 60 of file Input\+Manager.\+cs.
+
+
+\begin{DoxyCode}
+61         \{
+62             \textcolor{keywordflow}{if} (!\hyperlink{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}{inputButtons}.ContainsKey(button))
+63             \{
+64                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"Input Manager: Key button name not defined: "} + button);
+65             \}
+66 
+67             \textcolor{keywordflow}{return} Input.GetKeyUp(\hyperlink{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}{inputButtons}[button]);
+68         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}\label{class_bee_game_1_1_core_1_1_input_manager_ad0a5b4a5db00803c01ecb3431e208ca1}} 
+\index{Bee\+Game\+::\+Core\+::\+Input\+Manager@{Bee\+Game\+::\+Core\+::\+Input\+Manager}!input\+Buttons@{input\+Buttons}}
+\index{input\+Buttons@{input\+Buttons}!Bee\+Game\+::\+Core\+::\+Input\+Manager@{Bee\+Game\+::\+Core\+::\+Input\+Manager}}
+\subsubsection{\texorpdfstring{input\+Buttons}{inputButtons}}
+{\footnotesize\ttfamily Dictionary$<$string, Key\+Code$>$ Bee\+Game.\+Core.\+Input\+Manager.\+input\+Buttons\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} Dictionary<string, KeyCode>()
+        \{
+            \{\textcolor{stringliteral}{"Forward"} , KeyCode.W\},
+            \{\textcolor{stringliteral}{"Backward"}, KeyCode.S \},
+            \{\textcolor{stringliteral}{"Right"}, KeyCode.D \},
+            \{\textcolor{stringliteral}{"Left"}, KeyCode.A \},
+            \{\textcolor{stringliteral}{"Inventory"}, KeyCode.E \},
+            \{\textcolor{stringliteral}{"Place/Interact"}, KeyCode.Mouse1 \},
+            \{\textcolor{stringliteral}{"Break Block"}, KeyCode.Mouse0 \}
+        \}
+\end{DoxyCode}
+
+
+Button identifiers and Key\+Code 
+
+
+
+Definition at line 16 of file Input\+Manager.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Toothless/\+Documents/\+Git\+Hub/\+Bee\+Game/\+Code/\+Bee\+Game/\+Bee\+Game/\+Core/\hyperlink{_input_manager_8cs}{Input\+Manager.\+cs}\end{DoxyCompactItemize}

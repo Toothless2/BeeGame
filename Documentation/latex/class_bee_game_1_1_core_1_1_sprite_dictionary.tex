@@ -1,0 +1,140 @@
+\hypertarget{class_bee_game_1_1_core_1_1_sprite_dictionary}{}\section{Bee\+Game.\+Core.\+Sprite\+Dictionary Class Reference}
+\label{class_bee_game_1_1_core_1_1_sprite_dictionary}\index{Bee\+Game.\+Core.\+Sprite\+Dictionary@{Bee\+Game.\+Core.\+Sprite\+Dictionary}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_ae4d45a1450cc2a99493ca8aee6ebaab6}{Key} ()
+\item 
+static void \hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a55f237ff9c91a35b88adab2a4be844ed}{Add\+To\+Sprite\+Dictionary} (string sprite\+Name, Sprite sprite\+To\+Add)
+\begin{DoxyCompactList}\small\item\em Adds a sprite to the dictionary \end{DoxyCompactList}\item 
+static Sprite \hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a17fca1828cb89197a540e2e7ab0c43cd}{Get\+Sprite\+Item\+From\+Dictionary} (string sprite\+Name)
+\begin{DoxyCompactList}\small\item\em Returns a Sprite fromthe given sprite name \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ string, Sprite $>$ \hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a40c5e9e2f9f25548971faadbbbde4529}{sprites} = new Dictionary$<$string, Sprite$>$()
+\begin{DoxyCompactList}\small\item\em Stores all sprites that can be loaded by the game \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file Sprite\+Dictionary.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_sprite_dictionary_a55f237ff9c91a35b88adab2a4be844ed}\label{class_bee_game_1_1_core_1_1_sprite_dictionary_a55f237ff9c91a35b88adab2a4be844ed}} 
+\index{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary@{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary}!Add\+To\+Sprite\+Dictionary@{Add\+To\+Sprite\+Dictionary}}
+\index{Add\+To\+Sprite\+Dictionary@{Add\+To\+Sprite\+Dictionary}!Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary@{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary}}
+\subsubsection{\texorpdfstring{Add\+To\+Sprite\+Dictionary()}{AddToSpriteDictionary()}}
+{\footnotesize\ttfamily static void Bee\+Game.\+Core.\+Sprite\+Dictionary.\+Add\+To\+Sprite\+Dictionary (\begin{DoxyParamCaption}\item[{string}]{sprite\+Name,  }\item[{Sprite}]{sprite\+To\+Add }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adds a sprite to the dictionary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Name} & Name of sprite\\
+\hline
+{\em sprite\+To\+Add} & Sprite\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file Sprite\+Dictionary.\+cs.
+
+
+\begin{DoxyCode}
+32         \{
+33             \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a17fca1828cb89197a540e2e7ab0c43cd}{GetSpriteItemFromDictionary}(spriteName) == null)
+34             \{
+35                 \hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a40c5e9e2f9f25548971faadbbbde4529}{sprites}.Add(spriteName, spriteToAdd);
+36             \}
+37             \textcolor{keywordflow}{else}
+38             \{
+39                 \hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a40c5e9e2f9f25548971faadbbbde4529}{sprites}[spriteName] = spriteToAdd;
+40             \}
+41         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_sprite_dictionary_a17fca1828cb89197a540e2e7ab0c43cd}\label{class_bee_game_1_1_core_1_1_sprite_dictionary_a17fca1828cb89197a540e2e7ab0c43cd}} 
+\index{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary@{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary}!Get\+Sprite\+Item\+From\+Dictionary@{Get\+Sprite\+Item\+From\+Dictionary}}
+\index{Get\+Sprite\+Item\+From\+Dictionary@{Get\+Sprite\+Item\+From\+Dictionary}!Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary@{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary}}
+\subsubsection{\texorpdfstring{Get\+Sprite\+Item\+From\+Dictionary()}{GetSpriteItemFromDictionary()}}
+{\footnotesize\ttfamily static Sprite Bee\+Game.\+Core.\+Sprite\+Dictionary.\+Get\+Sprite\+Item\+From\+Dictionary (\begin{DoxyParamCaption}\item[{string}]{sprite\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns a Sprite fromthe given sprite name 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite\+Name} & Item sprite name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sprite
+\end{DoxyReturn}
+
+
+Definition at line 48 of file Sprite\+Dictionary.\+cs.
+
+
+\begin{DoxyCode}
+49         \{
+50             \textcolor{keywordflow}{if} (spriteName != null)
+51             \{
+52                 \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a40c5e9e2f9f25548971faadbbbde4529}{sprites}.ContainsKey(spriteName))
+53                 \{
+54                     \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a40c5e9e2f9f25548971faadbbbde4529}{sprites}[spriteName];
+55                 \}
+56             \}
+57             
+58             \textcolor{keywordflow}{return} null;
+59         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_sprite_dictionary_ae4d45a1450cc2a99493ca8aee6ebaab6}\label{class_bee_game_1_1_core_1_1_sprite_dictionary_ae4d45a1450cc2a99493ca8aee6ebaab6}} 
+\index{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary@{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary}!Key@{Key}}
+\index{Key@{Key}!Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary@{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary}}
+\subsubsection{\texorpdfstring{Key()}{Key()}}
+{\footnotesize\ttfamily static string Bee\+Game.\+Core.\+Sprite\+Dictionary.\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 15 of file Sprite\+Dictionary.\+cs.
+
+
+\begin{DoxyCode}
+16         \{
+17             \textcolor{keywordtype}{string} returnKeys = \textcolor{stringliteral}{""};
+18             \textcolor{keywordflow}{foreach}(\textcolor{keywordtype}{string} k \textcolor{keywordflow}{in} \hyperlink{class_bee_game_1_1_core_1_1_sprite_dictionary_a40c5e9e2f9f25548971faadbbbde4529}{sprites}.Keys)
+19             \{
+20                 returnKeys += k + \textcolor{stringliteral}{" "};
+21             \}
+22 
+23             \textcolor{keywordflow}{return} returnKeys;
+24         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_core_1_1_sprite_dictionary_a40c5e9e2f9f25548971faadbbbde4529}\label{class_bee_game_1_1_core_1_1_sprite_dictionary_a40c5e9e2f9f25548971faadbbbde4529}} 
+\index{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary@{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary}!sprites@{sprites}}
+\index{sprites@{sprites}!Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary@{Bee\+Game\+::\+Core\+::\+Sprite\+Dictionary}}
+\subsubsection{\texorpdfstring{sprites}{sprites}}
+{\footnotesize\ttfamily Dictionary$<$string, Sprite$>$ Bee\+Game.\+Core.\+Sprite\+Dictionary.\+sprites = new Dictionary$<$string, Sprite$>$()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Stores all sprites that can be loaded by the game 
+
+
+
+Definition at line 13 of file Sprite\+Dictionary.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Toothless/\+Documents/\+Git\+Hub/\+Bee\+Game/\+Code/\+Bee\+Game/\+Bee\+Game/\+Core/\hyperlink{_sprite_dictionary_8cs}{Sprite\+Dictionary.\+cs}\end{DoxyCompactItemize}

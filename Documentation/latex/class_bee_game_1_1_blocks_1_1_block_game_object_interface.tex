@@ -1,0 +1,275 @@
+\hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface}{}\section{Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface Class Reference}
+\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface}\index{Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface@{Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface}}
+
+
+Interface between Game\+Object and \hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} data as Mono\+Behaviour dreived classes are Non-\/\+Serializable using c\# Binary\+Formatter  
+
+
+Inheritance diagram for Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bee_game_1_1_blocks_1_1_block_game_object_interface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a3ddd5f34156385516a9ad3572160fd99}{Update\+Block\+Data} (\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} item, \hyperlink{struct_bee_game_1_1_t_h_vector3}{T\+H\+Vector3} \+\_\+position)
+\begin{DoxyCompactList}\small\item\em Updates the \hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} that this Game\+Object is reprsenting \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_ad3f4f53d3fdb09f46f05a23faa08c12a}{Update\+Block\+Data} (\hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} block\+Data)
+\begin{DoxyCompactList}\small\item\em Overload that can be used if \hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} possibly contains items eg a chest \end{DoxyCompactList}\item 
+\hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a40b044d5bf2a857ea25796685e23f768}{Return\+Block\+Data} ()
+\begin{DoxyCompactList}\small\item\em Returns the block\textquotesingle{}s block data \end{DoxyCompactList}\item 
+\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a224ae292be961a0c3b7675e5a85ddb1b}{Return\+Item\+Data} ()
+\begin{DoxyCompactList}\small\item\em Returns the blocks item data \end{DoxyCompactList}\item 
+Game\+Object \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_acc64daab8f2771a344aa386fa4b86c3b}{Get\+Block\+Gameobject} ()
+\begin{DoxyCompactList}\small\item\em Returns the blocks Game\+Object \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a2e81344ecd9ed4dc9ce8b4a93b119ca2}{Update\+Chest\+Data} (\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}\mbox{[}$\,$\mbox{]} items)
+\begin{DoxyCompactList}\small\item\em updates the chest inventory data \end{DoxyCompactList}\item 
+\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \mbox{[}$\,$\mbox{]} \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a9e53e6213fec0b1f7a3ed16f50e3d894}{Apply\+Item\+Array} ()
+\begin{DoxyCompactList}\small\item\em Returns the items currently in the chests inventory \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_acecdd76ab9fd7639409fe29ebd29d4fd}{Update\+Item\+Array} (\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}\mbox{[}$\,$\mbox{]} items)
+\begin{DoxyCompactList}\small\item\em updates \hyperlink{class_bee_game_1_1_blocks_1_1_block_a54846c7c7ec2f512484b3060de977fac}{Block.\+inventory\+Items} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}
+\begin{DoxyCompactList}\small\item\em This blocks block data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface between Game\+Object and \hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} data as Mono\+Behaviour dreived classes are Non-\/\+Serializable using c\# Binary\+Formatter 
+
+
+
+Definition at line 11 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a9e53e6213fec0b1f7a3ed16f50e3d894}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a9e53e6213fec0b1f7a3ed16f50e3d894}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!Apply\+Item\+Array@{Apply\+Item\+Array}}
+\index{Apply\+Item\+Array@{Apply\+Item\+Array}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{Apply\+Item\+Array()}{ApplyItemArray()}}
+{\footnotesize\ttfamily \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \mbox{[}$\,$\mbox{]} Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+Apply\+Item\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the items currently in the chests inventory 
+
+\begin{DoxyReturn}{Returns}
+Item\mbox{[}$\,$\mbox{]}
+\end{DoxyReturn}
+
+
+Definition at line 86 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+\begin{DoxyCode}
+87         \{
+88             \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_a54846c7c7ec2f512484b3060de977fac}{inventoryItems};
+89         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_acc64daab8f2771a344aa386fa4b86c3b}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_acc64daab8f2771a344aa386fa4b86c3b}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!Get\+Block\+Gameobject@{Get\+Block\+Gameobject}}
+\index{Get\+Block\+Gameobject@{Get\+Block\+Gameobject}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{Get\+Block\+Gameobject()}{GetBlockGameobject()}}
+{\footnotesize\ttfamily Game\+Object Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+Get\+Block\+Gameobject (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the blocks Game\+Object 
+
+\begin{DoxyReturn}{Returns}
+Game\+Object
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+\begin{DoxyCode}
+65         \{
+66             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_addc8d61c8acab21b0f15df5fed804f11}{item}.\hyperlink{struct_bee_game_1_1_items_1_1_item_a29abdb5010a23262e7562720bb85c171}{UpdateSpriteAndObject}();
+67             \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_addc8d61c8acab21b0f15df5fed804f11}{item}.\hyperlink{struct_bee_game_1_1_items_1_1_item_af28a8cd4a0eff9d4c18189c5ab525f18}{itemGameobject};
+68         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a40b044d5bf2a857ea25796685e23f768}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a40b044d5bf2a857ea25796685e23f768}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!Return\+Block\+Data@{Return\+Block\+Data}}
+\index{Return\+Block\+Data@{Return\+Block\+Data}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{Return\+Block\+Data()}{ReturnBlockData()}}
+{\footnotesize\ttfamily \hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+Return\+Block\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the block\textquotesingle{}s block data 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block}
+\end{DoxyReturn}
+
+
+Definition at line 46 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+\begin{DoxyCode}
+47         \{
+48             \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block};
+49         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a224ae292be961a0c3b7675e5a85ddb1b}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a224ae292be961a0c3b7675e5a85ddb1b}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!Return\+Item\+Data@{Return\+Item\+Data}}
+\index{Return\+Item\+Data@{Return\+Item\+Data}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{Return\+Item\+Data()}{ReturnItemData()}}
+{\footnotesize\ttfamily \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+Return\+Item\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the blocks item data 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_bee_game_1_1_blocks_1_1_block_addc8d61c8acab21b0f15df5fed804f11}{Block.\+item}
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+\begin{DoxyCode}
+56         \{
+57             \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_addc8d61c8acab21b0f15df5fed804f11}{item};
+58         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a3ddd5f34156385516a9ad3572160fd99}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a3ddd5f34156385516a9ad3572160fd99}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!Update\+Block\+Data@{Update\+Block\+Data}}
+\index{Update\+Block\+Data@{Update\+Block\+Data}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{Update\+Block\+Data()}{UpdateBlockData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+Update\+Block\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}}]{item,  }\item[{\hyperlink{struct_bee_game_1_1_t_h_vector3}{T\+H\+Vector3}}]{\+\_\+position }\end{DoxyParamCaption})}
+
+
+
+Updates the \hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} that this Game\+Object is reprsenting 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Item this this block is\\
+\hline
+{\em \+\_\+position} & positon of the block\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+\begin{DoxyCode}
+25         \{
+26             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block} = \textcolor{keyword}{new} Block();
+27             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_addc8d61c8acab21b0f15df5fed804f11}{item} = item;
+28             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_a4bdeec76cfc1291eab6cebcd569620e6}{position} = \_position;
+29             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_addc8d61c8acab21b0f15df5fed804f11}{item}.\hyperlink{struct_bee_game_1_1_items_1_1_item_aaa169917b0e0f8472f20398d5d448388}{stackCount} = 1;
+30         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_ad3f4f53d3fdb09f46f05a23faa08c12a}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_ad3f4f53d3fdb09f46f05a23faa08c12a}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!Update\+Block\+Data@{Update\+Block\+Data}}
+\index{Update\+Block\+Data@{Update\+Block\+Data}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{Update\+Block\+Data()}{UpdateBlockData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+Update\+Block\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block}}]{block\+Data }\end{DoxyParamCaption})}
+
+
+
+Overload that can be used if \hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} possibly contains items eg a chest 
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+Data} & \hyperlink{namespace_bee_game_1_1_blocks}{Blocks} data\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+\begin{DoxyCode}
+37         \{
+38             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block} = blockData;
+39             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_addc8d61c8acab21b0f15df5fed804f11}{item}.\hyperlink{struct_bee_game_1_1_items_1_1_item_aaa169917b0e0f8472f20398d5d448388}{stackCount} = 1;
+40         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a2e81344ecd9ed4dc9ce8b4a93b119ca2}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a2e81344ecd9ed4dc9ce8b4a93b119ca2}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!Update\+Chest\+Data@{Update\+Chest\+Data}}
+\index{Update\+Chest\+Data@{Update\+Chest\+Data}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{Update\+Chest\+Data()}{UpdateChestData()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+Update\+Chest\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \mbox{[}$\,$\mbox{]}}]{items }\end{DoxyParamCaption})}
+
+
+
+updates the chest inventory data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & Item\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+\begin{DoxyCode}
+77         \{
+78             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_a54846c7c7ec2f512484b3060de977fac}{inventoryItems} = \textcolor{keyword}{new} \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}[items.Length];
+79             \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_a54846c7c7ec2f512484b3060de977fac}{inventoryItems} = items;
+80         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_acecdd76ab9fd7639409fe29ebd29d4fd}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_acecdd76ab9fd7639409fe29ebd29d4fd}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!Update\+Item\+Array@{Update\+Item\+Array}}
+\index{Update\+Item\+Array@{Update\+Item\+Array}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{Update\+Item\+Array()}{UpdateItemArray()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+Update\+Item\+Array (\begin{DoxyParamCaption}\item[{\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \mbox{[}$\,$\mbox{]}}]{items }\end{DoxyParamCaption})}
+
+
+
+updates \hyperlink{class_bee_game_1_1_blocks_1_1_block_a54846c7c7ec2f512484b3060de977fac}{Block.\+inventory\+Items} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & Item\mbox{[}$\,$\mbox{]}\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+\begin{DoxyCode}
+96         \{
+97             \textcolor{keywordflow}{if} (items != null)
+98             \{
+99                 \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_a54846c7c7ec2f512484b3060de977fac}{inventoryItems} = \textcolor{keyword}{new} \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}[items.Length];
+100                 \hyperlink{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}{block}.\hyperlink{class_bee_game_1_1_blocks_1_1_block_a54846c7c7ec2f512484b3060de977fac}{inventoryItems} = items;
+101             \}
+102         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}\label{class_bee_game_1_1_blocks_1_1_block_game_object_interface_a238bad3b956ec84c8b1cc3127948b75d}} 
+\index{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}!block@{block}}
+\index{block@{block}!Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface@{Bee\+Game\+::\+Blocks\+::\+Block\+Game\+Object\+Interface}}
+\subsubsection{\texorpdfstring{block}{block}}
+{\footnotesize\ttfamily \hyperlink{class_bee_game_1_1_blocks_1_1_block}{Block} Bee\+Game.\+Blocks.\+Block\+Game\+Object\+Interface.\+block}
+
+
+
+This blocks block data 
+
+
+
+Definition at line 17 of file Block\+Game\+Object\+Interface.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Toothless/\+Documents/\+Git\+Hub/\+Bee\+Game/\+Code/\+Bee\+Game/\+Bee\+Game/\+Blocks/\hyperlink{_block_game_object_interface_8cs}{Block\+Game\+Object\+Interface.\+cs}\end{DoxyCompactItemize}

@@ -1,0 +1,546 @@
+\hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory}{}\section{Bee\+Game.\+Inventory.\+Player\+Inventory Class Reference}
+\label{class_bee_game_1_1_inventory_1_1_player_inventory}\index{Bee\+Game.\+Inventory.\+Player\+Inventory@{Bee\+Game.\+Inventory.\+Player\+Inventory}}
+Inheritance diagram for Bee\+Game.\+Inventory.\+Player\+Inventory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_bee_game_1_1_inventory_1_1_player_inventory}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a52e75cc8105c299708ac8ccad0d01828}{Item\+Data} ()
+\begin{DoxyCompactList}\small\item\em the item data that is currently being held \end{DoxyCompactList}\item 
+bool \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a5745fc23291d5916c116500b384bc66e}{Item\+Placeable} ()
+\begin{DoxyCompactList}\small\item\em Is the item currently selected placeable \end{DoxyCompactList}\item 
+Game\+Object \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a30f01639eaee55b92c8feb4a5ab2e5df}{Block\+To\+Place} ()
+\begin{DoxyCompactList}\small\item\em Returns the Game\+Object to be instantiated \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae50a91db412070ff4e43b93c70a4e28d}{Remove\+Item\+From\+Stack} ()
+\begin{DoxyCompactList}\small\item\em Removes an item from the stack count \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a370bc5a57950cdb31f834af4523a8436}{Held\+Player\+Item} (int direction)
+\begin{DoxyCompactList}\small\item\em Changes the item currently held by the player \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a102e6767793ea61ae62dce5840fd405b}{inventory}
+\item 
+Game\+Object \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a595e1144315e0e9be0b825b538643e1f}{held\+Object\+Inventory}
+\begin{DoxyCompactList}\small\item\em The held object inventory(hotbar) of the player \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a3cda67cea8a2cae1ce032a8f0d74912a}{Start} ()
+\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a340eeb707be60a6ecf909728deaad6c5}{Update} ()
+\begin{DoxyCompactList}\small\item\em Will update the players inventory every frame \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a1b86d5439ebb9f5dc6d9fefe3351cdc7}{Update\+Hotbar\+Item} ()
+\begin{DoxyCompactList}\small\item\em Checks wether the player as selected a dirrerent hotbar item and updates accordingly \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a226c92d8b805827199cdd1ed9796a326}{Show\+Hide\+Inventory} ()
+\begin{DoxyCompactList}\small\item\em Shows and hides the player inventory \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a84caefeadcff40e4fd6e888307a7a1e9}{Pickup\+Item} ()
+\begin{DoxyCompactList}\small\item\em Picksup an item on the ground if their is enough space in the inventory \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a95bef0a0a994161176a5034fb9bc3444}{Change\+Selected\+Item} (int direction)
+\begin{DoxyCompactList}\small\item\em Changes the invenotry slot graphic of the selected slot \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a469e47caa8a5bbb4fad1fdd5ec5b4113}{Update\+Held\+Game\+Object} ()
+\begin{DoxyCompactList}\small\item\em Updates the object that is currently spawned to represent the object the player is holding \end{DoxyCompactList}\item 
+void \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a0e00b423e304507a227ed84df2b6039c}{Spawn\+Object} ()
+\begin{DoxyCompactList}\small\item\em Spawns the object that is currently being held by the player \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{current\+Held\+Item\+Index}
+\begin{DoxyCompactList}\small\item\em the inventory slot index of the slot the player currently has selected in the hotbar \end{DoxyCompactList}\item 
+Game\+Object \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{held\+Object}
+\begin{DoxyCompactList}\small\item\em The item currently held by the player \end{DoxyCompactList}\item 
+int \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a2e16150bcef69b49276c1617d4f2c030}{previous\+Held\+Index}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file Player\+Inventory.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a30f01639eaee55b92c8feb4a5ab2e5df}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a30f01639eaee55b92c8feb4a5ab2e5df}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Block\+To\+Place@{Block\+To\+Place}}
+\index{Block\+To\+Place@{Block\+To\+Place}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Block\+To\+Place()}{BlockToPlace()}}
+{\footnotesize\ttfamily Game\+Object Bee\+Game.\+Inventory.\+Player\+Inventory.\+Block\+To\+Place (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the Game\+Object to be instantiated 
+
+\begin{DoxyReturn}{Returns}
+Gameobject of the currently selected item
+\end{DoxyReturn}
+
+
+Definition at line 154 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+155         \{
+156             \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_a31b201e7eef9ed0001a447b3f76a7a81}{item}.\hyperlink{struct_bee_game_1_1_items_1_1_item_af28a8cd4a0eff9d4c18189c5ab525f18}{itemGameobject};
+157         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a95bef0a0a994161176a5034fb9bc3444}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a95bef0a0a994161176a5034fb9bc3444}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Change\+Selected\+Item@{Change\+Selected\+Item}}
+\index{Change\+Selected\+Item@{Change\+Selected\+Item}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Change\+Selected\+Item()}{ChangeSelectedItem()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Change\+Selected\+Item (\begin{DoxyParamCaption}\item[{int}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Changes the invenotry slot graphic of the selected slot 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The index of the slot to be selected\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 194 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+195         \{
+196             \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_abe33997cbde05772253494f20f949483}{UpdateGraphic}();
+197             \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_adc03a9101c901f82a3dfc778db98cf1f}{UpdateSelectedSlot}(\textcolor{keyword}{false});
+198             \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex} = direction;
+199             \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_abe33997cbde05772253494f20f949483}{UpdateGraphic}();
+200             \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_adc03a9101c901f82a3dfc778db98cf1f}{UpdateSelectedSlot}(\textcolor{keyword}{true});
+201         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a370bc5a57950cdb31f834af4523a8436}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a370bc5a57950cdb31f834af4523a8436}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Held\+Player\+Item@{Held\+Player\+Item}}
+\index{Held\+Player\+Item@{Held\+Player\+Item}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Held\+Player\+Item()}{HeldPlayerItem()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Held\+Player\+Item (\begin{DoxyParamCaption}\item[{int}]{direction }\end{DoxyParamCaption})}
+
+
+
+Changes the item currently held by the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The direction that the player scrolled in (+ = right, -\/ = left)\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 172 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+173         \{
+174             \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex} + direction < inventoryGUI.Length &&
+       currentHeldItemIndex + direction > \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}.Length - 6)
+175             \{
+176                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a95bef0a0a994161176a5034fb9bc3444}{ChangeSelectedItem}(\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex} + direction);
+177             \}
+178             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex} + direction >= 
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}.Length)
+179             \{
+180                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a95bef0a0a994161176a5034fb9bc3444}{ChangeSelectedItem}(\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}.Length - 5);
+181             \}
+182             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex} + direction < 
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}.Length)
+183             \{
+184                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a95bef0a0a994161176a5034fb9bc3444}{ChangeSelectedItem}(\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}.Length - 1);
+185             \}
+186 
+187             \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a469e47caa8a5bbb4fad1fdd5ec5b4113}{UpdateHeldGameObject}();
+188         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a52e75cc8105c299708ac8ccad0d01828}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a52e75cc8105c299708ac8ccad0d01828}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Item\+Data@{Item\+Data}}
+\index{Item\+Data@{Item\+Data}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Item\+Data()}{ItemData()}}
+{\footnotesize\ttfamily \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} Bee\+Game.\+Inventory.\+Player\+Inventory.\+Item\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+the item data that is currently being held 
+
+\begin{DoxyReturn}{Returns}
+Return the itm data that is currently being held
+\end{DoxyReturn}
+
+
+Definition at line 136 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+137         \{
+138             \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_a31b201e7eef9ed0001a447b3f76a7a81}{item};
+139         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a5745fc23291d5916c116500b384bc66e}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a5745fc23291d5916c116500b384bc66e}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Item\+Placeable@{Item\+Placeable}}
+\index{Item\+Placeable@{Item\+Placeable}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Item\+Placeable()}{ItemPlaceable()}}
+{\footnotesize\ttfamily bool Bee\+Game.\+Inventory.\+Player\+Inventory.\+Item\+Placeable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Is the item currently selected placeable 
+
+\begin{DoxyReturn}{Returns}
+true is the item currently held is placeable
+\end{DoxyReturn}
+
+
+Definition at line 146 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+147         \{
+148             \textcolor{keywordflow}{return} \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_a31b201e7eef9ed0001a447b3f76a7a81}{item}.\hyperlink{struct_bee_game_1_1_items_1_1_item_ae95da57ec69cdb64b656caa5aa42b8c7}{isPlaceable};
+149         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a84caefeadcff40e4fd6e888307a7a1e9}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a84caefeadcff40e4fd6e888307a7a1e9}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Pickup\+Item@{Pickup\+Item}}
+\index{Pickup\+Item@{Pickup\+Item}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Pickup\+Item()}{PickupItem()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Pickup\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Picksup an item on the ground if their is enough space in the inventory 
+
+
+
+Definition at line 97 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+98         \{
+99             RaycastHit[] cols = Physics.SphereCastAll(transform.position, 4f, Vector3.up);
+100 
+101             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < cols.Length; i++)
+102             \{
+103                 \textcolor{keywordflow}{if} (cols[i].collider.tag == \textcolor{stringliteral}{"Item"} && cols[i].collider.transform.parent != transform.parent
+      )
+104                 \{
+105                     \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item} item = cols[i].collider.GetComponent<
+      \hyperlink{class_bee_game_1_1_items_1_1_item_game_object_interface}{ItemGameObjectInterface}>().item;
+106 
+107                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} h = 0; h < \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}.Length; h++)
+108                     \{
+109                         \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[h].item.\hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} == \textcolor{stringliteral}{""})
+110                         \{
+111                             \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[h].\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_a31b201e7eef9ed0001a447b3f76a7a81}{item} = item;
+112                             Destroy(cols[i].collider.gameObject);
+113                             \textcolor{keywordflow}{break};
+114                         \}
+115                         \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[h].item == item)
+116                         \{
+117                             \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[h].item.\hyperlink{struct_bee_game_1_1_items_1_1_item_a2a58e4a805a560661ce6a4f1f21bfa1d}{isStackable})
+118                             \{
+119                                 \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[h].item.\hyperlink{struct_bee_game_1_1_items_1_1_item_aaa169917b0e0f8472f20398d5d448388}{stackCount} + item.
+      \hyperlink{struct_bee_game_1_1_items_1_1_item_aaa169917b0e0f8472f20398d5d448388}{stackCount} < \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[h].\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_a31b201e7eef9ed0001a447b3f76a7a81}{item}.\hyperlink{struct_bee_game_1_1_items_1_1_item_a045f162bbb378f44e8b89af901b29ff3}{maxStackCount} + 1)
+120                                 \{
+121                                     \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[h].\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_a31b201e7eef9ed0001a447b3f76a7a81}{item}.
+      \hyperlink{struct_bee_game_1_1_items_1_1_item_aaa169917b0e0f8472f20398d5d448388}{stackCount}++;
+122                                     Destroy(cols[i].collider.gameObject);
+123                                     \textcolor{keywordflow}{break};
+124                                 \}
+125                             \}
+126                         \}
+127                     \}
+128                 \}
+129             \}
+130         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_ae50a91db412070ff4e43b93c70a4e28d}\label{class_bee_game_1_1_inventory_1_1_player_inventory_ae50a91db412070ff4e43b93c70a4e28d}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Remove\+Item\+From\+Stack@{Remove\+Item\+From\+Stack}}
+\index{Remove\+Item\+From\+Stack@{Remove\+Item\+From\+Stack}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Remove\+Item\+From\+Stack()}{RemoveItemFromStack()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Remove\+Item\+From\+Stack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes an item from the stack count 
+
+
+
+Definition at line 161 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+162         \{
+163             \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_a31b201e7eef9ed0001a447b3f76a7a81}{item}.\hyperlink{struct_bee_game_1_1_items_1_1_item_aaa169917b0e0f8472f20398d5d448388}{stackCount} -= 1;
+164         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a226c92d8b805827199cdd1ed9796a326}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a226c92d8b805827199cdd1ed9796a326}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Show\+Hide\+Inventory@{Show\+Hide\+Inventory}}
+\index{Show\+Hide\+Inventory@{Show\+Hide\+Inventory}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Show\+Hide\+Inventory()}{ShowHideInventory()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Show\+Hide\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Shows and hides the player inventory 
+
+
+
+Definition at line 71 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+72         \{
+73             \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a595e1144315e0e9be0b825b538643e1f}{heldObjectInventory}.activeInHierarchy)
+74             \{
+75                 \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_core_1_1_input_manager}{InputManager}.\hyperlink{class_bee_game_1_1_core_1_1_input_manager_ac90aab89652007118b67f60e962103c5}{GetButtonDown}(\textcolor{stringliteral}{"Inventory"}))
+76                 \{
+77                     \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a102e6767793ea61ae62dce5840fd405b}{inventory}.SetActive(!\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a102e6767793ea61ae62dce5840fd405b}{inventory}.activeInHierarchy);
+78                     Cursor.visible = !Cursor.visible;
+79                 \}
+80 
+81                 \textcolor{keywordflow}{if} (Cursor.visible)
+82                 \{
+83                     Time.timeScale = 0;
+84                     Cursor.lockState = CursorLockMode.None;
+85                 \}
+86                 \textcolor{keywordflow}{else}
+87                 \{
+88                     Time.timeScale = 1;
+89                     Cursor.lockState = CursorLockMode.Locked;
+90                 \}
+91             \}
+92         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a0e00b423e304507a227ed84df2b6039c}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a0e00b423e304507a227ed84df2b6039c}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Spawn\+Object@{Spawn\+Object}}
+\index{Spawn\+Object@{Spawn\+Object}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Spawn\+Object()}{SpawnObject()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Spawn\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Spawns the object that is currently being held by the player 
+
+
+
+Definition at line 239 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+240         \{
+241             \textcolor{keywordflow}{if}(\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].item.itemGameobject)
+242             \{
+243                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject} = Instantiate(\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[currentHeldItemIndex].item.
+      itemGameobject, transform.position, Quaternion.identity);
+244                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject}.layer = LayerMask.NameToLayer(\textcolor{stringliteral}{"Ignore Raycast"});
+245                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject}.tag = \textcolor{stringliteral}{"Player"};
+246                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject}.transform.localScale = \textcolor{keyword}{new} Vector3(0.1f, 0.1f, 0.1f);
+247 
+248                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject}.GetComponents<Component>().Length - 1; i >= 4; i--)
+249                 \{
+250                     Destroy(\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject}.GetComponents<Component>()[i]);
+251                 \}
+252             \}
+253         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a3cda67cea8a2cae1ce032a8f0d74912a}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a3cda67cea8a2cae1ce032a8f0d74912a}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Start@{Start}}
+\index{Start@{Start}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 30 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+31         \{
+32             \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a595e1144315e0e9be0b825b538643e1f}{heldObjectInventory} = GameObject.Find(\textcolor{stringliteral}{"Inventory"});
+33             \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex} = \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}.Length - 5;
+34             \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].
+      \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_slot_adc03a9101c901f82a3dfc778db98cf1f}{UpdateSelectedSlot}(\textcolor{keyword}{true});
+35         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a340eeb707be60a6ecf909728deaad6c5}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a340eeb707be60a6ecf909728deaad6c5}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Update@{Update}}
+\index{Update@{Update}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Will update the players inventory every frame 
+
+
+
+Definition at line 40 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+41         \{
+42             \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_aa1a965cf7ba9e04b22a4ef85ad133854}{UpdateBase}();
+43             \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a1b86d5439ebb9f5dc6d9fefe3351cdc7}{UpdateHotbarItem}();
+44             \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a84caefeadcff40e4fd6e888307a7a1e9}{PickupItem}();
+45             \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a226c92d8b805827199cdd1ed9796a326}{ShowHideInventory}();
+46             
+47             \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a469e47caa8a5bbb4fad1fdd5ec5b4113}{UpdateHeldGameObject}();
+48         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a469e47caa8a5bbb4fad1fdd5ec5b4113}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a469e47caa8a5bbb4fad1fdd5ec5b4113}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Update\+Held\+Game\+Object@{Update\+Held\+Game\+Object}}
+\index{Update\+Held\+Game\+Object@{Update\+Held\+Game\+Object}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Update\+Held\+Game\+Object()}{UpdateHeldGameObject()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Update\+Held\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates the object that is currently spawned to represent the object the player is holding 
+
+
+
+Definition at line 209 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+210         \{
+211             \textcolor{keywordflow}{if}(\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject} == null && (\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a2e16150bcef69b49276c1617d4f2c030}{previousHeldIndex} != 
+      \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}))
+212             \{
+213                 \textcolor{keywordflow}{if}(\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].item.itemId != null)
+214                 \{
+215                     \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a2e16150bcef69b49276c1617d4f2c030}{previousHeldIndex} = \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex};
+216                     \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a0e00b423e304507a227ed84df2b6039c}{SpawnObject}();
+217                 \}
+218             \}
+219             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a2e16150bcef69b49276c1617d4f2c030}{previousHeldIndex} != \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex})
+220             \{
+221                 Destroy(\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject});
+222                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a2e16150bcef69b49276c1617d4f2c030}{previousHeldIndex} = \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex};
+223 
+224                 \textcolor{keywordflow}{if} (\hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].item.itemId != null)
+225                 \{
+226                     \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a0e00b423e304507a227ed84df2b6039c}{SpawnObject}();
+227                 \}
+228             \}
+229             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject} != null && \hyperlink{class_bee_game_1_1_inventory_1_1_inventory_base_a48dcba7ad7bfa1bed8c9ae290fb32857}{inventoryGUI}[
+      \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex}].item.itemId == null)
+230             \{
+231                 Destroy(\hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}{heldObject});
+232                 \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a2e16150bcef69b49276c1617d4f2c030}{previousHeldIndex} = \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}{currentHeldItemIndex};
+233             \}
+234         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a1b86d5439ebb9f5dc6d9fefe3351cdc7}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a1b86d5439ebb9f5dc6d9fefe3351cdc7}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!Update\+Hotbar\+Item@{Update\+Hotbar\+Item}}
+\index{Update\+Hotbar\+Item@{Update\+Hotbar\+Item}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{Update\+Hotbar\+Item()}{UpdateHotbarItem()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Inventory.\+Player\+Inventory.\+Update\+Hotbar\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks wether the player as selected a dirrerent hotbar item and updates accordingly 
+
+
+
+Definition at line 53 of file Player\+Inventory.\+cs.
+
+
+\begin{DoxyCode}
+54         \{
+55             \textcolor{keywordflow}{if} (Time.timeScale > 0)
+56             \{
+57                 \textcolor{keywordflow}{if} (Input.GetAxis(\textcolor{stringliteral}{"Mouse ScrollWheel"}) > 0)
+58                 \{
+59                     \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a370bc5a57950cdb31f834af4523a8436}{HeldPlayerItem}(1);
+60                 \}
+61                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Input.GetAxis(\textcolor{stringliteral}{"Mouse ScrollWheel"}) < 0)
+62                 \{
+63                     \hyperlink{class_bee_game_1_1_inventory_1_1_player_inventory_a370bc5a57950cdb31f834af4523a8436}{HeldPlayerItem}(-1);
+64                 \}
+65             \}
+66         \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}\label{class_bee_game_1_1_inventory_1_1_player_inventory_ac2978979c5c8e45fccc7d3a10882ea1b}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!current\+Held\+Item\+Index@{current\+Held\+Item\+Index}}
+\index{current\+Held\+Item\+Index@{current\+Held\+Item\+Index}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{current\+Held\+Item\+Index}{currentHeldItemIndex}}
+{\footnotesize\ttfamily int Bee\+Game.\+Inventory.\+Player\+Inventory.\+current\+Held\+Item\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+the inventory slot index of the slot the player currently has selected in the hotbar 
+
+
+
+Definition at line 22 of file Player\+Inventory.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}\label{class_bee_game_1_1_inventory_1_1_player_inventory_ae30e4d599863e910244ff52ba53a1dfb}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!held\+Object@{held\+Object}}
+\index{held\+Object@{held\+Object}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{held\+Object}{heldObject}}
+{\footnotesize\ttfamily Game\+Object Bee\+Game.\+Inventory.\+Player\+Inventory.\+held\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The item currently held by the player 
+
+
+
+Definition at line 28 of file Player\+Inventory.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a595e1144315e0e9be0b825b538643e1f}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a595e1144315e0e9be0b825b538643e1f}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!held\+Object\+Inventory@{held\+Object\+Inventory}}
+\index{held\+Object\+Inventory@{held\+Object\+Inventory}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{held\+Object\+Inventory}{heldObjectInventory}}
+{\footnotesize\ttfamily Game\+Object Bee\+Game.\+Inventory.\+Player\+Inventory.\+held\+Object\+Inventory}
+
+
+
+The held object inventory(hotbar) of the player 
+
+
+
+Definition at line 16 of file Player\+Inventory.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a102e6767793ea61ae62dce5840fd405b}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a102e6767793ea61ae62dce5840fd405b}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!inventory@{inventory}}
+\index{inventory@{inventory}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{inventory}{inventory}}
+{\footnotesize\ttfamily Game\+Object Bee\+Game.\+Inventory.\+Player\+Inventory.\+inventory}
+
+
+
+Definition at line 10 of file Player\+Inventory.\+cs.
+
+\mbox{\Hypertarget{class_bee_game_1_1_inventory_1_1_player_inventory_a2e16150bcef69b49276c1617d4f2c030}\label{class_bee_game_1_1_inventory_1_1_player_inventory_a2e16150bcef69b49276c1617d4f2c030}} 
+\index{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}!previous\+Held\+Index@{previous\+Held\+Index}}
+\index{previous\+Held\+Index@{previous\+Held\+Index}!Bee\+Game\+::\+Inventory\+::\+Player\+Inventory@{Bee\+Game\+::\+Inventory\+::\+Player\+Inventory}}
+\subsubsection{\texorpdfstring{previous\+Held\+Index}{previousHeldIndex}}
+{\footnotesize\ttfamily int Bee\+Game.\+Inventory.\+Player\+Inventory.\+previous\+Held\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 205 of file Player\+Inventory.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Toothless/\+Documents/\+Git\+Hub/\+Bee\+Game/\+Code/\+Bee\+Game/\+Bee\+Game/\+Inventory/\hyperlink{_player_inventory_8cs}{Player\+Inventory.\+cs}\end{DoxyCompactItemize}

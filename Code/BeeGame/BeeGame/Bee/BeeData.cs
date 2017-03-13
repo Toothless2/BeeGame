@@ -16,6 +16,7 @@ namespace BeeGame.Bee
         /// </summary>
         public bool canSeeBeeData;
 
+        #region Data
         /// <summary>
         /// <see cref="BeeType"/> of the Bee
         /// </summary>
@@ -104,6 +105,7 @@ namespace BeeGame.Bee
         /// The items produced by the bee other than offspring
         /// </summary>
         public Item[] producedItems;
+        #endregion
 
         /// <summary>
         /// Bee data constructor, sets the phenotype and the secondary to the same values
@@ -121,6 +123,11 @@ namespace BeeGame.Bee
             this.sProdSpeed = data.pProdSpeed;
 
             this.producedItems = BeeDictionarys.GetItems(pSpecies);
+        }
+
+        public void SetBeeType(BeeType type)
+        {
+            this.beeType = type;
         }
 
         /// <summary>
@@ -182,11 +189,16 @@ namespace BeeGame.Bee
         #endregion EqualityChecking
     }
 
+    #region Queen Combing Bee
     [Serializable]
+    ///<summary>
+    /// Holds the data that the bee queen in conbining with. Exists due to a <see cref="BeeData"/> variable with in a <see cref="BeeData"/> is to deep for serialization
+    ///</summary>
     public struct CombiningBeeData
     {
         BeeSpecies species;
 
+        #region Data
         /// <summary>
         /// Secondary <see cref="BeeGame.Enums.BeeLifeSpan"/> of the Bee
         /// </summary>
@@ -232,6 +244,7 @@ namespace BeeGame.Bee
         /// Will the bee work during the rain/snow/wind
         /// </summary>
         public bool? flyer;
+        #endregion
 
         /// <summary>
         /// \todo comment this
@@ -253,9 +266,8 @@ namespace BeeGame.Bee
             flyer = data.flyer;
         }
 
-
         /// <summary>
-        /// \todo comment this
+        /// Reconverts the <see cref="CombiningBeeData"/> back to normal <see cref="BeeData"/>
         /// </summary>
         /// <param name="data"></param>
         public BeeData ToBeeData()
@@ -270,4 +282,5 @@ namespace BeeGame.Bee
             return bee;
         }
     }
+    #endregion
 }

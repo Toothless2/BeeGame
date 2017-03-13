@@ -1,9 +1,19 @@
 var searchData=
 [
-  ['heldobject',['heldObject',['../class_bee_game_1_1_inventory_1_1_player_inventory.html#ae30e4d599863e910244ff52ba53a1dfb',1,'BeeGame::Inventory::PlayerInventory']]],
-  ['heldobjectinventory',['heldObjectInventory',['../class_bee_game_1_1_inventory_1_1_player_inventory.html#a595e1144315e0e9be0b825b538643e1f',1,'BeeGame::Inventory::PlayerInventory']]],
-  ['hit',['hit',['../class_bee_game_1_1_player_1_1_player_interact.html#a39537118b4601a3596122f124b684024',1,'BeeGame::Player::PlayerInteract']]],
-  ['hitalligned',['hitAlligned',['../class_bee_game_1_1_player_1_1_player_interact.html#ad7b39d8900f206f680945437ff3259a8',1,'BeeGame::Player::PlayerInteract']]],
-  ['humidpref',['humidPref',['../struct_bee_game_1_1_bee_1_1_bee_data.html#a6b786e9cb8f5bbf7b6d1a16d7c7eb37e',1,'BeeGame.Bee.BeeData.humidPref()'],['../struct_bee_game_1_1_bee_1_1_combining_bee_data.html#ab9a9a9623d942632f8007711b65f909e',1,'BeeGame.Bee.CombiningBeeData.humidPref()']]],
-  ['humidtol',['humidTol',['../struct_bee_game_1_1_bee_1_1_bee_data.html#a7d9953fe200dd4eb57a86db5fd7062e3',1,'BeeGame.Bee.BeeData.humidTol()'],['../struct_bee_game_1_1_bee_1_1_combining_bee_data.html#a98c56c89bcd5f983b4d022c113f789e3',1,'BeeGame.Bee.CombiningBeeData.humidTol()']]]
+  ['inputbuttons',['inputButtons',['../class_bee_game_1_1_core_1_1_input_manager.html#ad0a5b4a5db00803c01ecb3431e208ca1',1,'BeeGame::Core::InputManager']]],
+  ['inventory',['inventory',['../class_bee_game_1_1_inventory_1_1_chest_inventory.html#ac6fe8eed65557a7eb99e56d201c55466',1,'BeeGame.Inventory.ChestInventory.inventory()'],['../class_bee_game_1_1_inventory_1_1_player_inventory.html#a102e6767793ea61ae62dce5840fd405b',1,'BeeGame.Inventory.PlayerInventory.inventory()']]],
+  ['inventorygui',['inventoryGUI',['../class_bee_game_1_1_inventory_1_1_inventory_base.html#a48dcba7ad7bfa1bed8c9ae290fb32857',1,'BeeGame::Inventory::InventoryBase']]],
+  ['inventoryitems',['inventoryItems',['../class_bee_game_1_1_blocks_1_1_block.html#a54846c7c7ec2f512484b3060de977fac',1,'BeeGame::Blocks::Block']]],
+  ['inventoryopen',['inventoryOpen',['../class_bee_game_1_1_inventory_1_1_chest_inventory.html#a3e3529178934f2a4a8e91529c148457c',1,'BeeGame::Inventory::ChestInventory']]],
+  ['iscombining',['isCombining',['../class_bee_game_1_1_bee_1_1_apiary.html#ae6f4b8692da57eba10d3b593430b2384',1,'BeeGame::Bee::Apiary']]],
+  ['isplaceable',['isPlaceable',['../struct_bee_game_1_1_items_1_1_item.html#ae95da57ec69cdb64b656caa5aa42b8c7',1,'BeeGame::Items::Item']]],
+  ['isselected',['isSelected',['../class_bee_game_1_1_inventory_1_1_inventory_slot.html#a3c2a56594821f0567448a541b1236961',1,'BeeGame::Inventory::InventorySlot']]],
+  ['isstackable',['isStackable',['../struct_bee_game_1_1_items_1_1_item.html#a2a58e4a805a560661ce6a4f1f21bfa1d',1,'BeeGame::Items::Item']]],
+  ['item',['item',['../class_bee_game_1_1_blocks_1_1_block.html#addc8d61c8acab21b0f15df5fed804f11',1,'BeeGame.Blocks.Block.item()'],['../class_bee_game_1_1_inventory_1_1_inventory_slot.html#a31b201e7eef9ed0001a447b3f76a7a81',1,'BeeGame.Inventory.InventorySlot.item()'],['../class_bee_game_1_1_items_1_1_item_game_object_interface.html#abe9476a5393ff778bd99f684b24886ad',1,'BeeGame.Items.ItemGameObjectInterface.item()'],['../class_bee_game_1_1_serialization_1_1_serialization.html#af3359d6ca7e84c9e52a790beb1cc502e',1,'BeeGame.Serialization.Serialization.item()']]],
+  ['itemgameobject',['itemGameobject',['../struct_bee_game_1_1_items_1_1_item.html#af28a8cd4a0eff9d4c18189c5ab525f18',1,'BeeGame::Items::Item']]],
+  ['itemid',['itemId',['../struct_bee_game_1_1_items_1_1_item.html#aa85bfeab893271c26f8ca41b638ada1c',1,'BeeGame::Items::Item']]],
+  ['iteminfopannel',['itemInfoPannel',['../class_bee_game_1_1_inventory_1_1_inventory_base.html#af1def3187f007a5a3bb6fbe71854afdc',1,'BeeGame.Inventory.InventoryBase.itemInfoPannel()'],['../class_bee_game_1_1_inventory_1_1_inventory_slot.html#aa45b9de343c847b7c8d7db4163f765ec',1,'BeeGame.Inventory.InventorySlot.itemInfoPannel()']]],
+  ['items',['items',['../class_bee_game_1_1_core_1_1_bee_dictionarys.html#a08901f100e7fa17a7a441b32ec680146',1,'BeeGame.Core.BeeDictionarys.items()'],['../class_bee_game_1_1_core_1_1_item_dictionary.html#aa9828e91ace773227fd20008786b6a22',1,'BeeGame.Core.ItemDictionary.items()']]],
+  ['itemspriteobject',['itemSpriteObject',['../struct_bee_game_1_1_items_1_1_item.html#abd1dd5d605d0768bce6402f64f5cb699',1,'BeeGame::Items::Item']]],
+  ['itemtype',['itemType',['../struct_bee_game_1_1_items_1_1_item.html#a496672c00ab90403cbbbac6fab48f8ba',1,'BeeGame::Items::Item']]]
 ];

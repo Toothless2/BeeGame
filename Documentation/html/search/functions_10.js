@@ -6,7 +6,7 @@ var searchData=
   ['savedata',['SaveData',['../class_bee_game_1_1_serialization_1_1_serialization.html#a5e84293340234b478d4ef6bd8168260f',1,'BeeGame::Serialization::Serialization']]],
   ['saveitems',['SaveItems',['../class_bee_game_1_1_serialization_1_1_serialization.html#a6eef4285def16ce7c5ce67b487e03dd1',1,'BeeGame::Serialization::Serialization']]],
   ['saveplayer',['SavePlayer',['../class_bee_game_1_1_serialization_1_1_serialization.html#a86c4e702114f2f6fdf2dd55517d8e691',1,'BeeGame::Serialization::Serialization']]],
-  ['setbeetype',['SetBeeType',['../struct_bee_game_1_1_items_1_1_item.html#a80c66aa30f64c498640a4b0ba1ec37b0',1,'BeeGame::Items::Item']]],
+  ['setbeetype',['SetBeeType',['../struct_bee_game_1_1_bee_1_1_bee_data.html#a3141a8d2ea0b8da9b88fc61dd1134b65',1,'BeeGame.Bee.BeeData.SetBeeType()'],['../struct_bee_game_1_1_items_1_1_item.html#a80c66aa30f64c498640a4b0ba1ec37b0',1,'BeeGame.Items.Item.SetBeeType()']]],
   ['showhideinventory',['ShowHideInventory',['../class_bee_game_1_1_inventory_1_1_player_inventory.html#a226c92d8b805827199cdd1ed9796a326',1,'BeeGame::Inventory::PlayerInventory']]],
   ['spawnobject',['SpawnObject',['../class_bee_game_1_1_inventory_1_1_player_inventory.html#a0e00b423e304507a227ed84df2b6039c',1,'BeeGame::Inventory::PlayerInventory']]],
   ['spriteload',['SpriteLoad',['../class_bee_game_1_1_core_1_1_load_sprites.html#a501313d9f5961420d4a9a0ede72f6907',1,'BeeGame::Core::LoadSprites']]],

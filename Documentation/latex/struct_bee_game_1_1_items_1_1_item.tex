@@ -26,6 +26,8 @@ void \hyperlink{struct_bee_game_1_1_items_1_1_item_a4bc320f90a3fb06467046eedeb88
 \begin{DoxyCompactList}\small\item\em Returns this items Bee\+Data \end{DoxyCompactList}\item 
 string \hyperlink{struct_bee_game_1_1_items_1_1_item_a1c2f63541269f310381704fc7cc5bc5d}{Return\+Bee\+Data\+As\+Text} ()
 \begin{DoxyCompactList}\small\item\em Returns the Bee\+Data as text \end{DoxyCompactList}\item 
+void \hyperlink{struct_bee_game_1_1_items_1_1_item_a6ceebb94663dc0cb54e048ec37fab3fa}{Update\+Item\+Name\+And\+I\+D\+With\+Bee\+Data} ()
+\begin{DoxyCompactList}\small\item\em Updates this \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}\textquotesingle{}s \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{item\+Id} with the bee data \end{DoxyCompactList}\item 
 override string \hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{To\+String} ()
 \begin{DoxyCompactList}\small\item\em Overrides the default To\+String to make it more useful \end{DoxyCompactList}\item 
 override bool \hyperlink{struct_bee_game_1_1_items_1_1_item_adb0ce56e232551efc18b4e4c6e3fc1ae}{Equals} (object obj)
@@ -155,22 +157,18 @@ Applies the default Bee\+Data to the \hyperlink{struct_bee_game_1_1_items_1_1_it
 \end{DoxyParams}
 
 
-Definition at line 130 of file Item.\+cs.
+Definition at line 129 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-131         \{
-132             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem} = \textcolor{keyword}{new} \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData}();
-133             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem} = \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys}{BeeDictionarys}.\hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_acc616a791a2b14382dbff21433551596}{GetDefaultBeeData}(
+130         \{
+131             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem} = \textcolor{keyword}{new} \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData}();
+132             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem} = \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys}{BeeDictionarys}.\hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_acc616a791a2b14382dbff21433551596}{GetDefaultBeeData}(
       dominantSpecies);
-134             \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData} \_beedata = (\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData})\hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem};
-135 
-136             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} = (\textcolor{keywordtype}{char}.ToUpper(\_beedata.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies}.ToString()[0]).
-      \hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{ToString}() + \_beedata.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies}.ToString().ToLower().Substring(1)) + \textcolor{stringliteral}{" "} + (\textcolor{keywordtype}{char}.ToUpper(
-      \_beedata.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType}.ToString()[0]).\hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{ToString}() + \_beedata.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType}.ToString().ToLower().
-      Substring(1));
-137             \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} = \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} + \textcolor{stringliteral}{"/"} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}{GetHashCode}().ToString();
-138         \}
+133             
+134             \textcolor{comment}{//updates the Name and ID of the bee}
+135             \hyperlink{struct_bee_game_1_1_items_1_1_item_a6ceebb94663dc0cb54e048ec37fab3fa}{UpdateItemNameAndIDWithBeeData}();
+136         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a59ee527a4e9cd5b3e0ed2ec30f248a28}\label{struct_bee_game_1_1_items_1_1_item_a59ee527a4e9cd5b3e0ed2ec30f248a28}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Can\+See\+Bee\+Data@{Can\+See\+Bee\+Data}}
@@ -192,9 +190,8 @@ Definition at line 120 of file Item.\+cs.
 
 \begin{DoxyCode}
 121         \{
-122             \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData} \_beeitem = (\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData})\hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem};
-123             \textcolor{keywordflow}{return} \_beeitem.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a9d7e31a11e286cf83d8b350557af42f7}{canSeeBeeData};
-124         \}
+122             \textcolor{keywordflow}{return} \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a9d7e31a11e286cf83d8b350557af42f7}{canSeeBeeData};
+123         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_adb0ce56e232551efc18b4e4c6e3fc1ae}\label{struct_bee_game_1_1_items_1_1_item_adb0ce56e232551efc18b4e4c6e3fc1ae}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Equals@{Equals}}
@@ -216,13 +213,13 @@ true if objetcs are the same
 \end{DoxyReturn}
 
 
-Definition at line 205 of file Item.\+cs.
+Definition at line 209 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-206         \{
-207             \textcolor{keywordflow}{return} base.Equals(obj);
-208         \}
+210         \{
+211             \textcolor{keywordflow}{return} base.Equals(obj);
+212         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a6fc3c59404158c419ce0128802cbad60}\label{struct_bee_game_1_1_items_1_1_item_a6fc3c59404158c419ce0128802cbad60}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Get\+Hash\+Code@{Get\+Hash\+Code}}
@@ -239,40 +236,41 @@ Makes a Hashcode for each item that is the same for 2 items with same same data 
 \end{DoxyReturn}
 
 
-Definition at line 214 of file Item.\+cs.
+Definition at line 218 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-215         \{
-216             unchecked
-217             \{
-218                 \textcolor{keywordtype}{int} itemNameValue = 0;
-219                 \textcolor{keywordtype}{int} itemIdValue = 0;
-220 
-221                 \textcolor{keywordflow}{if} (this.\hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} != null)
-222                 \{
-223                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this.\hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name}.Length; i++)
-224                     \{
-225                         itemNameValue += this.\hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name}[i];
-226                     \}
-227 
-228                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this.\hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId}.Length; i++)
+219         \{
+220             unchecked
+221             \{
+222                 \textcolor{keywordtype}{int} itemNameValue = 0;
+223                 \textcolor{keywordtype}{int} itemIdValue = 0;
+224 
+225                 \textcolor{comment}{//Gives the item name a value depending on the sum of the characters}
+226                 \textcolor{keywordflow}{if} (this.\hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} != null)
+227                 \{
+228                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this.\hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name}.Length; i++)
 229                     \{
-230                         itemIdValue += this.\hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId}[i];
+230                         itemNameValue += this.\hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name}[i];
 231                     \}
-232                 \}
-233 
-234                 \textcolor{comment}{//sets the starting hascode numeber}
-235                 var hashcode = 13;
-236                 \textcolor{comment}{//uses the itemid}
-237                 hashcode = itemIdValue;
-238                 \textcolor{comment}{//adds on the itemname value}
-239                 hashcode += itemNameValue;
-240                 \textcolor{comment}{//adds on the bee data}
-241                 hashcode += \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}{GetHashCode}();
-242                 \textcolor{keywordflow}{return} hashcode;
-243             \}
-244         \}
+232 
+233                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this.\hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId}.Length; i++)
+234                     \{
+235                         itemIdValue += this.\hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId}[i];
+236                     \}
+237                 \}
+238 
+239                 \textcolor{comment}{//sets the starting hascode numeber}
+240                 var hashcode = 13;
+241                 \textcolor{comment}{//uses the itemid}
+242                 hashcode = itemIdValue;
+243                 \textcolor{comment}{//adds on the itemname value}
+244                 hashcode += itemNameValue;
+245                 \textcolor{comment}{//adds on the bee data of it has a value}
+246                 hashcode += \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.HasValue ? \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}{GetHashCode}() : 1;
+247                 \textcolor{keywordflow}{return} hashcode;
+248             \}
+249         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_aedf7a9ae2db756f3351e5931dd0e2ee1}\label{struct_bee_game_1_1_items_1_1_item_aedf7a9ae2db756f3351e5931dd0e2ee1}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!operator"!=@{operator"!=}}
@@ -296,13 +294,13 @@ inverse of ==
 \end{DoxyReturn}
 
 
-Definition at line 264 of file Item.\+cs.
+Definition at line 269 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-265         \{
-266             \textcolor{keywordflow}{return} !(a == b);
-267         \}
+270         \{
+271             \textcolor{keywordflow}{return} !(a == b);
+272         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a33e02e23b17caf1ab0f6ff9c6ee3dd89}\label{struct_bee_game_1_1_items_1_1_item_a33e02e23b17caf1ab0f6ff9c6ee3dd89}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!operator==@{operator==}}
@@ -326,15 +324,15 @@ true if items are the same (have the same hashcode)
 \end{DoxyReturn}
 
 
-Definition at line 252 of file Item.\+cs.
+Definition at line 257 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-253         \{
-254             \textcolor{keywordflow}{if} ((\textcolor{keywordtype}{object})a == null && (\textcolor{keywordtype}{object})b != null) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-255             \textcolor{keywordflow}{if} ((\textcolor{keywordtype}{object})a != null && (\textcolor{keywordtype}{object})b == null) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-256             \textcolor{keywordflow}{return} a.GetHashCode() == b.GetHashCode();
-257         \}
+258         \{
+259             \textcolor{keywordflow}{if} ((\textcolor{keywordtype}{object})a == null && (\textcolor{keywordtype}{object})b != null) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+260             \textcolor{keywordflow}{if} ((\textcolor{keywordtype}{object})a != null && (\textcolor{keywordtype}{object})b == null) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+261             \textcolor{keywordflow}{return} a.GetHashCode() == b.GetHashCode();
+262         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a3751a7c44aa4ff5975f1487ade757d9f}\label{struct_bee_game_1_1_items_1_1_item_a3751a7c44aa4ff5975f1487ade757d9f}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Return\+Bee\+Data@{Return\+Bee\+Data}}
@@ -351,13 +349,13 @@ Bee\+Data
 \end{DoxyReturn}
 
 
-Definition at line 168 of file Item.\+cs.
+Definition at line 167 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-169         \{
-170             \textcolor{keywordflow}{return} (\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData})\hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem};
-171         \}
+168         \{
+169             \textcolor{keywordflow}{return} \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value;
+170         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a1c2f63541269f310381704fc7cc5bc5d}\label{struct_bee_game_1_1_items_1_1_item_a1c2f63541269f310381704fc7cc5bc5d}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Return\+Bee\+Data\+As\+Text@{Return\+Bee\+Data\+As\+Text}}
@@ -374,23 +372,17 @@ Bee\+Data formated to string
 \end{DoxyReturn}
 
 
-Definition at line 177 of file Item.\+cs.
+Definition at line 176 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-178         \{
-179             \textcolor{keywordflow}{if}(\hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem} != null)
-180             \{
-181                 \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData} tempBee = (\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData})\hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem};
-182                 \textcolor{keywordtype}{string} returnText = \textcolor{stringliteral}{"Donimant Species : "} + tempBee.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies} + \textcolor{stringliteral}{"\(\backslash\)nDominaint
-       BeeType: "} + tempBee.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType} + \textcolor{stringliteral}{"\(\backslash\)nDominant Lifespan: "} + tempBee.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_aa24b1efdb25e8c5592d88940f9afc1e9}{pLifespan} + \textcolor{stringliteral}{"\(\backslash\)nDominant Fertility:
-       "} + tempBee.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a12b5a0d54c6c9162a69a88c349b044d1}{pFertility} + \textcolor{stringliteral}{"Dominant Effect: "} + tempBee.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a652a963fb73f2a096a001d817c0ef2be}{pEffect} + \textcolor{stringliteral}{"Dominant Production
-       Speed: "} + tempBee.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a8fa39d271a23500ad826041b46d9feaf}{pProdSpeed};
-183                 \textcolor{keywordflow}{return} returnText;
-184             \}
-185 
-186             \textcolor{keywordflow}{return} null;
-187         \}
+177         \{
+178             \textcolor{keywordflow}{return} \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.HasValue ? (\textcolor{stringliteral}{"Donimant Species : "} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.
+      \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies} + \textcolor{stringliteral}{"\(\backslash\)nDominaint BeeType: "} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType} + \textcolor{stringliteral}{"\(\backslash\)nDominant Lifespan: "} 
+      + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_aa24b1efdb25e8c5592d88940f9afc1e9}{pLifespan} + \textcolor{stringliteral}{"\(\backslash\)nDominant Fertility: "} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.
+      \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a12b5a0d54c6c9162a69a88c349b044d1}{pFertility} + \textcolor{stringliteral}{"Dominant Effect: "} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a652a963fb73f2a096a001d817c0ef2be}{pEffect} + \textcolor{stringliteral}{"Dominant Production
+       Speed: "} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a8fa39d271a23500ad826041b46d9feaf}{pProdSpeed}) : null;
+179         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a80c66aa30f64c498640a4b0ba1ec37b0}\label{struct_bee_game_1_1_items_1_1_item_a80c66aa30f64c498640a4b0ba1ec37b0}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Set\+Bee\+Type@{Set\+Bee\+Type}}
@@ -409,20 +401,16 @@ Only used when the default bees are made for quests
 \end{DoxyParams}
 
 
-Definition at line 144 of file Item.\+cs.
+Definition at line 142 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-145         \{
-146             \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData} \_beeItem = (\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{BeeData})\hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem};
-147             \_beeItem.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType} = beetype;
-148             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} = (\textcolor{keywordtype}{char}.ToUpper(\_beeItem.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies}.ToString()[0]).
-      \hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{ToString}() + \_beeItem.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies}.ToString().ToLower().Substring(1)) + \textcolor{stringliteral}{" "} + (\textcolor{keywordtype}{char}.ToUpper(
-      \_beeItem.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType}.ToString()[0]).\hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{ToString}() + \_beeItem.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType}.ToString().ToLower().
-      Substring(1));
-149             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem} = \_beeItem;
-150             \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} = \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} + \textcolor{stringliteral}{"/"} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}{GetHashCode}().ToString();
-151         \}
+143         \{
+144             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}?.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a3141a8d2ea0b8da9b88fc61dd1134b65}{SetBeeType}(beetype);
+145 
+146             \textcolor{comment}{//updates the name and ID if the bee}
+147             \hyperlink{struct_bee_game_1_1_items_1_1_item_a6ceebb94663dc0cb54e048ec37fab3fa}{UpdateItemNameAndIDWithBeeData}();
+148         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}\label{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!To\+String@{To\+String}}
@@ -435,17 +423,17 @@ Definition at line 144 of file Item.\+cs.
 Overrides the default To\+String to make it more useful 
 
 \begin{DoxyReturn}{Returns}
-The \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}\textquotesingle{}s name
+The \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}\textquotesingle{}s \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} and the \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{item\+Id}
 \end{DoxyReturn}
 
 
-Definition at line 194 of file Item.\+cs.
+Definition at line 198 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-195         \{
-196             \textcolor{keywordflow}{return} \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} + \textcolor{stringliteral}{" : "} + \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId};
-197         \}
+199         \{
+200             \textcolor{keywordflow}{return} \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} + \textcolor{stringliteral}{" : "} + \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId};
+201         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a4bc320f90a3fb06467046eedeb88ed13}\label{struct_bee_game_1_1_items_1_1_item_a4bc320f90a3fb06467046eedeb88ed13}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Update\+Bee\+Data@{Update\+Bee\+Data}}
@@ -464,18 +452,42 @@ Updates the bee data for the item
 \end{DoxyParams}
 
 
-Definition at line 157 of file Item.\+cs.
+Definition at line 154 of file Item.\+cs.
 
 
 \begin{DoxyCode}
-158         \{
-159             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem} = \_beedata;
-160             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} = (\textcolor{keywordtype}{char}.ToUpper(\_beedata.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies}.ToString()[0]).
-      \hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{ToString}() + \_beedata.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies}.ToString().ToLower().Substring(1)) + \textcolor{stringliteral}{" "} + (\textcolor{keywordtype}{char}.ToUpper(
-      \_beedata.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType}.ToString()[0]).\hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{ToString}() + \_beedata.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType}.ToString().ToLower().
-      Substring(1));
-161             \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} = \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} + \textcolor{stringliteral}{"/"} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}{GetHashCode}().ToString();
-162         \}
+155         \{
+156             \textcolor{comment}{//Sets the new bee data}
+157             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem} = \_beedata;
+158 
+159             \textcolor{comment}{//Updates the Name and ID of the Bee}
+160             \hyperlink{struct_bee_game_1_1_items_1_1_item_a6ceebb94663dc0cb54e048ec37fab3fa}{UpdateItemNameAndIDWithBeeData}();
+161         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a6ceebb94663dc0cb54e048ec37fab3fa}\label{struct_bee_game_1_1_items_1_1_item_a6ceebb94663dc0cb54e048ec37fab3fa}} 
+\index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Update\+Item\+Name\+And\+I\+D\+With\+Bee\+Data@{Update\+Item\+Name\+And\+I\+D\+With\+Bee\+Data}}
+\index{Update\+Item\+Name\+And\+I\+D\+With\+Bee\+Data@{Update\+Item\+Name\+And\+I\+D\+With\+Bee\+Data}!Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}}
+\subsubsection{\texorpdfstring{Update\+Item\+Name\+And\+I\+D\+With\+Bee\+Data()}{UpdateItemNameAndIDWithBeeData()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Items.\+Item.\+Update\+Item\+Name\+And\+I\+D\+With\+Bee\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates this \hyperlink{struct_bee_game_1_1_items_1_1_item}{Item}\textquotesingle{}s \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{item\+Id} with the bee data 
+
+
+
+Definition at line 186 of file Item.\+cs.
+
+
+\begin{DoxyCode}
+187         \{
+188             \textcolor{comment}{//Updates the Name and ID}
+189             \hyperlink{struct_bee_game_1_1_items_1_1_item_a0b0bd7eb510757f650f1be3d05b23fc8}{name} = (\textcolor{keywordtype}{char}.ToUpper(\hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies}.ToString()[0]).
+      \hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{ToString}() + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies}.ToString().ToLower().Substring(1)) + \textcolor{stringliteral}{" "} + (\textcolor{keywordtype}{char}
+      .ToUpper(\hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType}.ToString()[0]).\hyperlink{struct_bee_game_1_1_items_1_1_item_ac8039eff360bc9120180a54a0aaf13d8}{ToString}() + 
+      \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.Value.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType}.ToString().ToLower().Substring(1));
+190             \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} = \hyperlink{struct_bee_game_1_1_items_1_1_item_aa85bfeab893271c26f8ca41b638ada1c}{itemId} + \textcolor{stringliteral}{"/"} + \hyperlink{struct_bee_game_1_1_items_1_1_item_a0593f3b7b3ff5daa864f3c6d0ccd77ca}{beeItem}.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}{GetHashCode}().ToString();
+191         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_items_1_1_item_a29abdb5010a23262e7562720bb85c171}\label{struct_bee_game_1_1_items_1_1_item_a29abdb5010a23262e7562720bb85c171}} 
 \index{Bee\+Game\+::\+Items\+::\+Item@{Bee\+Game\+::\+Items\+::\+Item}!Update\+Sprite\+And\+Object@{Update\+Sprite\+And\+Object}}

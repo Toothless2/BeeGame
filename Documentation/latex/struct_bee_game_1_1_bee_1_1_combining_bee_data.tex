@@ -1,12 +1,17 @@
 \hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data}{}\section{Bee\+Game.\+Bee.\+Combining\+Bee\+Data Struct Reference}
 \label{struct_bee_game_1_1_bee_1_1_combining_bee_data}\index{Bee\+Game.\+Bee.\+Combining\+Bee\+Data@{Bee\+Game.\+Bee.\+Combining\+Bee\+Data}}
+
+
+Holds the data that the bee queen in conbining with. Exists due to a \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} variable with in a \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} is to deep for serialization /summary$>$  
+
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_abdf4646728337da76097aed9b74347ae}{To\+Combining\+Bee\+Data} (\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} data)
 \item 
 \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a8f49452b4800bbc401a225e2676eeca0}{To\+Bee\+Data} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Reconverts the \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data}{Combining\+Bee\+Data} back to normal \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,9 +42,9 @@ bool \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_ac0af7556cf90035f
 
 
 \subsection{Detailed Description}
+Holds the data that the bee queen in conbining with. Exists due to a \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} variable with in a \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} is to deep for serialization /summary$>$ 
 
-
-Definition at line 186 of file Bee\+Data.\+cs.
+Definition at line 197 of file Bee\+Data.\+cs.
 
 
 
@@ -52,10 +57,8 @@ Definition at line 186 of file Bee\+Data.\+cs.
 
 
 
+Reconverts the \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data}{Combining\+Bee\+Data} back to normal \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} 
 
-
-\begin{DoxyRefDesc}{Todo}
-\item[\hyperlink{todo__todo000003}{Todo}]comment this \end{DoxyRefDesc}
 
 \begin{DoxyParams}{Parameters}
 {\em data} & \\
@@ -63,20 +66,20 @@ Definition at line 186 of file Bee\+Data.\+cs.
 \end{DoxyParams}
 
 
-Definition at line 261 of file Bee\+Data.\+cs.
+Definition at line 273 of file Bee\+Data.\+cs.
 
 
 \begin{DoxyCode}
-262         \{
-263             BeeData bee = \textcolor{keyword}{new} BeeData();
-264 
-265             bee.nocturnal = \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a337800df462a764c58328d21d2398d6c}{nocturnal};
-266             bee.tempTol = \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a31cebfaca3139379e30a43fa0ac7e338}{tempTol};
-267             bee.humidTol = \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a98c56c89bcd5f983b4d022c113f789e3}{humidTol};
-268             bee.flyer = \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_ac0af7556cf90035ff830a6e121e8d4c4}{flyer};
-269 
-270             \textcolor{keywordflow}{return} bee;
-271         \}
+274         \{
+275             BeeData bee = \textcolor{keyword}{new} BeeData();
+276 
+277             bee.nocturnal = \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a337800df462a764c58328d21d2398d6c}{nocturnal};
+278             bee.tempTol = \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a31cebfaca3139379e30a43fa0ac7e338}{tempTol};
+279             bee.humidTol = \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a98c56c89bcd5f983b4d022c113f789e3}{humidTol};
+280             bee.flyer = \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_ac0af7556cf90035ff830a6e121e8d4c4}{flyer};
+281 
+282             \textcolor{keywordflow}{return} bee;
+283         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_abdf4646728337da76097aed9b74347ae}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_abdf4646728337da76097aed9b74347ae}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!To\+Combining\+Bee\+Data@{To\+Combining\+Bee\+Data}}
@@ -97,24 +100,24 @@ Definition at line 261 of file Bee\+Data.\+cs.
 \end{DoxyParams}
 
 
-Definition at line 240 of file Bee\+Data.\+cs.
+Definition at line 253 of file Bee\+Data.\+cs.
 
 
 \begin{DoxyCode}
-241         \{
-242             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a7e519ea913d51073b7da7815e85a4eeb}{species} = data.pSpecies;
-243             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a8359d180e7a0704e81bb7f37b9aac021}{sSpecies} = data.sSpecies;
-244             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a2635fae2aa8e50991d7733624883e671}{sLifespan} = data.sLifespan;
-245             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a02566c65413bebc23e767561c17510d5}{sFertility} = data.sFertility;
-246             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a6706a04242c477e5934d779fde7e7b8e}{sEffect} = data.sEffect;
-247             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a253d2a55fe2cb1a3d01492a6f961b995}{sProdSpeed} = data.sProdSpeed;
-248             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a93f8cb5caf0b68dd597da1b3ab9e27b5}{tempPref} = data.tempPref;
-249             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a31cebfaca3139379e30a43fa0ac7e338}{tempTol} = data.tempTol;
-250             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_ab9a9a9623d942632f8007711b65f909e}{humidPref} = data.humidPref;
-251             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a98c56c89bcd5f983b4d022c113f789e3}{humidTol} = data.humidTol;
-252             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a337800df462a764c58328d21d2398d6c}{nocturnal} = data.nocturnal;
-253             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_ac0af7556cf90035ff830a6e121e8d4c4}{flyer} = data.flyer;
-254         \}
+254         \{
+255             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a7e519ea913d51073b7da7815e85a4eeb}{species} = data.pSpecies;
+256             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a8359d180e7a0704e81bb7f37b9aac021}{sSpecies} = data.sSpecies;
+257             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a2635fae2aa8e50991d7733624883e671}{sLifespan} = data.sLifespan;
+258             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a02566c65413bebc23e767561c17510d5}{sFertility} = data.sFertility;
+259             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a6706a04242c477e5934d779fde7e7b8e}{sEffect} = data.sEffect;
+260             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a253d2a55fe2cb1a3d01492a6f961b995}{sProdSpeed} = data.sProdSpeed;
+261             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a93f8cb5caf0b68dd597da1b3ab9e27b5}{tempPref} = data.tempPref;
+262             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a31cebfaca3139379e30a43fa0ac7e338}{tempTol} = data.tempTol;
+263             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_ab9a9a9623d942632f8007711b65f909e}{humidPref} = data.humidPref;
+264             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a98c56c89bcd5f983b4d022c113f789e3}{humidTol} = data.humidTol;
+265             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_a337800df462a764c58328d21d2398d6c}{nocturnal} = data.nocturnal;
+266             \hyperlink{struct_bee_game_1_1_bee_1_1_combining_bee_data_ac0af7556cf90035ff830a6e121e8d4c4}{flyer} = data.flyer;
+267         \}
 \end{DoxyCode}
 
 
@@ -131,7 +134,7 @@ Will the bee work during the rain/snow/wind
 
 
 
-Definition at line 234 of file Bee\+Data.\+cs.
+Definition at line 246 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_ab9a9a9623d942632f8007711b65f909e}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_ab9a9a9623d942632f8007711b65f909e}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!humid\+Pref@{humid\+Pref}}
@@ -145,7 +148,7 @@ Preferd \hyperlink{namespace_bee_game_1_1_enums_a66566cbc9da8d1d1e402156b4bd3bf9
 
 
 
-Definition at line 222 of file Bee\+Data.\+cs.
+Definition at line 234 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a98c56c89bcd5f983b4d022c113f789e3}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a98c56c89bcd5f983b4d022c113f789e3}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!humid\+Tol@{humid\+Tol}}
@@ -159,7 +162,7 @@ The variance of the prefered \hyperlink{namespace_bee_game_1_1_enums_a66566cbc9d
 
 
 
-Definition at line 226 of file Bee\+Data.\+cs.
+Definition at line 238 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a337800df462a764c58328d21d2398d6c}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a337800df462a764c58328d21d2398d6c}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!nocturnal@{nocturnal}}
@@ -173,7 +176,7 @@ Will the bee work at night
 
 
 
-Definition at line 230 of file Bee\+Data.\+cs.
+Definition at line 242 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a6706a04242c477e5934d779fde7e7b8e}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a6706a04242c477e5934d779fde7e7b8e}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!s\+Effect@{s\+Effect}}
@@ -187,7 +190,7 @@ Secondary \hyperlink{namespace_bee_game_1_1_enums_acf7ae32a86385a40fc0c7b55af95c
 
 
 
-Definition at line 201 of file Bee\+Data.\+cs.
+Definition at line 213 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a02566c65413bebc23e767561c17510d5}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a02566c65413bebc23e767561c17510d5}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!s\+Fertility@{s\+Fertility}}
@@ -201,7 +204,7 @@ Secondary Fertility of the \hyperlink{namespace_bee_game_1_1_bee}{Bee}
 
 
 
-Definition at line 197 of file Bee\+Data.\+cs.
+Definition at line 209 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a2635fae2aa8e50991d7733624883e671}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a2635fae2aa8e50991d7733624883e671}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!s\+Lifespan@{s\+Lifespan}}
@@ -215,7 +218,7 @@ Secondary \hyperlink{namespace_bee_game_1_1_enums_ae3853807ded2f4d99a0d4a7fb4b2b
 
 
 
-Definition at line 193 of file Bee\+Data.\+cs.
+Definition at line 205 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a7e519ea913d51073b7da7815e85a4eeb}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a7e519ea913d51073b7da7815e85a4eeb}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!species@{species}}
@@ -225,7 +228,7 @@ Definition at line 193 of file Bee\+Data.\+cs.
 
 
 
-Definition at line 188 of file Bee\+Data.\+cs.
+Definition at line 199 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a253d2a55fe2cb1a3d01492a6f961b995}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a253d2a55fe2cb1a3d01492a6f961b995}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!s\+Prod\+Speed@{s\+Prod\+Speed}}
@@ -239,7 +242,7 @@ Secondary \hyperlink{namespace_bee_game_1_1_enums_afee18200a21cc4b8e1d0cdb669930
 
 
 
-Definition at line 205 of file Bee\+Data.\+cs.
+Definition at line 217 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a8359d180e7a0704e81bb7f37b9aac021}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a8359d180e7a0704e81bb7f37b9aac021}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!s\+Species@{s\+Species}}
@@ -253,7 +256,7 @@ Secondary \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f63826
 
 
 
-Definition at line 210 of file Bee\+Data.\+cs.
+Definition at line 222 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a93f8cb5caf0b68dd597da1b3ab9e27b5}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a93f8cb5caf0b68dd597da1b3ab9e27b5}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!temp\+Pref@{temp\+Pref}}
@@ -267,7 +270,7 @@ Preferd \hyperlink{namespace_bee_game_1_1_enums_a9db0f9ac859fab168654d657f248b02
 
 
 
-Definition at line 214 of file Bee\+Data.\+cs.
+Definition at line 226 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_combining_bee_data_a31cebfaca3139379e30a43fa0ac7e338}\label{struct_bee_game_1_1_bee_1_1_combining_bee_data_a31cebfaca3139379e30a43fa0ac7e338}} 
 \index{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Combining\+Bee\+Data}!temp\+Tol@{temp\+Tol}}
@@ -281,7 +284,7 @@ The variance of the prefered \hyperlink{namespace_bee_game_1_1_enums_a9db0f9ac85
 
 
 
-Definition at line 218 of file Bee\+Data.\+cs.
+Definition at line 230 of file Bee\+Data.\+cs.
 
 
 

@@ -80,6 +80,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae105a46ac786f4ba927efeaf4ef02f86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bee_game_1_1_bee_1_1_bee_data.html#ae105a46ac786f4ba927efeaf4ef02f86">BeeData</a> (<a class="el" href="struct_bee_game_1_1_bee_1_1_bee_data.html">BeeData</a> data)</td></tr>
 <tr class="memdesc:ae105a46ac786f4ba927efeaf4ef02f86"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> data constructor, sets the phenotype and the secondary to the same values  <a href="#ae105a46ac786f4ba927efeaf4ef02f86">More...</a><br /></td></tr>
 <tr class="separator:ae105a46ac786f4ba927efeaf4ef02f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3141a8d2ea0b8da9b88fc61dd1134b65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3141a8d2ea0b8da9b88fc61dd1134b65">SetBeeType</a> (<a class="el" href="namespace_bee_game_1_1_enums.html#a9376a1582db99d20c756e24de728944f">BeeType</a> type)</td></tr>
+<tr class="separator:a3141a8d2ea0b8da9b88fc61dd1134b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae672215675ea4965bd36669043913581"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bee_game_1_1_bee_1_1_bee_data.html#ae672215675ea4965bd36669043913581">UpdateProducedItems</a> ()</td></tr>
 <tr class="memdesc:ae672215675ea4965bd36669043913581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates <a class="el" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c" title="The items produced by the bee other than offspring ">producedItems</a> to the current items that whould be produced by the phenotype bee species  <a href="#ae672215675ea4965bd36669043913581">More...</a><br /></td></tr>
 <tr class="separator:ae672215675ea4965bd36669043913581"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,17 +193,17 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00112">112</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        {</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keyword">this</span> = data;</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#add33b8a3084a342ad7176a9366c2fc55">sSpecies</a> = data.pSpecies;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">beeType</a> = data.beeType;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#af5c384db9813e463bb0d66cb8b443d87">sLifespan</a> = data.pLifespan;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596">sFertility</a> = data.pFertility;</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#ac65b550d77e529a62cb60acf86502bc2">sEffect</a> = data.pEffect;</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#af2e94ee206fd06b8314888f8ba3d56e9">sProdSpeed</a> = data.pProdSpeed;</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c">producedItems</a> = <a class="code" href="class_bee_game_1_1_core_1_1_bee_dictionarys.html">BeeDictionarys</a>.<a class="code" href="class_bee_game_1_1_core_1_1_bee_dictionarys.html#a2cd137701cfdcfeb25d5e7a73397e1b4">GetItems</a>(<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">pSpecies</a>);</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div><div class="ttc" id="class_bee_game_1_1_core_1_1_bee_dictionarys_html_a2cd137701cfdcfeb25d5e7a73397e1b4"><div class="ttname"><a href="class_bee_game_1_1_core_1_1_bee_dictionarys.html#a2cd137701cfdcfeb25d5e7a73397e1b4">BeeGame.Core.BeeDictionarys.GetItems</a></div><div class="ttdeci">static Item [] GetItems(BeeSpecies species)</div><div class="ttdef"><b>Definition:</b> <a href="_bee_dictionarys_8cs_source.html#l00123">BeeDictionarys.cs:123</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_acfb6e209ae7bd1b52928580fcce4c743"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">BeeGame.Bee.BeeData.beeType</a></div><div class="ttdeci">BeeType beeType</div><div class="ttdoc">BeeType of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00022">BeeData.cs:22</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a20a4084334bbbba3942f67622596b596"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596">BeeGame.Bee.BeeData.sFertility</a></div><div class="ttdeci">uint sFertility</div><div class="ttdoc">Secondary Fertility of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00061">BeeData.cs:61</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_ac65b550d77e529a62cb60acf86502bc2"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#ac65b550d77e529a62cb60acf86502bc2">BeeGame.Bee.BeeData.sEffect</a></div><div class="ttdeci">BeeEffect sEffect</div><div class="ttdoc">Secondary BeeGame.Enums.BeeEffect of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00065">BeeData.cs:65</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_add33b8a3084a342ad7176a9366c2fc55"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#add33b8a3084a342ad7176a9366c2fc55">BeeGame.Bee.BeeData.sSpecies</a></div><div class="ttdeci">BeeSpecies sSpecies</div><div class="ttdoc">Secondary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00053">BeeData.cs:53</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00114">114</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keyword">this</span> = data;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#add33b8a3084a342ad7176a9366c2fc55">sSpecies</a> = data.pSpecies;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">beeType</a> = data.beeType;</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#af5c384db9813e463bb0d66cb8b443d87">sLifespan</a> = data.pLifespan;</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596">sFertility</a> = data.pFertility;</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#ac65b550d77e529a62cb60acf86502bc2">sEffect</a> = data.pEffect;</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#af2e94ee206fd06b8314888f8ba3d56e9">sProdSpeed</a> = data.pProdSpeed;</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c">producedItems</a> = <a class="code" href="class_bee_game_1_1_core_1_1_bee_dictionarys.html">BeeDictionarys</a>.<a class="code" href="class_bee_game_1_1_core_1_1_bee_dictionarys.html#a2cd137701cfdcfeb25d5e7a73397e1b4">GetItems</a>(<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">pSpecies</a>);</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div><div class="ttc" id="class_bee_game_1_1_core_1_1_bee_dictionarys_html_a2cd137701cfdcfeb25d5e7a73397e1b4"><div class="ttname"><a href="class_bee_game_1_1_core_1_1_bee_dictionarys.html#a2cd137701cfdcfeb25d5e7a73397e1b4">BeeGame.Core.BeeDictionarys.GetItems</a></div><div class="ttdeci">static Item [] GetItems(BeeSpecies species)</div><div class="ttdef"><b>Definition:</b> <a href="_bee_dictionarys_8cs_source.html#l00123">BeeDictionarys.cs:123</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_acfb6e209ae7bd1b52928580fcce4c743"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">BeeGame.Bee.BeeData.beeType</a></div><div class="ttdeci">BeeType beeType</div><div class="ttdoc">BeeType of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00023">BeeData.cs:23</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a20a4084334bbbba3942f67622596b596"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596">BeeGame.Bee.BeeData.sFertility</a></div><div class="ttdeci">uint sFertility</div><div class="ttdoc">Secondary Fertility of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00062">BeeData.cs:62</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_ac65b550d77e529a62cb60acf86502bc2"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#ac65b550d77e529a62cb60acf86502bc2">BeeGame.Bee.BeeData.sEffect</a></div><div class="ttdeci">BeeEffect sEffect</div><div class="ttdoc">Secondary BeeGame.Enums.BeeEffect of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00066">BeeData.cs:66</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_add33b8a3084a342ad7176a9366c2fc55"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#add33b8a3084a342ad7176a9366c2fc55">BeeGame.Bee.BeeData.sSpecies</a></div><div class="ttdeci">BeeSpecies sSpecies</div><div class="ttdoc">Secondary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00054">BeeData.cs:54</a></div></div>
 <div class="ttc" id="class_bee_game_1_1_core_1_1_bee_dictionarys_html"><div class="ttname"><a href="class_bee_game_1_1_core_1_1_bee_dictionarys.html">BeeGame.Core.BeeDictionarys</a></div><div class="ttdef"><b>Definition:</b> <a href="_bee_dictionarys_8cs_source.html#l00012">BeeDictionarys.cs:12</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a3c49396295407e1744f501e86c32d61c"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c">BeeGame.Bee.BeeData.producedItems</a></div><div class="ttdeci">Item [] producedItems</div><div class="ttdoc">The items produced by the bee other than offspring </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00106">BeeData.cs:106</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a87db9add2bcc463ab444eb4ac7a4e228"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">BeeGame.Bee.BeeData.pSpecies</a></div><div class="ttdeci">BeeSpecies pSpecies</div><div class="ttdoc">Primary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00029">BeeData.cs:29</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_af5c384db9813e463bb0d66cb8b443d87"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#af5c384db9813e463bb0d66cb8b443d87">BeeGame.Bee.BeeData.sLifespan</a></div><div class="ttdeci">BeeLifeSpan sLifespan</div><div class="ttdoc">Secondary BeeGame.Enums.BeeLifeSpan of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00057">BeeData.cs:57</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_af2e94ee206fd06b8314888f8ba3d56e9"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#af2e94ee206fd06b8314888f8ba3d56e9">BeeGame.Bee.BeeData.sProdSpeed</a></div><div class="ttdeci">BeeProductionSpeed sProdSpeed</div><div class="ttdoc">Secondary BeeGame.Enums.BeeProductionSpeed of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00069">BeeData.cs:69</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a3c49396295407e1744f501e86c32d61c"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c">BeeGame.Bee.BeeData.producedItems</a></div><div class="ttdeci">Item [] producedItems</div><div class="ttdoc">The items produced by the bee other than offspring </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00107">BeeData.cs:107</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a87db9add2bcc463ab444eb4ac7a4e228"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">BeeGame.Bee.BeeData.pSpecies</a></div><div class="ttdeci">BeeSpecies pSpecies</div><div class="ttdoc">Primary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00030">BeeData.cs:30</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_af5c384db9813e463bb0d66cb8b443d87"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#af5c384db9813e463bb0d66cb8b443d87">BeeGame.Bee.BeeData.sLifespan</a></div><div class="ttdeci">BeeLifeSpan sLifespan</div><div class="ttdoc">Secondary BeeGame.Enums.BeeLifeSpan of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00058">BeeData.cs:58</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_af2e94ee206fd06b8314888f8ba3d56e9"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#af2e94ee206fd06b8314888f8ba3d56e9">BeeGame.Bee.BeeData.sProdSpeed</a></div><div class="ttdeci">BeeProductionSpeed sProdSpeed</div><div class="ttdoc">Secondary BeeGame.Enums.BeeProductionSpeed of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00070">BeeData.cs:70</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -231,8 +233,8 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if objects are equal</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00156">156</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        {</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">return</span> base.Equals(obj);</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00163">163</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        {</div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="keywordflow">return</span> base.Equals(obj);</div><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="ab11b7e2d244cb0021c52ae0b839ff6c3"></a>
@@ -252,20 +254,20 @@ Public Attributes</h2></td></tr>
 
 <p>Makes a unique hashcode for the bee object useing all of the bee's data </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00138">138</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        {</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            unchecked</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            {</div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                var hashcode = 13;</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                hashcode += (hashcode * 397) ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">pSpecies</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">beeType</a> ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#aa24b1efdb25e8c5592d88940f9afc1e9">pLifespan</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a12b5a0d54c6c9162a69a88c349b044d1">pFertility</a> ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a652a963fb73f2a096a001d817c0ef2be">pEffect</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a8fa39d271a23500ad826041b46d9feaf">pProdSpeed</a>;</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                hashcode += (hashcode * 397) ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#add33b8a3084a342ad7176a9366c2fc55">sSpecies</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#af5c384db9813e463bb0d66cb8b443d87">sLifespan</a> ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596">sFertility</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#ac65b550d77e529a62cb60acf86502bc2">sEffect</a> ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#af2e94ee206fd06b8314888f8ba3d56e9">sProdSpeed</a>;</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                hashcode += (hashcode * 397) ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#ab7c3b5184d04319359a7f31fa0a4dc8c">tempPref</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a6b786e9cb8f5bbf7b6d1a16d7c7eb37e">humidPref</a>;</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="keywordflow">return</span> hashcode;</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            }</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        }</div><div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_acfb6e209ae7bd1b52928580fcce4c743"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">BeeGame.Bee.BeeData.beeType</a></div><div class="ttdeci">BeeType beeType</div><div class="ttdoc">BeeType of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00022">BeeData.cs:22</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a6b786e9cb8f5bbf7b6d1a16d7c7eb37e"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a6b786e9cb8f5bbf7b6d1a16d7c7eb37e">BeeGame.Bee.BeeData.humidPref</a></div><div class="ttdeci">BeeHumidityPreferance humidPref</div><div class="ttdoc">Preferd BeeGame.Enums.BeeHumidityPreferance of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00084">BeeData.cs:84</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_aa24b1efdb25e8c5592d88940f9afc1e9"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#aa24b1efdb25e8c5592d88940f9afc1e9">BeeGame.Bee.BeeData.pLifespan</a></div><div class="ttdeci">BeeLifeSpan pLifespan</div><div class="ttdoc">Primary BeeGame.Enums.BeeLifeSpan of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00033">BeeData.cs:33</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a20a4084334bbbba3942f67622596b596"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596">BeeGame.Bee.BeeData.sFertility</a></div><div class="ttdeci">uint sFertility</div><div class="ttdoc">Secondary Fertility of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00061">BeeData.cs:61</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_ac65b550d77e529a62cb60acf86502bc2"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#ac65b550d77e529a62cb60acf86502bc2">BeeGame.Bee.BeeData.sEffect</a></div><div class="ttdeci">BeeEffect sEffect</div><div class="ttdoc">Secondary BeeGame.Enums.BeeEffect of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00065">BeeData.cs:65</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_ab7c3b5184d04319359a7f31fa0a4dc8c"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#ab7c3b5184d04319359a7f31fa0a4dc8c">BeeGame.Bee.BeeData.tempPref</a></div><div class="ttdeci">BeeTempPreferance tempPref</div><div class="ttdoc">Preferd BeeGame.Enums.BeeTempPreferance of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00076">BeeData.cs:76</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a8fa39d271a23500ad826041b46d9feaf"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a8fa39d271a23500ad826041b46d9feaf">BeeGame.Bee.BeeData.pProdSpeed</a></div><div class="ttdeci">BeeProductionSpeed pProdSpeed</div><div class="ttdoc">Primary BeeGame.Enums.BeeProductionSpeed of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00045">BeeData.cs:45</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_add33b8a3084a342ad7176a9366c2fc55"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#add33b8a3084a342ad7176a9366c2fc55">BeeGame.Bee.BeeData.sSpecies</a></div><div class="ttdeci">BeeSpecies sSpecies</div><div class="ttdoc">Secondary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00053">BeeData.cs:53</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a652a963fb73f2a096a001d817c0ef2be"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a652a963fb73f2a096a001d817c0ef2be">BeeGame.Bee.BeeData.pEffect</a></div><div class="ttdeci">BeeEffect pEffect</div><div class="ttdoc">Primary BeeGame.Enums.BeeEffect of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00041">BeeData.cs:41</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a12b5a0d54c6c9162a69a88c349b044d1"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a12b5a0d54c6c9162a69a88c349b044d1">BeeGame.Bee.BeeData.pFertility</a></div><div class="ttdeci">uint pFertility</div><div class="ttdoc">Primary Fertility of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00037">BeeData.cs:37</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a87db9add2bcc463ab444eb4ac7a4e228"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">BeeGame.Bee.BeeData.pSpecies</a></div><div class="ttdeci">BeeSpecies pSpecies</div><div class="ttdoc">Primary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00029">BeeData.cs:29</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_af5c384db9813e463bb0d66cb8b443d87"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#af5c384db9813e463bb0d66cb8b443d87">BeeGame.Bee.BeeData.sLifespan</a></div><div class="ttdeci">BeeLifeSpan sLifespan</div><div class="ttdoc">Secondary BeeGame.Enums.BeeLifeSpan of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00057">BeeData.cs:57</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_af2e94ee206fd06b8314888f8ba3d56e9"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#af2e94ee206fd06b8314888f8ba3d56e9">BeeGame.Bee.BeeData.sProdSpeed</a></div><div class="ttdeci">BeeProductionSpeed sProdSpeed</div><div class="ttdoc">Secondary BeeGame.Enums.BeeProductionSpeed of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00069">BeeData.cs:69</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00145">145</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        {</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            unchecked</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            {</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                var hashcode = 13;</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                hashcode += (hashcode * 397) ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">pSpecies</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">beeType</a> ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#aa24b1efdb25e8c5592d88940f9afc1e9">pLifespan</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a12b5a0d54c6c9162a69a88c349b044d1">pFertility</a> ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a652a963fb73f2a096a001d817c0ef2be">pEffect</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a8fa39d271a23500ad826041b46d9feaf">pProdSpeed</a>;</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                hashcode += (hashcode * 397) ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#add33b8a3084a342ad7176a9366c2fc55">sSpecies</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#af5c384db9813e463bb0d66cb8b443d87">sLifespan</a> ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596">sFertility</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#ac65b550d77e529a62cb60acf86502bc2">sEffect</a> ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#af2e94ee206fd06b8314888f8ba3d56e9">sProdSpeed</a>;</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                hashcode += (hashcode * 397) ^ (<span class="keywordtype">int</span>)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#ab7c3b5184d04319359a7f31fa0a4dc8c">tempPref</a> ^ (int)<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a6b786e9cb8f5bbf7b6d1a16d7c7eb37e">humidPref</a>;</div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <span class="keywordflow">return</span> hashcode;</div><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            }</div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        }</div><div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_acfb6e209ae7bd1b52928580fcce4c743"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">BeeGame.Bee.BeeData.beeType</a></div><div class="ttdeci">BeeType beeType</div><div class="ttdoc">BeeType of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00023">BeeData.cs:23</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a6b786e9cb8f5bbf7b6d1a16d7c7eb37e"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a6b786e9cb8f5bbf7b6d1a16d7c7eb37e">BeeGame.Bee.BeeData.humidPref</a></div><div class="ttdeci">BeeHumidityPreferance humidPref</div><div class="ttdoc">Preferd BeeGame.Enums.BeeHumidityPreferance of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00085">BeeData.cs:85</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_aa24b1efdb25e8c5592d88940f9afc1e9"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#aa24b1efdb25e8c5592d88940f9afc1e9">BeeGame.Bee.BeeData.pLifespan</a></div><div class="ttdeci">BeeLifeSpan pLifespan</div><div class="ttdoc">Primary BeeGame.Enums.BeeLifeSpan of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00034">BeeData.cs:34</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a20a4084334bbbba3942f67622596b596"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596">BeeGame.Bee.BeeData.sFertility</a></div><div class="ttdeci">uint sFertility</div><div class="ttdoc">Secondary Fertility of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00062">BeeData.cs:62</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_ac65b550d77e529a62cb60acf86502bc2"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#ac65b550d77e529a62cb60acf86502bc2">BeeGame.Bee.BeeData.sEffect</a></div><div class="ttdeci">BeeEffect sEffect</div><div class="ttdoc">Secondary BeeGame.Enums.BeeEffect of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00066">BeeData.cs:66</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_ab7c3b5184d04319359a7f31fa0a4dc8c"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#ab7c3b5184d04319359a7f31fa0a4dc8c">BeeGame.Bee.BeeData.tempPref</a></div><div class="ttdeci">BeeTempPreferance tempPref</div><div class="ttdoc">Preferd BeeGame.Enums.BeeTempPreferance of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00077">BeeData.cs:77</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a8fa39d271a23500ad826041b46d9feaf"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a8fa39d271a23500ad826041b46d9feaf">BeeGame.Bee.BeeData.pProdSpeed</a></div><div class="ttdeci">BeeProductionSpeed pProdSpeed</div><div class="ttdoc">Primary BeeGame.Enums.BeeProductionSpeed of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00046">BeeData.cs:46</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_add33b8a3084a342ad7176a9366c2fc55"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#add33b8a3084a342ad7176a9366c2fc55">BeeGame.Bee.BeeData.sSpecies</a></div><div class="ttdeci">BeeSpecies sSpecies</div><div class="ttdoc">Secondary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00054">BeeData.cs:54</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a652a963fb73f2a096a001d817c0ef2be"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a652a963fb73f2a096a001d817c0ef2be">BeeGame.Bee.BeeData.pEffect</a></div><div class="ttdeci">BeeEffect pEffect</div><div class="ttdoc">Primary BeeGame.Enums.BeeEffect of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00042">BeeData.cs:42</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a12b5a0d54c6c9162a69a88c349b044d1"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a12b5a0d54c6c9162a69a88c349b044d1">BeeGame.Bee.BeeData.pFertility</a></div><div class="ttdeci">uint pFertility</div><div class="ttdoc">Primary Fertility of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00038">BeeData.cs:38</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a87db9add2bcc463ab444eb4ac7a4e228"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">BeeGame.Bee.BeeData.pSpecies</a></div><div class="ttdeci">BeeSpecies pSpecies</div><div class="ttdoc">Primary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00030">BeeData.cs:30</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_af5c384db9813e463bb0d66cb8b443d87"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#af5c384db9813e463bb0d66cb8b443d87">BeeGame.Bee.BeeData.sLifespan</a></div><div class="ttdeci">BeeLifeSpan sLifespan</div><div class="ttdoc">Secondary BeeGame.Enums.BeeLifeSpan of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00058">BeeData.cs:58</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_af2e94ee206fd06b8314888f8ba3d56e9"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#af2e94ee206fd06b8314888f8ba3d56e9">BeeGame.Bee.BeeData.sProdSpeed</a></div><div class="ttdeci">BeeProductionSpeed sProdSpeed</div><div class="ttdoc">Secondary BeeGame.Enums.BeeProductionSpeed of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00070">BeeData.cs:70</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -313,8 +315,8 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Inverse ==</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00178">178</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        {</div><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keywordflow">return</span> !(a == b);</div><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00185">185</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        {</div><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">return</span> !(a == b);</div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="aafcbf3edbd35377ba1ed6bd1597427f2"></a>
@@ -361,8 +363,29 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true is A Equal to B</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00167">167</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        {</div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">return</span> a.GetHashCode() == b.GetHashCode();</div><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        }</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00174">174</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        {</div><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="keywordflow">return</span> a.GetHashCode() == b.GetHashCode();</div><div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a3141a8d2ea0b8da9b88fc61dd1134b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3141a8d2ea0b8da9b88fc61dd1134b65">&#9670;&nbsp;</a></span>SetBeeType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BeeGame.Bee.BeeData.SetBeeType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_bee_game_1_1_enums.html#a9376a1582db99d20c756e24de728944f">BeeType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00128">128</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        {</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">beeType</a> = type;</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div><div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_acfb6e209ae7bd1b52928580fcce4c743"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#acfb6e209ae7bd1b52928580fcce4c743">BeeGame.Bee.BeeData.beeType</a></div><div class="ttdeci">BeeType beeType</div><div class="ttdoc">BeeType of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00023">BeeData.cs:23</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae672215675ea4965bd36669043913581"></a>
@@ -382,11 +405,11 @@ Public Attributes</h2></td></tr>
 
 <p>Updates <a class="el" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c" title="The items produced by the bee other than offspring ">producedItems</a> to the current items that whould be produced by the phenotype bee species </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00129">129</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        {</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c">producedItems</a> = <a class="code" href="class_bee_game_1_1_core_1_1_bee_dictionarys.html">BeeDictionarys</a>.<a class="code" href="class_bee_game_1_1_core_1_1_bee_dictionarys.html#a2cd137701cfdcfeb25d5e7a73397e1b4">GetItems</a>(<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">pSpecies</a>);</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div><div class="ttc" id="class_bee_game_1_1_core_1_1_bee_dictionarys_html_a2cd137701cfdcfeb25d5e7a73397e1b4"><div class="ttname"><a href="class_bee_game_1_1_core_1_1_bee_dictionarys.html#a2cd137701cfdcfeb25d5e7a73397e1b4">BeeGame.Core.BeeDictionarys.GetItems</a></div><div class="ttdeci">static Item [] GetItems(BeeSpecies species)</div><div class="ttdef"><b>Definition:</b> <a href="_bee_dictionarys_8cs_source.html#l00123">BeeDictionarys.cs:123</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00136">136</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        {</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            this.<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c">producedItems</a> = <a class="code" href="class_bee_game_1_1_core_1_1_bee_dictionarys.html">BeeDictionarys</a>.<a class="code" href="class_bee_game_1_1_core_1_1_bee_dictionarys.html#a2cd137701cfdcfeb25d5e7a73397e1b4">GetItems</a>(<a class="code" href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">pSpecies</a>);</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div><div class="ttc" id="class_bee_game_1_1_core_1_1_bee_dictionarys_html_a2cd137701cfdcfeb25d5e7a73397e1b4"><div class="ttname"><a href="class_bee_game_1_1_core_1_1_bee_dictionarys.html#a2cd137701cfdcfeb25d5e7a73397e1b4">BeeGame.Core.BeeDictionarys.GetItems</a></div><div class="ttdeci">static Item [] GetItems(BeeSpecies species)</div><div class="ttdef"><b>Definition:</b> <a href="_bee_dictionarys_8cs_source.html#l00123">BeeDictionarys.cs:123</a></div></div>
 <div class="ttc" id="class_bee_game_1_1_core_1_1_bee_dictionarys_html"><div class="ttname"><a href="class_bee_game_1_1_core_1_1_bee_dictionarys.html">BeeGame.Core.BeeDictionarys</a></div><div class="ttdef"><b>Definition:</b> <a href="_bee_dictionarys_8cs_source.html#l00012">BeeDictionarys.cs:12</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a3c49396295407e1744f501e86c32d61c"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c">BeeGame.Bee.BeeData.producedItems</a></div><div class="ttdeci">Item [] producedItems</div><div class="ttdoc">The items produced by the bee other than offspring </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00106">BeeData.cs:106</a></div></div>
-<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a87db9add2bcc463ab444eb4ac7a4e228"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">BeeGame.Bee.BeeData.pSpecies</a></div><div class="ttdeci">BeeSpecies pSpecies</div><div class="ttdoc">Primary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00029">BeeData.cs:29</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a3c49396295407e1744f501e86c32d61c"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a3c49396295407e1744f501e86c32d61c">BeeGame.Bee.BeeData.producedItems</a></div><div class="ttdeci">Item [] producedItems</div><div class="ttdoc">The items produced by the bee other than offspring </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00107">BeeData.cs:107</a></div></div>
+<div class="ttc" id="struct_bee_game_1_1_bee_1_1_bee_data_html_a87db9add2bcc463ab444eb4ac7a4e228"><div class="ttname"><a href="struct_bee_game_1_1_bee_1_1_bee_data.html#a87db9add2bcc463ab444eb4ac7a4e228">BeeGame.Bee.BeeData.pSpecies</a></div><div class="ttdeci">BeeSpecies pSpecies</div><div class="ttdoc">Primary BeeGame.Enums.BeeSpecies of the Bee </div><div class="ttdef"><b>Definition:</b> <a href="_bee_data_8cs_source.html#l00030">BeeData.cs:30</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -405,7 +428,7 @@ Public Attributes</h2></td></tr>
 
 <p>BeeType of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00022">22</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00023">23</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -441,7 +464,7 @@ Public Attributes</h2></td></tr>
 
 <p>Only used when the bee is a Queen and conations the data that the bee is being combined with. Value is also non-serialized </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00101">101</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00102">102</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -459,7 +482,7 @@ Public Attributes</h2></td></tr>
 
 <p>Will the bee work during the rain/snow/wind </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00096">96</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00097">97</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -477,7 +500,7 @@ Public Attributes</h2></td></tr>
 
 <p>Preferd <a class="el" href="namespace_bee_game_1_1_enums.html#a66566cbc9da8d1d1e402156b4bd3bf9d" title="Humidity preferences of the bee ">BeeGame.Enums.BeeHumidityPreferance</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00084">84</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00085">85</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -495,7 +518,7 @@ Public Attributes</h2></td></tr>
 
 <p>The variance of the prefered <a class="el" href="namespace_bee_game_1_1_enums.html#a66566cbc9da8d1d1e402156b4bd3bf9d" title="Humidity preferences of the bee ">BeeGame.Enums.BeeHumidityPreferance</a> that the bee can withstand eg [-1, +2] </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00088">88</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00089">89</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -513,7 +536,7 @@ Public Attributes</h2></td></tr>
 
 <p>Will the bee work at night </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00092">92</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00093">93</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -531,7 +554,7 @@ Public Attributes</h2></td></tr>
 
 <p>Primary <a class="el" href="namespace_bee_game_1_1_enums.html#acf7ae32a86385a40fc0c7b55af95c6c3" title="Any effects of the bee ">BeeGame.Enums.BeeEffect</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00041">41</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00042">42</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -549,7 +572,7 @@ Public Attributes</h2></td></tr>
 
 <p>Primary Fertility of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00037">37</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00038">38</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -567,7 +590,7 @@ Public Attributes</h2></td></tr>
 
 <p>Primary <a class="el" href="namespace_bee_game_1_1_enums.html#ae3853807ded2f4d99a0d4a7fb4b2bc46" title="The lifespan of the bee ">BeeGame.Enums.BeeLifeSpan</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00033">33</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00034">34</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -585,7 +608,7 @@ Public Attributes</h2></td></tr>
 
 <p>Primary <a class="el" href="namespace_bee_game_1_1_enums.html#afee18200a21cc4b8e1d0cdb669930f14" title="How fast the bee produces items ">BeeGame.Enums.BeeProductionSpeed</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00045">45</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00046">46</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -603,7 +626,7 @@ Public Attributes</h2></td></tr>
 
 <p>The items produced by the bee other than offspring </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00106">106</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00107">107</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -621,7 +644,7 @@ Public Attributes</h2></td></tr>
 
 <p>Primary <a class="el" href="namespace_bee_game_1_1_enums.html#aa2ead984825678d83c42d48f6382619c" title="The different possible bee Species ">BeeGame.Enums.BeeSpecies</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00029">29</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00030">30</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -639,7 +662,7 @@ Public Attributes</h2></td></tr>
 
 <p>Secondary <a class="el" href="namespace_bee_game_1_1_enums.html#acf7ae32a86385a40fc0c7b55af95c6c3" title="Any effects of the bee ">BeeGame.Enums.BeeEffect</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00065">65</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00066">66</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -657,7 +680,7 @@ Public Attributes</h2></td></tr>
 
 <p>Secondary Fertility of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00061">61</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00062">62</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -675,7 +698,7 @@ Public Attributes</h2></td></tr>
 
 <p>Secondary <a class="el" href="namespace_bee_game_1_1_enums.html#ae3853807ded2f4d99a0d4a7fb4b2bc46" title="The lifespan of the bee ">BeeGame.Enums.BeeLifeSpan</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00057">57</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00058">58</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -693,7 +716,7 @@ Public Attributes</h2></td></tr>
 
 <p>Secondary <a class="el" href="namespace_bee_game_1_1_enums.html#afee18200a21cc4b8e1d0cdb669930f14" title="How fast the bee produces items ">BeeGame.Enums.BeeProductionSpeed</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00069">69</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00070">70</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -711,7 +734,7 @@ Public Attributes</h2></td></tr>
 
 <p>Secondary <a class="el" href="namespace_bee_game_1_1_enums.html#aa2ead984825678d83c42d48f6382619c" title="The different possible bee Species ">BeeGame.Enums.BeeSpecies</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00053">53</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00054">54</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -729,7 +752,7 @@ Public Attributes</h2></td></tr>
 
 <p>Preferd <a class="el" href="namespace_bee_game_1_1_enums.html#a9db0f9ac859fab168654d657f248b024" title="The different bee temp preferences ">BeeGame.Enums.BeeTempPreferance</a> of the <a class="el" href="namespace_bee_game_1_1_bee.html">Bee</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00076">76</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00077">77</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>
@@ -747,7 +770,7 @@ Public Attributes</h2></td></tr>
 
 <p>The variance of the prefered <a class="el" href="namespace_bee_game_1_1_enums.html#a9db0f9ac859fab168654d657f248b024" title="The different bee temp preferences ">BeeGame.Enums.BeeTempPreferance</a> that the bee can withstand eg [-1, +2] </p>
 
-<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00080">80</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bee_data_8cs_source.html#l00081">81</a> of file <a class="el" href="_bee_data_8cs_source.html">BeeData.cs</a>.</p>
 
 </div>
 </div>

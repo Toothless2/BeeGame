@@ -14,7 +14,7 @@ namespace BeeGame.Serialization
     public static class Serialization 
     {
         private static string basePath;
-        private static object[] allData;
+        //private static object[] allData;
         private static object[] playerData = new object[2];
         private static object[] item;
         private static object[] blocks;

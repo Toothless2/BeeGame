@@ -13,7 +13,7 @@ var searchData=
   ['serialization',['Serialization',['../class_bee_game_1_1_serialization_1_1_serialization.html',1,'BeeGame::Serialization']]],
   ['serialization_2ecs',['Serialization.cs',['../_serialization_8cs.html',1,'']]],
   ['setadfast',['SETADFAST',['../namespace_bee_game_1_1_enums.html#aa2ead984825678d83c42d48f6382619ca6fd6e4d8dc13fe33a3a9959ecec4d42d',1,'BeeGame::Enums']]],
-  ['setbeetype',['SetBeeType',['../struct_bee_game_1_1_items_1_1_item.html#a80c66aa30f64c498640a4b0ba1ec37b0',1,'BeeGame::Items::Item']]],
+  ['setbeetype',['SetBeeType',['../struct_bee_game_1_1_bee_1_1_bee_data.html#a3141a8d2ea0b8da9b88fc61dd1134b65',1,'BeeGame.Bee.BeeData.SetBeeType()'],['../struct_bee_game_1_1_items_1_1_item.html#a80c66aa30f64c498640a4b0ba1ec37b0',1,'BeeGame.Items.Item.SetBeeType()']]],
   ['sfertility',['sFertility',['../struct_bee_game_1_1_bee_1_1_bee_data.html#a20a4084334bbbba3942f67622596b596',1,'BeeGame.Bee.BeeData.sFertility()'],['../struct_bee_game_1_1_bee_1_1_combining_bee_data.html#a02566c65413bebc23e767561c17510d5',1,'BeeGame.Bee.CombiningBeeData.sFertility()']]],
   ['short',['SHORT',['../namespace_bee_game_1_1_enums.html#ae3853807ded2f4d99a0d4a7fb4b2bc46aa35c2b02966b1563e5bf7b81b8b0cf77',1,'BeeGame::Enums']]],
   ['shortest',['SHORTEST',['../namespace_bee_game_1_1_enums.html#ae3853807ded2f4d99a0d4a7fb4b2bc46aa63ddb11bc6cc95583b3f7632a45a16b',1,'BeeGame::Enums']]],

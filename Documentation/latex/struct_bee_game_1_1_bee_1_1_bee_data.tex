@@ -10,6 +10,8 @@ Data Storgae for the \hyperlink{namespace_bee_game_1_1_bee}{Bee}\textquotesingle
 \item 
 \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ae105a46ac786f4ba927efeaf4ef02f86}{Bee\+Data} (\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data}{Bee\+Data} data)
 \begin{DoxyCompactList}\small\item\em \hyperlink{namespace_bee_game_1_1_bee}{Bee} data constructor, sets the phenotype and the secondary to the same values \end{DoxyCompactList}\item 
+void \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a3141a8d2ea0b8da9b88fc61dd1134b65}{Set\+Bee\+Type} (\hyperlink{namespace_bee_game_1_1_enums_a9376a1582db99d20c756e24de728944f}{Bee\+Type} type)
+\item 
 void \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ae672215675ea4965bd36669043913581}{Update\+Produced\+Items} ()
 \begin{DoxyCompactList}\small\item\em Updates \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a3c49396295407e1744f501e86c32d61c}{produced\+Items} to the current items that whould be produced by the phenotype bee species \end{DoxyCompactList}\item 
 override int \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}{Get\+Hash\+Code} ()
@@ -95,23 +97,23 @@ Definition at line 12 of file Bee\+Data.\+cs.
 \end{DoxyParams}
 
 
-Definition at line 112 of file Bee\+Data.\+cs.
+Definition at line 114 of file Bee\+Data.\+cs.
 
 
 \begin{DoxyCode}
-113         \{
-114             \textcolor{keyword}{this} = data;
-115 
-116             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_add33b8a3084a342ad7176a9366c2fc55}{sSpecies} = data.pSpecies;
-117             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType} = data.beeType;
-118             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_af5c384db9813e463bb0d66cb8b443d87}{sLifespan} = data.pLifespan;
-119             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a20a4084334bbbba3942f67622596b596}{sFertility} = data.pFertility;
-120             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ac65b550d77e529a62cb60acf86502bc2}{sEffect} = data.pEffect;
-121             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_af2e94ee206fd06b8314888f8ba3d56e9}{sProdSpeed} = data.pProdSpeed;
-122 
-123             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a3c49396295407e1744f501e86c32d61c}{producedItems} = \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys}{BeeDictionarys}.
+115         \{
+116             \textcolor{keyword}{this} = data;
+117 
+118             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_add33b8a3084a342ad7176a9366c2fc55}{sSpecies} = data.pSpecies;
+119             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType} = data.beeType;
+120             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_af5c384db9813e463bb0d66cb8b443d87}{sLifespan} = data.pLifespan;
+121             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a20a4084334bbbba3942f67622596b596}{sFertility} = data.pFertility;
+122             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ac65b550d77e529a62cb60acf86502bc2}{sEffect} = data.pEffect;
+123             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_af2e94ee206fd06b8314888f8ba3d56e9}{sProdSpeed} = data.pProdSpeed;
+124 
+125             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a3c49396295407e1744f501e86c32d61c}{producedItems} = \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys}{BeeDictionarys}.
       \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a2cd137701cfdcfeb25d5e7a73397e1b4}{GetItems}(\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies});
-124         \}
+126         \}
 \end{DoxyCode}
 
 
@@ -136,13 +138,13 @@ true if objects are equal
 \end{DoxyReturn}
 
 
-Definition at line 156 of file Bee\+Data.\+cs.
+Definition at line 163 of file Bee\+Data.\+cs.
 
 
 \begin{DoxyCode}
-157         \{
-158             \textcolor{keywordflow}{return} base.Equals(obj);
-159         \}
+164         \{
+165             \textcolor{keywordflow}{return} base.Equals(obj);
+166         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}\label{struct_bee_game_1_1_bee_1_1_bee_data_ab11b7e2d244cb0021c52ae0b839ff6c3}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!Get\+Hash\+Code@{Get\+Hash\+Code}}
@@ -156,26 +158,26 @@ Makes a unique hashcode for the bee object useing all of the bee\textquotesingle
 
 
 
-Definition at line 138 of file Bee\+Data.\+cs.
+Definition at line 145 of file Bee\+Data.\+cs.
 
 
 \begin{DoxyCode}
-139         \{
-140             unchecked
-141             \{
-142                 var hashcode = 13;
-143                 hashcode += (hashcode * 397) ^ (\textcolor{keywordtype}{int})\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies} ^ (int)
+146         \{
+147             unchecked
+148             \{
+149                 var hashcode = 13;
+150                 hashcode += (hashcode * 397) ^ (\textcolor{keywordtype}{int})\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies} ^ (int)
       \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType} ^ (\textcolor{keywordtype}{int})\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_aa24b1efdb25e8c5592d88940f9afc1e9}{pLifespan} ^ (int)\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a12b5a0d54c6c9162a69a88c349b044d1}{pFertility} ^ (\textcolor{keywordtype}{int})
       \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a652a963fb73f2a096a001d817c0ef2be}{pEffect} ^ (int)\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a8fa39d271a23500ad826041b46d9feaf}{pProdSpeed};
-144                 hashcode += (hashcode * 397) ^ (\textcolor{keywordtype}{int})\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_add33b8a3084a342ad7176a9366c2fc55}{sSpecies} ^ (int)
+151                 hashcode += (hashcode * 397) ^ (\textcolor{keywordtype}{int})\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_add33b8a3084a342ad7176a9366c2fc55}{sSpecies} ^ (int)
       \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_af5c384db9813e463bb0d66cb8b443d87}{sLifespan} ^ (\textcolor{keywordtype}{int})\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a20a4084334bbbba3942f67622596b596}{sFertility} ^ (int)\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ac65b550d77e529a62cb60acf86502bc2}{sEffect} ^ (\textcolor{keywordtype}{int})
       \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_af2e94ee206fd06b8314888f8ba3d56e9}{sProdSpeed};
-145                 hashcode += (hashcode * 397) ^ (\textcolor{keywordtype}{int})\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab7c3b5184d04319359a7f31fa0a4dc8c}{tempPref} ^ (int)
+152                 hashcode += (hashcode * 397) ^ (\textcolor{keywordtype}{int})\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_ab7c3b5184d04319359a7f31fa0a4dc8c}{tempPref} ^ (int)
       \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a6b786e9cb8f5bbf7b6d1a16d7c7eb37e}{humidPref};
-146 
-147                 \textcolor{keywordflow}{return} hashcode;
-148             \}
-149         \}
+153 
+154                 \textcolor{keywordflow}{return} hashcode;
+155             \}
+156         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_ae4242a16e9b9a05d7291dd819a651b46}\label{struct_bee_game_1_1_bee_1_1_bee_data_ae4242a16e9b9a05d7291dd819a651b46}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!operator"!=@{operator"!=}}
@@ -199,13 +201,13 @@ Inverse ==
 \end{DoxyReturn}
 
 
-Definition at line 178 of file Bee\+Data.\+cs.
+Definition at line 185 of file Bee\+Data.\+cs.
 
 
 \begin{DoxyCode}
-179         \{
-180             \textcolor{keywordflow}{return} !(a == b);
-181         \}
+186         \{
+187             \textcolor{keywordflow}{return} !(a == b);
+188         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_aafcbf3edbd35377ba1ed6bd1597427f2}\label{struct_bee_game_1_1_bee_1_1_bee_data_aafcbf3edbd35377ba1ed6bd1597427f2}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!operator==@{operator==}}
@@ -229,13 +231,29 @@ true is A Equal to B
 \end{DoxyReturn}
 
 
-Definition at line 167 of file Bee\+Data.\+cs.
+Definition at line 174 of file Bee\+Data.\+cs.
 
 
 \begin{DoxyCode}
-168         \{
-169             \textcolor{keywordflow}{return} a.GetHashCode() == b.GetHashCode();
-170         \}
+175         \{
+176             \textcolor{keywordflow}{return} a.GetHashCode() == b.GetHashCode();
+177         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a3141a8d2ea0b8da9b88fc61dd1134b65}\label{struct_bee_game_1_1_bee_1_1_bee_data_a3141a8d2ea0b8da9b88fc61dd1134b65}} 
+\index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!Set\+Bee\+Type@{Set\+Bee\+Type}}
+\index{Set\+Bee\+Type@{Set\+Bee\+Type}!Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}}
+\subsubsection{\texorpdfstring{Set\+Bee\+Type()}{SetBeeType()}}
+{\footnotesize\ttfamily void Bee\+Game.\+Bee.\+Bee\+Data.\+Set\+Bee\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{namespace_bee_game_1_1_enums_a9376a1582db99d20c756e24de728944f}{Bee\+Type}}]{type }\end{DoxyParamCaption})}
+
+
+
+Definition at line 128 of file Bee\+Data.\+cs.
+
+
+\begin{DoxyCode}
+129         \{
+130             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_acfb6e209ae7bd1b52928580fcce4c743}{beeType} = type;
+131         \}
 \end{DoxyCode}
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_ae672215675ea4965bd36669043913581}\label{struct_bee_game_1_1_bee_1_1_bee_data_ae672215675ea4965bd36669043913581}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!Update\+Produced\+Items@{Update\+Produced\+Items}}
@@ -249,14 +267,14 @@ Updates \hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a3c49396295407e1744f501e
 
 
 
-Definition at line 129 of file Bee\+Data.\+cs.
+Definition at line 136 of file Bee\+Data.\+cs.
 
 
 \begin{DoxyCode}
-130         \{
-131             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a3c49396295407e1744f501e86c32d61c}{producedItems} = \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys}{BeeDictionarys}.
+137         \{
+138             this.\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a3c49396295407e1744f501e86c32d61c}{producedItems} = \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys}{BeeDictionarys}.
       \hyperlink{class_bee_game_1_1_core_1_1_bee_dictionarys_a2cd137701cfdcfeb25d5e7a73397e1b4}{GetItems}(\hyperlink{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}{pSpecies});
-132         \}
+139         \}
 \end{DoxyCode}
 
 
@@ -273,7 +291,7 @@ Bee\+Type of the \hyperlink{namespace_bee_game_1_1_bee}{Bee}
 
 
 
-Definition at line 22 of file Bee\+Data.\+cs.
+Definition at line 23 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a9d7e31a11e286cf83d8b350557af42f7}\label{struct_bee_game_1_1_bee_1_1_bee_data_a9d7e31a11e286cf83d8b350557af42f7}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!can\+See\+Bee\+Data@{can\+See\+Bee\+Data}}
@@ -301,7 +319,7 @@ Only used when the bee is a Queen and conations the data that the bee is being c
 
 
 
-Definition at line 101 of file Bee\+Data.\+cs.
+Definition at line 102 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_af78a352321613693c3e94c98f655ac63}\label{struct_bee_game_1_1_bee_1_1_bee_data_af78a352321613693c3e94c98f655ac63}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!flyer@{flyer}}
@@ -315,7 +333,7 @@ Will the bee work during the rain/snow/wind
 
 
 
-Definition at line 96 of file Bee\+Data.\+cs.
+Definition at line 97 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a6b786e9cb8f5bbf7b6d1a16d7c7eb37e}\label{struct_bee_game_1_1_bee_1_1_bee_data_a6b786e9cb8f5bbf7b6d1a16d7c7eb37e}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!humid\+Pref@{humid\+Pref}}
@@ -329,7 +347,7 @@ Preferd \hyperlink{namespace_bee_game_1_1_enums_a66566cbc9da8d1d1e402156b4bd3bf9
 
 
 
-Definition at line 84 of file Bee\+Data.\+cs.
+Definition at line 85 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a7d9953fe200dd4eb57a86db5fd7062e3}\label{struct_bee_game_1_1_bee_1_1_bee_data_a7d9953fe200dd4eb57a86db5fd7062e3}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!humid\+Tol@{humid\+Tol}}
@@ -343,7 +361,7 @@ The variance of the prefered \hyperlink{namespace_bee_game_1_1_enums_a66566cbc9d
 
 
 
-Definition at line 88 of file Bee\+Data.\+cs.
+Definition at line 89 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a4cd90eee8d255726d982116f14b444b2}\label{struct_bee_game_1_1_bee_1_1_bee_data_a4cd90eee8d255726d982116f14b444b2}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!nocturnal@{nocturnal}}
@@ -357,7 +375,7 @@ Will the bee work at night
 
 
 
-Definition at line 92 of file Bee\+Data.\+cs.
+Definition at line 93 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a652a963fb73f2a096a001d817c0ef2be}\label{struct_bee_game_1_1_bee_1_1_bee_data_a652a963fb73f2a096a001d817c0ef2be}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!p\+Effect@{p\+Effect}}
@@ -371,7 +389,7 @@ Primary \hyperlink{namespace_bee_game_1_1_enums_acf7ae32a86385a40fc0c7b55af95c6c
 
 
 
-Definition at line 41 of file Bee\+Data.\+cs.
+Definition at line 42 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a12b5a0d54c6c9162a69a88c349b044d1}\label{struct_bee_game_1_1_bee_1_1_bee_data_a12b5a0d54c6c9162a69a88c349b044d1}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!p\+Fertility@{p\+Fertility}}
@@ -385,7 +403,7 @@ Primary Fertility of the \hyperlink{namespace_bee_game_1_1_bee}{Bee}
 
 
 
-Definition at line 37 of file Bee\+Data.\+cs.
+Definition at line 38 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_aa24b1efdb25e8c5592d88940f9afc1e9}\label{struct_bee_game_1_1_bee_1_1_bee_data_aa24b1efdb25e8c5592d88940f9afc1e9}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!p\+Lifespan@{p\+Lifespan}}
@@ -399,7 +417,7 @@ Primary \hyperlink{namespace_bee_game_1_1_enums_ae3853807ded2f4d99a0d4a7fb4b2bc4
 
 
 
-Definition at line 33 of file Bee\+Data.\+cs.
+Definition at line 34 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a8fa39d271a23500ad826041b46d9feaf}\label{struct_bee_game_1_1_bee_1_1_bee_data_a8fa39d271a23500ad826041b46d9feaf}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!p\+Prod\+Speed@{p\+Prod\+Speed}}
@@ -413,7 +431,7 @@ Primary \hyperlink{namespace_bee_game_1_1_enums_afee18200a21cc4b8e1d0cdb669930f1
 
 
 
-Definition at line 45 of file Bee\+Data.\+cs.
+Definition at line 46 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a3c49396295407e1744f501e86c32d61c}\label{struct_bee_game_1_1_bee_1_1_bee_data_a3c49396295407e1744f501e86c32d61c}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!produced\+Items@{produced\+Items}}
@@ -427,7 +445,7 @@ The items produced by the bee other than offspring
 
 
 
-Definition at line 106 of file Bee\+Data.\+cs.
+Definition at line 107 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}\label{struct_bee_game_1_1_bee_1_1_bee_data_a87db9add2bcc463ab444eb4ac7a4e228}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!p\+Species@{p\+Species}}
@@ -441,7 +459,7 @@ Primary \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f6382619
 
 
 
-Definition at line 29 of file Bee\+Data.\+cs.
+Definition at line 30 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_ac65b550d77e529a62cb60acf86502bc2}\label{struct_bee_game_1_1_bee_1_1_bee_data_ac65b550d77e529a62cb60acf86502bc2}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!s\+Effect@{s\+Effect}}
@@ -455,7 +473,7 @@ Secondary \hyperlink{namespace_bee_game_1_1_enums_acf7ae32a86385a40fc0c7b55af95c
 
 
 
-Definition at line 65 of file Bee\+Data.\+cs.
+Definition at line 66 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_a20a4084334bbbba3942f67622596b596}\label{struct_bee_game_1_1_bee_1_1_bee_data_a20a4084334bbbba3942f67622596b596}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!s\+Fertility@{s\+Fertility}}
@@ -469,7 +487,7 @@ Secondary Fertility of the \hyperlink{namespace_bee_game_1_1_bee}{Bee}
 
 
 
-Definition at line 61 of file Bee\+Data.\+cs.
+Definition at line 62 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_af5c384db9813e463bb0d66cb8b443d87}\label{struct_bee_game_1_1_bee_1_1_bee_data_af5c384db9813e463bb0d66cb8b443d87}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!s\+Lifespan@{s\+Lifespan}}
@@ -483,7 +501,7 @@ Secondary \hyperlink{namespace_bee_game_1_1_enums_ae3853807ded2f4d99a0d4a7fb4b2b
 
 
 
-Definition at line 57 of file Bee\+Data.\+cs.
+Definition at line 58 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_af2e94ee206fd06b8314888f8ba3d56e9}\label{struct_bee_game_1_1_bee_1_1_bee_data_af2e94ee206fd06b8314888f8ba3d56e9}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!s\+Prod\+Speed@{s\+Prod\+Speed}}
@@ -497,7 +515,7 @@ Secondary \hyperlink{namespace_bee_game_1_1_enums_afee18200a21cc4b8e1d0cdb669930
 
 
 
-Definition at line 69 of file Bee\+Data.\+cs.
+Definition at line 70 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_add33b8a3084a342ad7176a9366c2fc55}\label{struct_bee_game_1_1_bee_1_1_bee_data_add33b8a3084a342ad7176a9366c2fc55}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!s\+Species@{s\+Species}}
@@ -511,7 +529,7 @@ Secondary \hyperlink{namespace_bee_game_1_1_enums_aa2ead984825678d83c42d48f63826
 
 
 
-Definition at line 53 of file Bee\+Data.\+cs.
+Definition at line 54 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_ab7c3b5184d04319359a7f31fa0a4dc8c}\label{struct_bee_game_1_1_bee_1_1_bee_data_ab7c3b5184d04319359a7f31fa0a4dc8c}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!temp\+Pref@{temp\+Pref}}
@@ -525,7 +543,7 @@ Preferd \hyperlink{namespace_bee_game_1_1_enums_a9db0f9ac859fab168654d657f248b02
 
 
 
-Definition at line 76 of file Bee\+Data.\+cs.
+Definition at line 77 of file Bee\+Data.\+cs.
 
 \mbox{\Hypertarget{struct_bee_game_1_1_bee_1_1_bee_data_aa333655c6249bb86cba999dcdf45c614}\label{struct_bee_game_1_1_bee_1_1_bee_data_aa333655c6249bb86cba999dcdf45c614}} 
 \index{Bee\+Game\+::\+Bee\+::\+Bee\+Data@{Bee\+Game\+::\+Bee\+::\+Bee\+Data}!temp\+Tol@{temp\+Tol}}
@@ -539,7 +557,7 @@ The variance of the prefered \hyperlink{namespace_bee_game_1_1_enums_a9db0f9ac85
 
 
 
-Definition at line 80 of file Bee\+Data.\+cs.
+Definition at line 81 of file Bee\+Data.\+cs.
 
 
 

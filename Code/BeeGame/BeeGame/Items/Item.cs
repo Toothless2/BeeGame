@@ -112,15 +112,14 @@ namespace BeeGame.Items
         }
         #endregion
 
-        #region BeeStuff
+        #region Bee Stuff
         /// <summary>
         /// Can the bees data be seen in the inventory
         /// </summary>
         /// <returns>true of data can be seen</returns>
         public bool CanSeeBeeData()
         {
-            BeeData _beeitem = (BeeData)beeItem;
-            return _beeitem.canSeeBeeData;
+            return beeItem.Value.canSeeBeeData;
         }
 
         /// <summary>
@@ -131,10 +130,9 @@ namespace BeeGame.Items
         {
             beeItem = new BeeData();
             beeItem = BeeDictionarys.GetDefaultBeeData(dominantSpecies);
-            BeeData _beedata = (BeeData)beeItem;
-
-            name = (char.ToUpper(_beedata.pSpecies.ToString()[0]).ToString() + _beedata.pSpecies.ToString().ToLower().Substring(1)) + " " + (char.ToUpper(_beedata.beeType.ToString()[0]).ToString() + _beedata.beeType.ToString().ToLower().Substring(1));
-            itemId = itemId + "/" + beeItem.GetHashCode().ToString();
+            
+            //updates the Name and ID of the bee
+            UpdateItemNameAndIDWithBeeData();
         }
 
         /// <summary>
@@ -143,11 +141,10 @@ namespace BeeGame.Items
         /// <param name="beetype"><see cref="BeeType"/></param>
         public void SetBeeType(BeeType beetype)
         {
-            BeeData _beeItem = (BeeData)beeItem;
-            _beeItem.beeType = beetype;
-            name = (char.ToUpper(_beeItem.pSpecies.ToString()[0]).ToString() + _beeItem.pSpecies.ToString().ToLower().Substring(1)) + " " + (char.ToUpper(_beeItem.beeType.ToString()[0]).ToString() + _beeItem.beeType.ToString().ToLower().Substring(1));
-            beeItem = _beeItem;
-            itemId = itemId + "/" + beeItem.GetHashCode().ToString();
+            beeItem?.SetBeeType(beetype);
+
+            //updates the name and ID if the bee
+            UpdateItemNameAndIDWithBeeData();
         }
 
         /// <summary>
@@ -156,9 +153,11 @@ namespace BeeGame.Items
         /// <param name="_beedata"><see cref="BeeData"/></param>
         public void UpdateBeeData(BeeData _beedata)
         {
+            //Sets the new bee data
             beeItem = _beedata;
-            name = (char.ToUpper(_beedata.pSpecies.ToString()[0]).ToString() + _beedata.pSpecies.ToString().ToLower().Substring(1)) + " " + (char.ToUpper(_beedata.beeType.ToString()[0]).ToString() + _beedata.beeType.ToString().ToLower().Substring(1));
-            itemId = itemId + "/" + beeItem.GetHashCode().ToString();
+
+            //Updates the Name and ID of the Bee
+            UpdateItemNameAndIDWithBeeData();
         }
 
         /// <summary>
@@ -167,7 +166,7 @@ namespace BeeGame.Items
         /// <returns><see cref="BeeData"/></returns>
         public BeeData ReturnBeeData()
         {
-            return (BeeData)beeItem;
+            return beeItem.Value;
         }
 
         /// <summary>
@@ -176,21 +175,26 @@ namespace BeeGame.Items
         /// <returns><see cref="BeeData"/> formated to string</returns>
         public string ReturnBeeDataAsText()
         {
-            if(beeItem != null)
-            {
-                BeeData tempBee = (BeeData)beeItem;
-                string returnText = "Donimant Species : " + tempBee.pSpecies + "\nDominaint BeeType: " + tempBee.beeType + "\nDominant Lifespan: " + tempBee.pLifespan + "\nDominant Fertility: " + tempBee.pFertility + "Dominant Effect: " + tempBee.pEffect + "Dominant Production Speed: " + tempBee.pProdSpeed;
-                return returnText;
-            }
+            return beeItem.HasValue ? ("Donimant Species : " + beeItem.Value.pSpecies + "\nDominaint BeeType: " + beeItem.Value.beeType + "\nDominant Lifespan: " + beeItem.Value.pLifespan + "\nDominant Fertility: " + beeItem.Value.pFertility + "Dominant Effect: " + beeItem.Value.pEffect + "Dominant Production Speed: " + beeItem.Value.pProdSpeed) : null;
+        }
+        #endregion
 
-            return null;
+        #region Rename and Update ID
+        /// <summary>
+        /// Updates this <see cref="Item"/>'s <see cref="name"/> <see cref="itemId"/> with the bee data
+        /// </summary>
+        void UpdateItemNameAndIDWithBeeData()
+        {
+            //Updates the Name and ID
+            name = (char.ToUpper(beeItem.Value.pSpecies.ToString()[0]).ToString() + beeItem.Value.pSpecies.ToString().ToLower().Substring(1)) + " " + (char.ToUpper(beeItem.Value.beeType.ToString()[0]).ToString() + beeItem.Value.beeType.ToString().ToLower().Substring(1));
+            itemId = itemId + "/" + beeItem.GetHashCode().ToString();
         }
         #endregion
 
         /// <summary>
         /// Overrides the default ToString to make it more useful
         /// </summary>
-        /// <returns>The <see cref="Item"/>'s name</returns>
+        /// <returns>The <see cref="Item"/>'s <see cref="name"/> and the <see cref="itemId"/></returns>
         public override string ToString()
         {
             return name + " : " + itemId;
@@ -218,6 +222,7 @@ namespace BeeGame.Items
                 int itemNameValue = 0;
                 int itemIdValue = 0;
 
+                //Gives the item name a value depending on the sum of the characters
                 if (this.name != null)
                 {
                     for (int i = 0; i < this.name.Length; i++)
@@ -237,8 +242,8 @@ namespace BeeGame.Items
                 hashcode = itemIdValue;
                 //adds on the itemname value
                 hashcode += itemNameValue;
-                //adds on the bee data
-                hashcode += beeItem.GetHashCode();
+                //adds on the bee data of it has a value
+                hashcode += beeItem.HasValue ? beeItem.GetHashCode() : 1;
                 return hashcode;
             }
         }

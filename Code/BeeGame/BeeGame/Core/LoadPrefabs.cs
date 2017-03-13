@@ -6,7 +6,6 @@ namespace BeeGame.Core
 {
     public static class LoadPrefabs
     {
-        private static GameObject prefab;
         private static string prefabPath;
         private static string[] splitCharacters = new string[2] { "/", "." };
 

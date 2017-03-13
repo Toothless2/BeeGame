@@ -19,7 +19,6 @@ var searchData=
   ['posion',['POSION',['../namespace_bee_game_1_1_enums.html#acf7ae32a86385a40fc0c7b55af95c6c3a70a4c0cd10fc77f4e760429b2633d739',1,'BeeGame::Enums']]],
   ['position',['position',['../class_bee_game_1_1_blocks_1_1_block.html#a4bdeec76cfc1291eab6cebcd569620e6',1,'BeeGame::Blocks::Block']]],
   ['pprodspeed',['pProdSpeed',['../struct_bee_game_1_1_bee_1_1_bee_data.html#a8fa39d271a23500ad826041b46d9feaf',1,'BeeGame::Bee::BeeData']]],
-  ['prefab',['prefab',['../class_bee_game_1_1_core_1_1_load_prefabs.html#ac87d57b130a1b2542a3327a56b429f68',1,'BeeGame::Core::LoadPrefabs']]],
   ['prefabdictionary',['PrefabDictionary',['../class_bee_game_1_1_core_1_1_prefab_dictionary.html',1,'BeeGame::Core']]],
   ['prefabdictionary_2ecs',['PrefabDictionary.cs',['../_prefab_dictionary_8cs.html',1,'']]],
   ['prefabload',['PrefabLoad',['../class_bee_game_1_1_core_1_1_load_prefabs.html#ae6045dba0f7f8bad5a1256ff46747614',1,'BeeGame::Core::LoadPrefabs']]],

@@ -13,6 +13,7 @@ var searchData=
   ['updateitemarray',['UpdateItemArray',['../class_bee_game_1_1_blocks_1_1_block_game_object_interface.html#acecdd76ab9fd7639409fe29ebd29d4fd',1,'BeeGame::Blocks::BlockGameObjectInterface']]],
   ['updateitemdata',['UpdateItemData',['../class_bee_game_1_1_items_1_1_item_game_object_interface.html#aa88fbff044f2dceb7633b1b41175d085',1,'BeeGame::Items::ItemGameObjectInterface']]],
   ['updateitemdisplaydata',['UpdateItemDisplayData',['../class_bee_game_1_1_inventory_1_1_inventory_base.html#abceadbaeed5505437ba8141da8642dc7',1,'BeeGame::Inventory::InventoryBase']]],
+  ['updateitemnameandidwithbeedata',['UpdateItemNameAndIDWithBeeData',['../struct_bee_game_1_1_items_1_1_item.html#a6ceebb94663dc0cb54e048ec37fab3fa',1,'BeeGame::Items::Item']]],
   ['updateplayerinventory',['UpdatePlayerInventory',['../class_bee_game_1_1_inventory_1_1_chest_inventory.html#a426c17adf8e95a36e24f9793f6c90b48',1,'BeeGame::Inventory::ChestInventory']]],
   ['updateproduceditems',['UpdateProducedItems',['../struct_bee_game_1_1_bee_1_1_bee_data.html#ae672215675ea4965bd36669043913581',1,'BeeGame::Bee::BeeData']]],
   ['updateselectedslot',['UpdateSelectedSlot',['../class_bee_game_1_1_inventory_1_1_inventory_slot.html#adc03a9101c901f82a3dfc778db98cf1f',1,'BeeGame::Inventory::InventorySlot']]],

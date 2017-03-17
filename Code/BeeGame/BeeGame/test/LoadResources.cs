@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using BeeGame.Core;
 using BeeGame.Serialization;
+using BeeGame.Quest;
 
 public class LoadResources : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class LoadResources : MonoBehaviour
         LoadSprites.SpriteLoad();
 
         Serialization.Load();
+
+        Quests.SetQuestEvents();
     }
 
     private void FixedUpdate()

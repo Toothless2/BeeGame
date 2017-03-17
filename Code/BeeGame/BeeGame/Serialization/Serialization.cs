@@ -7,21 +7,20 @@ using BeeGame.Core;
 using BeeGame.Inventory;
 using BeeGame.Items;
 using BeeGame.Blocks;
-using System.Collections;
+using BeeGame.Quest;
 
 namespace BeeGame.Serialization
 {
     public static class Serialization 
     {
         private static string basePath;
-        //private static object[] allData;
         private static object[] playerData = new object[2];
         private static object[] item;
         private static object[] blocks;
 
         static void Init()
         {
-            basePath = UnityEngine.Application.dataPath + "/Saves/";
+            basePath = Application.dataPath + "/Saves/";
             blocks = new object[1];
             item = new object[1];
         }
@@ -31,6 +30,7 @@ namespace BeeGame.Serialization
             SavePlayer();
             SaveItems();
             SaveBlocks();
+            SaveQuests();
         }
 
         public static void Load()
@@ -40,13 +40,8 @@ namespace BeeGame.Serialization
             RemakePlayer();
             LoadBlocks();
             RemakeItems();
+            LoadQuests();
         }
-
-        //void SaveAllItems()
-        //{
-        //    allData = new object[item.Length + blocks.Length + playerData.Length];
-        //    allData.spal
-        //}
 
         #region Items
         static void SaveItems()
@@ -91,7 +86,7 @@ namespace BeeGame.Serialization
         #endregion
 
         #region Blocks
-        public static void AddToSaveBlocks(GameObject block)
+        public static void AddToSaveBlocks(this GameObject block)
         {
             BlockGameObjectInterface blockItem = block.GetComponent<BlockGameObjectInterface>();
             
@@ -191,7 +186,22 @@ namespace BeeGame.Serialization
         }
         #endregion
 
+        #region Quests
+        static void SaveQuests()
+        {
+            SaveData(Quests.ReturnQuestDictionarys(), (basePath + "quests.dat"));
+        }
 
+        static void LoadQuests()
+        {
+            if(File.Exists(basePath + "quests.dat"))
+            {
+                Quests.ApplyDeserializedDictionarys(LoadData(basePath + "quests.dat"));
+            }
+        }
+        #endregion
+
+        #region Save/Load Data
         static object[] LoadData(string path)
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -232,6 +242,7 @@ namespace BeeGame.Serialization
                 fs.Close();
             }
         }
+        #endregion
     }
 
     //Misc Serialization

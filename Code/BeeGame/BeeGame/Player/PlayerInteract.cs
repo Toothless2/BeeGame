@@ -115,7 +115,7 @@ namespace BeeGame.Player
                     //subtracts from the inventory stack count
                     playerInventory.RemoveItemFromStack();
 
-                    Serialization.Serialization.AddToSaveBlocks(temp);
+                    temp.AddToSaveBlocks();
                 }
             }
         }

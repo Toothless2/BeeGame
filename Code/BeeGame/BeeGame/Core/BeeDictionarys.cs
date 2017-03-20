@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using System.Linq;
 using BeeGame.Enums;
 using BeeGame.Bee;
@@ -56,7 +57,7 @@ namespace BeeGame.Core
 
             for (int i = 0; i < keyss.Length; i++)
             {
-                if(comp.Equals(keyss[i], speciesArray))
+                if (comp.Equals(keyss[i], speciesArray))
                 {
                     return beeCombinations[keyss[i]];
                 }
@@ -75,7 +76,7 @@ namespace BeeGame.Core
 
         public static float GetMutationChance(BeeSpecies species)
         {
-            if(beeMutationChance.ContainsKey(species))
+            if (beeMutationChance.ContainsKey(species))
             {
                 return beeMutationChance[species];
             }
@@ -94,7 +95,7 @@ namespace BeeGame.Core
         {
             for (int i = 0; i < species.Length; i++)
             {
-                if(!beeMutationChance.ContainsKey(species[i]))
+                if (!beeMutationChance.ContainsKey(species[i]))
                 {
                     return null;
                 }
@@ -123,6 +124,28 @@ namespace BeeGame.Core
         public static Item[] GetItems(BeeSpecies species)
         {
             return items[species];
+        }
+        #endregion
+
+        #region BeeColourDictionary
+        static Color CombCol(int r, int g, int b)
+        {
+            return new Color(r / 255f, g / 255f, b / 255f);
+        }
+
+        private static Dictionary<HoneyCombType, Color> HoneyCombColour = new Dictionary<HoneyCombType, Color>()
+        {
+            {HoneyCombType.HONEY, CombCol(255, 164, 56)}
+        };
+
+        public static Color GetHoneyColour(HoneyCombType type)
+        {
+            if (HoneyCombColour.ContainsKey(type))
+            {
+                return HoneyCombColour[type];
+            }
+
+            return HoneyCombColour[HoneyCombType.HONEY];
         }
         #endregion
     }

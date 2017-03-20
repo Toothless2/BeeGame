@@ -50,7 +50,7 @@ namespace BeeGame.Inventory
             blockInterface = GetComponent<BlockGameObjectInterface>();
             slotandItem = blockInterface.ApplyItemArray();
 
-            if(slotandItem == null)
+            if(slotandItem == null || slotandItem.Length < 1)
             {
                 slotandItem = new Item[inventoryGUI.Length];
             }

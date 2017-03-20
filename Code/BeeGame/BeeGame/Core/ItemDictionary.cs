@@ -11,7 +11,8 @@ namespace BeeGame.Core
             {"0", AddItem("0", ItemType.ITEM, "Test Item", "Test \n Item", false, 3, "Bee", "Test_Item") },
             {"1", AddItem("1", ItemType.BEE, "Bee", "Bee", false, 1, "Bee", "Bee") },
             {"2", AddItem("2", ItemType.ITEM, "Chest", "Chest", true, 64, "Chest", "Chest") },
-            {"3", AddItem("3", ItemType.ITEM, "Apiary", "Apiary", true, 16, "Apiary", "Apiary") }
+            {"3", AddItem("3", ItemType.ITEM, "Apiary", "Apiary", true, 16, "Apiary", "Apiary") },
+            {"4", AddItem("4", ItemType.ITEM, "Honey Coumb", "Contains Honey", false, 64, "Comb", "HoneyComb") }
         };
 
         /// <summary>

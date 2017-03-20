@@ -8,6 +8,11 @@
         ITEM, BEE
     };
 
+    public enum HoneyCombType
+    {
+        HONEY
+    };
+
     #region BeeStuff
     /// <summary>
     /// The different possible bee Species

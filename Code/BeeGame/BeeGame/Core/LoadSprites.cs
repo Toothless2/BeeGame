@@ -36,7 +36,6 @@ namespace BeeGame.Core
             {
                 StreamReader objReader;
                 objReader = new StreamReader(path);
-
                 do
                 {
                     lineText = objReader.ReadLine();

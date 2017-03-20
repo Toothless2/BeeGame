@@ -106,7 +106,7 @@ namespace BeeGame.Inventory
 
                     for (int h = 0; h < inventoryGUI.Length; h++)
                     {
-                        if (inventoryGUI[h].item.itemId == "")
+                        if (inventoryGUI[h].item.itemId == "" || inventoryGUI[h].item.itemId == null)
                         {
                             inventoryGUI[h].item = item;
                             Destroy(cols[i].collider.gameObject);
@@ -153,7 +153,7 @@ namespace BeeGame.Inventory
         /// <returns>Gameobject of the currently selected item</returns>
         public GameObject BlockToPlace()
         {
-            return inventoryGUI[currentHeldItemIndex].item.itemGameobject;
+            return PrefabDictionary.GetGameObjectItemFromDictionary(inventoryGUI[currentHeldItemIndex].item.objectName);
         }
         /// <summary>
         /// Removes an item from the stack count
@@ -245,7 +245,7 @@ namespace BeeGame.Inventory
                 heldObject.tag = "Player";
                 heldObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
-                for (int i = heldObject.GetComponents<Component>().Length - 1; i >= 4; i--)
+                for (int i = heldObject.GetComponents<Component>().Length - 1; i >= 3; i--)
                 {
                     Destroy(heldObject.GetComponents<Component>()[i]);
                 }

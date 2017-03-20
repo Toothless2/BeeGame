@@ -22,6 +22,7 @@ namespace BeeGame.Blocks
         /// </summary>
         public Item[] inventoryItems;
 
+        #region Hashcode
         /// <summary>
         /// Makes c# happy
         /// </summary>
@@ -30,6 +31,9 @@ namespace BeeGame.Blocks
         {
             return base.GetHashCode();
         }
+        #endregion
+
+        #region Operators
         /// <summary>
         /// Makes c# happy
         /// </summary>
@@ -61,5 +65,6 @@ namespace BeeGame.Blocks
         {
             return (a == b);
         }
+        #endregion
     }
 }

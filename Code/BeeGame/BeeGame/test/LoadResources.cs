@@ -5,7 +5,7 @@ using BeeGame.Quest;
 
 public class LoadResources : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         LoadPrefabs.PrefabLoad();
         LoadSprites.SpriteLoad();

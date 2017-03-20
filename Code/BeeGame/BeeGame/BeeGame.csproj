@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bee\HoneyComb.cs" />
     <Compile Include="Blocks\Block.cs" />
     <Compile Include="Blocks\BlockGameObjectInterface.cs" />
     <Compile Include="Inventory\ChestInventory.cs" />
@@ -74,8 +75,8 @@
     <Compile Include="Player\Movement\MovePlayer.cs" />
     <Compile Include="Player\PlayerInteract.cs" />
     <Compile Include="Player\Movement\PlayerLook.cs" />
-    <Compile Include="Quest\QuestManager.cs" />
-    <Compile Include="Quest\Quests.cs" />
+    <Compile Include="Serialization\Quest\QuestManager.cs" />
+    <Compile Include="Serialization\Quest\Quests.cs" />
     <Compile Include="Serialization\Serialization.cs" />
     <Compile Include="test\LoadResources.cs" />
     <Compile Include="Core\LoadSprites.cs" />

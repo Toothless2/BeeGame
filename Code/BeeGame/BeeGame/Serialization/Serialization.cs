@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Linq;
 using UnityEngine;
 using BeeGame.Core;
 using BeeGame.Inventory;
@@ -69,16 +70,18 @@ namespace BeeGame.Serialization
                 {
                     if(item[i] != null)
                     {
-                        Item tempItem = (Item)item[i];
-                        tempItem.UpdateSpriteAndObject();
-                        GameObject temp = UnityEngine.Object.Instantiate(tempItem.itemGameobject);
-                        temp.GetComponent<ItemGameObjectInterface>().UpdateItemData(tempItem);
-                        temp.transform.position = temp.GetComponent<ItemGameObjectInterface>().item.pos.ToUnityVector3();
+                        //Item tempItem = (Item)item[i];
+                        //tempItem.UpdateSpriteAndObject();
+                        //GameObject temp = UnityEngine.Object.Instantiate(tempItem.itemGameobject);
+                        //temp.GetComponent<ItemGameObjectInterface>().UpdateItemData(tempItem);
+                        //temp.transform.position = temp.GetComponent<ItemGameObjectInterface>().item.pos.ToUnityVector3();
 
-                        for (int h = temp.GetComponents<Component>().Length - 1; h >= 5; h--)
-                        {
-                            UnityEngine.Object.Destroy(temp.GetComponents<Component>()[h]);
-                        }
+                        //for (int h = temp.GetComponents<Component>().Length - 1; h >= 5; h--)
+                        //{
+                        //    UnityEngine.Object.Destroy(temp.GetComponents<Component>()[h]);
+                        //}
+
+                        SpawnItem.Spawn((Item)item[i]);
                     }
                 }
             }
@@ -99,28 +102,35 @@ namespace BeeGame.Serialization
 
         public static void RemoveFromSaveBlocks(GameObject _block)
         {
-            int minus = 0;
-            Block block = _block.GetComponent<BlockGameObjectInterface>().ReturnBlockData();
-
-            object[] temp = new object[blocks.Length - 1];
-
-            for(int i = 1; i < blocks.Length; i++)
+            if (blocks.Contains(_block.GetComponent<BlockGameObjectInterface>().ReturnBlockData()))
             {
-                if((Block)blocks[i] == block)
+                int minus = 0;
+                Block block = _block.GetComponent<BlockGameObjectInterface>().ReturnBlockData();
+
+                object[] temp = new object[blocks.Length - 1];
+
+                for (int i = 1; i < blocks.Length; i++)
                 {
-                    minus += 1;
-                    continue;
+                    if ((Block)blocks[i] == block)
+                    {
+                        minus += 1;
+                        continue;
+                    }
+
+                    temp[i - minus] = blocks[i];
                 }
 
-                temp[i - minus] = blocks[i];
+                blocks = new object[temp.Length];
+                blocks = temp;
             }
-
-            blocks = new object[temp.Length];
-            blocks = temp;
         }
 
         static void SaveBlocks()
         {
+            if(blocks.Length < 1)
+            {
+                blocks = new object[1];
+            }
             blocks[0] = null;
             SaveData(blocks, basePath + "blocks.dat");
         }

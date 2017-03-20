@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BeeGame.Items;
+using BeeGame.Inventory;
 
 namespace BeeGame.Blocks
 {
@@ -65,6 +66,38 @@ namespace BeeGame.Blocks
         {
             block.item.UpdateSpriteAndObject();
             return block.item.itemGameobject;
+        }
+
+        /// <summary>
+        /// Removes this script and adds the <see cref="ItemGameObjectInterface"/> onto the game object
+        /// </summary>
+        public void DestroyBlock()
+        {
+            Serialization.Serialization.RemoveFromSaveBlocks(gameObject);
+            EmptyBlockInventory(gameObject);
+
+            for (int i = this.GetComponents<Component>().Length - 1; i >= 3; i--)
+            {
+                Destroy(GetComponents<Component>()[i]);
+            }
+
+            gameObject.AddComponent<ItemGameObjectInterface>().UpdateItemData(ReturnItemData());
+            gameObject.tag = "Item";
+            gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+            gameObject.layer = LayerMask.NameToLayer("NoCollisions");
+            Destroy(this);
+        }
+
+        /// <summary>
+        /// Emptys the blocks inventory
+        /// </summary>
+        /// <param name="_gameObject">GameoObject to destroy</param>
+        void EmptyBlockInventory(GameObject _gameObject)
+        {
+            if (_gameObject.GetComponent<ChestInventory>())
+            {
+                _gameObject.GetComponent<ChestInventory>().ChestBroken();
+            }
         }
         #endregion
 

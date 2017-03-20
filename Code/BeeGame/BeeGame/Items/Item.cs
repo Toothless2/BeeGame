@@ -78,6 +78,7 @@ namespace BeeGame.Items
         /// The Items Bee Data (null by default)
         /// </summary>
         public BeeData? beeItem;
+        public HoneyComb? honeyComb;
         #endregion
 
         #region Common Methods

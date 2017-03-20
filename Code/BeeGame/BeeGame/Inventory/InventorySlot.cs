@@ -165,7 +165,13 @@ namespace BeeGame.Inventory
             }
             else
             {
-                GetComponent<Image>().color = Color.white;
+                if(item.honeyComb == null)
+                {
+                    GetComponent<Image>().color = Color.white;
+                    return;
+                }
+                
+                GetComponent<Image>().color = (Color)item.honeyComb?.colour;
             }
         }
 

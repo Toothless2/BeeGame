@@ -107,9 +107,7 @@ namespace BeeGame.Player
                     GameObject temp = Instantiate(playerInventory.BlockToPlace(), hitAlligned + hit.normal, Quaternion.identity);
                     //sets the tag
                     temp.tag = "Block";
-
-                    Destroy(temp.GetComponent<ItemGameObjectInterface>());
-                    temp.AddComponent<BlockGameObjectInterface>();
+                    
                     temp.GetComponent<BlockGameObjectInterface>().UpdateBlockData(playerInventory.ItemData(), ExtenstionMethods.ToTHVecotr3(temp.transform.position));
 
                     //subtracts from the inventory stack count
@@ -139,33 +137,8 @@ namespace BeeGame.Player
             {
                 if (hit.transform.tag == "Block")
                 {
-                    Serialization.Serialization.RemoveFromSaveBlocks(hit.transform.gameObject);
-                    GameObject objectToRemove = hit.collider.gameObject;
-
-                    EmptyBlockInventory(objectToRemove);
-
-                    for (int i = objectToRemove.GetComponents<Component>().Length - 1; i >= 4; i--)
-                    {
-                        Destroy(objectToRemove.GetComponents<Component>()[i]);
-                    }
-
-                    objectToRemove.AddComponent<ItemGameObjectInterface>();
-                    objectToRemove.GetComponent<ItemGameObjectInterface>().UpdateItemData(objectToRemove.GetComponent<BlockGameObjectInterface>().ReturnItemData());
-
-                    objectToRemove.tag = "Item";
+                    hit.transform.GetComponent<BlockGameObjectInterface>().DestroyBlock();
                 }
-            }
-        }
-
-        /// <summary>
-        /// Emptys the blocks inventory
-        /// </summary>
-        /// <param name="_gameObject">GameoObject to destroy</param>
-        void EmptyBlockInventory(GameObject _gameObject)
-        {
-            if(_gameObject.GetComponent<ChestInventory>())
-            {
-                _gameObject.GetComponent<ChestInventory>().ChestBroken();
             }
         }
 

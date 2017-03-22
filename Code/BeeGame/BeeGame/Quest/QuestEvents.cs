@@ -6,7 +6,7 @@ using BeeGame.Enums;
 
 namespace BeeGame.Quest
 {
-    public static class QuestManager
+    public static class QuestEvents
     {
         public delegate void CheckQuestComplete(string sender, EventArgs e);
         

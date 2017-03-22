@@ -76,7 +76,7 @@
     <Compile Include="Player\PlayerInteract.cs" />
     <Compile Include="Player\Movement\PlayerLook.cs" />
     <Compile Include="Quest\MoveQuestUI.cs" />
-    <Compile Include="Quest\QuestManager.cs" />
+    <Compile Include="Quest\QuestEvents.cs" />
     <Compile Include="Quest\Quests.cs" />
     <Compile Include="Serialization\Serialization.cs" />
     <Compile Include="test\LoadResources.cs" />

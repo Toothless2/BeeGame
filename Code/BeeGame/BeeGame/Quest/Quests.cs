@@ -62,7 +62,7 @@ namespace BeeGame.Quest
         #region Initialization
         public static void SetQuestEvents()
         {
-            QuestManager.beeSpeciesMade += BeeSpeciesMade;
+            QuestEvents.beeSpeciesMade += BeeSpeciesMade;
         }
         #endregion
 

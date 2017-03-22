@@ -64,7 +64,7 @@
     <Compile Include="Bee\BeeData.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Core\ExtenstionMethods.cs" />
-    <Compile Include="Core\InputManager.cs" />
+    <Compile Include="Core\THInput.cs" />
     <Compile Include="Core\ItemDictionary.cs" />
     <Compile Include="Core\LoadPrefabs.cs" />
     <Compile Include="Inventory\InventoryBase.cs" />

@@ -18,22 +18,22 @@ namespace BeeGame.Player.Movement
 
         void Move()
         {
-            if(InputManager.GetButton("Forward"))
+            if(THInput.GetButton("Forward"))
             {
                 myConroller.SimpleMove(transform.forward * speed * Time.deltaTime * Time.timeScale);
             }
 
-            if(InputManager.GetButton("Backward"))
+            if(THInput.GetButton("Backward"))
             {
                 myConroller.SimpleMove(transform.forward * -speed * Time.deltaTime * Time.timeScale);
             }
 
-            if(InputManager.GetButton("Right"))
+            if(THInput.GetButton("Right"))
             {
                 myConroller.SimpleMove(transform.right * speed * Time.deltaTime * Time.timeScale);
             }
 
-            if (InputManager.GetButton("Left"))
+            if (THInput.GetButton("Left"))
             {
                 myConroller.SimpleMove(transform.right * -speed * Time.deltaTime * Time.timeScale);
             }

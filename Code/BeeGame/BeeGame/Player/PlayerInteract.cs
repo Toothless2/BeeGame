@@ -47,12 +47,12 @@ namespace BeeGame.Player
 
             if(Time.timeScale > 0)
             {
-                if (InputManager.GetButtonDown("Break Block"))
+                if (THInput.GetButtonDown("Break Block"))
                 {
                     BreakBlock();
                 }
 
-                if (InputManager.GetButtonDown("Place/Interact"))
+                if (THInput.GetButtonDown("Place/Interact"))
                 {
                     if (!Interact())
                     {

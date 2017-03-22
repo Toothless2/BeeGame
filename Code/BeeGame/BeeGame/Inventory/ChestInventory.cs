@@ -74,7 +74,7 @@ namespace BeeGame.Inventory
                 UpdateBase();
             }
 
-            if (InputManager.GetButtonDown("Inventory"))
+            if (THInput.GetButtonDown("Inventory"))
             {
                 if (inventoryOpen)
                 {

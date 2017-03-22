@@ -72,7 +72,7 @@ namespace BeeGame.Inventory
         {
             if (heldObjectInventory.activeInHierarchy)
             {
-                if (InputManager.GetButtonDown("Inventory"))
+                if (THInput.GetButtonDown("Inventory"))
                 {
                     inventory.SetActive(!inventory.activeInHierarchy);
                     Cursor.visible = !Cursor.visible;

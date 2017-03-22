@@ -8,7 +8,7 @@ namespace BeeGame.Core
     /// <summary>
     /// My implementation of the unity input system. Acts as a buffer layer to the unity system so that the input keys can be changed at runtime
     /// </summary>
-    public static class InputManager
+    public static class THInput
     {
         /// <summary>
         /// Button identifiers and <see cref="KeyCode"/>

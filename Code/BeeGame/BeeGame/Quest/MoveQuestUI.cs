@@ -14,12 +14,12 @@ namespace BeeGame.Quest
 
         void Update()
         {
-            if(InputManager.GetButtonDown("Break Block"))
+            if(THInput.GetButtonDown("Break Block"))
             {
                 mousePoz = Input.mousePosition.ToTHVecotr3();
             }
 
-            if (InputManager.GetButton("Break Block"))
+            if (THInput.GetButton("Break Block"))
             {
                 if(Input.mousePosition.ToTHVecotr3() != mousePoz)
                 {

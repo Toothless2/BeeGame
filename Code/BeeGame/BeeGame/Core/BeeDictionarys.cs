@@ -135,7 +135,8 @@ namespace BeeGame.Core
 
         private static Dictionary<HoneyCombType, Color> HoneyCombColour = new Dictionary<HoneyCombType, Color>()
         {
-            {HoneyCombType.HONEY, CombCol(255, 164, 56)}
+            {HoneyCombType.HONEY, CombCol(255, 164, 56)},
+            {HoneyCombType.ICEY, CombCol(78, 231, 231) }
         };
 
         public static Color GetHoneyColour(HoneyCombType type)

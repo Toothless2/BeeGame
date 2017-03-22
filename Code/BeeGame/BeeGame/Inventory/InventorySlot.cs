@@ -7,13 +7,22 @@ using BeeGame.Enums;
 namespace BeeGame.Inventory
 {
     [System.Serializable]
+    /// <summary>
+    /// Holds the item data when it is displayed in an invertory to the user \n
+    /// </summary>
+    /// <remarks>
+    /// This is only updated when it is being viewed. \n
+    /// This is now serialized as the item data for the whole inventory is stored an one in the <see cref="InventoryBase.slotandItem"/> this makes serialization simpler as serializing each slot would be far to much work. \n
+    /// The slot gets its data from the <see cref="InventoryBase.slotandItem"/> during deserialization. \n
+    /// During runtime the slot's <see cref="item"/> is stored in the <see cref="InventoryBase.slotandItem"/> via an undate method (<see cref="InventoryBase.UpdateSlotAndItem()"/>) \n
+    /// </remarks>
     public class InventorySlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
+        #region Data
         /// <summary>
         /// Can an Item be place into the inventory slot by the player? Default = true
         /// </summary>
         public bool canPlaceObjectInSlot = true;
-
         /// <summary>
         /// The inventory that is slot is attached to <see cref="InventoryBase"/>
         /// </summary>
@@ -30,12 +39,16 @@ namespace BeeGame.Inventory
         /// The item in the slot
         /// </summary>
         public Item item;
-
         /// <summary>
         /// Is this slot currently selected in the hotbar (Default = False)
         /// </summary>
         private bool isSelected;
+        #endregion
 
+        #region Unity Methods
+        /// <summary>
+        /// When the slot is first seen the text that displayes the item stack count is set to green
+        /// </summary>
         void Start()
         {
             number.color = Color.green;
@@ -53,7 +66,9 @@ namespace BeeGame.Inventory
             UpdateGraphic();
             UpdateStackNumber();
         }
+        #endregion
 
+        #region Update Slot
         /// <summary>
         /// Updates the stack number on the GUI
         /// </summary>
@@ -75,6 +90,51 @@ namespace BeeGame.Inventory
                 number.text = " ";
             }
         }
+
+
+        /// <summary>
+        /// Updates the graphic on the slot GUI
+        /// </summary>
+        public void UpdateGraphic()
+        {
+            if (item.itemId == null)
+            {
+                GetComponent<Image>().sprite = null;
+                GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                item.UpdateSpriteAndObject();
+                GetComponent<Image>().sprite = item.itemSpriteObject;
+            }
+
+            UpdateSelectedSlot(isSelected);
+        }
+
+        /// <summary>
+        /// Only used for the hotbar item slots
+        /// </summary>
+        /// <param name="selected">Is his the slot the player currently has selected in the hotbar?</param>
+        public void UpdateSelectedSlot(bool selected)
+        {
+            isSelected = selected;
+
+            if (selected)
+            {
+                GetComponent<Image>().color = Color.gray;
+            }
+            else
+            {
+                if(item.honeyComb == null)
+                {
+                    GetComponent<Image>().color = Color.white;
+                    return;
+                }
+                
+                GetComponent<Image>().color = (Color)item.honeyComb?.colour;
+            }
+        }
+        #endregion
 
         #region ItemDataDisplay
         /// <summary>
@@ -132,53 +192,19 @@ namespace BeeGame.Inventory
         }
         #endregion
 
-        /// <summary>
-        /// Updates the graphic on the slot GUI
-        /// </summary>
-        public void UpdateGraphic()
-        {
-            if (item.itemId == null)
-            {
-                GetComponent<Image>().sprite = null;
-                GetComponent<Image>().color = Color.white;
-            }
-            else
-            {
-                item.UpdateSpriteAndObject();
-                GetComponent<Image>().sprite = item.itemSpriteObject;
-            }
-
-            UpdateSelectedSlot(isSelected);
-        }
-
-        /// <summary>
-        /// Only used for the hotbar item slots
-        /// </summary>
-        /// <param name="selected">Is his the slot the player currently has selected in the hotbar?</param>
-        public void UpdateSelectedSlot(bool selected)
-        {
-            isSelected = selected;
-
-            if (selected)
-            {
-                GetComponent<Image>().color = Color.gray;
-            }
-            else
-            {
-                if(item.honeyComb == null)
-                {
-                    GetComponent<Image>().color = Color.white;
-                    return;
-                }
-                
-                GetComponent<Image>().color = (Color)item.honeyComb?.colour;
-            }
-        }
-
+        #region User Interaction
+        //\todo REFACTOR ME YOU IDIOT!!!!!!
+        // Could split each of the things into seperate methods. This would reduce size of statement and reduce code repetition
         /// <summary>
         /// When the slot is clicked this is called. Controlls how an item is moved around the inventory
         /// </summary>
         /// <param name="eventData">Right, Left, or Middle click</param>
+        /// <remarks>
+        /// This needs refactoring to cretin.
+        /// I know I just cant be bothered to do it.
+        /// Just do it.
+        /// But I dont wanna.
+        /// </remarks>
         public void OnPointerClick(PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left)
@@ -314,5 +340,6 @@ namespace BeeGame.Inventory
                 UpdateStackNumber();
             }
         }
+        #endregion
     }
 }

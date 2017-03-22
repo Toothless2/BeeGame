@@ -15,7 +15,7 @@ public class SpawnItem : MonoBehaviour
     void Start()
     {
         Item item = new Item("4");
-        item.honeyComb = new HoneyComb(HoneyCombType.HONEY);
+        item.honeyComb = new HoneyComb(HoneyCombType.ICEY);
 
         Spawn(item);
     }

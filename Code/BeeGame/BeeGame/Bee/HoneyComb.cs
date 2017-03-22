@@ -26,5 +26,10 @@ namespace BeeGame.Bee
         {
             type = _type;
         }
+
+        public override int GetHashCode()
+        {
+            return (int)type;
+        }
     }
 }

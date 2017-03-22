@@ -10,7 +10,7 @@
 
     public enum HoneyCombType
     {
-        HONEY
+        HONEY, ICEY
     };
 
     #region BeeStuff

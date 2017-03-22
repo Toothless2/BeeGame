@@ -58,6 +58,10 @@ namespace BeeGame
         {
             return new THVector3(a.x + b.x, a.y + b.y, a.z + b.z);
         }
+        public static THVector3 operator +(THVector3 a, float b)
+        {
+            return new THVector3(a.x + b, a.y + b, a.z + b);
+        }
         public static THVector3 operator -(THVector3 a, THVector3 b)
         {
             return new THVector3(a.x - b.x, a.y - b.y, a.z - b.z);

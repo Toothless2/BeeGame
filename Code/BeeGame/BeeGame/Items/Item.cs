@@ -12,6 +12,7 @@ namespace BeeGame.Items
     [Serializable]
     public struct Item
     {
+        #region Data
         /// <summary>
         /// The items current positon (only used if not in an inventory
         /// </summary>
@@ -79,6 +80,7 @@ namespace BeeGame.Items
         /// </summary>
         public BeeData? beeItem;
         public HoneyComb? honeyComb;
+        #endregion
         #endregion
 
         #region Common Methods
@@ -245,10 +247,12 @@ namespace BeeGame.Items
                 hashcode += itemNameValue;
                 //adds on the bee data of it has a value
                 hashcode += beeItem.HasValue ? beeItem.GetHashCode() : 1;
+                //add the hashcode of the honey coumb if it has a value
+                hashcode += honeyComb.HasValue ? honeyComb.GetHashCode() : 1;
                 return hashcode;
             }
         }
-        
+
         /// <summary>
         /// Overriding equals operator
         /// </summary>
@@ -261,6 +265,7 @@ namespace BeeGame.Items
             if ((object)a != null && (object)b == null) return false;
             return a.GetHashCode() == b.GetHashCode();
         }
+
         /// <summary>
         /// Overiding the not equals operator
         /// </summary>

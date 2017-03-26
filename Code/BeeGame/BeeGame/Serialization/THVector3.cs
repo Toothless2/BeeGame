@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BeeGame.Core;
 
 namespace BeeGame
 {
@@ -81,6 +82,14 @@ namespace BeeGame
         public static THVector3 operator /(THVector3 a, float b)
         {
             return new THVector3(a.x / b, a.y / b, a.z / b);
+        }
+        public static implicit operator THVector3(Vector3 vec3)
+        {
+            return new THVector3(vec3);
+        }
+        public static implicit operator Vector3(THVector3 vec3)
+        {
+            return vec3.ToUnityVector3();
         }
         #endregion
     }

@@ -108,7 +108,7 @@ namespace BeeGame.Player
                     //sets the tag
                     temp.tag = "Block";
                     
-                    temp.GetComponent<BlockGameObjectInterface>().UpdateBlockData(playerInventory.ItemData(), ExtenstionMethods.ToTHVecotr3(temp.transform.position));
+                    temp.GetComponent<BlockGameObjectInterface>().UpdateBlockData(playerInventory.ItemData(), temp.transform.position);
 
                     //subtracts from the inventory stack count
                     playerInventory.RemoveItemFromStack();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BeeGame.Core;
+using BeeGame.Quest;
 
 namespace BeeGame.Items
 {
@@ -22,7 +23,7 @@ namespace BeeGame.Items
         {
             if(item.pos.x != 0)
             {
-                transform.position = item.pos.ToUnityVector3();
+                transform.position = item.pos;
             }
         }
 
@@ -33,7 +34,7 @@ namespace BeeGame.Items
         {
             if(transform.parent == null)
             {
-                item.pos = new THVector3(transform.position);
+                item.pos = transform.position;
             }
         }
 

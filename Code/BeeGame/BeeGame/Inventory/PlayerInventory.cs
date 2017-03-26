@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System.Linq;
 using BeeGame.Core;
 using BeeGame.Items;
+using BeeGame.Blocks;
 
 namespace BeeGame.Inventory
 {
@@ -245,9 +247,18 @@ namespace BeeGame.Inventory
                 heldObject.tag = "Player";
                 heldObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
-                for (int i = heldObject.GetComponents<Component>().Length - 1; i >= 3; i--)
+                for (int i = heldObject.GetComponents<Component>().Length - 1; i >= 0; i--)
                 {
-                    Destroy(heldObject.GetComponents<Component>()[i]);
+                    switch (heldObject.GetComponents<Component>()[i])
+                    {
+                        case ItemGameObjectInterface t:
+                            return;
+                        case BlockGameObjectInterface t:
+                            return;
+                        default:
+                            Destroy(heldObject.GetComponents<Component>()[i]);
+                            break;
+                    }
                 }
             }
         }

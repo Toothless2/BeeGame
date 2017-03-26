@@ -130,7 +130,7 @@ namespace BeeGame.Inventory
                     GetComponent<Image>().color = Color.white;
                     return;
                 }
-                
+
                 GetComponent<Image>().color = (Color)item.honeyComb?.colour;
             }
         }

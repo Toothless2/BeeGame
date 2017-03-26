@@ -11,8 +11,7 @@ public class SpawnItem : MonoBehaviour
 
     void Start()
     {
-        Item item = new Item("4");
-        item.honeyComb = new HoneyComb(HoneyCombType.ICEY);
+        Item item = new Item("3");
 
         Spawn(item);
     }
@@ -32,6 +31,6 @@ public class SpawnItem : MonoBehaviour
             go.GetComponent<ItemGameObjectInterface>().UpdateItemData(item);
         }
 
-        go.transform.position = go.GetComponent<ItemGameObjectInterface>().item.pos.ToUnityVector3();
+        go.transform.position = go.GetComponent<ItemGameObjectInterface>().item.pos;
     }
 }

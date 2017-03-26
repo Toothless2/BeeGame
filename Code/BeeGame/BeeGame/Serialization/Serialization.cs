@@ -147,7 +147,7 @@ namespace BeeGame.Serialization
                     {
                         Block tempBlock = (Block)blocks[i];
                         tempBlock.item.UpdateSpriteAndObject();
-                        GameObject temp = UnityEngine.Object.Instantiate(tempBlock.item.itemGameobject, ExtenstionMethods.ToUnityVector3(tempBlock.position), Quaternion.identity);
+                        GameObject temp = UnityEngine.Object.Instantiate(tempBlock.item.itemGameobject, tempBlock.position, Quaternion.identity);
                         temp.tag = "Block";
                         UnityEngine.Object.Destroy(temp.GetComponent<ItemGameObjectInterface>());
                         temp.AddComponent<BlockGameObjectInterface>();

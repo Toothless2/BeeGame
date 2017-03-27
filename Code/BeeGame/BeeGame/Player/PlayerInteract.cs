@@ -52,12 +52,17 @@ namespace BeeGame.Player
                     BreakBlock();
                 }
 
-                if (THInput.GetButtonDown("Place/Interact"))
+                if (THInput.GetButtonDown("Interact"))
                 {
-                    if (!Interact())
+                    if (Interact())
                     {
-                        Placeblock();
+                        return;
                     }
+                }
+
+                if (THInput.GetButtonDown("Place"))
+                {
+                        Placeblock();
                 }
             }
         }
@@ -82,14 +87,12 @@ namespace BeeGame.Player
                 if(hit.collider.tag == "Block")
                 {
                     // <TODO> Add other interaction scripts here when neccicary
-                    if(hit.collider.GetComponent<ChestInventory>())
+                    if(hit.collider.GetComponent<ChestInventory>() && !THInput.isAnotherInventoryOpen)
                     {
                         hit.collider.GetComponent<ChestInventory>().OpenChest(playerInventory);
                         return true;
                     }
-                    return false;
                 }
-                return false;
             }
             return false;
         }

@@ -20,18 +20,34 @@ namespace BeeGame.Quest
             if(uIOpen)
                 MoveUI();
 
-            if (THInput.GetButtonDown("Place/Interact"))
+            if (THInput.GetButtonDown("Quest Book"))
             {
-                uIOpen = !uIOpen;
                 ShowHideUI();
             }
         }
 
         void ShowHideUI()
         {
-            questUI.SetActive(!questUI.activeInHierarchy);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = !Cursor.visible;
+            if (!THInput.isAnotherInventoryOpen)
+            {
+                THInput.isAnotherInventoryOpen = true;
+
+                uIOpen = true;
+                questUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0;
+            }
+            else if(questUI.activeInHierarchy)
+            {
+                uIOpen = false;
+                questUI.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Time.timeScale = 1;
+
+                THInput.isAnotherInventoryOpen = false;
+            }
         }
 
         void MoveUI()

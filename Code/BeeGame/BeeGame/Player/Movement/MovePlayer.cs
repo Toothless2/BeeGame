@@ -13,7 +13,8 @@ namespace BeeGame.Player.Movement
         
         void Update()
         {
-            Move();
+            if (Time.timeScale > 0)
+                Move();
         }
 
         void Move()

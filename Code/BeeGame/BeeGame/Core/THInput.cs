@@ -13,16 +13,24 @@ namespace BeeGame.Core
         /// <summary>
         /// Button identifiers and <see cref="KeyCode"/>
         /// </summary>
-        static Dictionary<string, KeyCode> inputButtons = new Dictionary<string, KeyCode>()
+        private static Dictionary<string, KeyCode> inputButtons = new Dictionary<string, KeyCode>()
         {
             {"Forward" , KeyCode.W},
             {"Backward", KeyCode.S },
             {"Right", KeyCode.D },
             {"Left", KeyCode.A },
-            {"Inventory", KeyCode.E },
-            {"Place/Interact", KeyCode.Mouse1 },
-            {"Break Block", KeyCode.Mouse0 }
+            {"Player Inventory", KeyCode.E },
+            {"Quest Book", KeyCode.Mouse1 },
+            {"Interact", KeyCode.Mouse1 },
+            {"Place", KeyCode.Mouse1 },
+            {"Break Block", KeyCode.Mouse0 },
+            {"Close Menu/Inventory", KeyCode.Escape }
         };
+
+        /// <summary>
+        /// If another inventory is open true, else false
+        /// </summary>
+        public static bool isAnotherInventoryOpen;
 
         /// <summary>
         /// Has the given button been pressed this update
@@ -38,6 +46,7 @@ namespace BeeGame.Core
 
             return Input.GetKeyDown(inputButtons[button]);
         }
+
         /// <summary>
         /// Is the given button currently being held down
         /// </summary>

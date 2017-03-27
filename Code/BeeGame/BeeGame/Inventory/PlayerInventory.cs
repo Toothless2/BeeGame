@@ -74,21 +74,27 @@ namespace BeeGame.Inventory
         {
             if (heldObjectInventory.activeInHierarchy)
             {
-                if (THInput.GetButtonDown("Inventory"))
+                if (THInput.GetButtonDown("Player Inventory"))
                 {
-                    inventory.SetActive(!inventory.activeInHierarchy);
-                    Cursor.visible = !Cursor.visible;
-                }
-
-                if (Cursor.visible)
-                {
-                    Time.timeScale = 0;
-                    Cursor.lockState = CursorLockMode.None;
-                }
-                else
-                {
-                    Time.timeScale = 1;
-                    Cursor.lockState = CursorLockMode.Locked;
+                    if (THInput.isAnotherInventoryOpen)
+                    {
+                        if (inventory.activeInHierarchy)
+                        {
+                            inventory.SetActive(false);
+                            Cursor.visible = false;
+                            Cursor.lockState = CursorLockMode.Locked;
+                            Time.timeScale = 1;
+                            THInput.isAnotherInventoryOpen = false;
+                        }
+                    }
+                    else
+                    {
+                        inventory.SetActive(true);
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.None;
+                        Time.timeScale = 0;
+                        THInput.isAnotherInventoryOpen = true;
+                    }
                 }
             }
         }

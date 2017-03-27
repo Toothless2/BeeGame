@@ -30,7 +30,9 @@ namespace BeeGame.Inventory
         /// <summary>
         /// Is the inventory Open
         /// </summary>
-        bool inventoryOpen;
+        private bool inventoryOpen;
+
+        private bool justOpened;
 
         /// <summary>
         /// When the chest is made the number of slots is calculated and the inventory is set to be inactive
@@ -74,14 +76,18 @@ namespace BeeGame.Inventory
                 UpdateBase();
             }
 
-            if (THInput.GetButtonDown("Inventory"))
+            if (THInput.GetButtonDown("Interact") || THInput.GetButtonDown("Close Menu/Inventory"))
             {
-                if (inventoryOpen)
+                if (!justOpened)
                 {
-                    CloseChest();
+                    if (inventoryOpen)
+                    {
+                        CloseChest();
+                    }
                 }
             }
 
+            justOpened = false;
             SaveChestItems();
         }
         
@@ -114,6 +120,8 @@ namespace BeeGame.Inventory
             Cursor.lockState = CursorLockMode.Locked;
 
             inventoryOpen = false;
+
+            THInput.isAnotherInventoryOpen = false;
         }
 
         /// <summary>
@@ -123,6 +131,7 @@ namespace BeeGame.Inventory
         /// <param name="_playerInventory"><see cref="PlayerInventory"/></param>
         public void OpenChest(PlayerInventory _playerInventory)
         {
+            THInput.isAnotherInventoryOpen = true;
             _playerInventory.heldObjectInventory.SetActive(false);
             PutPlayerItemsInChest(_playerInventory);
 
@@ -133,6 +142,7 @@ namespace BeeGame.Inventory
             inventory.SetActive(true);
 
             inventoryOpen = true;
+            justOpened = true;
         }
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace BeeGame.Core
         /// <summary>
         /// Button identifiers and <see cref="KeyCode"/>
         /// </summary>
-        private static Dictionary<string, KeyCode> inputButtons = new Dictionary<string, KeyCode>()
+        private static Dictionary<string, object> inputButtons = new Dictionary<string, object>()
         {
             {"Forward" , KeyCode.W},
             {"Backward", KeyCode.S },
@@ -24,7 +24,7 @@ namespace BeeGame.Core
             {"Interact", KeyCode.Mouse1 },
             {"Place", KeyCode.Mouse1 },
             {"Break Block", KeyCode.Mouse0 },
-            {"Close Menu/Inventory", KeyCode.Escape }
+            {"Close Menu/Inventory", new KeyCode[2] { KeyCode.Escape, KeyCode.E } }
         };
 
         /// <summary>
@@ -44,7 +44,22 @@ namespace BeeGame.Core
                 throw new Exception("Input Manager: Key button name not defined: " + button);
             }
 
-            return Input.GetKeyDown(inputButtons[button]);
+            switch (inputButtons[button])
+            {
+                case KeyCode[] arry:
+                    //for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    foreach (var item in arry)
+                    {
+                        if(Input.GetKeyDown(item))
+                        {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                default:
+                    return Input.GetKeyDown((KeyCode)inputButtons[button]);
+            }
         }
 
         /// <summary>
@@ -59,7 +74,22 @@ namespace BeeGame.Core
                 throw new Exception("Input Manager: Key button name not defined: " + button);
             }
 
-            return Input.GetKey(inputButtons[button]);
+            switch (inputButtons[button])
+            {
+                case KeyCode[] arry:
+                    //for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    foreach (var item in arry)
+                    {
+                        if (Input.GetKey(item))
+                        {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                default:
+                    return Input.GetKey((KeyCode)inputButtons[button]);
+            }
         }
         /// <summary>
         /// Has the given button been relesed this update
@@ -73,7 +103,22 @@ namespace BeeGame.Core
                 throw new Exception("Input Manager: Key button name not defined: " + button);
             }
 
-            return Input.GetKeyUp(inputButtons[button]);
+            switch (inputButtons[button])
+            {
+                case KeyCode[] arry:
+                    //for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    foreach (var item in arry)
+                    {
+                        if (Input.GetKeyUp(item))
+                        {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                default:
+                    return Input.GetKeyUp((KeyCode)inputButtons[button]);
+            }
         }
     }
 }

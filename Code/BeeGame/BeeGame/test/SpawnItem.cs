@@ -11,7 +11,8 @@ public class SpawnItem : MonoBehaviour
 
     void Start()
     {
-        Item item = new Item("3");
+        Item item = new Item("4");
+        item.honeyComb = new BeeGame.Bee.ColourChanger.HoneyComb(HoneyCombType.HONEY);
 
         Spawn(item);
     }

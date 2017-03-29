@@ -248,16 +248,25 @@ namespace BeeGame.Inventory
         {
             if(inventoryGUI[currentHeldItemIndex].item.itemGameobject)
             {
+                //Makes the game object, sets its layer, transform, and tag
                 heldObject = Instantiate(inventoryGUI[currentHeldItemIndex].item.itemGameobject, transform.position, Quaternion.identity);
+                // So that the object selector wont select the object in the players hand
                 heldObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+                //just in case soemthing trys to serialize the item in the plaeyrs hand it is set to a tag that will not serialize
                 heldObject.tag = "Player";
+                heldObject.transform.parent = transform;
+                //need to be local scale as it is perented to the player and their 0,0 is different from world 0,0
                 heldObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                heldObject.transform.localPosition = new Vector3(0.5f, 0.18f, 0.9f);
+                heldObject.transform.localRotation = Quaternion.identity;
 
                 for (int i = heldObject.GetComponents<Component>().Length - 1; i >= 0; i--)
                 {
                     switch (heldObject.GetComponents<Component>()[i])
                     {
                         case ItemGameObjectInterface t:
+                            //will only do something if the item is a Honey Comb
+                            t.UpdateItemColour(inventoryGUI[currentHeldItemIndex].item);
                             return;
                         case BlockGameObjectInterface t:
                             return;

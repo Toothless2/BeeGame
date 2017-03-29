@@ -36,7 +36,6 @@ namespace BeeGame.Quest
                 questUI.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                Time.timeScale = 0;
             }
             else if(questUI.activeInHierarchy)
             {
@@ -44,7 +43,6 @@ namespace BeeGame.Quest
                 questUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                Time.timeScale = 1;
 
                 THInput.isAnotherInventoryOpen = false;
             }

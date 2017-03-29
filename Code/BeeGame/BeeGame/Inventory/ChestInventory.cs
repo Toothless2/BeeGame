@@ -115,7 +115,6 @@ namespace BeeGame.Inventory
             playerinventory.heldObjectInventory.SetActive(true);
             UpdatePlayerInventory(playerinventory);
             
-            Time.timeScale = 1;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
@@ -134,8 +133,7 @@ namespace BeeGame.Inventory
             THInput.isAnotherInventoryOpen = true;
             _playerInventory.heldObjectInventory.SetActive(false);
             PutPlayerItemsInChest(_playerInventory);
-
-            Time.timeScale = 0;
+            
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 

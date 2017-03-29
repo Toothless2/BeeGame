@@ -6,7 +6,7 @@ using UnityEngine;
 using BeeGame.Enums;
 using BeeGame.Core;
 
-namespace BeeGame.Bee
+namespace BeeGame.Bee.ColourChanger
 {
     [System.Serializable]
     public struct HoneyComb

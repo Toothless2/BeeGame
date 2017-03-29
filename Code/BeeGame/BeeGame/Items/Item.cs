@@ -3,6 +3,7 @@ using UnityEngine;
 using BeeGame.Enums;
 using BeeGame.Bee;
 using BeeGame.Core;
+using BeeGame.Bee.ColourChanger;
 
 namespace BeeGame.Items
 {

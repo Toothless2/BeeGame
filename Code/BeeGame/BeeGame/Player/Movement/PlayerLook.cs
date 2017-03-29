@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BeeGame.Core;
 
 namespace BeeGame.Player.Movement
 {
@@ -22,7 +23,10 @@ namespace BeeGame.Player.Movement
 
         void Update()
         {
-            Look();
+            if(!THInput.isAnotherInventoryOpen)
+            {
+                Look();
+            }
         }
 
         void Look()

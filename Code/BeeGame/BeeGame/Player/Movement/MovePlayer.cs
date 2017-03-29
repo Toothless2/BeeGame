@@ -13,7 +13,7 @@ namespace BeeGame.Player.Movement
         
         void Update()
         {
-            if (Time.timeScale > 0)
+            if (!THInput.isAnotherInventoryOpen)
                 Move();
         }
 

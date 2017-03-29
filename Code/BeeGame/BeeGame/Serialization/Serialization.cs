@@ -193,6 +193,11 @@ namespace BeeGame.Serialization
                 player.GetComponentInChildren<InventoryBase>().slotandItem = items;
                 player.GetComponentInChildren<InventoryBase>().UpdateSlots();
             }
+            else
+            {
+                var temp = UnityEngine.Object.Instantiate(PrefabDictionary.GetGameObjectItemFromDictionary("Player"));
+                temp.name = "Player";
+            }
         }
         #endregion
 

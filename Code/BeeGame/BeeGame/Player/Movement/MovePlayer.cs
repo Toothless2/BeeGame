@@ -13,6 +13,7 @@ namespace BeeGame.Player.Movement
         
         void Update()
         {
+            //Player will not move if a UI is open
             if (!THInput.isAnotherInventoryOpen)
                 Move();
         }

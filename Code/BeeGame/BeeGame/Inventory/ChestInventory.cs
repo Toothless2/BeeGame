@@ -7,6 +7,7 @@ namespace BeeGame.Inventory
 {
     public class ChestInventory : InventoryBase
     {
+        #region Properties
         /// <summary>
         /// The chests inventory GameObject
         /// </summary>
@@ -33,7 +34,9 @@ namespace BeeGame.Inventory
         private bool inventoryOpen;
 
         private bool justOpened;
+        #endregion
 
+        #region Init
         /// <summary>
         /// When the chest is made the number of slots is calculated and the inventory is set to be inactive
         /// </summary>
@@ -60,7 +63,9 @@ namespace BeeGame.Inventory
             UpdateSlots();
             UpdateBase();
         }
+        #endregion
 
+        #region Update Chest
         /// <summary>
         /// If the inventory os open checks if it should be closed, if it sould calls <see cref="CloseChest"/>. Also Updates the chests <see cref="InventoryBase"/> by calling <see cref="InventoryBase.UpdateBase"/>
         /// </summary>
@@ -69,6 +74,9 @@ namespace BeeGame.Inventory
             UpdateChest();
         }
 
+        /// <summary>
+        /// Updates the Chest contence and will close the chest when needed
+        /// </summary>
         public void UpdateChest()
         {
             if (inventoryOpen)
@@ -76,7 +84,8 @@ namespace BeeGame.Inventory
                 UpdateBase();
             }
 
-            if (THInput.GetButtonDown("Interact") || THInput.GetButtonDown("Close Menu/Inventory"))
+            //chest inventory UI will close when either of the buttons are pressed
+            if (THInput.GetButtonDown("Close Menu/Inventory"))
             {
                 if (!justOpened)
                 {
@@ -90,6 +99,7 @@ namespace BeeGame.Inventory
             justOpened = false;
             SaveChestItems();
         }
+        #endregion
         
         /// <summary>
         /// \todo Currently this finction does nothing, must finish, should spawn items in the chests inventory when it is broken
@@ -98,6 +108,7 @@ namespace BeeGame.Inventory
         {
         }
 
+        #region Serialization
         /// <summary>
         /// Puts the chests current contence into the item[] in <see cref="BlockGameObjectInterface"/>
         /// </summary>
@@ -105,7 +116,9 @@ namespace BeeGame.Inventory
         {
             blockInterface.UpdateItemArray(slotandItem);
         }
+        #endregion
 
+        #region Opening/Closing Chest
         /// <summary>
         /// Hides the chests invetoy and sets <see cref="inventoryOpen"/> to false
         /// </summary>
@@ -142,7 +155,9 @@ namespace BeeGame.Inventory
             inventoryOpen = true;
             justOpened = true;
         }
+        #endregion
 
+        #region Player Inventory
         /// <summary>
         /// When the chest is closed this updates the player inventory to any changes eg and item has been added or removed
         /// </summary>
@@ -171,5 +186,6 @@ namespace BeeGame.Inventory
             playerinventory = _playerinventory;
             UpdateSlots();
         }
+        #endregion
     }
 }

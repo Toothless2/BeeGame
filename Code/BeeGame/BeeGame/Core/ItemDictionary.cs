@@ -45,6 +45,10 @@ namespace BeeGame.Core
         /// <param name="_objectName">Name of the items game object</param>
         /// <param name="_spriteName">Name of the items sprite</param>
         /// <returns>Item with data</returns>
+        /// <remarks>
+        /// Can this be improved?
+        /// Send to another thread possibly?
+        /// </remarks>
         static Item AddItem(string _itemId, ItemType _itemType, string _itemName, string _itemDescription, bool _isPlaceable, int _maxStackCount, string _objectName, string _spriteName)
         {
             Item newItem = new Item();

@@ -8,9 +8,13 @@ using BeeGame.Blocks;
 
 public class SpawnItem : MonoBehaviour
 {
-
     void Start()
     {
+        Item item = new Item("2");
+
+        //item.honeyComb = new BeeGame.Bee.ColourChanger.HoneyComb(HoneyCombType.ICEY);
+
+        Spawn(item);
     }
 
     public static void Spawn(Item item)

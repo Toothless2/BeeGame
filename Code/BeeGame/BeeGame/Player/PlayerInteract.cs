@@ -45,7 +45,7 @@ namespace BeeGame.Player
 
             UpdateSelector();
 
-            if(Time.timeScale > 0)
+            if(!THInput.isAnotherInventoryOpen)
             {
                 if (THInput.GetButtonDown("Break Block"))
                 {

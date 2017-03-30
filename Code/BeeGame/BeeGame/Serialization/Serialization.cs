@@ -70,17 +70,6 @@ namespace BeeGame.Serialization
                 {
                     if(item[i] != null)
                     {
-                        //Item tempItem = (Item)item[i];
-                        //tempItem.UpdateSpriteAndObject();
-                        //GameObject temp = UnityEngine.Object.Instantiate(tempItem.itemGameobject);
-                        //temp.GetComponent<ItemGameObjectInterface>().UpdateItemData(tempItem);
-                        //temp.transform.position = temp.GetComponent<ItemGameObjectInterface>().item.pos.ToUnityVector3();
-
-                        //for (int h = temp.GetComponents<Component>().Length - 1; h >= 5; h--)
-                        //{
-                        //    UnityEngine.Object.Destroy(temp.GetComponents<Component>()[h]);
-                        //}
-
                         SpawnItem.Spawn((Item)item[i]);
                     }
                 }

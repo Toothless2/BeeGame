@@ -19,8 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4472882429511634}
-  - component: {fileID: 65582282379868400}
+  - component: {fileID: 135958552887012452}
   - component: {fileID: 114632318806315598}
+  - component: {fileID: 54084222459512010}
   m_Layer: 0
   m_Name: Comb
   m_TagString: Item
@@ -101,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 1552930708936580}
   m_LocalRotation: {x: -0.37686962, y: 0.06645227, z: 0.16042998, w: 0.9098438}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4767089240557898}
   - {fileID: 4696735979208690}
@@ -210,18 +211,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604991544996754}
   m_Mesh: {fileID: 4300002, guid: e4e978feffb70fc4098fe287a5e357fc, type: 3}
---- !u!65 &65582282379868400
-BoxCollider:
+--- !u!54 &54084222459512010
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1389086843861256}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114562267591044354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,3 +274,15 @@ MonoBehaviour:
     stackCount: 0
     objectName: 
     spriteName: 
+--- !u!135 &135958552887012452
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1389086843861256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}

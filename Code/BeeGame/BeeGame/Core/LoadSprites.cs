@@ -7,50 +7,37 @@ namespace BeeGame.Core
 {
     public static class LoadSprites
     {
-        private static string[] splitCharacters = new string[3] { "/", ".", ","};
-
         /// <summary>
         /// Loads the sprites in the sprite file into the sprite dictionary
         /// </summary>
         public static void SpriteLoad()
-        {            
-            List<List<string>> sprites = GetSpriteNames();
-            
-            for(int i = 0; i < sprites.Count; i++)
+        {
+            Sprite[] obj = GetSprites();
+            List<List<string>> spriteNames = Resources.Resources.SpriteNames;
+
+            //Goes through each sprite that is needed
+            for (int i = 0; i < spriteNames.Count; i++)
             {
-                SpriteDictionary.AddToSpriteDictionary(sprites[i][0], (Sprite)Resources.Load("Sprites/" + sprites[i][1], typeof(Sprite)));
+                //goes through all of the sprites
+                for (int j = 0; j < obj.Length; j++)
+                {
+                    //if the current sprite's name is equal to the sprite name that is needed add it to the sprite dictionary
+                    if(obj[j].name == spriteNames[i][1])
+                    {
+                        SpriteDictionary.AddToSpriteDictionary(spriteNames[i][0], obj[j]);
+                    }
+                }
             }
         }
 
         /// <summary>
-        /// Looks in the Sprite Names file for the sprite names and filenames
+        /// Gets all Sprites in the Sprite Resources Directory
         /// </summary>
-        /// <returns>Sprite Names and File names</returns>
-        private static List<List<string>> GetSpriteNames()
+        /// <returns><see cref="Sprite[]"/> of all sprites in the .../Assets/Resources/Sprites/ folder</returns>
+        private static Sprite[] GetSprites()
         {
-            string path = Application.dataPath + "/Resources/Sprites/SpriteNames.dat";
-            string lineText = "";
-            List<List<string>> returnSprites = new List<List<string>>();
-
-            if(File.Exists(path))
-            {
-                StreamReader objReader;
-                objReader = new StreamReader(path);
-                do
-                {
-                    lineText = objReader.ReadLine();
-                    string[] splitSprite = lineText.Split(splitCharacters, StringSplitOptions.None);
-
-                    List<string> temp = new List<string>() { splitSprite[0], splitSprite[1] };
-
-                    returnSprites.Add(temp);
-
-                } while (objReader.Peek() != -1);
-
-                objReader.Close();
-            }
-
-            return returnSprites;
+            Sprite[] sprites = UnityEngine.Resources.LoadAll<Sprite>("Sprites");
+            return sprites;
         }
     }
 }

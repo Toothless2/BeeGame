@@ -6,28 +6,20 @@ namespace BeeGame.Core
 {
     public static class LoadPrefabs
     {
-        private static string prefabPath;
-        private static string[] splitCharacters = new string[2] { "/", "." };
+        private static object[] prefabs;
 
         /// <summary>
         /// Loads the prefabs from file into prefab dictionary as GameObjects
         /// </summary>
         public static void PrefabLoad()
         {
-            prefabPath = Application.dataPath + "/Resources/Prefabs/";
+            //loads all prefabs in the Resources/Prefabs folder into memory
+            prefabs = UnityEngine.Resources.LoadAll("Prefabs");
 
-            //finds all .prefab files in the directory
-            foreach (string s in Directory.GetFiles(prefabPath, "*.prefab"))
+            //adds each prefab to the prefab dictionary so it can be used by the game
+            foreach (GameObject item in prefabs)
             {
-                string prefabName;
-                string[] splitPath;
-
-                splitPath = s.Split(splitCharacters, StringSplitOptions.None);
-
-                prefabName = splitPath[splitPath.Length - 2];
-
-                //loads found prefab into the profab dictionary
-                PrefabDictionary.AddToPrefabDictionary(prefabName, (GameObject)Resources.Load("Prefabs/" + prefabName, typeof(GameObject)));
+                PrefabDictionary.AddToPrefabDictionary(item.name, item);
             }
         }
     }

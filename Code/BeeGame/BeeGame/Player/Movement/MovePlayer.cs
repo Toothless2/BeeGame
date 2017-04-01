@@ -11,7 +11,7 @@ namespace BeeGame.Player.Movement
         public CharacterController myConroller;
         public float speed;
         
-        void Update()
+        void FixedUpdate()
         {
             //Player will not move if a UI is open
             if (!THInput.isAnotherInventoryOpen)

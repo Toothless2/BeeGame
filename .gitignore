@@ -23,3 +23,11 @@ Documentation/
 Code/BeeGame/BeeGame/obj/
 
 Builds/
+
+Assets/Saves/
+
+Assets/Plugins/
+
+Code/BeeGame/BeeGame/BeeGame\.csproj
+
+*.csproj

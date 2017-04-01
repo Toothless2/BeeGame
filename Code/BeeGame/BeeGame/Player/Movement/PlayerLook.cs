@@ -21,7 +21,7 @@ namespace BeeGame.Player.Movement
             Cursor.visible = false;
         }
 
-        void Update()
+        void FixedUpdate()
         {
             //the look wil not update when a inventory GUI is open
             if(!THInput.isAnotherInventoryOpen)

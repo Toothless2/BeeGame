@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 using System.Linq;
 using UnityEngine;
 using BeeGame.Core;
@@ -29,7 +30,7 @@ namespace BeeGame.Serialization
         public static void Save()
         {
             SavePlayer();
-            SaveItems();
+            //SaveItems();
             SaveBlocks();
             SaveQuests();
         }
@@ -40,7 +41,7 @@ namespace BeeGame.Serialization
 
             RemakePlayer();
             LoadBlocks();
-            RemakeItems();
+            //RemakeItems();
             LoadQuests();
         }
 
@@ -62,7 +63,7 @@ namespace BeeGame.Serialization
 
         static void RemakeItems()
         {
-            if (File.Exists(basePath + "playerData.dat"))
+            if (File.Exists(basePath + "items.dat"))
             {
                 item = LoadData(basePath + "items.dat");
 
@@ -86,7 +87,9 @@ namespace BeeGame.Serialization
 
             blocks[blocks.Length - 1] = blockItem.ReturnBlockData();
 
-            SaveBlocks();
+            Thread thread = new Thread(SaveBlocks);
+
+            thread.Start();
         }
 
         public static void RemoveFromSaveBlocks(GameObject _block)
@@ -152,14 +155,21 @@ namespace BeeGame.Serialization
         {
             GameObject player = GameObject.Find("Player");
 
-            if(player.GetComponentInChildren<InventoryBase>())
+            Thread thread = new Thread(SaveThread);
+
+            thread.Start();
+
+            void SaveThread()
             {
-                PlayerSerialization playerPosition = new PlayerSerialization(player.GetComponent<Transform>());
+                if (player.GetComponentInChildren<InventoryBase>())
+                {
+                    PlayerSerialization playerPosition = new PlayerSerialization(player.GetComponent<Transform>());
 
-                playerData[0] = playerPosition;
-                playerData[1] = player.GetComponentInChildren<InventoryBase>().slotandItem;
+                    playerData[0] = playerPosition;
+                    playerData[1] = player.GetComponentInChildren<InventoryBase>().slotandItem;
 
-                SaveData(playerData, (basePath + "playerData.dat"));
+                    SaveData(playerData, (basePath + "playerData.dat"));
+                }
             }
         }
 

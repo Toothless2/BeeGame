@@ -30,7 +30,7 @@ namespace BeeGame.Serialization
         public static void Save()
         {
             SavePlayer();
-            //SaveItems();
+            SaveItems();
             SaveBlocks();
             SaveQuests();
         }
@@ -41,7 +41,7 @@ namespace BeeGame.Serialization
 
             RemakePlayer();
             LoadBlocks();
-            //RemakeItems();
+            RemakeItems();
             LoadQuests();
         }
 
@@ -83,11 +83,11 @@ namespace BeeGame.Serialization
         {
             BlockGameObjectInterface blockItem = block.GetComponent<BlockGameObjectInterface>();
             
-            Array.Resize(ref blocks, blocks.Length + 1);
 
-            blocks[blocks.Length - 1] = blockItem.ReturnBlockData();
-
-            Thread thread = new Thread(SaveBlocks);
+            Thread thread = new Thread(() => SaveBlocks(blockItem))
+            {
+                Name = "Save Blocks"
+            };
 
             thread.Start();
         }
@@ -117,9 +117,16 @@ namespace BeeGame.Serialization
             }
         }
 
-        static void SaveBlocks()
+        static void SaveBlocks(BlockGameObjectInterface block = null)
         {
-            if(blocks.Length < 1)
+            if (block != null)
+            {
+                Array.Resize(ref blocks, blocks.Length + 1);
+
+                blocks[blocks.Length - 1] = block.ReturnBlockData();
+            }
+
+            if (blocks.Length < 1)
             {
                 blocks = new object[1];
             }
@@ -154,22 +161,24 @@ namespace BeeGame.Serialization
         static void SavePlayer()
         {
             GameObject player = GameObject.Find("Player");
+            InventoryBase inventory;
+            PlayerSerialization playerS = new PlayerSerialization(player.GetComponent<Transform>());
 
-            Thread thread = new Thread(SaveThread);
-
-            thread.Start();
-
-            void SaveThread()
+            if ((inventory = player.GetComponentInChildren<InventoryBase>()))
             {
-                if (player.GetComponentInChildren<InventoryBase>())
+                Thread thread = new Thread(() => SaveThread(playerS, inventory))
                 {
-                    PlayerSerialization playerPosition = new PlayerSerialization(player.GetComponent<Transform>());
+                    Name = "Save Player"
+                };
+                thread.Start();
+            }
 
-                    playerData[0] = playerPosition;
-                    playerData[1] = player.GetComponentInChildren<InventoryBase>().slotandItem;
+            void SaveThread(PlayerSerialization savePlayer, InventoryBase playerInventory)
+            {
+                playerData[0] = savePlayer;
+                playerData[1] = playerInventory.slotandItem;
 
-                    SaveData(playerData, (basePath + "playerData.dat"));
-                }
+                SaveData(playerData, (basePath + "playerData.dat"));
             }
         }
 

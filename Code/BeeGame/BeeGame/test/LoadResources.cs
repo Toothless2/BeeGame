@@ -5,6 +5,9 @@ using BeeGame.Quest;
 
 public class LoadResources : MonoBehaviour
 {
+    private static int currentTime = 0;
+    private static int saveWaitTime = 3000;
+
     void Awake()
     {
         LoadPrefabs.PrefabLoad();
@@ -17,6 +20,12 @@ public class LoadResources : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Serialization.Save();
+        if (currentTime > saveWaitTime)
+        {
+            currentTime = 0;
+            Serialization.Save();
+        }
+
+        currentTime++;
     }
 }

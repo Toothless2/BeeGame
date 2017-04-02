@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Linq;
 using BeeGame.Core;
 using BeeGame.Items;
 using BeeGame.Blocks;
@@ -251,7 +250,7 @@ namespace BeeGame.Inventory
                 //Makes the game object, sets its layer, transform, and tag
                 heldObject = Instantiate(inventoryGUI[currentHeldItemIndex].item.itemGameobject, transform.position, Quaternion.identity);
                 // So that the object selector wont select the object in the players hand
-                heldObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+                SetChildLayers(heldObject, "ItemInPlayerHand");
                 //just in case soemthing trys to serialize the item in the plaeyrs hand it is set to a tag that will not serialize
                 heldObject.tag = "Player";
                 heldObject.transform.parent = transform;
@@ -275,6 +274,23 @@ namespace BeeGame.Inventory
                             break;
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Sets all of the objects that is currently being held in the players had to the correct layer
+        /// </summary>
+        /// <param name="heldObject">the object that needs its layer set</param>
+        /// <param name="layer">The layer to be set eg: "ItemInPlayerHand"</param>
+        void SetChildLayers(GameObject heldObject, string layer)
+        {
+            //sets theobject layer
+            heldObject.layer = LayerMask.NameToLayer(layer);
+
+            //foreach of the children in the gameobject call this function
+            foreach (Transform child in heldObject.transform)
+            {
+                SetChildLayers(child.gameObject, layer);
             }
         }
         #endregion

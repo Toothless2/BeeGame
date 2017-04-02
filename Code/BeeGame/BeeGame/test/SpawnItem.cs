@@ -10,8 +10,9 @@ public class SpawnItem : MonoBehaviour
 {
     void Start()
     {
-        Item item = new Item("2");
+        Item item = new Item("5");
 
+        //item.ApplyDefaultBeeData(BeeSpecies.FOREST);
         //item.honeyComb = new BeeGame.Bee.ColourChanger.HoneyComb(HoneyCombType.ICEY);
 
         Spawn(item);
@@ -33,5 +34,6 @@ public class SpawnItem : MonoBehaviour
         }
 
         go.transform.position = go.GetComponent<ItemGameObjectInterface>().item.pos;
+        go.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
     }
 }

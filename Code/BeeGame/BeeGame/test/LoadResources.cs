@@ -6,7 +6,7 @@ using BeeGame.Quest;
 public class LoadResources : MonoBehaviour
 {
     private static int currentTime = 0;
-    private static int saveWaitTime = 3000;
+    private static int saveWaitTime = 1000;
 
     void Awake()
     {
@@ -20,6 +20,7 @@ public class LoadResources : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //\todo when pause menu is implemented save when it is open
         if (currentTime > saveWaitTime)
         {
             currentTime = 0;

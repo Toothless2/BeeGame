@@ -74,5 +74,20 @@ namespace BeeGame.Core
 
             return newItem;
         }
+
+        private static Dictionary<string, THVector3> itemScales = new Dictionary<string, THVector3>()
+        {
+            {"Quest Book", new THVector3(0.1f, 0.1f, 0.1f) }
+        };
+
+        public static THVector3 GetItemScale(string itemName)
+        {
+            if (itemScales.ContainsKey(itemName))
+            {
+                return itemScales[itemName];
+            }
+
+            return new THVector3();
+        }
     }
 }

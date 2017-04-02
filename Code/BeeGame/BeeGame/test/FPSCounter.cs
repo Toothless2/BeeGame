@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace BeeGame.test
@@ -11,29 +7,23 @@ namespace BeeGame.test
     {
         public Text text;
 #if DEBUG
-
-        float frameCount = 0;
-        float dt = 0;
-        float fps = 0;
-        float updateRate = 4;  // 4 updates per sec.
+        private int delay = 0;
 
         void Update()
         {
-            frameCount++;
-            dt += Time.deltaTime;
-            if (dt > 1.0 / updateRate)
+            if (delay > 50)
             {
-                fps = frameCount / dt;
-                frameCount = 0;
-                dt -= 1.0f / updateRate;
-
-                text.text = fps.ToString();
+                text.text = (1f / Time.unscaledDeltaTime).ToString();
+                delay = 0;
             }
+
+            delay++;
         }
 #else
         private void Start()
         {
             Destroy(text.transform.parent.gameObject);
+            Destroy(this);
         }
 #endif
     }

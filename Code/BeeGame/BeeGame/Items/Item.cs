@@ -191,7 +191,7 @@ namespace BeeGame.Items
         {
             //Updates the Name and ID
             name = (char.ToUpper(beeItem.Value.pSpecies.ToString()[0]).ToString() + beeItem.Value.pSpecies.ToString().ToLower().Substring(1)) + " " + (char.ToUpper(beeItem.Value.beeType.ToString()[0]).ToString() + beeItem.Value.beeType.ToString().ToLower().Substring(1));
-            itemId = itemId + "/" + beeItem.GetHashCode().ToString();
+            itemId = itemId + "/" + beeItem?.GetHashCode().ToString();
         }
         #endregion
 

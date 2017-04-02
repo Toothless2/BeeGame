@@ -26,6 +26,12 @@ namespace BeeGame.Items
             {
                 transform.position = item.pos;
             }
+
+        }
+
+        void Start()
+        {
+            CheckScale();
         }
 
         /// <summary>
@@ -45,6 +51,14 @@ namespace BeeGame.Items
         public void UpdateItemData(Item _item)
         {
             item = _item;
+        }
+
+        void CheckScale()
+        {
+            if(transform.parent == null)
+            {
+                transform.localScale = ItemDictionary.GetItemScale(item.name) != new THVector3() ? ItemDictionary.GetItemScale(item.name).ToUnityVector3() : transform.localScale;
+            }
         }
 
         #region Change Object Colour

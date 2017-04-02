@@ -1,4 +1,5 @@
-﻿using BeeGame.Core;
+﻿using System.Threading;
+using BeeGame.Core;
 using UnityEngine;
 using BeeGame.Blocks;
 using BeeGame.Items;
@@ -114,7 +115,12 @@ namespace BeeGame.Inventory
         /// </summary>
         void SaveChestItems()
         {
-            blockInterface.UpdateItemArray(slotandItem);
+            Thread thread = new Thread(() => blockInterface.UpdateItemArray(slotandItem))
+            {
+                Name = "Chest"
+            };
+
+            thread.Start();
         }
         #endregion
 

@@ -11,22 +11,22 @@ public class LoadResources : MonoBehaviour
     void Awake()
     {
         LoadPrefabs.PrefabLoad();
-        LoadSprites.SpriteLoad();
+        //LoadSprites.SpriteLoad();
 
-        Serialization.Load();
+        //Serialization.Load();
 
-        Quests.SetQuestEvents();
+        //Quests.SetQuestEvents();
     }
 
-    private void FixedUpdate()
-    {
-        //\todo when pause menu is implemented save when it is open
-        if (currentTime > saveWaitTime)
-        {
-            currentTime = 0;
-            Serialization.Save();
-        }
+    //private void FixedUpdate()
+    //{
+    //    //\todo when pause menu is implemented save when it is open
+    //    if (currentTime > saveWaitTime)
+    //    {
+    //        currentTime = 0;
+    //        Serialization.Save();
+    //    }
 
-        currentTime++;
-    }
+    //    currentTime++;
+    //}
 }

@@ -1,14 +1,22 @@
 fileFormatVersion: 2
-guid: c3ee0c89f31088d4e99795166ebca548
-timeCreated: 1489864860
+guid: d205885f3923c774b8461d3ec22547d9
+timeCreated: 1491311591
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Apiary
+    100004: Camera
+    100006: Lamp
     400000: //RootNode
+    400002: Apiary
+    400004: Camera
+    400006: Lamp
     2300000: //RootNode
+    2300002: Apiary
     3300000: //RootNode
+    3300002: Apiary
     4300000: Apiary
   materials:
     importMaterials: 1
@@ -20,6 +28,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -34,7 +44,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.5
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -48,7 +58,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

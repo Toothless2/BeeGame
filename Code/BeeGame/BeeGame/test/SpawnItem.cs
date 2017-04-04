@@ -15,7 +15,12 @@ public class SpawnItem : MonoBehaviour
         //item.ApplyDefaultBeeData(BeeSpecies.FOREST);
         //item.honeyComb = new BeeGame.Bee.ColourChanger.HoneyComb(HoneyCombType.ICEY);
 
-        Spawn(item);
+        //Spawn(item);
+    }
+
+    private void Update()
+    {
+        print(BeeGame.Rooms.World.GetWeather);
     }
 
     public static void Spawn(Item item)

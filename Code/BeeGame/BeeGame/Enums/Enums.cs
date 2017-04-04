@@ -1,4 +1,6 @@
-﻿namespace BeeGame.Enums
+﻿using System;
+
+namespace BeeGame.Enums
 {
     /// <summary>
     /// The item types
@@ -8,6 +10,9 @@
         ITEM, BEE
     };
 
+    /// <summary>
+    /// Honey Comb Types
+    /// </summary>
     public enum HoneyCombType
     {
         HONEY, ICEY
@@ -70,4 +75,29 @@
         ARID, DRY, TEMPERATE, MOIST, HUMID
     };
     #endregion BeeStuff
+
+    public enum Weather
+    {
+        NORMAL, RAINING, THUNDER
+    };
+
+    public enum Time
+    {
+        DAY, NIGHT
+    };
+
+    public enum RoomType
+    {
+        STANDARDROOM, SHOP, BEEROOM, CRAFTINGROOM, STORAGEROOM
+    };
+
+    public enum Connection
+    {
+        NOTCONNECTED, NORTH, EAST, SOUTH, WEST
+    };
+
+    public enum BlockDirection
+    {
+        NORTH, EAST, SOUTH, WEST, UP, DOWN
+    };
 }

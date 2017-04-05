@@ -65,7 +65,7 @@ namespace BeeGame.TerrainGeneration
 
             chunk.world.SetBlock((int)worldPos.x, (int)worldPos.y, (int)worldPos.z, block);
 
-            Serialization.Serialization.SaveChunk(chunk);
+            Serialization.Serialization.SaveChunk(chunk, worldPos - chunk.worldPos, block);
 
             return true;
         }

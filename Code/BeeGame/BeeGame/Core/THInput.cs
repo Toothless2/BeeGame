@@ -24,7 +24,8 @@ namespace BeeGame.Core
             {"Interact", KeyCode.Mouse1 },
             {"Place", KeyCode.Mouse1 },
             {"Break Block", KeyCode.Mouse0 },
-            {"Close Menu/Inventory", new KeyCode[2] { KeyCode.Escape, KeyCode.E } }
+            {"Close Menu/Inventory", new KeyCode[2] { KeyCode.Escape, KeyCode.E } },
+            {"Jump", KeyCode.Space }
         };
 
         /// <summary>

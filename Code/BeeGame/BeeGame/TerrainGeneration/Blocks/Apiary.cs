@@ -16,13 +16,18 @@ namespace BeeGame.TerrainGeneration.Blocks
 
         public Apiary() : base()
         {
-            mesh = PrefabDictionary.GetGameObjectItemFromDictionary("BlockTest");
+            mesh = GetGameOject();
         }
 
-        public override Tile TexturePosition(BlockDirection direction)
+        public override GameObject GetGameOject()
         {
-            return new Tile();
-            return new Tile { x = 0, y = 3 };
+            changed = true;
+            return PrefabDictionary.GetGameObjectItemFromDictionary("BlockTest");
+        }
+
+        public override MeshData BlockMeshData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender = false)
+        {
+            return base.BlockMeshData(chunk, x, y, z, meshData, false);
         }
 
         public override bool IsSolid(BlockDirection direction)

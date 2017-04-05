@@ -11,7 +11,7 @@ namespace BeeGame.test
 
         void Update()
         {
-            if (delay > 50)
+            if (delay > 10)
             {
                 text.text = (1f / Time.unscaledDeltaTime).ToString();
                 delay = 0;

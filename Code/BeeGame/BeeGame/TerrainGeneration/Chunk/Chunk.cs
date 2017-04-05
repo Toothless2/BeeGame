@@ -20,7 +20,7 @@ namespace BeeGame.TerrainGeneration
         /// </summary>
         public static int chunkSize = 16;
         /// <summary>
-        /// 3D arry of all of the <see cref="Block"/>s in the chunk
+        /// 3D array of all of the <see cref="Block"/>s in the chunk
         /// </summary>
         public Block[,,] blocks = new Block[chunkSize, chunkSize, chunkSize];
         /// <summary>
@@ -34,12 +34,12 @@ namespace BeeGame.TerrainGeneration
         public bool rendered;
         
         private MeshFilter filter;
-        //private MeshCollider collider;
+        private MeshCollider collider;
 
         void Awake()
         {
             filter = gameObject.GetComponent<MeshFilter>();
-            //collider = gameObject.GetComponent<MeshCollider>();
+            collider = gameObject.GetComponent<MeshCollider>();
         }
 
         void Update()
@@ -115,7 +115,7 @@ namespace BeeGame.TerrainGeneration
         /// </summary>
         public void UpdateChunk()
         {
-            MeshData mesh = new MeshData();
+            MeshData mesh = new MeshData() { useRenderForColData = false };
 
             for (int x = 0; x < chunkSize; x++)
             {
@@ -129,7 +129,6 @@ namespace BeeGame.TerrainGeneration
             }
 
             RenderMesh(mesh);
-            ColliderMesh(mesh);
         }
 
         /// <summary>
@@ -137,7 +136,13 @@ namespace BeeGame.TerrainGeneration
         /// </summary>
         void RenderMesh(MeshData mesh)
         {
+            foreach (Transform item in transform)
+            {
+                Destroy(item.gameObject);
+            }
+
             filter.mesh.Clear();
+            filter.mesh.name = "Chunk Render Mesh";
             filter.mesh.vertices = mesh.verts.ToArray().ToUnityVector3Array();
             filter.mesh.triangles = mesh.tris.ToArray();
             
@@ -149,23 +154,34 @@ namespace BeeGame.TerrainGeneration
                 {
                     for (int z = 0; z < chunkSize; z++)
                     {
-                        switch (blocks[x, y, z])
+                        if(blocks[x, y, z].GetGameOject() != null)
                         {
-                            case Apiary a:
-                                Instantiate(a.mesh, new THVector3(x, y, z) + worldPos, Quaternion.identity, transform);
-                                break;
-                            default:
-                                break;
+                            Instantiate(blocks[x, y, z].GetGameOject(), new THVector3(x, y - 16, z), Quaternion.identity, transform);
                         }
                     }
                 }
             }
+
             filter.mesh.RecalculateNormals();
+
+            if (mesh.useRenderForColData)
+            {
+                collider.sharedMesh = filter.mesh;
+                return;
+            }
+            ColliderMesh(mesh);
         }
 
         void ColliderMesh(MeshData mesh)
         {
-            gameObject.GetComponent<MeshCollider>().sharedMesh = filter.mesh;
+            Mesh colliderMesh = new Mesh()
+            {
+                name = "Chunk Collider Mesh",
+                vertices = mesh.colVerts.ToArray().ToUnityVector3Array(),
+                triangles = mesh.colTris.ToArray()
+            };
+
+            collider.sharedMesh = colliderMesh;
         }
     }
 }

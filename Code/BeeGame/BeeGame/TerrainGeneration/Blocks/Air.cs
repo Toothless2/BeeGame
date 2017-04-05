@@ -17,7 +17,7 @@ namespace BeeGame.TerrainGeneration.Blocks
         {
         }
 
-        public override MeshData BlockMeshData(Chunk chunk, int x, int y, int z, MeshData meshData)
+        public override MeshData BlockMeshData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender = true)
         {
             return meshData;
         }

@@ -22,6 +22,11 @@ namespace BeeGame.TerrainGeneration
 
         }
 
+        public virtual GameObject GetGameOject()
+        {
+            return null;
+        }
+
         public virtual Mesh GetMesh()
         {
             return null;
@@ -55,114 +60,120 @@ namespace BeeGame.TerrainGeneration
         /// <param name="z">z pos of the block</param>
         /// <param name="meshData">the <see cref="MeshData"/> that the block needs to add its data to</param>
         /// <returns><see cref="MeshData"/> given plus its data</returns>
-        public virtual MeshData BlockMeshData(Chunk chunk, int x, int y, int z, MeshData meshData)
+        public virtual MeshData BlockMeshData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender = true)
         {
             //does the block above me have a solid face
             if(!chunk.GetBlock(x, y + 1, z).IsSolid(BlockDirection.DOWN))
             {
-                meshData = FaceDataUp(chunk, x, y, z, meshData);
+                meshData = FaceDataUp(chunk, x, y, z, meshData, addToRender);
             }
             //does the block below me have a solid face
             if (!chunk.GetBlock(x, y - 1, z).IsSolid(BlockDirection.UP))
             {
-                meshData = FaceDataDown(chunk, x, y, z, meshData);
+                meshData = FaceDataDown(chunk, x, y, z, meshData, addToRender);
             }
             //does the block in front of me have a solid face
             if (!chunk.GetBlock(x, y, z + 1).IsSolid(BlockDirection.SOUTH))
             {
-                meshData = FaceDataNorth(chunk, x, y, z, meshData);
+                meshData = FaceDataNorth(chunk, x, y, z, meshData, addToRender);
             }
             //does the block behind me have a solid face
             if (!chunk.GetBlock(x, y, z - 1).IsSolid(BlockDirection.NORTH))
             {
-                meshData = FaceDataSouth(chunk, x, y, z, meshData);
+                meshData = FaceDataSouth(chunk, x, y, z, meshData, addToRender);
             }
             //does the block to me east have a solid face
             if (!chunk.GetBlock(x + 1, y, z).IsSolid(BlockDirection.WEST))
             {
-                meshData = FaceDataEast(chunk, x, y, z, meshData);
+                meshData = FaceDataEast(chunk, x, y, z, meshData, addToRender);
             }
             //does the block to me west have a solid face
             if (!chunk.GetBlock(x - 1, y, z).IsSolid(BlockDirection.EAST))
             {
-                meshData = FaceDataWest(chunk, x, y, z, meshData);
+                meshData = FaceDataWest(chunk, x, y, z, meshData, addToRender);
             }
 
             return meshData;
         }
 
         #region Faces to be Rendered
-        protected virtual MeshData FaceDataUp(Chunk chunk, int x, int y, int z, MeshData meshData)
+        protected virtual MeshData FaceDataUp(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender)
         {
             //Added in a clockwise order
-            meshData.verts.Add(new Vector3(x - 0.5f, y + 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y + 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y + 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x - 0.5f, y + 0.5f, z - 0.5f));
+            meshData.AddVertex(new Vector3(x - 0.5f, y + 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y + 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y + 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x - 0.5f, y + 0.5f, z - 0.5f), addToRender);
 
-            meshData.AddQuadTriangles();
+            meshData.AddQuadTriangles(addToRender);
 
-            meshData.uv.AddRange(FaceUVs(BlockDirection.UP).ToList());
+            if(addToRender)
+                meshData.uv.AddRange(FaceUVs(BlockDirection.UP).ToList());
             return meshData;
         }
-        protected virtual MeshData FaceDataDown(Chunk chunk, int x, int y, int z, MeshData meshData)
+        protected virtual MeshData FaceDataDown(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender)
         {
-            meshData.verts.Add(new Vector3(x - 0.5f, y - 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y - 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y - 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x - 0.5f, y - 0.5f, z + 0.5f));
+            meshData.AddVertex(new Vector3(x - 0.5f, y - 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y - 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y - 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x - 0.5f, y - 0.5f, z + 0.5f), addToRender);
 
-            meshData.AddQuadTriangles();
+            meshData.AddQuadTriangles(addToRender);
 
-            meshData.uv.AddRange(FaceUVs(BlockDirection.DOWN).ToList());
+            if(addToRender)
+                meshData.uv.AddRange(FaceUVs(BlockDirection.DOWN).ToList());
             return meshData;
         }
-        protected virtual MeshData FaceDataNorth(Chunk chunk, int x, int y, int z, MeshData meshData)
+        protected virtual MeshData FaceDataNorth(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender)
         {
-            meshData.verts.Add(new Vector3(x + 0.5f, y - 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y + 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x - 0.5f, y + 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x - 0.5f, y - 0.5f, z + 0.5f));
+            meshData.AddVertex(new Vector3(x + 0.5f, y - 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y + 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x - 0.5f, y + 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x - 0.5f, y - 0.5f, z + 0.5f), addToRender);
 
-            meshData.AddQuadTriangles();
+            meshData.AddQuadTriangles(addToRender);
 
-            meshData.uv.AddRange(FaceUVs(BlockDirection.NORTH).ToList());
+            if(addToRender)
+                meshData.uv.AddRange(FaceUVs(BlockDirection.NORTH).ToList());
             return meshData;
         }
-        protected virtual MeshData FaceDataEast(Chunk chunk, int x, int y, int z, MeshData meshData)
+        protected virtual MeshData FaceDataEast(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender)
         {
-            meshData.verts.Add(new Vector3(x + 0.5f, y - 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y + 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y + 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y - 0.5f, z + 0.5f));
+            meshData.AddVertex(new Vector3(x + 0.5f, y - 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y + 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y + 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y - 0.5f, z + 0.5f), addToRender);
 
-            meshData.AddQuadTriangles();
+            meshData.AddQuadTriangles(addToRender);
 
-            meshData.uv.AddRange(FaceUVs(BlockDirection.EAST).ToList());
+            if(addToRender)
+                meshData.uv.AddRange(FaceUVs(BlockDirection.EAST).ToList());
             return meshData;
         }
-        protected virtual MeshData FaceDataSouth(Chunk chunk, int x, int y, int z, MeshData meshData)
+        protected virtual MeshData FaceDataSouth(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender)
         {
-            meshData.verts.Add(new Vector3(x - 0.5f, y - 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x - 0.5f, y + 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y + 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x + 0.5f, y - 0.5f, z - 0.5f));
+            meshData.AddVertex(new Vector3(x - 0.5f, y - 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x - 0.5f, y + 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y + 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x + 0.5f, y - 0.5f, z - 0.5f), addToRender);
 
-            meshData.AddQuadTriangles();
+            meshData.AddQuadTriangles(addToRender);
 
-            meshData.uv.AddRange(FaceUVs(BlockDirection.SOUTH).ToList());
+            if(addToRender)
+                meshData.uv.AddRange(FaceUVs(BlockDirection.SOUTH).ToList());
             return meshData;
         }
-        protected virtual MeshData FaceDataWest(Chunk chunk, int x, int y, int z, MeshData meshData)
+        protected virtual MeshData FaceDataWest(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRender)
         {
-            meshData.verts.Add(new Vector3(x - 0.5f, y - 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x - 0.5f, y + 0.5f, z + 0.5f));
-            meshData.verts.Add(new Vector3(x - 0.5f, y + 0.5f, z - 0.5f));
-            meshData.verts.Add(new Vector3(x - 0.5f, y - 0.5f, z - 0.5f));
+            meshData.AddVertex(new Vector3(x - 0.5f, y - 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x - 0.5f, y + 0.5f, z + 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x - 0.5f, y + 0.5f, z - 0.5f), addToRender);
+            meshData.AddVertex(new Vector3(x - 0.5f, y - 0.5f, z - 0.5f), addToRender);
 
-            meshData.AddQuadTriangles();
+            meshData.AddQuadTriangles(addToRender);
 
-            meshData.uv.AddRange(FaceUVs(BlockDirection.WEST).ToList());
+            if(addToRender)
+                meshData.uv.AddRange(FaceUVs(BlockDirection.WEST).ToList());
             return meshData;
         }
 

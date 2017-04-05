@@ -44,7 +44,6 @@ namespace BeeGame.TerrainGeneration
 
             if(chunk != null)
             {
-                Serialization.Serialization.SaveChunk(chunk);
                 Destroy(chunk.gameObject);
                 chunks.Remove(chunk.worldPos);
             }

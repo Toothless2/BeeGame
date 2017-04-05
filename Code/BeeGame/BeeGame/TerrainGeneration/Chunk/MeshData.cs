@@ -32,23 +32,51 @@ namespace BeeGame.TerrainGeneration
 
         public TrianglePositions[,,] trianglePositions = new TrianglePositions[16, 16, 16];
 
+        public bool useRenderForColData = true;
+
         public MeshData()
         {
 
         }
 
-        public void AddQuadTriangles()
+        public void AddQuadTriangles(bool addToRender)
         {
-            //makes 2 triangles from the last 4 verts given, assumes that tey are in the correct order
-            tris.Add(verts.Count - 4);
-            tris.Add(verts.Count - 3);
-            tris.Add(verts.Count - 2);
-            tris.Add(verts.Count - 4);
-            tris.Add(verts.Count - 2);
-            tris.Add(verts.Count - 1);
+            if (addToRender)
+            {
+                //makes 2 triangles from the last 4 verts given, assumes that tey are in the correct order
+                tris.Add(verts.Count - 4);
+                tris.Add(verts.Count - 3);
+                tris.Add(verts.Count - 2);
+                tris.Add(verts.Count - 4);
+                tris.Add(verts.Count - 2);
+                tris.Add(verts.Count - 1);
+            }
+
+            colTris.Add(verts.Count - 4);
+            colTris.Add(verts.Count - 3);
+            colTris.Add(verts.Count - 2);
+            colTris.Add(verts.Count - 4);
+            colTris.Add(verts.Count - 2);
+            colTris.Add(verts.Count - 1);
+
         }
 
-        public void AddCompliexMesh(Mesh mesh, int x, int y, int z, int material)
+        public void AddTriangles(int tri)
+        {
+            tris.Add(tri);
+
+            colTris.Add(tri - (verts.Count - colVerts.Count));
+        }
+
+        public void AddVertex(THVector3 vertex, bool addToRender)
+        {
+            if(addToRender)
+                verts.Add(vertex);
+
+            colVerts.Add(vertex);
+        }
+
+        public void AddCompliexMesh(Mesh mesh, int x, int y, int z)
         {
             THVector3[] verts = new THVector3[mesh.vertexCount];
 
@@ -67,8 +95,6 @@ namespace BeeGame.TerrainGeneration
             this.verts.AddRange(verts);
             //adds the triangles to the list
             tris.AddRange(mesh.triangles);
-            //corrects the uvs of the model as they change
-            uv.AddRange(GetCorrectUV(mesh).ToTHVector2Array().ToList());
         }
 
         public Vector2[] GetCorrectUV(Mesh mesh)

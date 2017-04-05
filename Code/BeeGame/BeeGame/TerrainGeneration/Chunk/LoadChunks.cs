@@ -61,11 +61,6 @@ namespace BeeGame.TerrainGeneration
 
         int timer = 0;
 
-        private void Start()
-        {
-            print("hi");
-        }
-
         private void Update()
         {
             DeleteChunk();

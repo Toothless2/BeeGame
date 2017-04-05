@@ -20,6 +20,8 @@ namespace BeeGame.Player.Movement
 
         void Move()
         {
+            myConroller.SimpleMove(new THVector3(0, -0.001f, 0));
+
             if(THInput.GetButton("Forward"))
             {
                 myConroller.SimpleMove(transform.forward * speed * Time.deltaTime * Time.timeScale);
@@ -38,6 +40,11 @@ namespace BeeGame.Player.Movement
             if (THInput.GetButton("Left"))
             {
                 myConroller.SimpleMove(transform.right * -speed * Time.deltaTime * Time.timeScale);
+            }
+
+            if(THInput.GetButton("Jump"))
+            {
+                myConroller.Move((THVector3)(Vector3.up * speed * Time.deltaTime * Time.timeScale));
             }
         }
     }

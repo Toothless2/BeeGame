@@ -40,6 +40,17 @@ namespace BeeGame.Core
             return vec3u;
         }
 
+        public static THVector3[] ToTHVector3Array(this Vector3[] vec3)
+        {
+            THVector3[] vec3u = new THVector3[vec3.Length];
+            for (int i = 0; i < vec3.Length; i++)
+            {
+                vec3u[i] = vec3[i];
+            }
+
+            return vec3u;
+        }
+
         public static Vector2[] ToUnityVector2Array(this THVector2[] vec2)
         {
             Vector2[] vec2u = new Vector2[vec2.Length];

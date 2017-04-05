@@ -11,6 +11,8 @@ public class LoadResources : MonoBehaviour
     void Awake()
     {
         LoadPrefabs.PrefabLoad();
+
+        Serialization.SaveWorld();
         //LoadSprites.SpriteLoad();
 
         //Serialization.Load();

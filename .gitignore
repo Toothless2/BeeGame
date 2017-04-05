@@ -31,3 +31,5 @@ Assets/Plugins/
 Code/BeeGame/BeeGame/BeeGame\.csproj
 
 *.csproj
+
+*.meta

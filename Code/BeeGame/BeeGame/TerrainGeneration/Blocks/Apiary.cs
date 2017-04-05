@@ -8,25 +8,21 @@ using BeeGame.Enums;
 
 namespace BeeGame.TerrainGeneration.Blocks
 {
+    [Serializable]
     public class Apiary : Block
     {
-        Mesh mesh;
+        [NonSerialized]
+        public GameObject mesh;
 
         public Apiary() : base()
         {
-            mesh = PrefabDictionary.GetGameObjectItemFromDictionary("BlockTest").gameObject.GetComponent<MeshFilter>().sharedMesh;
+            mesh = PrefabDictionary.GetGameObjectItemFromDictionary("BlockTest");
         }
 
-        public override Mesh GetMesh()
+        public override Tile TexturePosition(BlockDirection direction)
         {
-            return mesh;
-        }
-
-        public override MeshData BlockMeshData(Chunk chunk, int x, int y, int z, MeshData meshData)
-        {
-            meshData.AddCompliexMesh(mesh, x, y, z, 1);
-
-            return meshData;
+            return new Tile();
+            return new Tile { x = 0, y = 3 };
         }
 
         public override bool IsSolid(BlockDirection direction)

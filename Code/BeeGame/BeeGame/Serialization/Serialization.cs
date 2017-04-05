@@ -29,20 +29,20 @@ namespace BeeGame.Serialization
 
         public static void Save()
         {
-            SavePlayer();
-            SaveItems();
-            SaveBlocks();
-            SaveQuests();
+            //SavePlayer();
+            //SaveItems();
+            //SaveBlocks();
+            //SaveQuests();
         }
 
         public static void Load()
         {
             Init();
 
-            RemakePlayer();
-            LoadBlocks();
-            RemakeItems();
-            LoadQuests();
+            //RemakePlayer();
+            //LoadBlocks();
+            //RemakeItems();
+            //LoadQuests();
         }
 
         #region Items
@@ -221,6 +221,63 @@ namespace BeeGame.Serialization
             {
                 Quests.ApplyDeserializedDictionarys(LoadData(basePath + "quests.dat"));
             }
+        }
+        #endregion
+
+        #region World
+        public static string worldName = "World";
+
+        public static void SaveWorld()
+        {
+            Init();
+
+            if(!Directory.Exists(basePath + "/Worlds/"))
+            {
+                Directory.CreateDirectory(basePath + "/Worlds/");
+            }
+        }
+
+        public static void SaveChunk(TerrainGeneration.Chunk chunk)
+        {
+            //Only saves the chunks with chnages to help with performance, also only saves blocks in the chunk that were chanegs helping file size and perfomance
+
+            TerrainGeneration.ChunkSave save = new TerrainGeneration.ChunkSave(chunk);
+
+            if (save.blocks.Count == 0)
+                return;
+
+            //pointless to make the variables if the chunk is not going to be saved
+            string saveFile = basePath + "/Worlds/" + FileName(chunk.worldPos);
+
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fs = new FileStream(saveFile, FileMode.OpenOrCreate);
+            bf.Serialize(fs, save);
+            fs.Close();
+        }
+
+        public static bool LoadChunk(TerrainGeneration.Chunk chunk)
+        {
+            string savefile = basePath + "/Worlds/" + FileName(chunk.worldPos);
+
+            if (!File.Exists(savefile))
+                return false;
+
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fs = new FileStream(savefile, FileMode.Open);
+            TerrainGeneration.ChunkSave save = (TerrainGeneration.ChunkSave)bf.Deserialize(fs);
+            fs.Close();
+
+            foreach (var block in save.blocks)
+            {
+                chunk.blocks[(int)block.Key.x, (int)block.Key.y, (int)block.Key.z] = block.Value;
+            }
+
+            return true;
+        }
+
+        public static string FileName(THVector3 chunkPos)
+        {
+            return chunkPos.x + "," + chunkPos.y + "," + chunkPos.z + ".dat";
         }
         #endregion
 

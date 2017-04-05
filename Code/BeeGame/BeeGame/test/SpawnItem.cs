@@ -20,7 +20,7 @@ public class SpawnItem : MonoBehaviour
 
     private void Update()
     {
-        print(BeeGame.Rooms.World.GetWeather);
+        print(BeeGame.Rooms.World2.GetWeather);
     }
 
     public static void Spawn(Item item)

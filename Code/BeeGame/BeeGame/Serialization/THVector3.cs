@@ -43,11 +43,17 @@ namespace BeeGame
         {
             return base.GetHashCode();
         }
-        public override bool Equals(object b)
+        public override bool Equals(object obj)
         {
-            if (b == null) return false;
-            if (b.GetType() != GetType()) return false;
-            return (this == (THVector3)b);
+            if (!(obj is THVector3))
+                return false;
+
+            THVector3 vec3 = (THVector3)obj;
+
+            if (vec3.x == x && vec3.y == y && vec3.z == z)
+                return true;
+
+            return false;
         }
         #endregion
 

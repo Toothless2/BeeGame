@@ -9,7 +9,7 @@ using BeeGame.Core;
 namespace BeeGame.Rooms
 {
     [Serializable]
-    public class Room : World
+    public class Room : World2
     {
         private THVector3 position;
         [NonSerialized]

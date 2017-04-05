@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace BeeGame.TerrainGeneration.Blocks
 {
+    [Serializable]
     public class Air : Block
     {
         /// <summary>

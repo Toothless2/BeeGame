@@ -38,6 +38,11 @@ namespace BeeGame
             z = _z;
         }
 
+        public override string ToString()
+        {
+            return $"{x}, {y}, {z}";
+        }
+
         #region Hashcode
         public override int GetHashCode()
         {

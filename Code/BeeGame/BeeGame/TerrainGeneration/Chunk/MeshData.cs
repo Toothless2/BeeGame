@@ -30,20 +30,22 @@ namespace BeeGame.TerrainGeneration
         /// </summary>
         public List<int> colTris = new List<int>();
 
-        public TrianglePositions[,,] trianglePositions = new TrianglePositions[16, 16, 16];
-
+        /// <summary>
+        /// Should the same mesh be used for the collider and the renderer
+        /// </summary>
         public bool useRenderForColData = true;
 
-        public MeshData()
-        {
+        public MeshData(){}
 
-        }
-
+        /// <summary>
+        /// Makes triangles out of the previous 4 given verts
+        /// </summary>
+        /// <param name="addToRender">Should the triangles also be added to the render list</param>
         public void AddQuadTriangles(bool addToRender)
         {
             if (addToRender)
             {
-                //makes 2 triangles from the last 4 verts given, assumes that tey are in the correct order
+                //makes 2 triangles from the last 4 verts given, assumes that they are in the correct order
                 tris.Add(verts.Count - 4);
                 tris.Add(verts.Count - 3);
                 tris.Add(verts.Count - 2);
@@ -61,6 +63,10 @@ namespace BeeGame.TerrainGeneration
 
         }
 
+        /// <summary>
+        /// Adds a triangles to the triangle list
+        /// </summary>
+        /// <param name="tri">triangle index </param>
         public void AddTriangles(int tri)
         {
             tris.Add(tri);
@@ -68,58 +74,17 @@ namespace BeeGame.TerrainGeneration
             colTris.Add(tri - (verts.Count - colVerts.Count));
         }
 
+        /// <summary>
+        /// Adds a vertex to the vertex list
+        /// </summary>
+        /// <param name="vertex">vertex position within the mesh</param>
+        /// <param name="addToRender">should the vertex also be added to the render mesh?</param>
         public void AddVertex(THVector3 vertex, bool addToRender)
         {
             if(addToRender)
                 verts.Add(vertex);
 
             colVerts.Add(vertex);
-        }
-
-        public void AddCompliexMesh(Mesh mesh, int x, int y, int z)
-        {
-            THVector3[] verts = new THVector3[mesh.vertexCount];
-
-            //moves the verts to the correct place in the mesh
-            for (int i = 0; i < mesh.vertexCount; i++)
-            {
-                verts[i].x = mesh.vertices[i].x + x;
-                verts[i].y = mesh.vertices[i].y + y;
-                verts[i].z = mesh.vertices[i].z + z;
-            }
-
-            //saves the triangle positions so the model can be made into a submesh later
-            trianglePositions[x, y, z] = new TrianglePositions() { start = tris.Count, end = tris.Count + mesh.triangles.Length};
-
-            //adds the verts to the list
-            this.verts.AddRange(verts);
-            //adds the triangles to the list
-            tris.AddRange(mesh.triangles);
-        }
-
-        public Vector2[] GetCorrectUV(Mesh mesh)
-        {
-            Vector2[] uvs = mesh.uv;
-
-            return uvs;
-        }
-
-        public int[] GetCorrectedTriangles(Mesh mesh, int x, int y, int z)
-        {
-            int[] pos = new int[trianglePositions[x, y, z].end - trianglePositions[x, y, z].start];
-
-            for (int i = 0, j = trianglePositions[x, y, z].start; j < trianglePositions[x, y, z].end; i++, j++)
-            {
-                pos[i] = tris[j];
-            }
-
-            return pos;
-        }
-
-        public struct TrianglePositions
-        {
-            public int start;
-            public int end;
         }
     }
 }

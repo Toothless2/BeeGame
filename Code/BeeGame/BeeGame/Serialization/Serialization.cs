@@ -237,11 +237,10 @@ namespace BeeGame.Serialization
             }
         }
 
-        public static void SaveChunk(TerrainGeneration.Chunk chunk, THVector3 blockPos, TerrainGeneration.Block block)
+        public static void SaveChunk(TerrainGeneration.Chunk chunk)
         {
-            //Only saves the chunks with chnages to help with performance, also only saves blocks in the chunk that were chanegs helping file size and perfomance
-
-            TerrainGeneration.ChunkSave save = new TerrainGeneration.ChunkSave(chunk, blockPos, block);
+            //Only saves the chunks with changes to help with performance, also only saves blocks in the chunk that were chanegs helping file size and perfomance
+            TerrainGeneration.ChunkSave save = new TerrainGeneration.ChunkSave(chunk);
 
             if (save.blocks.Count == 0)
                 return;

@@ -12,6 +12,12 @@ namespace BeeGame.TerrainGeneration
 
         public GameObject chunkPrefab;
 
+        /// <summary>
+        /// Creates <see cref="Chunk"/>s
+        /// </summary>
+        /// <param name="x">x position of chunk</param>
+        /// <param name="y">y position of chunk</param>
+        /// <param name="z">z position of chunk</param>
         public void CreateChunk(int x, int y, int z)
         {
             //coords of the chunk on the world
@@ -38,6 +44,12 @@ namespace BeeGame.TerrainGeneration
             Serialization.Serialization.LoadChunk(newChunk);
         }
 
+        /// <summary>
+        /// Destroyes the chunk at the given postion
+        /// </summary>
+        /// <param name="x">X position of <see cref="Chunk"/></param>
+        /// <param name="y">Y position of <see cref="Chunk"/></param>
+        /// <param name="z">Z position of <see cref="Chunk"/></param>
         public void DestroyChunk(int x, int y, int z)
         {
             Chunk chunk = GetChunk(x, y, z);
@@ -45,10 +57,18 @@ namespace BeeGame.TerrainGeneration
             if(chunk != null)
             {
                 Destroy(chunk.gameObject);
+                //Also removes the chunk from teh chunk dictionary
                 chunks.Remove(chunk.worldPos);
             }
         }
 
+        /// <summary>
+        /// Gets the chunk in a given location
+        /// </summary>
+        /// <param name="x">X position of <see cref="Chunk"/></param>
+        /// <param name="y">Y position of <see cref="Chunk"/></param>
+        /// <param name="z">Z position of <see cref="Chunk"/></param>
+        /// <returns><see cref="Chunk"/> at given x, Y, Z, or <see cref="null"/> if no chunk is present</returns>
         public Chunk GetChunk(int x, int y, int z)
         {
             //coords of the chunk in the world
@@ -66,6 +86,13 @@ namespace BeeGame.TerrainGeneration
             return containter;
         }
 
+        /// <summary>
+        /// Sets the block in the correch <see cref="Chunk"/> given x, y, z cordinates
+        /// </summary>
+        /// <param name="x">X position of <see cref="Block"/></param>
+        /// <param name="y">Y position of <see cref="Block"/></param>
+        /// <param name="z">Z position of <see cref="Block"/></param>
+        /// <param name="block"><see cref="Block"/> to set</param>
         public void SetBlock(int x, int y, int z, Block block)
         {
             Chunk chunk = GetChunk(x, y, z);
@@ -74,8 +101,10 @@ namespace BeeGame.TerrainGeneration
             {
                 chunk.SetBlock(x - (int)chunk.worldPos.x, y - (int)chunk.worldPos.y, z - (int)chunk.worldPos.z, block);
                 chunk.update = true;
+                
+                //Below currently unessicary as when chunk render mesh is made chunk borders are counted as air space
 
-                ////updates nebouring chunks if block dwstroyed was on the edge of a chunk
+                ////updates nebouring chunks if block destroyed was on the edge of a chunk
                 //UpdateIfEqual(x - (int)chunk.worldPos.x, 0, new THVector3(x - 1, y, z));
                 //UpdateIfEqual(x - (int)chunk.worldPos.x, Chunk.chunkSize - 1, new THVector3(x + 1, y, z));
                 //UpdateIfEqual(y - (int)chunk.worldPos.y, 0, new THVector3(x, y - 1, z));
@@ -85,6 +114,14 @@ namespace BeeGame.TerrainGeneration
             }
         }
 
+        /// <summary>
+        /// Gets the block at a position
+        /// </summary>
+        /// <param name="x">X position of <see cref="Block"/></param>
+        /// <param name="y">Y position of <see cref="Block"/></param>
+        /// <param name="z">Z position of <see cref="Block"/></param>
+        /// <param name="updateChunk">Should the chunk be updated after doing this?</param>
+        /// <returns><see cref="Block"/> at positon <paramref name="x"/>, <paramref name="z"/>,<paramref name="z"/></returns>
         public Block GetBlock(int x, int y, int z, bool updateChunk = false)
         {
             // Gets the correct chunk the block is in
@@ -93,23 +130,12 @@ namespace BeeGame.TerrainGeneration
             if(chunk != null)
             {
                 chunk.update = updateChunk;
-                // gien corrd - the word coord as the given value wil be the vorld value and not the value of the chunk
+                // gien coord - the world coord as the given value will be the world value and not the value of the block in the chunk
                 return chunk.GetBlock(x - (int)chunk.worldPos.x, y - (int)chunk.worldPos.y, z - (int)chunk.worldPos.z);
             }
             else
             {
                 return new Blocks.Air();
-            }
-        }
-
-        void UpdateIfEqual(int value1, int value2, THVector3 worldPos)
-        {
-            if(value1 == value2)
-            {
-                Chunk chunk = GetChunk((int)worldPos.x, (int)worldPos.y, (int)worldPos.z);
-
-                if (chunk != null)
-                    chunk.update = true;
             }
         }
     }

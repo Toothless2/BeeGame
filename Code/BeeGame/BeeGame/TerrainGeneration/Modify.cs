@@ -9,6 +9,8 @@ namespace BeeGame.TerrainGeneration
 {
     public class Modify : MonoBehaviour
     {
+        public GameObject selector;
+
         private void Update()
         {
             if (THInput.GetButtonDown("Interact"))
@@ -17,6 +19,11 @@ namespace BeeGame.TerrainGeneration
                 {
                     Terrain.SetBlock(hit, new Blocks.Apiary());
                 }
+            }
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit2, 100))
+            {
+                selector.transform.position = Terrain.GetBlockPos(hit2);
             }
         }
     }

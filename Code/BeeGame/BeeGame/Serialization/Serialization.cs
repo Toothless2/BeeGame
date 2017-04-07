@@ -1,303 +1,96 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Threading;
-using System.Linq;
 using UnityEngine;
-using BeeGame.Core;
-using BeeGame.Inventory;
-using BeeGame.Items;
-using BeeGame.Blocks;
-using BeeGame.Quest;
+using BeeGame.Terrain;
+using BeeGame.Terrain.Chunks;
+using BeeGame.Terrain.Blocks;
+using System.Threading;
 
 namespace BeeGame.Serialization
 {
-    public static class Serialization 
+    public static class Serialization
     {
-        private static string basePath;
-        private static object[] playerData = new object[2];
-        private static object[] item;
-        private static object[] blocks;
+        public static string worldName = "World";
 
-        static void Init()
+        public static string saveFolderName = "Saves";
+
+        private static string savePath;
+
+        public static void Init()
         {
-            basePath = Application.dataPath + "/Saves/";
-            blocks = new object[1];
-            item = new object[1];
+            savePath = $"{Application.dataPath}/{saveFolderName}/{worldName}";
+
+            if (!(Directory.Exists(savePath)))
+                Directory.CreateDirectory(savePath);
         }
 
-        public static void Save()
-        {
-            //SavePlayer();
-            //SaveItems();
-            //SaveBlocks();
-            //SaveQuests();
-        }
-
-        public static void Load()
+        #region Chunk
+        public static void SaveChunk(Chunk chunk)
         {
             Init();
-
-            //RemakePlayer();
-            //LoadBlocks();
-            //RemakeItems();
-            //LoadQuests();
-        }
-
-        #region Items
-        static void SaveItems()
-        {
-            GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
-
-            item = new object[items.Length];
-
-            for(int i = 0; i < items.Length; i++)
-            {
-                item[i] = items[i].GetComponent<ItemGameObjectInterface>().item;
-            }
-
-            SaveData(item, basePath + "items.dat");
-            
-        }
-
-        static void RemakeItems()
-        {
-            if (File.Exists(basePath + "items.dat"))
-            {
-                item = LoadData(basePath + "items.dat");
-
-                for (int i = 0; i < item.Length; i++)
-                {
-                    if(item[i] != null)
-                    {
-                        SpawnItem.Spawn((Item)item[i]);
-                    }
-                }
-            }
-        }
-        #endregion
-
-        #region Blocks
-        public static void AddToSaveBlocks(this GameObject block)
-        {
-            BlockGameObjectInterface blockItem = block.GetComponent<BlockGameObjectInterface>();
-            
-
-            Thread thread = new Thread(() => SaveBlocks(blockItem))
-            {
-                Name = "Save Blocks"
-            };
+            Thread thread = new Thread(() => SaveChunkThread(chunk)) { Name = $"Save Chunk at @ {chunk.chunkWorldPos.ToString()}" };
 
             thread.Start();
         }
 
-        public static void RemoveFromSaveBlocks(GameObject _block)
+        private static void SaveChunkThread(Chunk chunk)
         {
-            if (blocks.Contains(_block.GetComponent<BlockGameObjectInterface>().ReturnBlockData()))
-            {
-                int minus = 0;
-                Block block = _block.GetComponent<BlockGameObjectInterface>().ReturnBlockData();
-
-                object[] temp = new object[blocks.Length - 1];
-
-                for (int i = 1; i < blocks.Length; i++)
-                {
-                    if ((Block)blocks[i] == block)
-                    {
-                        minus += 1;
-                        continue;
-                    }
-
-                    temp[i - minus] = blocks[i];
-                }
-
-                blocks = new object[temp.Length];
-                blocks = temp;
-            }
-        }
-
-        static void SaveBlocks(BlockGameObjectInterface block = null)
-        {
-            if (block != null)
-            {
-                Array.Resize(ref blocks, blocks.Length + 1);
-
-                blocks[blocks.Length - 1] = block.ReturnBlockData();
-            }
-
-            if (blocks.Length < 1)
-            {
-                blocks = new object[1];
-            }
-            blocks[0] = null;
-            SaveData(blocks, basePath + "blocks.dat");
-        }
-
-        static void LoadBlocks()
-        {
-            if(File.Exists(basePath + "blocks.dat"))
-            {
-                blocks = LoadData(basePath + "blocks.dat");
-
-                for(int i = 0; i < blocks.Length; i++)
-                {
-                    if(blocks[i] != null)
-                    {
-                        Block tempBlock = (Block)blocks[i];
-                        tempBlock.item.UpdateSpriteAndObject();
-                        GameObject temp = UnityEngine.Object.Instantiate(tempBlock.item.itemGameobject, tempBlock.position, Quaternion.identity);
-                        temp.tag = "Block";
-                        UnityEngine.Object.Destroy(temp.GetComponent<ItemGameObjectInterface>());
-                        temp.AddComponent<BlockGameObjectInterface>();
-                        temp.GetComponent<BlockGameObjectInterface>().UpdateBlockData(tempBlock);
-                    }
-                }
-            }
-        }
-        #endregion
-
-        #region Player
-        static void SavePlayer()
-        {
-            GameObject player = GameObject.Find("Player");
-            InventoryBase inventory;
-            PlayerSerialization playerS = new PlayerSerialization(player.GetComponent<Transform>());
-
-            if ((inventory = player.GetComponentInChildren<InventoryBase>()))
-            {
-                Thread thread = new Thread(() => SaveThread(playerS, inventory))
-                {
-                    Name = "Save Player"
-                };
-                thread.Start();
-            }
-
-            void SaveThread(PlayerSerialization savePlayer, InventoryBase playerInventory)
-            {
-                playerData[0] = savePlayer;
-                playerData[1] = playerInventory.slotandItem;
-
-                SaveData(playerData, (basePath + "playerData.dat"));
-            }
-        }
-
-        static void RemakePlayer()
-        {
-            if(File.Exists(basePath + "playerData.dat"))
-            {
-                playerData = LoadData(basePath + "playerData.dat");
-
-                GameObject player = UnityEngine.Object.Instantiate(PrefabDictionary.GetGameObjectItemFromDictionary("Player"));
-                player.name = "Player";
-
-                //sets players position
-                PlayerSerialization playerpoz = playerData[0] as PlayerSerialization;
-                player.GetComponent<Transform>().position = playerpoz.ReturnTransformPosition();
-                player.GetComponent<Transform>().rotation = playerpoz.ReturnTransfomRotation();
-
-                //sets players inv
-                Item[] items = playerData[1] as Item[];
-                player.GetComponentInChildren<InventoryBase>().slotandItem = items;
-                player.GetComponentInChildren<InventoryBase>().UpdateSlots();
-            }
-            else
-            {
-                var temp = UnityEngine.Object.Instantiate(PrefabDictionary.GetGameObjectItemFromDictionary("Player"));
-                temp.name = "Player";
-            }
-        }
-        #endregion
-
-        #region Quests
-        static void SaveQuests()
-        {
-            SaveData(Quests.ReturnQuestDictionarys(), (basePath + "quests.dat"));
-        }
-
-        static void LoadQuests()
-        {
-            if(File.Exists(basePath + "quests.dat"))
-            {
-                Quests.ApplyDeserializedDictionarys(LoadData(basePath + "quests.dat"));
-            }
-        }
-        #endregion
-
-        #region World
-        public static string worldName = "World";
-
-        public static void SaveWorld()
-        {
-            Init();
-
-            if(!Directory.Exists(basePath + "/Worlds/"))
-            {
-                Directory.CreateDirectory(basePath + "/Worlds/");
-            }
-        }
-
-        public static void SaveChunk(TerrainGeneration.Chunk chunk)
-        {
-            //Only saves the chunks with changes to help with performance, also only saves blocks in the chunk that were chanegs helping file size and perfomance
-            TerrainGeneration.ChunkSave save = new TerrainGeneration.ChunkSave(chunk);
+            SaveChunk save = new SaveChunk(chunk);
 
             if (save.blocks.Count == 0)
                 return;
 
-            //pointless to make the variables if the chunk is not going to be saved
-            string saveFile = basePath + "/Worlds/" + FileName(chunk.worldPos);
+            string saveFile = $"{savePath}/{FileName(chunk.chunkWorldPos)}.dat";
 
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs = new FileStream(saveFile, FileMode.OpenOrCreate);
-            bf.Serialize(fs, save);
-            fs.Close();
+            SaveFile(save, saveFile);
         }
 
-        public static bool LoadChunk(TerrainGeneration.Chunk chunk)
+        public static bool LoadChunk(Chunk chunk)
         {
-            string savefile = basePath + "/Worlds/" + FileName(chunk.worldPos);
+            Init();
+            string saveFile = $"{savePath}/{FileName(chunk.chunkWorldPos)}.dat";
 
-            if (!File.Exists(savefile))
+            if (!File.Exists(saveFile))
                 return false;
 
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs = new FileStream(savefile, FileMode.Open);
-            TerrainGeneration.ChunkSave save = (TerrainGeneration.ChunkSave)bf.Deserialize(fs);
-            fs.Close();
+            SaveChunk save = (SaveChunk)LoadFile(saveFile);
 
             foreach (var block in save.blocks)
             {
-                chunk.blocks[(int)block.Key.x, (int)block.Key.y, (int)block.Key.z] = block.Value;
+                chunk.blocks[block.Key.x, block.Key.y, block.Key.z] = block.Value;
             }
-
-            chunk.UpdateChunk();
 
             return true;
         }
 
-        public static string FileName(THVector3 chunkPos)
+        private static void LoadChunkThread()
         {
-            return chunkPos.x + "," + chunkPos.y + "," + chunkPos.z + ".dat";
+
+        }
+
+        public static string FileName(ChunkWorldPos pos)
+        {
+            return $"{pos.x}, {pos.y}, {pos.z}";
         }
         #endregion
 
-        #region Save/Load Data
-        static object[] LoadData(string path)
+        #region Save/Load Files
+        private static void SaveFile(object obj, string file)
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs = new FileStream(path, FileMode.Open);
+            FileStream fs = new FileStream(file, FileMode.OpenOrCreate);
 
             try
             {
-                object[] tempObject = (object[])bf.Deserialize(fs);
-
-                return tempObject;
+                bf.Serialize(fs, obj);
             }
             catch(SerializationException e)
             {
-                Debug.LogWarning(e);
-                return null;
+                Debug.Log($"Serialization Exception: {e}");
+                throw new SerializationException();
             }
             finally
             {
@@ -305,18 +98,19 @@ namespace BeeGame.Serialization
             }
         }
 
-        static void SaveData(object[] data, string path)
+        private static object LoadFile(string file)
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+            FileStream fs = new FileStream(file, FileMode.Open);
 
             try
             {
-                bf.Serialize(fs, data);
+                return bf.Deserialize(fs);
             }
-            catch (SerializationException e)
+            catch(SerializationException e)
             {
-                Debug.LogWarning(e);
+                Debug.Log($"Deserialization Exception {e}");
+                throw new SerializationException();
             }
             finally
             {
@@ -324,43 +118,5 @@ namespace BeeGame.Serialization
             }
         }
         #endregion
-    }
-
-    //Misc Serialization
-    [Serializable]
-    public class PlayerSerialization
-    {
-        public float x;
-        public float y;
-        public float z;
-
-        public float rotw;
-        public float rotx;
-        public float roty;
-        public float rotz;
-
-        PlayerSerialization() { }
-
-        public PlayerSerialization(Transform playerTransform)
-        {
-            x = playerTransform.position.x;
-            y = playerTransform.position.y;
-            z = playerTransform.position.z;
-
-            rotw = playerTransform.rotation.w;
-            rotx = playerTransform.rotation.x;
-            roty = playerTransform.rotation.y;
-            rotz = playerTransform.rotation.z;
-        }
-
-        public Vector3 ReturnTransformPosition()
-        {
-            return new Vector3(x, y, z);
-        }
-
-        public Quaternion ReturnTransfomRotation()
-        {
-            return new Quaternion(rotx, roty, rotz, rotw);
-        }
     }
 }

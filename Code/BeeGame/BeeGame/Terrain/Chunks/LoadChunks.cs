@@ -5,6 +5,9 @@ using BeeGame.Terrain.LandGeneration;
 
 namespace BeeGame.Terrain.Chunks
 {
+    /// <summary>
+    /// Loads the <see cref="Chunk"/>s around the player
+    /// </summary>
     public class LoadChunks : MonoBehaviour
     {
         public World world;

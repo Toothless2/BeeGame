@@ -110,22 +110,22 @@ namespace BeeGame.Terrain.LandGeneration
                     pos = (int)pos;
                     return pos - 1;
                 }
+                
                 //if negative nomrmal
-                else if (normal < 0)
+                if (normal < 0)
                 {
                     pos = (int)pos;
                     return pos;
                 }
                 //if their is no normal
-                else
+                
+                //if pos is greater than 0.5 we are in the next block so go to it
+                if ((-pos - (int)-pos) > 0.5)
                 {
-                    //if pos is greater than 0.5 we are in the next block so go to it
-                    if ((-pos - (int)-pos) > 0.5)
-                    {
-                        return (int)pos - 1;
-                    }
-                    return (int)pos;
+                    return (int)pos - 1;
                 }
+
+                return (int)pos;
             }
         }
 
@@ -146,32 +146,26 @@ namespace BeeGame.Terrain.LandGeneration
                 if(normal > 0)
                 {
                     if((int)pos % 2 == 0)
-                    {
-                    return Mathf.RoundToInt((float)Math.Round(pos, 1));
+                        return Mathf.RoundToInt((float)Math.Round(pos, 1));
 
-                    }
-                    else
-                    {
-                        return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
-                    }
+                    return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
                 }
 
-                return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
-            }
-            //if the normal is above 0 subtract it from the pos otherwise add it
-            if (normal > 0 && (int)pos % 2 == 0)
-            {
-                //the Math.Round removes strange rounding errors shown with Mathf.Round eg sometimes 0.5 would round to 0 not 1
-                return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
-            }
-            else if ((int)pos % 2 == 0)
-            {
-                return Mathf.RoundToInt((float)Math.Round(pos, 1)) + normal;
-            }
-            else
-            {
+                if((int)pos % 2 == 0)
+                    return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
+
                 return Mathf.RoundToInt((float)Math.Round(pos, 1));
             }
+
+            //if the normal is above 0 subtract it from the pos otherwise add it
+            if (normal > 0 && (int)pos % 2 == 0)
+                //the Math.Round removes strange rounding errors shown with Mathf.Round eg sometimes 0.5 would round to 0 not 1
+                return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
+
+            if ((int)pos % 2 == 0)
+                return Mathf.RoundToInt((float)Math.Round(pos, 1)) + normal;
+
+            return Mathf.RoundToInt((float)Math.Round(pos, 1));
         }
 
         /// <summary>

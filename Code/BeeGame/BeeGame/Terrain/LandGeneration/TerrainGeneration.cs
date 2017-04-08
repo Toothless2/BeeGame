@@ -5,6 +5,9 @@ using BeeGame.Terrain.LandGeneration.Noise;
 
 namespace BeeGame.Terrain.LandGeneration
 {
+    /// <summary>
+    /// Generates the terrain for the game
+    /// </summary>
     public class TerrainGeneration
     {
         #region Data

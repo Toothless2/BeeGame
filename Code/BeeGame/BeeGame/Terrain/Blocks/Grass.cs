@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using BeeGame.Core.Enums;
+using BeeGame.Terrain.Chunks;
 
 namespace BeeGame.Terrain.Blocks
 {
@@ -10,6 +8,12 @@ namespace BeeGame.Terrain.Blocks
     public class Grass : Block
     {
         public Grass() : base() { }
+
+        public override void UpdateBlock(int x, int y, int z, Chunk chunk)
+        {
+            if (chunk.GetBlock(x, y + 1, z).IsSolid(Direction.DOWN))
+                chunk.blocks[x, y, z] = new Dirt() { changed = changed };
+        }
 
         public override Tile TexturePosition(Direction direction)
         {

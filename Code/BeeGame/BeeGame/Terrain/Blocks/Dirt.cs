@@ -7,9 +7,10 @@ using UnityEngine;
 
 namespace BeeGame.Terrain.Blocks
 {
+    [Serializable]
     public class Dirt : Block
     {
-        public Dirt() : base() { }
+        public Dirt() : base(){}
 
         public override Tile TexturePosition(Direction direction)
         {

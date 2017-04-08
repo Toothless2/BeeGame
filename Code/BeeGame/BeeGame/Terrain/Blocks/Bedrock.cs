@@ -6,6 +6,7 @@ using BeeGame.Core.Enums;
 
 namespace BeeGame.Terrain.Blocks
 {
+    [Serializable]
     public class Bedrock : Block
     {
         public Bedrock() : base()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using BeeGame.Core.Enums;
 
 namespace BeeGame.Terrain.Chunks
 {
@@ -37,12 +38,13 @@ namespace BeeGame.Terrain.Chunks
             colTris.Add(colVerts.Count - 1);
         }
 
-        public void AddVertices(Vector3 pos, bool addToRenderMesh = true)
+        public void AddVertices(Vector3 pos, bool addToRenderMesh = true, Direction direction = Direction.DOWN)
         {
             if (addToRenderMesh)
                 verts.Add(pos);
 
-            colVerts.Add(pos);
+            if(direction == Direction.UP)
+                colVerts.Add(pos - new Vector3(0.01f, 0, 0.01f));
         }
 
         public void AddTriangle(int tri)

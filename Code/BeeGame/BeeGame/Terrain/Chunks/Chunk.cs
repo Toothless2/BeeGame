@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using UnityEngine;
 using BeeGame.Terrain.Blocks;
 using BeeGame.Terrain.LandGeneration;
@@ -83,17 +84,19 @@ namespace BeeGame.Terrain.Chunks
         {
             rendered = true;
             mesh = new MeshData();
-            
+
             for (int x = 0; x < chunkSize; x++)
             {
                 for (int y = 0; y < chunkSize; y++)
                 {
                     for (int z = 0; z < chunkSize; z++)
                     {
+                        blocks[x, y, z].UpdateBlock(x, y, z, this);
                         mesh = blocks[x, y, z].BlockData(this, x, y, z, mesh);
                     }
                 }
             }
+            
             RenderMesh(mesh);
         }
 

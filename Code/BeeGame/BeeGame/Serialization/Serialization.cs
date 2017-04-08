@@ -31,19 +31,24 @@ namespace BeeGame.Serialization
         public static void SaveChunk(Chunk chunk)
         {
             Init();
-            Thread thread = new Thread(() => SaveChunkThread(chunk)) { Name = $"Save Chunk at @ {chunk.chunkWorldPos.ToString()}" };
 
-            thread.Start();
+            Block[,,] blocks = chunk.blocks;
+
+            //Thread thread = new Thread(() => SaveChunkThread(blocks, chunk.chunkWorldPos)) { Name = $"Save Chunk at @ {chunk.chunkWorldPos.ToString()}" };
+
+            SaveChunkThread(blocks, chunk.chunkWorldPos);
+
+            //thread.Start();
         }
 
-        private static void SaveChunkThread(Chunk chunk)
+        private static void SaveChunkThread(Block[,,] blocks, ChunkWorldPos pos)
         {
-            SaveChunk save = new SaveChunk(chunk);
+            SaveChunk save = new SaveChunk(blocks);
 
             if (save.blocks.Count == 0)
                 return;
 
-            string saveFile = $"{savePath}/{FileName(chunk.chunkWorldPos)}.dat";
+            string saveFile = $"{savePath}/{FileName(pos)}.dat";
 
             SaveFile(save, saveFile);
         }

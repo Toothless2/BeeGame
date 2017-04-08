@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using BeeGame.Terrain.Blocks;
 
 
 namespace BeeGame.Terrain.Chunks
@@ -9,9 +8,9 @@ namespace BeeGame.Terrain.Chunks
     [Serializable]
     public class SaveChunk
     {
-        public Dictionary<ChunkWorldPos, Blocks.Block> blocks = new Dictionary<ChunkWorldPos, Blocks.Block>();
+        public Dictionary<ChunkWorldPos, Block> blocks = new Dictionary<ChunkWorldPos, Block>();
         
-        public SaveChunk(Chunk chunk)
+        public SaveChunk(Block[,,] blockArray)
         {
             unchecked
             {
@@ -21,8 +20,8 @@ namespace BeeGame.Terrain.Chunks
                     {
                         for (int z = 0; z < Chunk.chunkSize; z++)
                         {
-                            if (chunk.blocks[x, y, z].changed)
-                                blocks.Add(new ChunkWorldPos(x, y, z), chunk.blocks[x, y, z]);
+                            if (blockArray[x, y, z].changed)
+                                blocks.Add(new ChunkWorldPos(x, y, z), blockArray[x, y, z]);
                         }
                     }
                 }

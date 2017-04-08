@@ -13,10 +13,11 @@ namespace BeeGame.Terrain.Blocks
 
         public Block() { }
 
+        public virtual void UpdateBlock(int x, int y, int z, Chunk chunk) { }
+
         public virtual Tile TexturePosition(Direction direction)
         {
             return new Tile() {x = 1, y = 9};
-
         }
 
         public virtual Vector2[] FaceUVs(Direction direction)
@@ -70,10 +71,10 @@ namespace BeeGame.Terrain.Blocks
 
         protected virtual MeshData FaceDataUp(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRenderMesh = true)
         {
-            meshData.AddVertices(new Vector3(x - 0.5f, y + 0.5f, z + 0.5f), addToRenderMesh);
-            meshData.AddVertices(new Vector3(x + 0.5f, y + 0.5f, z + 0.5f), addToRenderMesh);
-            meshData.AddVertices(new Vector3(x + 0.5f, y + 0.5f, z - 0.5f), addToRenderMesh);
-            meshData.AddVertices(new Vector3(x - 0.5f, y + 0.5f, z - 0.5f), addToRenderMesh);
+            meshData.AddVertices(new Vector3(x - 0.5f, y + 0.5f, z + 0.5f), addToRenderMesh, Direction.UP);
+            meshData.AddVertices(new Vector3(x + 0.5f, y + 0.5f, z + 0.5f), addToRenderMesh, Direction.UP);
+            meshData.AddVertices(new Vector3(x + 0.5f, y + 0.5f, z - 0.5f), addToRenderMesh, Direction.UP);
+            meshData.AddVertices(new Vector3(x - 0.5f, y + 0.5f, z - 0.5f), addToRenderMesh, Direction.UP);
 
             meshData.AddQuadTriangles(addToRenderMesh);
 

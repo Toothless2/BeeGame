@@ -66,7 +66,7 @@ namespace BeeGame.Terrain.Chunks
         {
             if (buildList.Count != 0)
             {
-                for (int i = 0; i < buildList.Count && i < 8; i++)
+                for (int i = 0; i < buildList.Count && i < 10; i++)
                 {
                     BuildChunk(buildList[0]);
                     buildList.RemoveAt(0);
@@ -98,7 +98,7 @@ namespace BeeGame.Terrain.Chunks
                     if (newChunk != null && (newChunk.rendered || updateList.Contains(newChunkPos)))
                         continue;
 
-                    for (int y = -2; y < 2; y++)
+                    for (int y = -1; y < 2; y++)
                     {
                         for (int x = newChunkPos.x - Chunk.chunkSize; x < newChunkPos.x + Chunk.chunkSize; x += Chunk.chunkSize)
                         {

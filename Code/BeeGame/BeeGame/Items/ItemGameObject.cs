@@ -14,7 +14,7 @@ namespace BeeGame.Items
     [RequireComponent(typeof(BoxCollider))]
     public class ItemGameObject : MonoBehaviour
     {
-        public Block item;
+        public Item item;
         public GameObject go;
 
         private void Start()

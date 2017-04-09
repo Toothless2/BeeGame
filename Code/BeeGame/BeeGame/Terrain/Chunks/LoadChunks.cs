@@ -69,7 +69,7 @@ namespace BeeGame.Terrain.Chunks
         {
             if (buildList.Count != 0)
             {
-                for (int i = 0; i < buildList.Count && i < 10; i++)
+                for (int i = 0; i < buildList.Count && i < 8; i++)
                 {
                     BuildChunk(buildList[0]);
                     buildList.RemoveAt(0);
@@ -136,7 +136,7 @@ namespace BeeGame.Terrain.Chunks
                 {
                     float distance = Vector3.Distance(chunk.Value.transform.position, transform.position);
 
-                    if (distance > 256)
+                    if (distance > 200)
                         chunksToDelete.Add(chunk.Key);
                 }
 

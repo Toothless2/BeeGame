@@ -13,6 +13,8 @@ namespace BeeGame.Terrain.LandGeneration
     /// </summary>
     public class Terrain
     {
+        public static World world;
+
         #region Setting Position To block Grid
         // TODO: Convert to THVector3
         /// <summary>
@@ -234,6 +236,18 @@ namespace BeeGame.Terrain.LandGeneration
             return chunk.world.GetBlock(pos.x, pos.y, pos.z);
         }
 
+        public static Block GetBlock(Vector3 pos)
+        {
+            Chunk chunk = GetChunk(pos);
+
+            if (chunk == null)
+                return new Air();
+
+            chunk.world.GetBlock((int)pos.x, (int)pos.y, (int)pos.z);
+
+            return new Block();
+        }
+
         public static bool BlockInPosition(Vector3 pos, Chunk chunk)
         {
             if (chunk == null)
@@ -245,6 +259,11 @@ namespace BeeGame.Terrain.LandGeneration
             return false;
         }
         #endregion
+
+        public static Chunk GetChunk(Vector3 vec3)
+        {
+            return world.GetChunk((int)vec3.x, (int)vec3.y, (int)vec3.y);
+        }
 
         #region Set Block
         /// <summary>

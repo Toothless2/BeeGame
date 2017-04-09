@@ -62,6 +62,7 @@
     <Compile Include="Core\Enums\Enums.cs" />
     <Compile Include="Core\THInput.cs" />
     <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\ItemGameObject.cs" />
     <Compile Include="LoadResources.cs" />
     <Compile Include="Player\PlayerLook.cs" />
     <Compile Include="Player\PlayerMove.cs" />

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BeeGame.Core.Enums;
+using BeeGame.Items;
+using UnityEngine;
 
 namespace BeeGame.Blocks
 {
@@ -12,6 +14,11 @@ namespace BeeGame.Blocks
         public Bedrock() : base()
         {
             breakable = false;
+        }
+
+        public override void BreakBlock(Vector3 pos)
+        {
+            return;
         }
 
         public override Tile TexturePosition(Direction direction)

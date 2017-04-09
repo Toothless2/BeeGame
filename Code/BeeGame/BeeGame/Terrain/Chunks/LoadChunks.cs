@@ -57,6 +57,11 @@ namespace BeeGame.Terrain.Chunks
 
         private static int timer = 0;
 
+        private void Start()
+        {
+            Terrain.LandGeneration.Terrain.world = world;
+        }
+
         void Update()
         {
             if (DeleteChunks())

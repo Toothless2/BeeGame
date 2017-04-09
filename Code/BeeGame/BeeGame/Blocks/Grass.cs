@@ -1,6 +1,7 @@
 ﻿using System;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
+using BeeGame.Items;
 
 namespace BeeGame.Blocks
 {

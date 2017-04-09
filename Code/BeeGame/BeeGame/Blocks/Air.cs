@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
+using UnityEngine;
 
 namespace BeeGame.Blocks
 {
@@ -11,6 +12,11 @@ namespace BeeGame.Blocks
     public class Air : Block
     {
         public Air() : base() { }
+
+        public override void BreakBlock(Vector3 pos)
+        {
+            return;
+        }
 
         public override MeshData BlockData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addRoRenderMesh = true)
         {

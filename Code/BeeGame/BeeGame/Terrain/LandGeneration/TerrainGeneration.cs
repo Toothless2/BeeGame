@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Terrain.LandGeneration.Noise;
-using System.Threading;
+using BeeGame.Serialization;
+using System.Collections.Generic;
 
 namespace BeeGame.Terrain.LandGeneration
 {
@@ -68,22 +68,9 @@ namespace BeeGame.Terrain.LandGeneration
         /// <returns><see cref="Chunk"/> with <see cref="Block"/>s generated</returns>
         public Chunk ChunkGen(Chunk chunk)
         {
-            lock (chunk)
-            {
-                //cant return chunk as it is locked so need to return a new chunk variable
-                Chunk returnChunk = null;
+            ChunkGenThread(chunk, out chunk);
 
-                Thread thread = new Thread(() => ChunkGenThread(chunk, out returnChunk)) { Name = $"Generating Chunk @ {chunk.chunkWorldPos}" };
-                thread.Start();
-
-                //overhead from thread.Join() is massive but is this function is the number 1 thing that destroys the game
-                //performace it is worth it as useing a thread dramaticaly improves performace, should look into other methods
-                //for improveing performace
-                thread.Join();
-
-                //return the populated chunk
-                return returnChunk;
-            }
+            return chunk;
         }
 
         /// <summary>
@@ -114,7 +101,7 @@ namespace BeeGame.Terrain.LandGeneration
         /// <returns><see cref="Chunk"/> with a new colum ob blocks generated</returns>
         public Chunk GenChunkColum(Chunk chunk, int x, int z)
         {
-            //hte height of the mountain
+            //the height of the mountain
             int stoneHeight = Mathf.FloorToInt(stoneBaseHeight);
             stoneHeight += GetNoise(-x, 0, z, stoneMountainFrequency, Mathf.FloorToInt(stoneMountainHeight));
 
@@ -154,6 +141,11 @@ namespace BeeGame.Terrain.LandGeneration
             }
 
                 return chunk;
+        }
+
+        public static void SaveNoise(int x, int y, int z)
+        {
+
         }
 
         /// <summary>

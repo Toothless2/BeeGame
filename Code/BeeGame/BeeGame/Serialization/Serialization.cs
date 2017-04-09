@@ -28,6 +28,7 @@ namespace BeeGame.Serialization
         }
 
         #region Chunk
+
         public static void SaveChunk(Chunk chunk)
         {
             Init();

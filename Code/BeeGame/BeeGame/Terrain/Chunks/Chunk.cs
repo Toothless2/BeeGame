@@ -85,32 +85,20 @@ namespace BeeGame.Terrain.Chunks
             rendered = true;
             mesh = new MeshData();
 
-            lock (mesh)
-            {
-                Thread thread = new Thread(() => UpdateChunkThread()) { Name = $"Update Chunk @ {chunkWorldPos}" };
-                thread.Start();
 
-                //overhead from thread.Join is large however is much much much better than not haveing a thread at all
-                //should probly look into other ways of makeing this better
-                thread.Join();
-                UpdateChunkThread();
-                RenderMesh(mesh);
-            }
-        }
-
-        void UpdateChunkThread()
-        {
-            for (int x = 0; x < chunkSize; x++)
+            for (int x = 0; x < chunkSize; x ++)
             {
-                for (int y = 0; y < chunkSize; y++)
+                for (int y = 0; y < chunkSize; y ++)
                 {
-                    for (int z = 0; z < chunkSize; z++)
+                    for (int z = 0; z < chunkSize; z ++)
                     {
                         blocks[x, y, z].UpdateBlock(x, y, z, this);
                         mesh = blocks[x, y, z].BlockData(this, x, y, z, mesh);
                     }
                 }
             }
+
+            RenderMesh(mesh);
         }
 
         void RenderMesh(MeshData meshData)

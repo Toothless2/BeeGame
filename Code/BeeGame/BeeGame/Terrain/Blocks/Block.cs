@@ -93,7 +93,7 @@ namespace BeeGame.Terrain.Blocks
 
             meshData.AddQuadTriangles(addToRenderMesh);
 
-            if(addToRenderMesh)
+            if (addToRenderMesh)
                 meshData.uv.AddRange(FaceUVs(Direction.DOWN));
 
             return meshData;

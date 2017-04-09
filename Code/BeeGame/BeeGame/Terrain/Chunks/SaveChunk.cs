@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BeeGame.Terrain.Blocks;
+using BeeGame.Blocks;
 
 
 namespace BeeGame.Terrain.Chunks

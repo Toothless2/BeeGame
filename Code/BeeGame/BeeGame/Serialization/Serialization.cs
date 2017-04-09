@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using BeeGame.Terrain;
 using BeeGame.Terrain.Chunks;
-using BeeGame.Terrain.Blocks;
+using BeeGame.Blocks;
 using System.Threading;
 
 namespace BeeGame.Serialization

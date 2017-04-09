@@ -61,18 +61,19 @@
   <ItemGroup>
     <Compile Include="Core\Enums\Enums.cs" />
     <Compile Include="Core\THInput.cs" />
+    <Compile Include="Items\Item.cs" />
     <Compile Include="LoadResources.cs" />
     <Compile Include="Player\PlayerLook.cs" />
     <Compile Include="Player\PlayerMove.cs" />
     <Compile Include="Player\Selector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\Serialization.cs" />
-    <Compile Include="Terrain\Blocks\Air.cs" />
-    <Compile Include="Terrain\Blocks\Apiary.cs" />
-    <Compile Include="Terrain\Blocks\Bedrock.cs" />
-    <Compile Include="Terrain\Blocks\Block.cs" />
-    <Compile Include="Terrain\Blocks\Dirt.cs" />
-    <Compile Include="Terrain\Blocks\Grass.cs" />
+    <Compile Include="Blocks\Air.cs" />
+    <Compile Include="Blocks\Apiary.cs" />
+    <Compile Include="Blocks\Bedrock.cs" />
+    <Compile Include="Blocks\Block.cs" />
+    <Compile Include="Blocks\Dirt.cs" />
+    <Compile Include="Blocks\Grass.cs" />
     <Compile Include="Terrain\Chunks\Chunk.cs" />
     <Compile Include="Terrain\Chunks\LoadChunks.cs" />
     <Compile Include="Terrain\Chunks\MeshData.cs" />

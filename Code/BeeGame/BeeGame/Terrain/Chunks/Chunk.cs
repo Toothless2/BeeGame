@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using UnityEngine;
-using BeeGame.Terrain.Blocks;
+using BeeGame.Blocks;
 using BeeGame.Terrain.LandGeneration;
 
 namespace BeeGame.Terrain.Chunks

@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BeeGame.Core.Enums;
+using UnityEngine;
 
-namespace BeeGame.Terrain.Blocks
+namespace BeeGame.Blocks
 {
     [Serializable]
-    public class Bedrock : Block
+    public class Dirt : Block
     {
-        public Bedrock() : base()
-        {
-            breakable = false;
-        }
+        public Dirt() : base(){}
 
         public override Tile TexturePosition(Direction direction)
         {
-            return new Tile() { x = 0, y = 0};
+            return new Tile { x = 2, y = 9 };
         }
     }
 }

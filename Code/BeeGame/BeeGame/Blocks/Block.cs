@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Core.Enums;
+using BeeGame.Items;
 
-namespace BeeGame.Terrain.Blocks
+namespace BeeGame.Blocks
 {
     [System.Serializable]
-    public class Block
+    public class Block : Item
     {
+        public new bool placeable = true;
         public bool breakable = true;
         public bool changed = true;
         private const float tileSize = 0.1f;

@@ -2,7 +2,7 @@
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
 
-namespace BeeGame.Terrain.Blocks
+namespace BeeGame.Blocks
 {
     [Serializable]
     public class Grass : Block

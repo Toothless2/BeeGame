@@ -73,7 +73,6 @@ namespace BeeGame.Terrain.Chunks
                 {
                     BuildChunk(buildList[0]);
                     buildList.RemoveAt(0);
-
                 }
             }
 

@@ -85,6 +85,21 @@ namespace BeeGame.Terrain.Chunks
             rendered = true;
             mesh = new MeshData();
 
+            lock (mesh)
+            {
+                Thread thread = new Thread(() => UpdateChunkThread()) { Name = $"Update Chunk @ {chunkWorldPos}" };
+                thread.Start();
+
+                //overhead from thread.Join is large however is much much much better than not haveing a thread at all
+                //should probly look into other ways of makeing this better
+                thread.Join();
+                UpdateChunkThread();
+                RenderMesh(mesh);
+            }
+        }
+
+        void UpdateChunkThread()
+        {
             for (int x = 0; x < chunkSize; x++)
             {
                 for (int y = 0; y < chunkSize; y++)
@@ -96,12 +111,12 @@ namespace BeeGame.Terrain.Chunks
                     }
                 }
             }
-            
-            RenderMesh(mesh);
         }
 
         void RenderMesh(MeshData meshData)
         {
+            //print(Thread.CurrentThread.Name);
+
             filter.mesh.Clear();
             filter.mesh.name = "Render Mesh";
             filter.mesh.vertices = meshData.verts.ToArray();
@@ -124,7 +139,7 @@ namespace BeeGame.Terrain.Chunks
         {
             Mesh mesh = new Mesh()
             {
-                name = "Collider Mesh",
+                //name = "Collider Mesh",
                 vertices = meshData.colVerts.ToArray(),
                 triangles = meshData.colTris.ToArray()
             };

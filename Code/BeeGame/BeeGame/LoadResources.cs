@@ -11,7 +11,7 @@ namespace BeeGame
     {
         void Awake()
         {
-            Thread.CurrentThread.Name = "Bee Game Main Thread";
+            //Thread.CurrentThread.Name = "Bee Game Main Thread";
         }
     }
 }

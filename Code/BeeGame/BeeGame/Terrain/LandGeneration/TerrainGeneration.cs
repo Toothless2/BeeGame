@@ -2,6 +2,7 @@
 using System.Collections;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Terrain.LandGeneration.Noise;
+using System.Threading;
 
 namespace BeeGame.Terrain.LandGeneration
 {
@@ -61,11 +62,36 @@ namespace BeeGame.Terrain.LandGeneration
         #endregion
 
         /// <summary>
-        /// Generates a <see cref="Chunk"/>
+        /// Generates a <see cref="Chunk"/> in a new thread
         /// </summary>
         /// <param name="chunk"><see cref="Chunk"/> to populate with <see cref="Block"/>s</param>
         /// <returns><see cref="Chunk"/> with <see cref="Block"/>s generated</returns>
         public Chunk ChunkGen(Chunk chunk)
+        {
+            lock (chunk)
+            {
+                //cant return chunk as it is locked so need to return a new chunk variable
+                Chunk returnChunk = null;
+
+                Thread thread = new Thread(() => ChunkGenThread(chunk, out returnChunk)) { Name = $"Generating Chunk @ {chunk.chunkWorldPos}" };
+                thread.Start();
+
+                //overhead from thread.Join() is massive but is this function is the number 1 thing that destroys the game
+                //performace it is worth it as useing a thread dramaticaly improves performace, should look into other methods
+                //for improveing performace
+                thread.Join();
+
+                //return the populated chunk
+                return returnChunk;
+            }
+        }
+
+        /// <summary>
+        /// Generates a new <see cref="Chunk"/>
+        /// </summary>
+        /// <param name="chunk"><see cref="Chunk"/> to be generated</param>
+        /// <param name="outChunk">Generated <see cref="Chunk"/> to return</param>
+        public void ChunkGenThread(Chunk chunk, out Chunk outChunk)
         {
             //for each x and z position in teh chunk
             for (int x = chunk.chunkWorldPos.x; x < chunk.chunkWorldPos.x + Chunk.chunkSize; x++)
@@ -75,9 +101,8 @@ namespace BeeGame.Terrain.LandGeneration
                     chunk = GenChunkColum(chunk, x, z);
                 }
             }
-            
-            //return the populated chunk
-            return chunk;
+
+            outChunk = chunk;
         }
 
         /// <summary>

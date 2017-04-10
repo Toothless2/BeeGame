@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using BeeGame.Core.Enums;
-using System;
+using BeeGame.Core;
 
 namespace BeeGame.Terrain.Chunks
 {
@@ -69,14 +69,14 @@ namespace BeeGame.Terrain.Chunks
         /// <param name="pos">Position of the vertice</param>
         /// <param name="addToRenderMesh">Should the vertice be added to the render <see cref="Mesh"/></param>
         /// <param name="direction">What face is this vertice on</param>
-        public void AddVertices(Vector3 pos, bool addToRenderMesh = true, Direction direction = Direction.DOWN)
+        public void AddVertices(THVector3 pos, bool addToRenderMesh = true, Direction direction = Direction.DOWN)
         {
             if (addToRenderMesh)
                 verts.Add(pos);
 
             //if the vertice is on the top face make its positon slightly smaller
             if(direction == Direction.UP)
-                colVerts.Add(pos - new Vector3(0.01f, 0, 0.01f));
+                colVerts.Add(pos - new THVector3(0.01f, 0, 0.01f));
         }
 
         /// <summary>

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using BeeGame.Blocks;
 using BeeGame.Terrain.Chunks;
-using BeeGame.Items;
 using static BeeGame.Terrain.LandGeneration.Terrain;
 using static BeeGame.Core.THInput;
 
@@ -15,10 +10,11 @@ namespace BeeGame.Player
     {
         public GameObject selector;
 
+        public LayerMask layers;
+
         void FixedUpdate()
         {
             UpdateSelector();
-
         }
 
         void Update()
@@ -29,10 +25,11 @@ namespace BeeGame.Player
 
         void UpdateSelector()
         {
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 15))
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 15, layers))
             {
+                selector.SetActive(true);
                 selector.transform.position = GetBlockPos(hit);
-                selector.SetActive(BlockInPosition(GetBlockPos(hit), hit.collider.GetComponent<Terrain.Chunks.Chunk>()));
+                selector.SetActive(BlockInPosition(GetBlockPos(hit), hit.collider.GetComponent<Chunk>()));
             }
             else
             {

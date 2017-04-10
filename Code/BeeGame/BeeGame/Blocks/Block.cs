@@ -2,6 +2,7 @@
 using BeeGame.Terrain.Chunks;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
+using BeeGame.Core;
 
 namespace BeeGame.Blocks
 {
@@ -16,7 +17,12 @@ namespace BeeGame.Blocks
             placeable = true;
         }
 
-        public virtual void BreakBlock(Vector3 pos)
+        public Block(Block block)
+        {
+
+        }
+
+        public virtual void BreakBlock(THVector3 pos)
         {
             GameObject go = Object.Instantiate(Resources.Load("Prefabs/ItemGameObject") as GameObject, pos, Quaternion.identity) as GameObject;
             go.GetComponent<ItemGameObject>().item = this;

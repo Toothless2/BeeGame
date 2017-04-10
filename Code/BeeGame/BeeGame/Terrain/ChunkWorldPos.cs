@@ -33,9 +33,6 @@ namespace BeeGame.Terrain
             if (temp.x == x && temp.y == y && temp.z == z)
                 return true;
 
-            //if (obj.GetHashCode() == GetHashCode())
-            //    return true; 
-
             return false;
         }
 

@@ -5,6 +5,7 @@ using System.Text;
 using UnityEngine;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Blocks;
+using BeeGame.Core;
 
 namespace BeeGame.Terrain.LandGeneration
 {
@@ -16,16 +17,12 @@ namespace BeeGame.Terrain.LandGeneration
         public static World world;
 
         #region Setting Position To block Grid
-        // TODO: Convert to THVector3
         /// <summary>
-        /// Gets a block postion from a <see cref="Vector3"/>
+        /// Gets a block postion from a <see cref="THVector3"/>
         /// </summary>
-        /// <param name="pos">Position of the block as a <see cref="Vector3"/></param>
+        /// <param name="pos">Position of the block as a <see cref="THVector3"/></param>
         /// <returns><see cref="ChunkWorldPos"/> of the <see cref="Block"/></returns>
-        /// <remarks>
-        /// Convert to <see cref="THVector3"/> when reimplemented
-        /// </remarks>
-        public static ChunkWorldPos GetBlockPos(Vector3 pos)
+        public static ChunkWorldPos GetBlockPos(THVector3 pos)
         {
             return new ChunkWorldPos()
             {
@@ -35,19 +32,15 @@ namespace BeeGame.Terrain.LandGeneration
             };
         }
 
-        // TODO: Convert to THVector3 or possibly remove and use below function instead
         /// <summary>
-        /// Returns the positon of the block hit as a <see cref="Vector3"/>
+        /// Returns the positon of the block hit as a <see cref="THVector3"/>
         /// </summary>
         /// <param name="hit"><see cref="RaycastHit"/></param>
         /// <param name="adjacent">Do you want the face adjecent to the block hit</param>
         /// <returns><see cref="THVector3"/> of the block you hit in world cordinates</returns>
-        /// <remarks>
-        /// When <see cref="THVector3"/> is reimplemented change to that
-        /// </remarks>
-        public static Vector3 GetBlockPos(RaycastHit hit)
+        public static THVector3 GetBlockPos(RaycastHit hit)
         {
-            Vector3 vec3 = new Vector3()
+            THVector3 vec3 = new THVector3()
             {
                 x = RoundXZ(hit.point.x, hit.normal.x),
                 y = RoundY(hit.point.y, hit.normal.y),
@@ -61,7 +54,7 @@ namespace BeeGame.Terrain.LandGeneration
         }
 
         /// <summary>
-        /// <see cref="GetBlockPos(Vector3)"/> does the same thing but returns a <see cref="ChunkWorldPos"/>
+        /// <see cref="GetBlockPos(THVector3)"/> does the same thing but returns a <see cref="ChunkWorldPos"/>
         /// </summary>
         /// <param name="hit"></param>
         /// <returns></returns>
@@ -207,7 +200,7 @@ namespace BeeGame.Terrain.LandGeneration
         /// <returns><see cref="ChunkWorldPos"/> of the <see cref="Chunk"/><returns>
         public static ChunkWorldPos GetBlockPos(RaycastHit hit, bool adjacent = false)
         {
-            return GetBlockPos(new Vector3()
+            return GetBlockPos(new THVector3()
             {
                 //rounds the hit to the correct position
                 x = Round(hit.point.x, hit.normal.x, adjacent),
@@ -236,7 +229,7 @@ namespace BeeGame.Terrain.LandGeneration
             return chunk.world.GetBlock(pos.x, pos.y, pos.z);
         }
 
-        public static Block GetBlock(Vector3 pos)
+        public static Block GetBlock(THVector3 pos)
         {
             Chunk chunk = GetChunk(pos);
 
@@ -248,7 +241,7 @@ namespace BeeGame.Terrain.LandGeneration
             return new Block();
         }
 
-        public static bool BlockInPosition(Vector3 pos, Chunk chunk)
+        public static bool BlockInPosition(THVector3 pos, Chunk chunk)
         {
             if (chunk == null)
                 return false;
@@ -260,7 +253,7 @@ namespace BeeGame.Terrain.LandGeneration
         }
         #endregion
 
-        public static Chunk GetChunk(Vector3 vec3)
+        public static Chunk GetChunk(THVector3 vec3)
         {
             return world.GetChunk((int)vec3.x, (int)vec3.y, (int)vec3.y);
         }

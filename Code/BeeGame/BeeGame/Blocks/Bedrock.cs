@@ -5,6 +5,7 @@ using System.Text;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
 using UnityEngine;
+using BeeGame.Core;
 
 namespace BeeGame.Blocks
 {
@@ -16,7 +17,7 @@ namespace BeeGame.Blocks
             breakable = false;
         }
 
-        public override void BreakBlock(Vector3 pos)
+        public override void BreakBlock(THVector3 pos)
         {
             return;
         }

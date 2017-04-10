@@ -27,3 +27,6 @@ Builds/
 Assets/Saves/
 
 *.meta
+Code/BeeGame/BeeGameTest/
+
+Code/BeeGame/packages/

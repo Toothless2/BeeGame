@@ -5,6 +5,7 @@ using System.Text;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
 using UnityEngine;
+using BeeGame.Core;
 
 namespace BeeGame.Blocks
 {
@@ -13,7 +14,12 @@ namespace BeeGame.Blocks
     {
         public Air() : base() { }
 
-        public override void BreakBlock(Vector3 pos)
+        public Air(Block block) : base(block)
+        {
+
+        }
+
+        public override void BreakBlock(THVector3 pos)
         {
             return;
         }

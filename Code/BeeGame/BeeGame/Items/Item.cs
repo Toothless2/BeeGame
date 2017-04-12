@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Core.Enums;
 using BeeGame.Core;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace BeeGame.Items
 {
     [Serializable]
-    public class Item
+    public class Item : ICloneable
     {
         public bool placeable = false;
         public bool usesGameObject = false;
@@ -20,6 +19,16 @@ namespace BeeGame.Items
         public int maxStackCount = 64;
 
         public virtual GameObject GetGameObject() { return null; }
+
+        public virtual int GetItemID()
+        {
+            return GetHashCode();
+        }
+
+        public virtual Sprite GetItemSprite()
+        {
+            return SpriteDictionary.GetSprite("TestSprite");
+        }
 
         #region Item Mesh
         public virtual Tile TexturePosition(Direction direction)
@@ -143,10 +152,34 @@ namespace BeeGame.Items
         }
         #endregion
 
+        #region Interfaces
+        /// <summary>
+        /// Slow try no to use. Instead use Extensions.CloneObject()
+        /// </summary>
+        /// <returns>A deep copy of this</returns>
+        public object Clone()
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            MemoryStream ms = new MemoryStream();
+
+            bf.Serialize(ms, this);
+            ms.Seek(0, SeekOrigin.Begin);
+
+            return bf.Deserialize(ms);
+        }
+        #endregion
+
+        #region Overrides
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override bool Equals(object obj)
         {
             return base.Equals(obj);
         }
+
 
         public static bool operator ==(Item a, Item b)
         {
@@ -165,6 +198,7 @@ namespace BeeGame.Items
         {
             return !(a == b);
         }
+        #endregion
     }
 
 

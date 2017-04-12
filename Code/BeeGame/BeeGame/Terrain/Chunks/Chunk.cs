@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 using BeeGame.Blocks;
 using BeeGame.Terrain.LandGeneration;
+using UnityEditor;
 
 namespace BeeGame.Terrain.Chunks
 {
@@ -88,9 +84,9 @@ namespace BeeGame.Terrain.Chunks
 
             for (int x = 0; x < chunkSize; x ++)
             {
-                for (int y = 0; y < chunkSize; y ++)
+                for (int z = 0; z < chunkSize; z ++)
                 {
-                    for (int z = 0; z < chunkSize; z ++)
+                    for (int y = 0; y < chunkSize; y ++)
                     {
                         blocks[x, y, z].UpdateBlock(x, y, z, this);
                         mesh = blocks[x, y, z].BlockData(this, x, y, z, mesh);
@@ -103,8 +99,6 @@ namespace BeeGame.Terrain.Chunks
 
         void RenderMesh(MeshData meshData)
         {
-            //print(Thread.CurrentThread.Name);
-
             filter.mesh.Clear();
             filter.mesh.name = "Render Mesh";
             filter.mesh.vertices = meshData.verts.ToArray();
@@ -113,7 +107,6 @@ namespace BeeGame.Terrain.Chunks
             filter.mesh.uv = meshData.uv.ToArray();
 
             filter.mesh.RecalculateNormals();
-
             if (meshData.shareMeshes)
             {
                 meshCollider.sharedMesh = filter.mesh;

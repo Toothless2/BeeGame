@@ -26,5 +26,15 @@ namespace BeeGame.Blocks
         {
             return new Tile() { x = 0, y = 0};
         }
+
+        public override int GetHashCode()
+        {
+            return -1;
+        }
+
+        public override string ToString()
+        {
+            return $"Bedrock ID: {GetHashCode()}";
+        }
     }
 }

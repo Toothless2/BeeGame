@@ -33,5 +33,15 @@ namespace BeeGame.Blocks
         {
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode() + 1;
+        }
+
+        public override string ToString()
+        {
+            return $"Air ID: {GetHashCode()}";
+        }
     }
 }

@@ -36,5 +36,15 @@ namespace BeeGame.Blocks
                     return tile;
             }
         }
+
+        public override int GetHashCode()
+        {
+            return 4;
+        }
+
+        public override string ToString()
+        {
+            return $"Grass ID: {GetHashCode()}";
+        }
     }
 }

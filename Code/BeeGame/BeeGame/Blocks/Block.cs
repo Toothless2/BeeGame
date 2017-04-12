@@ -24,7 +24,7 @@ namespace BeeGame.Blocks
 
         public virtual void BreakBlock(THVector3 pos)
         {
-            GameObject go = Object.Instantiate(Resources.Load("Prefabs/ItemGameObject") as GameObject, pos, Quaternion.identity) as GameObject;
+            GameObject go = Object.Instantiate(UnityEngine.Resources.Load("Prefabs/ItemGameObject") as GameObject, pos, Quaternion.identity) as GameObject;
             go.GetComponent<ItemGameObject>().item = this;
         }
 
@@ -85,6 +85,16 @@ namespace BeeGame.Blocks
                 default:
                     return false;
             }
+        }
+
+        public override int GetHashCode()
+        {
+            return 1;
+        }
+
+        public override string ToString()
+        {
+            return $"Block ID: {GetHashCode()}";
         }
     }
 }

@@ -112,7 +112,7 @@ namespace BeeGame.Terrain.LandGeneration
         /// <param name="y">Y pos of the block</param>
         /// <param name="z">Z pos of the block</param>
         /// <param name="block"><see cref="Block"/> to be placed</param>
-        public void SetBlock(int x, int y, int z, Block block)
+        public void SetBlock(int x, int y, int z, Block block, bool saveChunk = false)
         {
             //gets the chunk for the block to be placed in
             Chunk chunk = GetChunk(x, y, z);
@@ -138,6 +138,9 @@ namespace BeeGame.Terrain.LandGeneration
                 //checks if the block chaged is in the edge if the z value for the chunk
                 UpdateIfEqual(z - chunk.chunkWorldPos.z, 0, new ChunkWorldPos(x, y, z - 1));
                 UpdateIfEqual(z - chunk.chunkWorldPos.z, Chunk.chunkSize - 1, new ChunkWorldPos(x, y, z + 1));
+
+                if (saveChunk)
+                    Serialization.Serialization.SaveChunk(chunk);
             }
         }
         #endregion

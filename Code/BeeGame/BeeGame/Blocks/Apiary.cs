@@ -15,5 +15,15 @@ namespace BeeGame.Blocks
             //use info.getvalue("valuename", typeof(valueType))
             UnityEngine.MonoBehaviour.print("hi");
         }
+
+        public override int GetHashCode()
+        {
+            return 3;
+        }
+
+        public override string ToString()
+        {
+            return $"Bedrock ID: {GetHashCode()}";
+        }
     }
 }

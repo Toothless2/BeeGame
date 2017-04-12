@@ -31,6 +31,12 @@ namespace BeeGame.Core
         }
 
 
+        public static float Distance(THVector3 a, THVector3 b)
+        {
+            float temp = (float)Math.Sqrt(Math.Pow((a.x - b.x), 2) + Math.Pow((a.y - b.y), 2) + Math.Pow((a.z - b.z), 2));
+            return temp;
+        }
+
         #region Overrides
         public override bool Equals(object obj)
         {

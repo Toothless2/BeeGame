@@ -255,7 +255,7 @@ namespace BeeGame.Terrain.LandGeneration
 
         public static Chunk GetChunk(THVector3 vec3)
         {
-            return world.GetChunk((int)vec3.x, (int)vec3.y, (int)vec3.y);
+            return world.GetChunk((int)vec3.x, (int)vec3.y, (int)vec3.z);
         }
 
         #region Set Block

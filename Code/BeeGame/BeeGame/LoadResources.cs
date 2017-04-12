@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using UnityEngine;
+using BeeGame.Core;
 
 namespace BeeGame
 {
@@ -11,6 +12,8 @@ namespace BeeGame
     {
         void Awake()
         {
+            SpriteDictionary.LoadSprites();
+            PrefabDictionary.LoadPrefabs();
             //Thread.CurrentThread.Name = "Bee Game Main Thread";
         }
     }

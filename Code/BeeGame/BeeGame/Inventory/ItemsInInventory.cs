@@ -13,6 +13,11 @@ namespace BeeGame.Inventory
             itemsInInventory = new Item[numberOfInventorySlots];
         }
 
+        public void AddItem(int index, Item item)
+        {
+            itemsInInventory[index] = item;
+        }
+
         public bool AddItem(Item item)
         {
             for (int i = 0; i < itemsInInventory.Length; i++)

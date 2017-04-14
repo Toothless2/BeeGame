@@ -143,11 +143,6 @@ namespace BeeGame.Terrain.LandGeneration
                 return chunk;
         }
 
-        public static void SaveNoise(int x, int y, int z)
-        {
-
-        }
-
         /// <summary>
         /// Get a noise value
         /// </summary>

@@ -10,11 +10,19 @@ namespace BeeGame.Terrain.Chunks
     /// </summary>
     public class LoadChunks : MonoBehaviour
     {
+        /// <summary>
+        /// The world the player is in
+        /// </summary>
         public World world;
 
-        private List<ChunkWorldPos> updateList = new List<ChunkWorldPos>();
+        /// <summary>
+        /// List if chunks to build
+        /// </summary>
         private List<ChunkWorldPos> buildList = new List<ChunkWorldPos>();
 
+        /// <summary>
+        /// Positions to make chunks aroud the player
+        /// /// </summary>
         private static ChunkWorldPos[] chunkPositions = {   new ChunkWorldPos( 0, 0,  0), new ChunkWorldPos(-1, 0,  0), new ChunkWorldPos( 0, 0, -1), new ChunkWorldPos( 0, 0,  1), new ChunkWorldPos( 1, 0,  0),
                              new ChunkWorldPos(-1, 0, -1), new ChunkWorldPos(-1, 0,  1), new ChunkWorldPos( 1, 0, -1), new ChunkWorldPos( 1, 0,  1), new ChunkWorldPos(-2, 0,  0),
                              new ChunkWorldPos( 0, 0, -2), new ChunkWorldPos( 0, 0,  2), new ChunkWorldPos( 2, 0,  0), new ChunkWorldPos(-2, 0, -1), new ChunkWorldPos(-2, 0,  1),
@@ -55,13 +63,22 @@ namespace BeeGame.Terrain.Chunks
                              new ChunkWorldPos(-6, 0, -5), new ChunkWorldPos(-6, 0,  5), new ChunkWorldPos(-5, 0, -6), new ChunkWorldPos(-5, 0,  6), new ChunkWorldPos( 5, 0, -6),
                              new ChunkWorldPos( 5, 0,  6), new ChunkWorldPos( 6, 0, -5), new ChunkWorldPos( 6, 0,  5) };
 
+        /// <summary>
+        /// Timer for chunk removal
+        /// </summary>
         private static int timer = 0;
 
+        /// <summary>
+        /// Sets the world
+        /// </summary>
         private void Start()
         {
-            Terrain.LandGeneration.Terrain.world = world;
+            LandGeneration.Terrain.world = world;
         }
 
+        /// <summary>
+        /// Builds, Renders, and Remmoves <see cref="Chunk"/>s
+        /// </summary>
         void Update()
         {
             if (DeleteChunks())
@@ -70,78 +87,83 @@ namespace BeeGame.Terrain.Chunks
             LoadAndRenderChunks();
         }
 
+        /// <summary>
+        /// Gets the chunks that sould be built and renders then renders them
+        /// </summary>
         void LoadAndRenderChunks()
         {
+            //if their is somethign in the build list new chunks can be made
             if (buildList.Count != 0)
             {
-                for (int i = 0; i < buildList.Count && i < 8; i++)
+                //makes all of the chunks in the build list. Works backwards through the list so that no chunk is missed because chunks are removed from the list as they are made
+                for (int i = buildList.Count - 1; i >= 0; i--)
                 {
                     BuildChunk(buildList[0]);
                     buildList.RemoveAt(0);
                 }
             }
-
-            if (updateList.Count != 0)
-            {
-                Chunk chunk = world.GetChunk(updateList[0].x, updateList[0].y, updateList[0].z);
-                if (chunk != null)
-                    chunk.update = true;
-                updateList.RemoveAt(0);
-            }
         }
 
+        /// <summary>
+        /// Finds the <see cref="Chunk"/>s that should be rendered
+        /// </summary>
         void FindChunksToLoad()
         {
+            //gets the player position in chunk coordinates
             ChunkWorldPos playerPos = new ChunkWorldPos(Mathf.FloorToInt(transform.position.x / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.y / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.z / Chunk.chunkSize) * Chunk.chunkSize);
 
-            if(updateList.Count == 0)
+            //check all of the chunk positions and if that position does not have a chunk in it make it
+            for (int i = 0; i < chunkPositions.Length; i++)
             {
-                for (int i = 0; i < chunkPositions.Length; i++)
+                ChunkWorldPos newChunkPos = new ChunkWorldPos(chunkPositions[i].x * Chunk.chunkSize + playerPos.x, 0, chunkPositions[i].z * Chunk.chunkSize + playerPos.z);
+
+                Chunk newChunk = world.GetChunk(newChunkPos.x, newChunkPos.y, newChunkPos.z);
+
+                if (newChunk != null && newChunk.rendered)
+                    continue;
+
+                for (int y = -1; y < 2; y++)
                 {
-                    ChunkWorldPos newChunkPos = new ChunkWorldPos(chunkPositions[i].x * Chunk.chunkSize + playerPos.x, 0, chunkPositions[i].z * Chunk.chunkSize + playerPos.z);
-
-                    Chunk newChunk = world.GetChunk(newChunkPos.x, newChunkPos.y, newChunkPos.z);
-
-                    if (newChunk != null && (newChunk.rendered || updateList.Contains(newChunkPos)))
-                        continue;
-
-                    for (int y = -1; y < 2; y++)
+                    for (int x = newChunkPos.x - Chunk.chunkSize; x < newChunkPos.x + Chunk.chunkSize; x += Chunk.chunkSize)
                     {
-                        for (int x = newChunkPos.x - Chunk.chunkSize; x < newChunkPos.x + Chunk.chunkSize; x += Chunk.chunkSize)
+                        for (int z = newChunkPos.z - Chunk.chunkSize; z < newChunkPos.z + Chunk.chunkSize; z += Chunk.chunkSize)
                         {
-                            for (int z = newChunkPos.z - Chunk.chunkSize; z < newChunkPos.z + Chunk.chunkSize; z += Chunk.chunkSize)
-                            {
-                                buildList.Add(new ChunkWorldPos(x, y * Chunk.chunkSize, z));
-                            }
+                            buildList.Add(new ChunkWorldPos(x, y * Chunk.chunkSize, z));
                         }
-
-                        updateList.Add(new ChunkWorldPos(newChunkPos.x, y * Chunk.chunkSize, newChunkPos.z));
                     }
-
-
-                    return;
                 }
+                return;
             }
         }
 
+        /// <summary>
+        /// Makes a chunk in the given positon if it does not already exist
+        /// </summary>
+        /// <param name="pos">hte positon of the new chunk</param>
         void BuildChunk(ChunkWorldPos pos)
         {
             if (world.GetChunk(pos.x, pos.y, pos.z) == null)
                 world.CreateChunk(pos.x, pos.y, pos.z);
         }
 
+        /// <summary>
+        /// Destroys <see cref="Chunk"/>s every 10 calls
+        /// </summary>
+        /// <returns>true if <see cref="Chunk"/>s were destroyed</returns>
         bool DeleteChunks()
         {
+            //destroys every 10 call to reduce load on CPU so that chunks are not destroyed and created at the same time
             if(timer == 10)
             {
                 timer = 0;
                 var chunksToDelete = new List<ChunkWorldPos>();
 
+                //go through all of the built chunks and if the chunk is 256 units away it is assumed to be out of sight so is added to the destroy list
                 foreach (var chunk in world.chunks)
                 {
                     float distance = Vector3.Distance(chunk.Value.transform.position, transform.position);
 
-                    if (distance > 200)
+                    if (distance > 256)
                         chunksToDelete.Add(chunk.Key);
                 }
 
@@ -152,7 +174,9 @@ namespace BeeGame.Terrain.Chunks
 
                 return true;
             }
+
             timer++;
+
             return false;
         }
     }

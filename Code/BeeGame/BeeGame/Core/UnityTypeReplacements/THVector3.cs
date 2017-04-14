@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace BeeGame.Core
 {
+    /// <summary>
+    /// Serializable version of <see cref="Vector3"/>
+    /// </summary>
     [Serializable]
     public struct THVector3
     {
@@ -13,6 +13,7 @@ namespace BeeGame.Core
         public float y;
         public float z;
 
+        #region Constructors
         public THVector3(float x, float y, float z)
         {
             this.x = x;
@@ -30,6 +31,11 @@ namespace BeeGame.Core
             this = vec3;
         }
 
+        public THVector3(Terrain.ChunkWorldPos vec3)
+        {
+            this = vec3;
+        }
+        #endregion
 
         public static float Distance(THVector3 a, THVector3 b)
         {

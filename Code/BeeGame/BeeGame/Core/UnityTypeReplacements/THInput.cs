@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -92,6 +91,7 @@ namespace BeeGame.Core
                     return Input.GetKey((KeyCode)inputButtons[button]);
             }
         }
+
         /// <summary>
         /// Has the given button been relesed this update
         /// </summary>
@@ -122,6 +122,11 @@ namespace BeeGame.Core
             }
         }
 
+        /// <summary>
+        /// Gets the axis of a button press
+        /// </summary>
+        /// <param name="axis">Axis to check, Horizontal or Vertical</param>
+        /// <returns>+1 or -1</returns>
         public static int GetAxis(string axis)
         {
             int returnAxis = 0;

@@ -59,29 +59,29 @@ namespace BeeGame.Terrain.LandGeneration
             Serialization.Serialization.LoadChunk(chunk);
 
             //updates all chunks around this one to reduce drawing of unecisary faces
-            chunks.TryGetValue(new ChunkWorldPos(x, y - 16, z), out chunk);
-            if (chunk != null)
-                chunk.update = true;
+            //chunks.TryGetValue(new ChunkWorldPos(x, y - 16, z), out chunk);
+            //if (chunk != null)
+            //    chunk.update = true;
 
-            chunks.TryGetValue(new ChunkWorldPos(x, y, z - 16), out chunk);
-            if (chunk != null)
-                chunk.update = true;
+            //chunks.TryGetValue(new ChunkWorldPos(x, y, z - 16), out chunk);
+            //if (chunk != null)
+            //    chunk.update = true;
 
-            chunks.TryGetValue(new ChunkWorldPos(x - 16, y, z), out chunk);
-            if (chunk != null)
-                chunk.update = true;
+            //chunks.TryGetValue(new ChunkWorldPos(x - 16, y, z), out chunk);
+            //if (chunk != null)
+            //    chunk.update = true;
 
-            chunks.TryGetValue(new ChunkWorldPos(x, y + 16, z), out chunk);
-            if (chunk != null)
-                chunk.update = true;
+            //chunks.TryGetValue(new ChunkWorldPos(x, y + 16, z), out chunk);
+            //if (chunk != null)
+            //    chunk.update = true;
 
-            chunks.TryGetValue(new ChunkWorldPos(x, y, z + 16), out chunk);
-            if (chunk != null)
-                chunk.update = true;
+            //chunks.TryGetValue(new ChunkWorldPos(x, y, z + 16), out chunk);
+            //if (chunk != null)
+            //    chunk.update = true;
 
-            chunks.TryGetValue(new ChunkWorldPos(x + 16, y, z), out chunk);
-            if (chunk != null)
-                chunk.update = true;
+            //chunks.TryGetValue(new ChunkWorldPos(x + 16, y, z), out chunk);
+            //if (chunk != null)
+            //    chunk.update = true;
             //the chunk will then make its meshes
         }
 

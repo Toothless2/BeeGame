@@ -12,7 +12,7 @@ namespace BeeGame.Blocks
 
         public override void UpdateBlock(int x, int y, int z, Chunk chunk)
         {
-            if (chunk.GetBlock(x, y + 1, z).IsSolid(Direction.DOWN))
+            if (chunk.GetBlock(x, y + 1, z, false).IsSolid(Direction.DOWN))
                 chunk.blocks[x, y, z] = new Dirt() { changed = changed };
         }
 

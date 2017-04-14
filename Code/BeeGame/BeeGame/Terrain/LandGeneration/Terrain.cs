@@ -46,10 +46,6 @@ namespace BeeGame.Terrain.LandGeneration
                 y = RoundY(hit.point.y, hit.normal.y),
                 z = RoundXZ(hit.point.z, hit.normal.z)
             };
-#if DEBUG
-            //MonoBehaviour.print($"{hit.point.y} : {hit.normal.y} : {vec3.y} : {hit.point.y >= 0} : {Math.Round(hit.point.y, 1)} : {Mathf.RoundToInt(((float)Math.Round(hit.point.y, 1)))}");
-#endif
-
             return (vec3);
         }
 

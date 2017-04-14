@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace BeeGame.Core
 {
+    /// <summary>
+    /// Serilializable version of <see cref="Vector2"/>
+    /// </summary>
+    [Serializable]
     public struct THVector2
     {
 

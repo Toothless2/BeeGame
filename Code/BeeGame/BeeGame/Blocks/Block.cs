@@ -32,32 +32,32 @@ namespace BeeGame.Blocks
 
         public virtual MeshData BlockData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRenderMesh = true)
         {
-            if (!chunk.GetBlock(x, y + 1, z).IsSolid(Direction.DOWN))
+            if (!chunk.GetBlock(x, y + 1, z, false).IsSolid(Direction.DOWN))
             {
                 meshData = FaceDataUp(x, y, z, meshData, addToRenderMesh);
             }
 
-            if (!chunk.GetBlock(x, y - 1, z).IsSolid(Direction.UP))
+            if (!chunk.GetBlock(x, y - 1, z, false).IsSolid(Direction.UP))
             {
                 meshData = FaceDataDown(x, y, z, meshData, addToRenderMesh);
             }
 
-            if (!chunk.GetBlock(x, y, z + 1).IsSolid(Direction.SOUTH))
+            if (!chunk.GetBlock(x, y, z + 1, false).IsSolid(Direction.SOUTH))
             {
                 meshData = FaceDataNorth(x, y, z, meshData, addToRenderMesh);
             }
 
-            if (!chunk.GetBlock(x, y, z - 1).IsSolid(Direction.NORTH))
+            if (!chunk.GetBlock(x, y, z - 1, false).IsSolid(Direction.NORTH))
             {
                 meshData = FaceDataSouth(x, y, z, meshData, addToRenderMesh);
             }
 
-            if (!chunk.GetBlock(x + 1, y, z).IsSolid(Direction.WEST))
+            if (!chunk.GetBlock(x + 1, y, z, false).IsSolid(Direction.WEST))
             {
                 meshData = FaceDataEast(x, y, z, meshData, addToRenderMesh);
             }
 
-            if (!chunk.GetBlock(x - 1, y, z).IsSolid(Direction.EAST))
+            if (!chunk.GetBlock(x - 1, y, z, false).IsSolid(Direction.EAST))
             {
                 meshData = FaceDataWest(x, y, z, meshData, addToRenderMesh);
             }

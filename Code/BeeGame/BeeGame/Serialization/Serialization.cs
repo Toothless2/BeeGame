@@ -7,18 +7,32 @@ using UnityEngine;
 using BeeGame.Terrain;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Blocks;
-using System.Threading;
 
 namespace BeeGame.Serialization
 {
+    /// <summary>
+    /// Serializes and Deserialises things
+    /// </summary>
     public static class Serialization
     {
+        #region Data
+        /// <summary>
+        /// Name if the world. If multiple world are ever added
+        /// </summary>
         public static string worldName = "World";
-
+        /// <summary>
+        /// Save folder
+        /// </summary>
         public static string saveFolderName = "Saves";
-
+        /// <summary>
+        /// Path to save things
+        /// </summary>
         private static string savePath;
+        #endregion
 
+        /// <summary>
+        /// Sets the paths for the save files
+        /// </summary>
         public static void Init()
         {
             savePath = $"{Application.dataPath}/{saveFolderName}/{worldName}";
@@ -28,40 +42,45 @@ namespace BeeGame.Serialization
         }
 
         #region Chunk
-
+        /// <summary>
+        /// Saves a given <see cref="Chunk"/> if a block in it has been changed
+        /// </summary>
+        /// <param name="chunk"></param>
         public static void SaveChunk(Chunk chunk)
         {
+            //makes the folders
             Init();
 
-            Block[,,] blocks = chunk.blocks;
+            //saves the blocks
+            SaveChunk save = new SaveChunk(chunk.blocks);
 
-            //Thread thread = new Thread(() => SaveChunkThread(blocks, chunk.chunkWorldPos)) { Name = $"Save Chunk at @ {chunk.chunkWorldPos.ToString()}" };
-
-            SaveChunkThread(blocks, chunk.chunkWorldPos);
-
-            //thread.Start();
-        }
-
-        private static void SaveChunkThread(Block[,,] blocks, ChunkWorldPos pos)
-        {
-            SaveChunk save = new SaveChunk(blocks);
-
+            //if no block was changed return early
             if (save.blocks.Count == 0)
                 return;
 
-            string saveFile = $"{savePath}/{FileName(pos)}.dat";
+            //otherwise save the file
+            string saveFile = $"{savePath}/{FileName(chunk.chunkWorldPos)}.dat";
 
             SaveFile(save, saveFile);
         }
 
+        /// <summary>
+        /// Load a <see cref="Chunk"/>
+        /// </summary>
+        /// <param name="chunk"></param>
+        /// <returns></returns>
         public static bool LoadChunk(Chunk chunk)
         {
+            //Sets the folders
             Init();
+            //gets teh save file
             string saveFile = $"{savePath}/{FileName(chunk.chunkWorldPos)}.dat";
 
+            //if the file does not exist return false
             if (!File.Exists(saveFile))
                 return false;
 
+            //set all of the changed blocks in the chunk
             SaveChunk save = (SaveChunk)LoadFile(saveFile);
 
             foreach (var block in save.blocks)
@@ -72,11 +91,11 @@ namespace BeeGame.Serialization
             return true;
         }
 
-        private static void LoadChunkThread()
-        {
-
-        }
-
+        /// <summary>
+        /// Sets the file name of the <see cref="Chunk"/>
+        /// </summary>
+        /// <param name="pos">Position of teh <see cref="Chunk"/></param>
+        /// <returns>The string of pos</returns>
         public static string FileName(ChunkWorldPos pos)
         {
             return $"{pos.x}, {pos.y}, {pos.z}";
@@ -84,6 +103,11 @@ namespace BeeGame.Serialization
         #endregion
 
         #region Save/Load Files
+        /// <summary>
+        /// Saves the given data in the given file
+        /// </summary>
+        /// <param name="obj">Object to save</param>
+        /// <param name="file">File path to save to</param>
         private static void SaveFile(object obj, string file)
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -104,6 +128,11 @@ namespace BeeGame.Serialization
             }
         }
 
+        /// <summary>
+        /// Loads the file at the given path
+        /// </summary>
+        /// <param name="file">File to load</param>
+        /// <returns>returns the loaded file as an object</returns>
         private static object LoadFile(string file)
         {
             BinaryFormatter bf = new BinaryFormatter();

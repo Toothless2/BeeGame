@@ -4,54 +4,66 @@ using BeeGame.Terrain.Chunks;
 using static BeeGame.Terrain.LandGeneration.Terrain;
 using static BeeGame.Core.THInput;
 
-using BeeGame.Core;
-using System.Diagnostics;
-
 namespace BeeGame.Player
 {
+    /// <summary>
+    /// Moves the <see cref="Block"/> selector
+    /// </summary>
     public class Selector : MonoBehaviour
     {
+        #region Data
+        /// <summary>
+        /// Selector
+        /// </summary>
         public GameObject selector;
 
+        /// <summary>
+        /// Layers for the selector to look at
+        /// </summary>
         public LayerMask layers;
+        /// <summary>
+        /// Where the raycast hit
+        /// </summary>
         private RaycastHit hit;
+        #endregion
 
-        private void Start()
-        {
-            //Block block = new Block();
-
-            //Stopwatch st = new Stopwatch();
-            //st.Start();
-            //Block block2 = block.CloneObject();
-            //st.Stop();
-
-            //Stopwatch st2 = new Stopwatch();
-            //st2.Start();
-            //Block block3 = (Block)block.Clone();
-            //st2.Stop();
-
-            //print($"{st.ElapsedTicks} : {st2.ElapsedTicks} : Reflection is {st2.ElapsedTicks / st.ElapsedTicks} times faster");
-        }
-
-        private void Awake()
+        #region Unity Methods
+        /// <summary>
+        /// Make the selector
+        /// </summary>
+        void Awake()
         {
             selector = Instantiate(selector);
         }
 
+        /// <summary>
+        /// Updates the selector if an inventory is not open
+        /// </summary>
         void FixedUpdate()
         {
             if(!isAnotherInventoryOpen)
                 UpdateSelector();
         }
 
+        /// <summary>
+        /// Breaks and places a <see cref="Block"/> if an inventory is no open
+        /// </summary>
         void Update()
         {
-            if (GetButtonDown("Break Block"))
-                BreakBlock();
-            if (GetButtonDown("Place"))
-                PlaceBlock();
+            if (!isAnotherInventoryOpen)
+            {
+                if (GetButtonDown("Break Block"))
+                    BreakBlock();
+                if (GetButtonDown("Place"))
+                    PlaceBlock();
+            }
         }
+        #endregion
 
+        #region Update
+        /// <summary>
+        /// Updates teh selectors position
+        /// </summary>
         void UpdateSelector()
         {
             if (Physics.Raycast(transform.position, transform.forward, out hit, 15, layers))
@@ -65,7 +77,12 @@ namespace BeeGame.Player
                 selector.SetActive(false);
             }
         }
+        #endregion
 
+        #region Break/Place
+        /// <summary>
+        /// Breaks the <see cref="Block"/> in the selectors postion
+        /// </summary>
         void BreakBlock()
         {
             Chunk chunk = GetChunk(selector.transform.position);
@@ -81,6 +98,9 @@ namespace BeeGame.Player
             block.BreakBlock(selector.transform.position);
         }
 
+        /// <summary>
+        /// Places s <see cref="Block"/> in the selector postion
+        /// </summary>
         void PlaceBlock()
         {
             Chunk chunk = GetChunk(selector.transform.position);
@@ -90,5 +110,6 @@ namespace BeeGame.Player
 
             chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), new Block(), true);
         }
+        #endregion
     }
 }

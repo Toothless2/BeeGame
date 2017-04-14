@@ -1,31 +1,59 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using BeeGame.Core.Enums;
-using UnityEngine;
 using BeeGame.Items;
 
 namespace BeeGame.Blocks
 {
+    /// <summary>
+    /// Dirt Block
+    /// </summary>
     [Serializable]
     public class Dirt : Block
     {
-        public Dirt() : base(){}
+        #region Data
+        /// <summary>
+        /// Name of the item
+        /// </summary>
+        private string itemName = "Dirt";
+        #endregion
 
+        #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public Dirt() : base(){}
+        #endregion
+
+        #region Mesh
+        /// <summary>
+        /// Position of the dirt texture in the atlas
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <returns></returns>
         public override Tile TexturePosition(Direction direction)
         {
             return new Tile { x = 2, y = 9 };
         }
+        #endregion
 
+        #region Overrides
+        /// <summary>
+        /// Base ID of the block
+        /// </summary>
+        /// <returns>5</returns>
         public override int GetHashCode()
         {
-            return 4;
+            return 5;
         }
 
+        /// <summary>
+        /// Returns the name and ID of the block as a string
+        /// </summary>
+        /// <returns>A nicely formatted string</returns>
         public override string ToString()
         {
-            return $"Bedrock ID: {GetHashCode()}";
+            return $"{itemName} ID: {GetItemID()}";
         }
+        #endregion
     }
 }

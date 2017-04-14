@@ -9,27 +9,48 @@ namespace BeeGame.Core
     [Serializable]
     public struct THVector2
     {
-
+        #region Data
+        /// <summary>
+        /// X position
+        /// </summary>
         public float x;
+        /// <summary>
+        /// Y position
+        /// </summary>
         public float y;
+        #endregion
 
+        #region Constructor
+        /// <summary>
+        /// Constructor from 2 floats
+        /// </summary>
+        /// <param name="x">X position</param>
+        /// <param name="y">Y position</param>
         public THVector2(float x, float y)
         {
             this.x = x;
             this.y = y;
         }
 
+        /// <summary>
+        /// Constructor from another <see cref="THVector2"/>
+        /// </summary>
+        /// <param name="vec2">Vector to make this from</param>
         public THVector2(THVector2 vec2)
         {
             this = vec2;
         }
 
+        /// <summary>
+        /// Constructor from <see cref="Vector2"/>
+        /// </summary>
+        /// <param name="vec2">Vector to make this from</param>
         public THVector2(Vector2 vec2)
         {
             this = vec2;
         }
-
-
+        #endregion
+        
         #region Overrides
         public override bool Equals(object obj)
         {

@@ -15,18 +15,18 @@ namespace BeeGame.Inventory.Player_Inventory
 
         void Update()
         {
-            UpdateBase();
+            //UpdateBase();
 
-            if (THInput.GetButtonDown("Player Inventory"))
-                OpenPlayerInventory();
+            //if (THInput.GetButtonDown("Player Inventory"))
+            //    OpenPlayerInventory();
 
-            RaycastHit[] hit = Physics.SphereCastAll(transform.position, 1f, transform.forward);
+            //RaycastHit[] hit = Physics.SphereCastAll(transform.position, 1f, transform.forward);
 
-            for (int i = hit.Length - 1; i >= 0; i--)
-            {
-                if (hit[i].collider.GetComponent<ItemGameObject>())
-                    PickupItem(hit[i].collider.GetComponent<ItemGameObject>());
-            }
+            //for (int i = hit.Length - 1; i >= 0; i--)
+            //{
+            //    if (hit[i].collider.GetComponent<ItemGameObject>())
+            //        PickupItem(hit[i].collider.GetComponent<ItemGameObject>());
+            //}
         }
 
         void OpenPlayerInventory()

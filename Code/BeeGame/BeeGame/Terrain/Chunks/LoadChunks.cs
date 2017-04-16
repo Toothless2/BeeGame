@@ -23,7 +23,7 @@ namespace BeeGame.Terrain.Chunks
         /// <summary>
         /// Positions to make chunks aroud the player
         /// /// </summary>
-        private static ChunkWorldPos[] chunkPositions = {   new ChunkWorldPos( 0, 0,  0), new ChunkWorldPos(-1, 0,  0), new ChunkWorldPos( 0, 0, -1), new ChunkWorldPos( 0, 0,  1), new ChunkWorldPos( 1, 0,  0),
+        private static ChunkWorldPos[] chunkPositions = new ChunkWorldPos[] {   new ChunkWorldPos( 0, 0,  0), new ChunkWorldPos(-1, 0,  0), new ChunkWorldPos( 0, 0, -1), new ChunkWorldPos( 0, 0,  1), new ChunkWorldPos( 1, 0,  0),
                              new ChunkWorldPos(-1, 0, -1), new ChunkWorldPos(-1, 0,  1), new ChunkWorldPos( 1, 0, -1), new ChunkWorldPos( 1, 0,  1), new ChunkWorldPos(-2, 0,  0),
                              new ChunkWorldPos( 0, 0, -2), new ChunkWorldPos( 0, 0,  2), new ChunkWorldPos( 2, 0,  0), new ChunkWorldPos(-2, 0, -1), new ChunkWorldPos(-2, 0,  1),
                              new ChunkWorldPos(-1, 0, -2), new ChunkWorldPos(-1, 0,  2), new ChunkWorldPos( 1, 0, -2), new ChunkWorldPos( 1, 0,  2), new ChunkWorldPos( 2, 0, -1),
@@ -63,6 +63,9 @@ namespace BeeGame.Terrain.Chunks
                              new ChunkWorldPos(-6, 0, -5), new ChunkWorldPos(-6, 0,  5), new ChunkWorldPos(-5, 0, -6), new ChunkWorldPos(-5, 0,  6), new ChunkWorldPos( 5, 0, -6),
                              new ChunkWorldPos( 5, 0,  6), new ChunkWorldPos( 6, 0, -5), new ChunkWorldPos( 6, 0,  5) };
 
+        private static ChunkWorldPos[] nearbyChunks = new ChunkWorldPos[] { new ChunkWorldPos(0, 0, 0), new ChunkWorldPos(1, 0, 0), new ChunkWorldPos(-1, 0, 0), new ChunkWorldPos(0, 0, 1), new ChunkWorldPos(0, 0, -1),
+                                                                            new ChunkWorldPos(1, 0, 1), new ChunkWorldPos(1, 0, -1), new ChunkWorldPos(-1, 0, 1), new ChunkWorldPos(-1, 0, -1)};
+
         /// <summary>
         /// Timer for chunk removal
         /// </summary>
@@ -85,6 +88,29 @@ namespace BeeGame.Terrain.Chunks
                 return;
             FindChunksToLoad();
             LoadAndRenderChunks();
+            ApplyCollsionMeshToNearbyChunks();
+        }
+
+        /// <summary>
+        /// Makes a collsion mesh for the chunks nearest to the player to reduce lag created by PhysX mesh bakeing
+        /// </summary>
+        void ApplyCollsionMeshToNearbyChunks()
+        {
+            //gets the player position in chunk coordinates
+            ChunkWorldPos playerPos = new ChunkWorldPos(Mathf.FloorToInt(transform.position.x / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.y / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.z / Chunk.chunkSize) * Chunk.chunkSize);
+
+            for (int i = 0; i < nearbyChunks.Length; i++)
+            {
+                ChunkWorldPos chunkPos = new ChunkWorldPos(nearbyChunks[i].x * Chunk.chunkSize + playerPos.x, 0, nearbyChunks[i].z * Chunk.chunkSize + playerPos.z);
+
+                for (int j = -1; j < 2; j++)
+                {
+                    Chunk nearbyChunk = world.GetChunk(chunkPos.x, j * Chunk.chunkSize, chunkPos.z);
+
+                    if (nearbyChunk != null)
+                        nearbyChunk.applyCollisionMesh = true;
+                }
+            }
         }
 
         /// <summary>
@@ -96,7 +122,7 @@ namespace BeeGame.Terrain.Chunks
             if (buildList.Count != 0)
             {
                 //makes all of the chunks in the build list. Works backwards through the list so that no chunk is missed because chunks are removed from the list as they are made
-                for (int i = buildList.Count - 1; i >= 0; i--)
+                for (int i = buildList.Count - 1, j = 0; i >= 0 && j < 8; i--, j++)
                 {
                     BuildChunk(buildList[0]);
                     buildList.RemoveAt(0);
@@ -109,30 +135,33 @@ namespace BeeGame.Terrain.Chunks
         /// </summary>
         void FindChunksToLoad()
         {
-            //gets the player position in chunk coordinates
-            ChunkWorldPos playerPos = new ChunkWorldPos(Mathf.FloorToInt(transform.position.x / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.y / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.z / Chunk.chunkSize) * Chunk.chunkSize);
-
-            //check all of the chunk positions and if that position does not have a chunk in it make it
-            for (int i = 0; i < chunkPositions.Length; i++)
+            if (buildList.Count == 0)
             {
-                ChunkWorldPos newChunkPos = new ChunkWorldPos(chunkPositions[i].x * Chunk.chunkSize + playerPos.x, 0, chunkPositions[i].z * Chunk.chunkSize + playerPos.z);
+                //gets the player position in chunk coordinates
+                ChunkWorldPos playerPos = new ChunkWorldPos(Mathf.FloorToInt(transform.position.x / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.y / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.z / Chunk.chunkSize) * Chunk.chunkSize);
 
-                Chunk newChunk = world.GetChunk(newChunkPos.x, newChunkPos.y, newChunkPos.z);
-
-                if (newChunk != null && newChunk.rendered)
-                    continue;
-
-                for (int y = -1; y < 2; y++)
+                //check all of the chunk positions and if that position does not have a chunk in it make it
+                for (int i = 0; i < chunkPositions.Length; i++)
                 {
-                    for (int x = newChunkPos.x - Chunk.chunkSize; x < newChunkPos.x + Chunk.chunkSize; x += Chunk.chunkSize)
+                    ChunkWorldPos newChunkPos = new ChunkWorldPos(chunkPositions[i].x * Chunk.chunkSize + playerPos.x, 0, chunkPositions[i].z * Chunk.chunkSize + playerPos.z);
+
+                    Chunk newChunk = world.GetChunk(newChunkPos.x, newChunkPos.y, newChunkPos.z);
+                    
+                    if (newChunk != null && (newChunk.rendered || buildList.Contains(newChunkPos)))
+                        continue;
+                    
+                    for (int y = -1; y < 2; y++)
                     {
-                        for (int z = newChunkPos.z - Chunk.chunkSize; z < newChunkPos.z + Chunk.chunkSize; z += Chunk.chunkSize)
+                        for (int x = newChunkPos.x - Chunk.chunkSize; x < newChunkPos.x + Chunk.chunkSize; x += Chunk.chunkSize)
                         {
-                            buildList.Add(new ChunkWorldPos(x, y * Chunk.chunkSize, z));
+                            for (int z = newChunkPos.z - Chunk.chunkSize; z < newChunkPos.z + Chunk.chunkSize; z += Chunk.chunkSize)
+                            {
+                                buildList.Add(new ChunkWorldPos(x, y * Chunk.chunkSize, z));
+                            }
                         }
                     }
+                    return;
                 }
-                return;
             }
         }
 

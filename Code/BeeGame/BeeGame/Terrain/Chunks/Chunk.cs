@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using BeeGame.Blocks;
 using BeeGame.Terrain.LandGeneration;
+using System.Threading;
 
 namespace BeeGame.Terrain.Chunks
 {
@@ -36,6 +37,9 @@ namespace BeeGame.Terrain.Chunks
         /// </summary>
         public bool rendered;
 
+        public bool updateCollsionMesh = false;
+        public bool applyCollisionMesh = false;
+
         /// <summary>
         /// <see cref="World"/> that this chunk is in as <see cref="MonoBehaviour"/>s cannot be static this is for convenicence
         /// </summary>
@@ -48,7 +52,7 @@ namespace BeeGame.Terrain.Chunks
         /// <summary>
         /// <see cref="MeshData"/> of this chunk
         /// </summary>
-        private MeshData mesh;
+        private MeshData mesh = new MeshData();
 
         /// <summary>
         /// This <see cref="Chunk"/>s mesh filter
@@ -75,10 +79,28 @@ namespace BeeGame.Terrain.Chunks
         /// </summary>
         void Update()
         {
-            if(update)
+            lock(mesh)
             {
-                update = false;
-                UpdateChunk();
+                if (update)
+                {
+                    update = false;
+                    updateCollsionMesh = true;
+                    mesh = new MeshData();
+                    //Enabling threading here works in editor but not in build?
+                    //ok whatever...
+                    //Thread thread = new Thread(UpdateChunk);
+
+                    //thread.Start();
+                    UpdateChunk();
+                }
+
+                if (mesh.done && mesh != new MeshData())
+                {
+                    RenderMesh(mesh);
+                }
+
+                if (applyCollisionMesh)
+                    ColliderMesh();
             }
         }
         #endregion
@@ -160,8 +182,6 @@ namespace BeeGame.Terrain.Chunks
         {
             //says that this chunk is rendered and initialtes the mesh
             rendered = true;
-            mesh = new MeshData();
-
 
             //goes through every block in the blocks array getting their mesh data
             for (int x = 0; x < chunkSize; x ++)
@@ -175,9 +195,7 @@ namespace BeeGame.Terrain.Chunks
                     }
                 }
             }
-
-            //build the mesh into a unity mesh and renders it
-            RenderMesh(mesh);
+            mesh.done = true;
         }
 
         /// <summary>
@@ -186,6 +204,9 @@ namespace BeeGame.Terrain.Chunks
         /// <param name="meshData">Mesh data to render</param>
         void RenderMesh(MeshData meshData)
         {
+            //Applying the mesh takes the longest but nothing can be dont with the mesh class in a secondary thread...thanks unity
+
+            mesh.done = false;
             //clears the current chunk mesh
             filter.mesh.Clear();
             //name for convenience
@@ -199,35 +220,41 @@ namespace BeeGame.Terrain.Chunks
 
             //redoes the normals incase they got messed up
             filter.mesh.RecalculateNormals();
+        }
+
+        /// <summary>
+        /// Makes a collision mesh from the <see cref="mesh"/>
+        /// </summary>
+        void ColliderMesh()
+        {
+            //if the chunk has been told to update the collsions but the chunk has ne verts dont do it as their is no point
+            if (this.mesh.verts.Count == 0)
+                return;
 
             //if the render and collision meshes should be shared set the render mesh to the collision mesh otherwise make a collision mesh
-            if (meshData.shareMeshes)
+            if (this.mesh.shareMeshes)
             {
+                applyCollisionMesh = false;
                 meshCollider.sharedMesh = filter.mesh;
                 return;
             }
 
-            ColliderMesh(meshData);
-        }
+            //Applying the mesh takes the longest but nothing can be dont with the mesh class in a secondary thread...thanks Unity
 
-        /// <summary>
-        /// Makes a collision mesh from the given <see cref="MeshData"/>
-        /// </summary>
-        /// <param name="meshData">Mesh data to make the collsion mesh from</param>
-        void ColliderMesh(MeshData meshData)
-        {
             //makes a new mesh setting the name for convenience
             Mesh mesh = new Mesh()
             {
                 name = "Collider Mesh",
-                vertices = meshData.colVerts.ToArray(),
-                triangles = meshData.colTris.ToArray()
+                vertices = this.mesh.colVerts.ToArray(),
+                triangles = this.mesh.colTris.ToArray()
             };
-
+            
             //recalcs the normals and applies the mesh
             mesh.RecalculateNormals();
 
             meshCollider.sharedMesh = mesh;
+
+            applyCollisionMesh = false;
         }
         #endregion
     }

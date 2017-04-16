@@ -3,6 +3,7 @@ using BeeGame.Terrain.Chunks;
 using BeeGame.Terrain.LandGeneration.Noise;
 using BeeGame.Serialization;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace BeeGame.Terrain.LandGeneration
 {
@@ -68,9 +69,14 @@ namespace BeeGame.Terrain.LandGeneration
         /// <returns><see cref="Chunk"/> with <see cref="Block"/>s generated</returns>
         public Chunk ChunkGen(Chunk chunk)
         {
-            ChunkGenThread(chunk, out chunk);
+            Chunk outChunk = chunk;
+            lock (chunk)
+            {
+                Thread thread = new Thread(() => ChunkGenThread(chunk, out outChunk)) { Name = $"Generate Chunk Thread @ {chunk.chunkWorldPos}"};
 
-            return chunk;
+                thread.Start();
+                return outChunk;
+            }
         }
 
         /// <summary>
@@ -89,6 +95,7 @@ namespace BeeGame.Terrain.LandGeneration
                 }
             }
 
+            chunk.SetBlocksUnmodified();
             outChunk = chunk;
         }
 

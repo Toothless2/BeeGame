@@ -49,7 +49,7 @@ namespace BeeGame.Player
         /// <summary>
         /// Every fixed update check if the look shoud be moved
         /// </summary>
-        void FixedUpdate()
+        void Update()
         {
             //the look wil not update when a inventory GUI is open
             if (!THInput.isAnotherInventoryOpen)

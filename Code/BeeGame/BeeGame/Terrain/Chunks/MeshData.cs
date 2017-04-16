@@ -37,6 +37,8 @@ namespace BeeGame.Terrain.Chunks
         /// </summary>
         public bool shareMeshes = true;
 
+        public bool done = false;
+
         /// <summary>
         /// Adds 2 triangles to the triangle list
         /// </summary>

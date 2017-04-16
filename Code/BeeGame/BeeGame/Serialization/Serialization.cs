@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using BeeGame.Terrain;
 using BeeGame.Terrain.Chunks;
+using BeeGame.Inventory;
 using BeeGame.Blocks;
 
 namespace BeeGame.Serialization
@@ -40,6 +41,30 @@ namespace BeeGame.Serialization
             if (!(Directory.Exists(savePath)))
                 Directory.CreateDirectory(savePath);
         }
+
+        #region Player
+        public static void SerializeInventory(Inventory.Inventory inventory, string inventoryName)
+        {
+            Init();
+            string inventorySavePath = $"{savePath}/Inventorys";
+
+            if (!Directory.Exists(inventorySavePath))
+                Directory.CreateDirectory(inventorySavePath);
+
+            SaveFile(inventory.GetAllItems(), $"{inventorySavePath}/{inventoryName}.dat");
+        }
+
+        public static void DeSerializeInventory(Inventory.Inventory inventory, string inventoryName)
+        {
+            Init();
+            string inventorySavePath = $"{savePath}/Inventorys/{inventoryName}.dat";
+
+            if (!File.Exists(inventorySavePath))
+                return;
+
+            inventory.SetAllItems((ItemsInInventory)LoadFile($"{inventorySavePath}"));
+        }
+        #endregion
 
         #region Chunk
         /// <summary>

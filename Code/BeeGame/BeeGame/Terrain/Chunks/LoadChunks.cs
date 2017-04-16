@@ -63,6 +63,9 @@ namespace BeeGame.Terrain.Chunks
                              new ChunkWorldPos(-6, 0, -5), new ChunkWorldPos(-6, 0,  5), new ChunkWorldPos(-5, 0, -6), new ChunkWorldPos(-5, 0,  6), new ChunkWorldPos( 5, 0, -6),
                              new ChunkWorldPos( 5, 0,  6), new ChunkWorldPos( 6, 0, -5), new ChunkWorldPos( 6, 0,  5) };
 
+        /// <summary>
+        /// <see cref="Chunk"/>s in a 3x3 radius around the player that should have a collision mesh
+        /// </summary>
         private static ChunkWorldPos[] nearbyChunks = new ChunkWorldPos[] { new ChunkWorldPos(0, 0, 0), new ChunkWorldPos(1, 0, 0), new ChunkWorldPos(-1, 0, 0), new ChunkWorldPos(0, 0, 1), new ChunkWorldPos(0, 0, -1),
                                                                             new ChunkWorldPos(1, 0, 1), new ChunkWorldPos(1, 0, -1), new ChunkWorldPos(-1, 0, 1), new ChunkWorldPos(-1, 0, -1)};
 
@@ -86,14 +89,23 @@ namespace BeeGame.Terrain.Chunks
         {
             if (DeleteChunks())
                 return;
-            FindChunksToLoad();
-            LoadAndRenderChunks();
-            ApplyCollsionMeshToNearbyChunks();
+            if (!world.chunkHasMadeCollisionMesh)
+            {
+                FindChunksToLoad();
+                LoadAndRenderChunks();
+                ApplyCollsionMeshToNearbyChunks();
+            }
+            //stops chunks being made and collision meshes being made at the same time
+            world.chunkHasMadeCollisionMesh = false;
         }
 
         /// <summary>
-        /// Makes a collsion mesh for the chunks nearest to the player to reduce lag created by PhysX mesh bakeing
+        /// Makes a collsion mesh for the <see cref="Chunk"/>s nearest to the player to reduce lag created by PhysX mesh bakeing
         /// </summary>
+        /// <remarks>
+        /// We dont need to worry about removeing <see cref="Chunk"/> collision meshes as once PhysX has baked then they have minimal performance impact
+        /// Doing things this wayt also spreads out the PhysX mesh bakeing
+        /// </remarks>
         void ApplyCollsionMeshToNearbyChunks()
         {
             //gets the player position in chunk coordinates

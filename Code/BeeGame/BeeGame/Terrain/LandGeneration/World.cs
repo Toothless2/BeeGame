@@ -23,6 +23,11 @@ namespace BeeGame.Terrain.LandGeneration
         /// The chunk prefab
         /// </summary>
         public GameObject chunkPrefab;
+
+        /// <summary>
+        /// Has a <see cref="Chunk"/> made a collision mesh?
+        /// </summary>
+        public bool chunkHasMadeCollisionMesh = false;
         #endregion
 
         #region Creation and Destruction

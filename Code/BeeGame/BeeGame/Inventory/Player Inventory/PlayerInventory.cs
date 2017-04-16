@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using BeeGame.Items;
 using BeeGame.Core;
+using System.Runtime.Serialization;
 
 namespace BeeGame.Inventory.Player_Inventory
 {
@@ -11,22 +12,27 @@ namespace BeeGame.Inventory.Player_Inventory
         void Start()
         {
             SetPlayerInventory();
+            inventoryName = "PlayerInventory";
+            Serialization.Serialization.DeSerializeInventory(this, inventoryName);
         }
 
         void Update()
         {
-            //UpdateBase();
+            UpdateBase();
 
-            //if (THInput.GetButtonDown("Player Inventory"))
-            //    OpenPlayerInventory();
+            if (THInput.GetButtonDown("Player Inventory"))
+                OpenPlayerInventory();
 
-            //RaycastHit[] hit = Physics.SphereCastAll(transform.position, 1f, transform.forward);
+            RaycastHit[] hit = Physics.SphereCastAll(transform.position, 1f, transform.forward);
 
-            //for (int i = hit.Length - 1; i >= 0; i--)
-            //{
-            //    if (hit[i].collider.GetComponent<ItemGameObject>())
-            //        PickupItem(hit[i].collider.GetComponent<ItemGameObject>());
-            //}
+            for (int i = hit.Length - 1; i >= 0; i--)
+            {
+                if (hit[i].collider.GetComponent<ItemGameObject>())
+                    PickupItem(hit[i].collider.GetComponent<ItemGameObject>());
+
+                Serialization.Serialization.SerializeInventory(this, inventoryName);
+            }
+
         }
 
         void OpenPlayerInventory()

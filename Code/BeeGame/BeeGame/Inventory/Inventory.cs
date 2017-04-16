@@ -12,6 +12,7 @@ namespace BeeGame.Inventory
         private ItemsInInventory items;
         public InventorySlot[] slots;
         internal Item floatingItem;
+        public string inventoryName = "";
 
         public void UpdateBase()
         {
@@ -28,14 +29,20 @@ namespace BeeGame.Inventory
             }
         }
 
-        public void RemoveItemFromSlot(int slotIndex)
+        public void SetAllItems(ItemsInInventory items)
         {
+            this.items = items;
+        }
 
+        public ItemsInInventory GetAllItems()
+        {
+            return items;
         }
 
         public void AddItemToSlots(int slotIndex, Item item)
         {
             items.AddItem(slotIndex, item);
+            Serialization.Serialization.SerializeInventory(this, inventoryName);
         }
 
         public void SetInventorySize(int inventorySize)

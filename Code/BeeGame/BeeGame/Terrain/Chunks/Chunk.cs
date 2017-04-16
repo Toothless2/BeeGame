@@ -37,7 +37,13 @@ namespace BeeGame.Terrain.Chunks
         /// </summary>
         public bool rendered;
 
+        /// <summary>
+        /// Should the chunks collision mesh be updated?
+        /// </summary>
         public bool updateCollsionMesh = false;
+        /// <summary>
+        /// Should the collision mesh be applied
+        /// </summary>
         public bool applyCollisionMesh = false;
 
         /// <summary>
@@ -234,11 +240,13 @@ namespace BeeGame.Terrain.Chunks
             //if the render and collision meshes should be shared set the render mesh to the collision mesh otherwise make a collision mesh
             if (this.mesh.shareMeshes)
             {
+                world.chunkHasMadeCollisionMesh = true;
                 applyCollisionMesh = false;
                 meshCollider.sharedMesh = filter.mesh;
                 return;
             }
 
+            world.chunkHasMadeCollisionMesh = true;
             //Applying the mesh takes the longest but nothing can be dont with the mesh class in a secondary thread...thanks Unity
 
             //makes a new mesh setting the name for convenience

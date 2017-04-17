@@ -117,8 +117,8 @@ namespace BeeGame.Player
         /// <returns>Speed of the jump</returns>
         float VerticalJumpSpeed()
         {
-            //Gets the correct of fore required for the player to reach the desired apex
-            //Can this be done without Square Root as that take alot of work?
+            //*Gets the correct of fore required for the player to reach the desired apex
+            //*Can this be done without Square Root as that take alot of work?
             return Mathf.Sqrt(2 * jumpHeight * gravity);
         }
         #endregion

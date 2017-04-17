@@ -86,7 +86,7 @@ namespace BeeGame.Terrain.LandGeneration
         /// <param name="outChunk">Generated <see cref="Chunk"/> to return</param>
         public void ChunkGenThread(Chunk chunk, out Chunk outChunk)
         {
-            //for each x and z position in teh chunk
+            //*for each x and z position in teh chunk
             for (int x = chunk.chunkWorldPos.x; x < chunk.chunkWorldPos.x + Chunk.chunkSize; x++)
             {
                 for (int z = chunk.chunkWorldPos.z; z < chunk.chunkWorldPos.z + Chunk.chunkSize; z++)
@@ -108,27 +108,27 @@ namespace BeeGame.Terrain.LandGeneration
         /// <returns><see cref="Chunk"/> with a new colum ob blocks generated</returns>
         public Chunk GenChunkColum(Chunk chunk, int x, int z)
         {
-            //the height of the mountain
+            //*the height of the mountain
             int stoneHeight = Mathf.FloorToInt(stoneBaseHeight);
             stoneHeight += GetNoise(-x, 0, z, stoneMountainFrequency, Mathf.FloorToInt(stoneMountainHeight));
 
-            //if the colum is currenly to low make it not so low
+            //*if the colum is currenly to low make it not so low
             if (stoneHeight < stoneMinHeight)
                 stoneHeight = Mathf.FloorToInt(stoneMinHeight);
 
-            //add the height of normal stone on to the mountain
+            //*add the height of normal stone on to the mountain
             stoneHeight += GetNoise(x, 0, -z, stoneBaseNoise, Mathf.RoundToInt(stoneBaseNoiseHeight));
 
-            //put dirt on top
+            //*put dirt on top
             int dirtHeight = stoneHeight + Mathf.FloorToInt(dirtBaseHeight);
             dirtHeight += GetNoise(x, 100, z, dirtNoise, Mathf.FloorToInt(dirtNoiseHeight));
 
-            //set the colum to the correct blocks
+            //*set the colum to the correct blocks
             for (int y = chunk.chunkWorldPos.y; y < chunk.chunkWorldPos.y + Chunk.chunkSize; y ++)
             {
                 int caveChance = GetNoise(x + 40, y + 100, z - 50, caveFrequency, 200);
 
-                //puts a layer of bedrock at the botton the the world
+                //*puts a layer of bedrock at the botton the the world
                 if (y <= (chunk.chunkWorldPos.y) && chunk.chunkWorldPos.y == -16)
                 {
                     SetBlock(x, y, z, new Blocks.Bedrock(), chunk);
@@ -175,12 +175,12 @@ namespace BeeGame.Terrain.LandGeneration
         /// <param name="replacesBlocks">Can it replace blocks</param>
         public static void SetBlock(int x, int y, int z, Blocks.Block block, Chunk chunk, bool replacesBlocks = false)
         {
-            //corrects the x, y, z pos of the so that the block is placed in the correct position
+            //*corrects the x, y, z pos of the so that the block is placed in the correct position
             x -= chunk.chunkWorldPos.x;
             y -= chunk.chunkWorldPos.y;
             z -= chunk.chunkWorldPos.z;
 
-            //chechs that the block is in the chunk and that no block is already their then sets it
+            //*chechs that the block is in the chunk and that no block is already their then sets it
             if (Chunk.InRange(x) && Chunk.InRange(y) && Chunk.InRange(z))
                 if (replacesBlocks || chunk.blocks[x, y, z] == null)
                     chunk.SetBlock(x, y, z, block);

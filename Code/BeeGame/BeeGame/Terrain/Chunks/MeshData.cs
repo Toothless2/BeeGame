@@ -45,7 +45,7 @@ namespace BeeGame.Terrain.Chunks
         /// <param name="addToRenderMesh">Should the triangles be added to the render <see cref="Mesh"/></param>
         public void AddQuadTriangles(bool addToRenderMesh = true)
         {
-            //adds the triangles in an anticlockwise order
+            //*adds the triangles in an anticlockwise order
 
             if (addToRenderMesh)
             {
@@ -76,7 +76,7 @@ namespace BeeGame.Terrain.Chunks
             if (addToRenderMesh)
                 verts.Add(pos);
 
-            //if the vertice is on the top face make its positon slightly smaller
+            //*if the vertice is on the top face make its positon slightly smaller
             if(direction == Direction.UP)
                 colVerts.Add(pos - new THVector3(0.01f, 0, 0.01f));
         }

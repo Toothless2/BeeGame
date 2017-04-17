@@ -51,7 +51,7 @@ namespace BeeGame.Player
         /// </summary>
         void Update()
         {
-            //the look wil not update when a inventory GUI is open
+            //*the look wil not update when a inventory GUI is open
             if (!THInput.isAnotherInventoryOpen)
             {
                 Look();

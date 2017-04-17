@@ -70,7 +70,7 @@ namespace BeeGame.Player
             {
                 selector.SetActive(true);
                 selector.transform.position = GetBlockPos(hit);
-                //selector.SetActive(BlockInPosition(GetBlockPos(hit), hit.collider.GetComponent<Chunk>()));
+                //*selector.SetActive(BlockInPosition(GetBlockPos(hit), hit.collider.GetComponent<Chunk>()));
             }
             else
             {

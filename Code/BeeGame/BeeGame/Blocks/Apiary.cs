@@ -23,7 +23,7 @@ namespace BeeGame.Blocks
 
         public Apiary(SerializationInfo info, StreamingContext context)
         {
-            //use info.getvalue("valuename", typeof(valueType))
+            //*use info.getvalue("valuename", typeof(valueType))
             UnityEngine.MonoBehaviour.print("hi");
         }
 

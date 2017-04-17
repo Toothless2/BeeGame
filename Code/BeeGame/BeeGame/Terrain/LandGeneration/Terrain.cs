@@ -70,7 +70,7 @@ namespace BeeGame.Terrain.LandGeneration
         /// </remarks>
         static float RoundXZ(float pos, float normal)
         {
-            //if we are looking at + x/z vlaues
+            //*if we are looking at + x/z vlaues
             if (pos > 0)
             {
                 if (normal > 0)
@@ -92,25 +92,25 @@ namespace BeeGame.Terrain.LandGeneration
                     return (int)pos;
                 }
             }
-            //if we are looking at - x/z values
+            //*if we are looking at - x/z values
             else
             {
-                //if poitive normal
+                //*if poitive normal
                 if (normal > 0)
                 {
                     pos = (int)pos;
                     return pos - 1;
                 }
                 
-                //if negative nomrmal
+                //*if negative nomrmal
                 if (normal < 0)
                 {
                     pos = (int)pos;
                     return pos;
                 }
-                //if their is no normal
+                //*if their is no normal
                 
-                //if pos is greater than 0.5 we are in the next block so go to it
+                //*if pos is greater than 0.5 we are in the next block so go to it
                 if ((-pos - (int)-pos) > 0.5)
                 {
                     return (int)pos - 1;
@@ -148,9 +148,9 @@ namespace BeeGame.Terrain.LandGeneration
                 return Mathf.RoundToInt((float)Math.Round(pos, 1));
             }
 
-            //if the normal is above 0 subtract it from the pos otherwise add it
+            //*if the normal is above 0 subtract it from the pos otherwise add it
             if (normal > 0 && (int)pos % 2 == 0)
-                //the Math.Round removes strange rounding errors shown with Mathf.Round eg sometimes 0.5 would round to 0 not 1
+                //*the Math.Round removes strange rounding errors shown with Mathf.Round eg sometimes 0.5 would round to 0 not 1
                 return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
 
             if ((int)pos % 2 == 0)
@@ -198,7 +198,7 @@ namespace BeeGame.Terrain.LandGeneration
         {
             return GetBlockPos(new THVector3()
             {
-                //rounds the hit to the correct position
+                //*rounds the hit to the correct position
                 x = Round(hit.point.x, hit.normal.x, adjacent),
                 y = Round(hit.point.y, hit.normal.y, adjacent),
                 z = Round(hit.point.z, hit.normal.z, adjacent)
@@ -213,13 +213,13 @@ namespace BeeGame.Terrain.LandGeneration
         /// <returns><see cref="Block"/> at <paramref name="hit.point"/>, Null if no block was found</returns>
         public static Block GetBlock(RaycastHit hit, bool adjacent = false)
         {
-            //checks that a chunk was hit and if it wasnt return early
+            //*checks that a chunk was hit and if it wasnt return early
             Chunk chunk = hit.collider.GetComponent<Chunk>();
 
             if (chunk == null)
                 return null;
 
-            //allignes the hit to the block grid and returns the block
+            //*allignes the hit to the block grid and returns the block
             ChunkWorldPos pos = GetBlockPos(hit, adjacent);
 
             return chunk.world.GetBlock(pos.x, pos.y, pos.z);
@@ -264,19 +264,19 @@ namespace BeeGame.Terrain.LandGeneration
         /// <returns><see cref="true"/> if block was set</returns>
         public static bool SetBlock(RaycastHit hit, Block block, bool adjacent = false)
         {
-            //checks that a chnk was hit
+            //*checks that a chnk was hit
             Chunk chunk = hit.collider.GetComponent<Chunk>();
 
             if (chunk == null)
                 return false;
 
-            //alligns the hit to the block grid
+            //*alligns the hit to the block grid
             ChunkWorldPos pos = GetBlockPosFromRayCast(hit);
 
-            //checks that the block tryign to be replaced can be replaced eg bedrock cannot be replaced
+            //*checks that the block tryign to be replaced can be replaced eg bedrock cannot be replaced
             if (GetBlock(hit, adjacent).breakable)
             {
-                //sets the position of the block and saves the chunk
+                //*sets the position of the block and saves the chunk
                 chunk.world.SetBlock(pos.x, pos.y, pos.z, block);
                 Serialization.Serialization.SaveChunk(chunk);
             }

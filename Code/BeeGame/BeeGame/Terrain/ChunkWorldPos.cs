@@ -36,7 +36,7 @@ namespace BeeGame.Terrain
             return $"({x}, {y}, {z})";
         }
 
-        //TODO probly add the == and != but for now this is fine
+        //*TODO probly add the == and != but for now this is fine
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2231:OverloadOperatorEqualsOnOverridingValueTypeEquals")]
         public override bool Equals(object obj)
         {

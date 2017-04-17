@@ -47,7 +47,7 @@ namespace BeeGame.Core
             switch (inputButtons[button])
             {
                 case KeyCode[] arry:
-                    //for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    //*for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
                     foreach (var item in arry)
                     {
                         if (Input.GetKeyDown(item))
@@ -77,7 +77,7 @@ namespace BeeGame.Core
             switch (inputButtons[button])
             {
                 case KeyCode[] arry:
-                    //for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    //*for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
                     foreach (var item in arry)
                     {
                         if (Input.GetKey(item))
@@ -107,7 +107,7 @@ namespace BeeGame.Core
             switch (inputButtons[button])
             {
                 case KeyCode[] arry:
-                    //for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    //*for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
                     foreach (var item in arry)
                     {
                         if (Input.GetKeyUp(item))

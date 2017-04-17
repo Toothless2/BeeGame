@@ -150,10 +150,14 @@ namespace BeeGame.Terrain.LandGeneration
 
             if(pos <= 0)
             {
-                //*if the normal is above 0 subtract it from the pos otherwise add it
-                if (normal > 0 && (int)pos % 2 == 0)
-                    //*the Math.Round removes strange rounding errors shown with Mathf.Round eg sometimes 0.5 would round to 0 not 1
-                    return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
+                if (normal > 0)
+                {
+                    if ((int)pos % 2 == 0)
+                        //*the Math.Round removes strange rounding errors shown with Mathf.Round eg sometimes 0.5 would round to 0 not 1
+                        return Mathf.RoundToInt((float)Math.Round(pos, 1)) - normal;
+
+                    return Mathf.RoundToInt((float)Math.Round(pos, 1));// - normal;
+                }
 
                 if ((int)pos % 2 == 0)
                     return Mathf.RoundToInt((float)Math.Round(pos, 1));

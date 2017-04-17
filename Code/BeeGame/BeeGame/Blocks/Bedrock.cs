@@ -11,18 +11,11 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Bedrock : Block
     {
-        #region Data
-        /// <summary>
-        /// Name of the item
-        /// </summary>
-        private string itemName = "Bedrock";
-        #endregion
-
         #region Constructor
         /// <summary>
         /// Constructor
         /// </summary>
-        public Bedrock() : base()
+        public Bedrock() : base("Bedrock")
         {
             breakable = false;
         }
@@ -67,7 +60,7 @@ namespace BeeGame.Blocks
         /// <returns>A nicely formatted string</returns>
         public override string ToString()
         {
-            return $"{itemName} ID: {GetItemID()}";
+            return $"{itemName} \nID: {GetItemID()}";
         }
         #endregion
     }

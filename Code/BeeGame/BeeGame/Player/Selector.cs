@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using BeeGame.Blocks;
 using BeeGame.Terrain.Chunks;
+using BeeGame.Inventory.Player_Inventory;
+using BeeGame.Items;
 using static BeeGame.Terrain.LandGeneration.Terrain;
 using static BeeGame.Core.THInput;
 
@@ -25,6 +27,11 @@ namespace BeeGame.Player
         /// Where the raycast hit
         /// </summary>
         private RaycastHit hit;
+
+        /// <summary>
+        /// What slot in the hotbar is selected
+        /// </summary>
+        public int selectedHotbarSlot = 27;
         #endregion
 
         #region Unity Methods
@@ -76,6 +83,30 @@ namespace BeeGame.Player
             {
                 selector.SetActive(false);
             }
+            SelectedSlot();
+        }
+
+        /// <summary>
+        /// Chanages what slot in the hotbar is currently selected by the player
+        /// </summary>
+        void SelectedSlot()
+        {
+            //* adds 1 to the selected slot and if that is out of range set it to the first hotbar slot
+            if(Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                selectedHotbarSlot += 1;
+                if (selectedHotbarSlot == 36)
+                    selectedHotbarSlot = 27;
+            }
+            //* removes one from the hotbar selector and if the selector would be inside the inventory set it to the last slot in the hotbar
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                selectedHotbarSlot -= 1;
+                if (selectedHotbarSlot == 26)
+                    selectedHotbarSlot = 35;
+            }
+                
+            transform.parent.GetComponentInChildren<PlayerInventory>().SelectedSlot(selectedHotbarSlot);
         }
         #endregion
 
@@ -93,8 +124,8 @@ namespace BeeGame.Player
                 return;
 
             chunk.world.SetBlock((int)selector.transform.position.x, (int)selector.transform.position.y, (int)selector.transform.position.z, new Air(), true);
-
-
+            //* set to changed so when block is placed down again it will be saved
+            block.changed = true;
             block.BreakBlock(selector.transform.position);
         }
 
@@ -107,8 +138,10 @@ namespace BeeGame.Player
 
             if (chunk == null)
                 return;
-
-            chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), new Block(), true);
+            
+            //* gets the item in the hotbar and if the item is placeable place it
+            if(transform.parent.GetComponentInChildren<PlayerInventory>().GetItemFromHotBar(selectedHotbarSlot, out Item blockToPlace))
+                chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), (Block)blockToPlace, true);
         }
         #endregion
     }

@@ -10,18 +10,11 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Dirt : Block
     {
-        #region Data
-        /// <summary>
-        /// Name of the item
-        /// </summary>
-        private string itemName = "Dirt";
-        #endregion
-
         #region Constructor
         /// <summary>
         /// Constructor
         /// </summary>
-        public Dirt() : base(){}
+        public Dirt() : base("Dirt"){}
         #endregion
 
         #region Mesh
@@ -52,7 +45,7 @@ namespace BeeGame.Blocks
         /// <returns>A nicely formatted string</returns>
         public override string ToString()
         {
-            return $"{itemName} ID: {GetItemID()}";
+            return $"{itemName} \nID: {GetItemID()}";
         }
         #endregion
     }

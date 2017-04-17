@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -14,6 +12,9 @@ namespace BeeGame.Serialization
     /// <summary>
     /// Serializes and Deserialises things
     /// </summary>
+    /// <remarks>
+    /// Binary serialization is SLOW try to only serialize only what is absolutly necessary
+    /// </remarks>
     public static class Serialization
     {
         #region Data
@@ -34,7 +35,7 @@ namespace BeeGame.Serialization
         /// <summary>
         /// Sets the paths for the save files
         /// </summary>
-        public static void Init()
+        public static void MakeDirectorys()
         {
             savePath = $"{Application.dataPath}/{saveFolderName}/{worldName}";
 
@@ -42,10 +43,18 @@ namespace BeeGame.Serialization
                 Directory.CreateDirectory(savePath);
         }
 
-        #region Player
+        #region Inventorys
+        /// <summary>
+        /// Serializes a given <see cref="Inventory"/>
+        /// </summary>
+        /// <param name="inventory">Invenotry to Serialize</param>
+        /// <param name="inventoryName">Name of the inventory</param>
+        /// <remarks>
+        /// The name of the inventory for the player is "PlayerInventory". \n
+        /// For all other ivnetorys the name is the block type + its position eg, Apiay@0, 0, 0
+        /// </remarks>
         public static void SerializeInventory(Inventory.Inventory inventory, string inventoryName)
         {
-            Init();
             string inventorySavePath = $"{savePath}/Inventorys";
 
             if (!Directory.Exists(inventorySavePath))
@@ -54,11 +63,17 @@ namespace BeeGame.Serialization
             SaveFile(inventory.GetAllItems(), $"{inventorySavePath}/{inventoryName}.dat");
         }
 
+        /// <summary>
+        /// Deserializesd an <see cref="Inventory"/> from its name into a given <paramref name="inventory"/>
+        /// </summary>
+        /// <param name="inventory">Inventory to apply the data to</param>
+        /// <param name="inventoryName">Inventory to deserialize</param>
         public static void DeSerializeInventory(Inventory.Inventory inventory, string inventoryName)
         {
-            Init();
+            //* make the path
             string inventorySavePath = $"{savePath}/Inventorys/{inventoryName}.dat";
 
+            //* checks that the file exists
             if (!File.Exists(inventorySavePath))
                 return;
 
@@ -73,17 +88,14 @@ namespace BeeGame.Serialization
         /// <param name="chunk"></param>
         public static void SaveChunk(Chunk chunk)
         {
-            //makes the folders
-            Init();
-
-            //saves the blocks
+            //* saves the blocks
             SaveChunk save = new SaveChunk(chunk.blocks);
 
-            //if no block was changed return early
+            //* if no block was changed return early
             if (save.blocks.Count == 0)
                 return;
 
-            //otherwise save the file
+            //* otherwise save the file
             string saveFile = $"{savePath}/{FileName(chunk.chunkWorldPos)}.dat";
 
             SaveFile(save, saveFile);
@@ -96,16 +108,14 @@ namespace BeeGame.Serialization
         /// <returns></returns>
         public static bool LoadChunk(Chunk chunk)
         {
-            //Sets the folders
-            Init();
-            //gets teh save file
+            //* gets the save file
             string saveFile = $"{savePath}/{FileName(chunk.chunkWorldPos)}.dat";
 
-            //if the file does not exist return false
+            //* if the file does not exist return false
             if (!File.Exists(saveFile))
                 return false;
 
-            //set all of the changed blocks in the chunk
+            //* set all of the changed blocks in the chunk
             SaveChunk save = (SaveChunk)LoadFile(saveFile);
 
             foreach (var block in save.blocks)

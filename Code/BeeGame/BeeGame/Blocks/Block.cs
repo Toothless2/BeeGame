@@ -14,10 +14,6 @@ namespace BeeGame.Blocks
     {
         #region Data
         /// <summary>
-        /// Name of the item
-        /// </summary>
-        private string itemName = "Stone";
-        /// <summary>
         /// Can this <see cref="Block"/> be broken
         /// </summary>
         public bool breakable = true;
@@ -31,7 +27,13 @@ namespace BeeGame.Blocks
         /// <summary>
         /// Constructor sets the <see cref="Item.placeable"/> to true
         /// </summary>
-        public Block()
+        public Block() : base()
+        {
+            itemName = "Stone";
+            placeable = true;
+        }
+
+        public Block(string name) : base(name)
         {
             placeable = true;
         }
@@ -142,7 +144,7 @@ namespace BeeGame.Blocks
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{itemName} ID: {GetHashCode()}";
+            return $"{itemName} \nID: {GetHashCode()}";
         }
         #endregion
     }

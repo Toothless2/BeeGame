@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 using BeeGame.Core;
 
 namespace BeeGame
@@ -18,6 +13,7 @@ namespace BeeGame
         /// </summary>
         void Awake()
         {
+            Serialization.Serialization.MakeDirectorys();
             SpriteDictionary.LoadSprites();
             PrefabDictionary.LoadPrefabs();
         }

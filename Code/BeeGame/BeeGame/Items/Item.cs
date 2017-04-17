@@ -18,7 +18,7 @@ namespace BeeGame.Items
         /// <summary>
         /// Name of the item
         /// </summary>
-        private string itemName = "Test Item";
+        internal string itemName = "Test Item";
         /// <summary>
         /// Is this item placeable. Saves checking if the item is a block type
         /// </summary>
@@ -40,6 +40,18 @@ namespace BeeGame.Items
         /// Max number of items in a stack
         /// </summary>
         public int maxStackCount = 64;
+        #endregion
+
+        #region Constructors
+        public Item()
+        {
+            itemName = "TestItem";
+        }
+
+        public Item(string name)
+        {
+            itemName = name;
+        }
         #endregion
 
         #region Item Stuff
@@ -65,6 +77,11 @@ namespace BeeGame.Items
         public virtual Sprite GetItemSprite()
         {
             return SpriteDictionary.GetSprite("TestSprite");
+        }
+
+        public virtual string GetItemName()
+        {
+            return $"{itemName}";
         }
         #endregion
 
@@ -314,7 +331,7 @@ namespace BeeGame.Items
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{itemName} {GetItemID()}";
+            return $"{itemName} \nID: {GetItemID()}";
         }
 
         /// <summary>

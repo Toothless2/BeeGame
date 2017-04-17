@@ -11,13 +11,9 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Air : Block
     {
-
-        /// <summary>
-        /// Name of the item
-        /// </summary>
-        private string itemName = "Air";
-
-        public Air() : base() { }
+        public Air() : base("Air")
+        {
+        }
 
         /// <summary>
         /// No item should be made when air is broken
@@ -62,7 +58,7 @@ namespace BeeGame.Blocks
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{itemName} ID: {GetItemID()}";
+            return $"{itemName} \nID: {GetItemID()}";
         }
     }
 }

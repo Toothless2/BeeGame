@@ -99,7 +99,6 @@
     <Compile Include="Terrain\LandGeneration\Terrain.cs" />
     <Compile Include="Terrain\LandGeneration\TerrainGeneration.cs" />
     <Compile Include="Terrain\LandGeneration\World.cs" />
-    <Compile Include="Terrain\Modify.cs" />
     <Compile Include="test.cs" />
   </ItemGroup>
   <ItemGroup>

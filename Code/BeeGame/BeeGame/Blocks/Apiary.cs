@@ -7,18 +7,13 @@ namespace BeeGame.Blocks
     /// </summary>
     public class Apiary : Block
     {
-        #region Data
-        /// <summary>
-        /// Name of the item
-        /// </summary>
-        private string itemName = "Apiary";
-        #endregion
-
         #region Constructor
         /// <summary>
         /// Constructor
         /// </summary>
-        public Apiary() : base() { }
+        public Apiary() : base("Apiary")
+        {
+        }
         #endregion
 
         public Apiary(SerializationInfo info, StreamingContext context)
@@ -43,7 +38,7 @@ namespace BeeGame.Blocks
         /// <returns>A nicely formatted string</returns>
         public override string ToString()
         {
-            return $"{itemName} ID: {GetItemID()}";
+            return $"{itemName} \nID: {GetItemID()}";
         }
         #endregion
     }

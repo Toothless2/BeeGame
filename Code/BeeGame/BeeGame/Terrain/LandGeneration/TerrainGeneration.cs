@@ -52,6 +52,9 @@ namespace BeeGame.Terrain.LandGeneration
         /// </summary>
         private float dirtNoiseHeight = 3;
 
+        private float treeFrequency = 0.2f;
+        private int treeDensity = 3;
+
         /// <summary>
         /// How often do caves happen
         /// </summary>
@@ -87,9 +90,9 @@ namespace BeeGame.Terrain.LandGeneration
         public void ChunkGenThread(Chunk chunk, out Chunk outChunk)
         {
             //*for each x and z position in teh chunk
-            for (int x = chunk.chunkWorldPos.x; x < chunk.chunkWorldPos.x + Chunk.chunkSize; x++)
+            for (int x = chunk.chunkWorldPos.x-3; x < chunk.chunkWorldPos.x + Chunk.chunkSize + 3; x++)
             {
-                for (int z = chunk.chunkWorldPos.z; z < chunk.chunkWorldPos.z + Chunk.chunkSize; z++)
+                for (int z = chunk.chunkWorldPos.z-3; z < chunk.chunkWorldPos.z + Chunk.chunkSize + 3; z++)
                 {
                     chunk = GenChunkColum(chunk, x, z);
                 }
@@ -124,7 +127,7 @@ namespace BeeGame.Terrain.LandGeneration
             dirtHeight += GetNoise(x, 100, z, dirtNoise, Mathf.FloorToInt(dirtNoiseHeight));
 
             //*set the colum to the correct blocks
-            for (int y = chunk.chunkWorldPos.y; y < chunk.chunkWorldPos.y + Chunk.chunkSize; y ++)
+            for (int y = chunk.chunkWorldPos.y - 8; y < chunk.chunkWorldPos.y + Chunk.chunkSize; y ++)
             {
                 int caveChance = GetNoise(x + 40, y + 100, z - 50, caveFrequency, 200);
 
@@ -140,6 +143,8 @@ namespace BeeGame.Terrain.LandGeneration
                 else if (y <= dirtHeight && caveSize < caveChance)
                 {
                     SetBlock(x, y, z, new Blocks.Grass(), chunk);
+                    if (y == dirtHeight && GetNoise(x, 0, z, treeFrequency, 100) < treeDensity)
+                        CreateTree(x, y + 1, z, chunk);
                 }
                 else
                 {
@@ -180,10 +185,29 @@ namespace BeeGame.Terrain.LandGeneration
             y -= chunk.chunkWorldPos.y;
             z -= chunk.chunkWorldPos.z;
 
-            //*chechs that the block is in the chunk and that no block is already their then sets it
+            //*checks that the block is in the chunk and that no block is already their then sets it
             if (Chunk.InRange(x) && Chunk.InRange(y) && Chunk.InRange(z))
                 if (replacesBlocks || chunk.blocks[x, y, z] == null)
                     chunk.SetBlock(x, y, z, block);
+        }
+
+        void CreateTree(int x, int y, int z, Chunk chunk)
+        {
+            for (int xi = -2; xi <= 2; xi++)
+            {
+                for (int yi = 4; yi <= 8; yi++)
+                {
+                    for (int zi = -2; zi <= 2; zi++)
+                    {
+                        SetBlock(xi + x, yi + y, zi + z, new Blocks.Leaves(), chunk, true);
+                    }
+                }
+            }
+
+            for (int i = 0; i < 6; i++)
+            {
+                SetBlock(x, y + i, z, new Blocks.Wood(), chunk, true);
+            }
         }
     }
 }

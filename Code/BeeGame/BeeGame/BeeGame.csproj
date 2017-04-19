@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blocks\Leaves.cs" />
+    <Compile Include="Blocks\Wood.cs" />
     <Compile Include="Core\Enums\Enums.cs" />
     <Compile Include="Core\Extensions.cs" />
     <Compile Include="Core\PrefabDictionary.cs" />

@@ -3,6 +3,7 @@ using BeeGame.Blocks;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Inventory.Player_Inventory;
 using BeeGame.Items;
+using BeeGame.Core;
 using static BeeGame.Terrain.LandGeneration.Terrain;
 using static BeeGame.Core.THInput;
 
@@ -141,7 +142,7 @@ namespace BeeGame.Player
             
             //* gets the item in the hotbar and if the item is placeable place it
             if(transform.parent.GetComponentInChildren<PlayerInventory>().GetItemFromHotBar(selectedHotbarSlot, out Item blockToPlace))
-                chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), (Block)blockToPlace, true);
+                chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), (Block)blockToPlace.CloneObject(), true);
         }
         #endregion
     }

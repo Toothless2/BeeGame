@@ -17,7 +17,7 @@ namespace BeeGame.Blocks
 
         public override Tile TexturePosition(Direction direction)
         {
-            return new Tile() { x = 7, y = 8 };
+            return new Tile() { x = 7, y = 9 };
         }
 
         #region Overrides

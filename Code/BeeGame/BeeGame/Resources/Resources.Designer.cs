@@ -136,7 +136,7 @@ namespace BeeGame.Resources {
                 {
                     splitText = lineText.Split(splitCharacters, StringSplitOptions.RemoveEmptyEntries);
                     lineText = "";
-                    objects.Add(splitText[0], UnityEngine.Resources.Load("Prefabs/" + splitText[1]) as GameObject);
+                    objects.Add(splitText[0], UnityEngine.Resources.Load("Prefabs/" + splitText[1].Remove(splitText[1].Length - 1, 1)) as GameObject);
                 }
             }
             

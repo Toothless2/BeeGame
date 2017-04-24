@@ -28,7 +28,7 @@ namespace BeeGame.Terrain.Chunks
                 {
                     for (int z = 0; z < Chunk.chunkSize; z++)
                     {
-                        //*if the block has changed save it
+                        //* if the block has changed save it
                         if (blockArray[x, y, z].changed)
                             blocks.Add(new ChunkWorldPos(x, y, z), blockArray[x, y, z]);
                     }

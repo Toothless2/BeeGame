@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blocks\Chest.cs" />
     <Compile Include="Blocks\Leaves.cs" />
     <Compile Include="Blocks\Wood.cs" />
     <Compile Include="Core\Enums\Enums.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Blocks\Block.cs" />
     <Compile Include="Blocks\Dirt.cs" />
     <Compile Include="Blocks\Grass.cs" />
+    <Compile Include="SpawnItem.cs" />
     <Compile Include="Terrain\Chunks\Chunk.cs" />
     <Compile Include="Terrain\Chunks\LoadChunks.cs" />
     <Compile Include="Terrain\Chunks\MeshData.cs" />

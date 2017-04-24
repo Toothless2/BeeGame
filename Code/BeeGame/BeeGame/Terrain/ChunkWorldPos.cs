@@ -36,17 +36,17 @@ namespace BeeGame.Terrain
             return $"({x}, {y}, {z})";
         }
 
-        //*TODO probly add the == and != but for now this is fine
+        //* TODO probly add the == and != but for now this is fine
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2231:OverloadOperatorEqualsOnOverridingValueTypeEquals")]
         public override bool Equals(object obj)
         {
-            //possibly remove and just check if obj is null
+            //* possibly remove and just check if obj is null
             if (!(obj is ChunkWorldPos))
                 return false;
 
             ChunkWorldPos temp = (ChunkWorldPos)obj;
 
-            //possibly change to hashcode checking
+            //* possibly change to hashcode checking
             if (temp.x == x && temp.y == y && temp.z == z)
                 return true;
 

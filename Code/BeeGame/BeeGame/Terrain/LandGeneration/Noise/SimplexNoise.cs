@@ -24,14 +24,14 @@
 //*ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //*OTHER DEALINGS IN THE SOFTWARE.
 
-//*For more information, please refer to <http://*unlicense.org/>
+//*For more information, please refer to <http://unlicense.org/>
 
 
 namespace BeeGame.Terrain.LandGeneration.Noise
 {
     /// <summary>
     /// Implementation of the Perlin simplex noise, an improved Perlin noise algorithm.
-    /// Based loosely on SimplexNoise1234 by Stefan Gustavson <http://*staffwww.itn.liu.se/~stegu/aqsis/aqsis-newnoise/>
+    /// Based loosely on SimplexNoise1234 by Stefan Gustavson <http://staffwww.itn.liu.se/~stegu/aqsis/aqsis-newnoise/>
     /// 
     /// </summary>
     public class SimplexNoise

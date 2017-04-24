@@ -10,6 +10,7 @@ namespace BeeGame.Terrain.Chunks
     /// </summary>
     public class LoadChunks : MonoBehaviour
     {
+        #region Data
         /// <summary>
         /// The world the player is in
         /// </summary>
@@ -73,6 +74,7 @@ namespace BeeGame.Terrain.Chunks
         /// Timer for chunk removal
         /// </summary>
         private static int timer = 0;
+        #endregion
 
         /// <summary>
         /// Sets the world
@@ -95,7 +97,7 @@ namespace BeeGame.Terrain.Chunks
                 LoadAndRenderChunks();
                 ApplyCollsionMeshToNearbyChunks();
             }
-            //stops chunks being made and collision meshes being made at the same time
+            //* stops chunks being made and collision meshes being made at the same time
             world.chunkHasMadeCollisionMesh = false;
         }
 
@@ -108,7 +110,7 @@ namespace BeeGame.Terrain.Chunks
         /// </remarks>
         void ApplyCollsionMeshToNearbyChunks()
         {
-            //gets the player position in chunk coordinates
+            //* gets the player position in chunk coordinates
             ChunkWorldPos playerPos = new ChunkWorldPos(Mathf.FloorToInt(transform.position.x / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.y / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.z / Chunk.chunkSize) * Chunk.chunkSize);
 
             for (int i = 0; i < nearbyChunks.Length; i++)
@@ -130,10 +132,10 @@ namespace BeeGame.Terrain.Chunks
         /// </summary>
         void LoadAndRenderChunks()
         {
-            //if their is somethign in the build list new chunks can be made
+            //* if their is somethign in the build list new chunks can be made
             if (buildList.Count != 0)
             {
-                //makes all of the chunks in the build list. Works backwards through the list so that no chunk is missed because chunks are removed from the list as they are made
+                //* makes all of the chunks in the build list. Works backwards through the list so that no chunk is missed because chunks are removed from the list as they are made
                 for (int i = buildList.Count - 1, j = 0; i >= 0 && j < 8; i--, j++)
                 {
                     BuildChunk(buildList[0]);
@@ -149,10 +151,10 @@ namespace BeeGame.Terrain.Chunks
         {
             if (buildList.Count == 0)
             {
-                //gets the player position in chunk coordinates
+                //* gets the player position in chunk coordinates
                 ChunkWorldPos playerPos = new ChunkWorldPos(Mathf.FloorToInt(transform.position.x / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.y / Chunk.chunkSize) * Chunk.chunkSize, Mathf.FloorToInt(transform.position.z / Chunk.chunkSize) * Chunk.chunkSize);
 
-                //check all of the chunk positions and if that position does not have a chunk in it make it
+                //* check all of the chunk positions and if that position does not have a chunk in it make it
                 for (int i = 0; i < chunkPositions.Length; i++)
                 {
                     ChunkWorldPos newChunkPos = new ChunkWorldPos(chunkPositions[i].x * Chunk.chunkSize + playerPos.x, 0, chunkPositions[i].z * Chunk.chunkSize + playerPos.z);
@@ -193,13 +195,13 @@ namespace BeeGame.Terrain.Chunks
         /// <returns>true if <see cref="Chunk"/>s were destroyed</returns>
         bool DeleteChunks()
         {
-            //destroys every 10 call to reduce load on CPU so that chunks are not destroyed and created at the same time
+            //* destroys every 10 call to reduce load on CPU so that chunks are not destroyed and created at the same time
             if(timer == 10)
             {
                 timer = 0;
                 var chunksToDelete = new List<ChunkWorldPos>();
 
-                //go through all of the built chunks and if the chunk is 256 units away it is assumed to be out of sight so is added to the destroy list
+                // *go through all of the built chunks and if the chunk is 256 units away it is assumed to be out of sight so is added to the destroy list
                 foreach (var chunk in world.chunks)
                 {
                     float distance = Vector3.Distance(chunk.Value.transform.position, transform.position);

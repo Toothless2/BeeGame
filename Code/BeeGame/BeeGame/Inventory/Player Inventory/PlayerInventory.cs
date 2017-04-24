@@ -91,7 +91,7 @@ namespace BeeGame.Inventory.Player_Inventory
             //* if the item is placebale and is not null remove 1 from the inventory as it is assumed it is about to be placed in the world
             if(outItem.placeable)
                 RemoveItemFromInventory(slotIndex);
-
+            
             return outItem.placeable;
         }
         #endregion
@@ -143,6 +143,8 @@ namespace BeeGame.Inventory.Player_Inventory
         /// <param name="item">Item to try to put into the inventory</param>
         void PickupItem(ItemGameObject item)
         {
+            item.item.itemStackCount = 1;
+
             //* if the item can be added to the inventory do that
             if (AddItemToInventory(item.item))
             {

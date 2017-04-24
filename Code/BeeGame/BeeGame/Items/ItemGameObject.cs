@@ -36,8 +36,9 @@ namespace BeeGame.Items
 
             if (item.usesGameObject)
             {
-                GetComponent<BoxCollider>().enabled = false;
+                //GetComponent<BoxCollider>().enabled = false;
                 Instantiate(item.GetGameObject(), transform, false);
+                transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             }
         }
 

@@ -33,7 +33,7 @@ namespace BeeGame.Terrain.Chunks
         public List<int> colTris = new List<int>();
 
         /// <summary>
-        /// Should thic chunk share is collider and render <see cref="Mesh"/>es
+        /// Should this chunk share is collider and render <see cref="Mesh"/>es
         /// </summary>
         public bool shareMeshes = true;
 
@@ -76,7 +76,7 @@ namespace BeeGame.Terrain.Chunks
             if (addToRenderMesh)
                 verts.Add(pos);
 
-            //*if the vertice is on the top face make its positon slightly smaller
+            //* if the vertice is on the top face make its positon slightly smaller
             if(direction == Direction.UP)
                 colVerts.Add(pos - new THVector3(0.01f, 0, 0.01f));
         }

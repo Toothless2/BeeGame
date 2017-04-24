@@ -18,7 +18,7 @@ namespace BeeGame.Blocks
 
         public override Tile TexturePosition(Direction direction)
         {
-            return new Tile() { x = 0, y = 0 };
+            return new Tile() { x = 5, y = 9 };
         }
 
         public override bool IsSolid(Direction direction)

@@ -16,12 +16,6 @@ namespace BeeGame.Blocks
         }
         #endregion
 
-        public Apiary(SerializationInfo info, StreamingContext context)
-        {
-            //*use info.getvalue("valuename", typeof(valueType))
-            UnityEngine.MonoBehaviour.print("hi");
-        }
-
         #region Overrides
         /// <summary>
         /// ID of the item

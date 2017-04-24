@@ -78,6 +78,8 @@ namespace BeeGame.Terrain.Chunks
         {
             filter = GetComponent<MeshFilter>();
             meshCollider = GetComponent<MeshCollider>();
+
+            gameObject.isStatic = true;
         }
 
         /// <summary>
@@ -92,11 +94,11 @@ namespace BeeGame.Terrain.Chunks
                     update = false;
                     updateCollsionMesh = true;
                     mesh = new MeshData();
-                    //Enabling threading here works in editor but not in build?
-                    //ok whatever...
-                    //Thread thread = new Thread(UpdateChunk);
+                    //* Enabling threading here works in editor but not in build?
+                    //* ok whatever...
+                    //* Thread thread = new Thread(UpdateChunk);
 
-                    //thread.Start();
+                    //* thread.Start();
                     UpdateChunk();
                 }
 
@@ -122,15 +124,15 @@ namespace BeeGame.Terrain.Chunks
         /// <returns><see cref="Block"/> at given x, y, z</returns>
         public Block GetBlock(int x, int y, int z, bool checkNebouringChunks = true)
         {
-            //checks that block is in the chunk
+            //* checks that block is in the chunk
             if (InRange(x) && InRange(y) && InRange(z))
                 return blocks[x, y, z];
 
-            //if the block is not in the chunk and we should check other chunks do that, otherwise return an air block (empty block)
-            if(checkNebouringChunks)
+            //* if the block is not in the chunk and we should check other chunks do that, otherwise return an air block (empty block)
+            //if(checkNebouringChunks)
                 return world.GetBlock(chunkWorldPos.x + x, chunkWorldPos.y + y, chunkWorldPos.z + z);
 
-            return new Air();
+            //return new Air();
         }
 
         /// <summary>
@@ -140,16 +142,18 @@ namespace BeeGame.Terrain.Chunks
         /// <param name="y">Y pos of the <see cref="Block"/></param>
         /// <param name="z">Z pos of the <see cref="Block"/></param>
         /// <param name="block"><see cref="Block"/> to set</param>
-        public void SetBlock(int x, int y, int z, Block block)
+        public void SetBlock(int x, int y, int z, Block block, bool checkNebouringChunks = true)
         {
-            //sets the block in the position if it is in the chunk, then return early
+            //* sets the block in the position if it is in the chunk, then return early
             if (InRange(x) && InRange(y) && InRange(z))
             {
                 blocks[x, y, z] = block;
                 return;
             }
-            //if the block is not in the chunk find its chunk and set it their
-            world.SetBlock(chunkWorldPos.x + x, chunkWorldPos.y + y, chunkWorldPos.z + z, block);
+
+            if (checkNebouringChunks)
+                //* if the block is not in the chunk find its chunk and set it their
+                world.SetBlock(chunkWorldPos.x + x, chunkWorldPos.y + y, chunkWorldPos.z + z, block);
         }
 
         /// <summary>
@@ -159,7 +163,7 @@ namespace BeeGame.Terrain.Chunks
         /// <returns>true if the value is in the <see cref="Chunk"/></returns>
         public static bool InRange(int i)
         {
-            //if the value is less then 0 or greater than 16 the value is outside the chunk
+            //* if the value is less then 0 or greater than 16 the value is outside the chunk
             if (i < 0 || i >= chunkSize)
                 return false;
             return true;
@@ -186,18 +190,18 @@ namespace BeeGame.Terrain.Chunks
         /// </summary>
         void UpdateChunk()
         {
-            //says that this chunk is rendered and initialtes the mesh
+            //* says that this chunk is rendered and initialtes the mesh
             rendered = true;
 
-            //goes through every block in the blocks array getting their mesh data
+            //* goes through every block in the blocks array getting their mesh data
             for (int x = 0; x < chunkSize; x ++)
             {
                 for (int z = 0; z < chunkSize; z ++)
                 {
                     for (int y = 0; y < chunkSize; y ++)
                     {
-                        blocks[x, y, z].UpdateBlock(x, y, z, this);
-                        mesh = blocks[x, y, z].BlockData(this, x, y, z, mesh);
+                        blocks[x, y, z]?.UpdateBlock(x, y, z, this);
+                        mesh = blocks[x, y, z]?.BlockData(this, x, y, z, mesh) ?? mesh;
                     }
                 }
             }
@@ -210,22 +214,23 @@ namespace BeeGame.Terrain.Chunks
         /// <param name="meshData">Mesh data to render</param>
         void RenderMesh(MeshData meshData)
         {
-            //Applying the mesh takes the longest but nothing can be dont with the mesh class in a secondary thread...thanks unity
+            //* Applying the mesh takes the longest but nothing can be dont with the mesh class in a secondary thread...thanks unity
 
             mesh.done = false;
-            //clears the current chunk mesh
+            //* clears the current chunk mesh
             filter.mesh.Clear();
-            //name for convenience
+            //* name for convenience
             filter.mesh.name = "Render Mesh";
-            //puts the tris and verts from the meshdata into the chunk mesh
+            //* puts the tris and verts from the meshdata into the chunk mesh
             filter.mesh.vertices = meshData.verts.ToArray();
             filter.mesh.triangles = meshData.tris.ToArray();
 
-            //sets the uvs
+            //* sets the uvs
             filter.mesh.uv = meshData.uv.ToArray();
 
-            //redoes the normals incase they got messed up
+            //* redoes the normals incase they got messed up
             filter.mesh.RecalculateNormals();
+            //* is this necissary as it causes alsot of lag?
         }
 
         /// <summary>
@@ -233,11 +238,11 @@ namespace BeeGame.Terrain.Chunks
         /// </summary>
         void ColliderMesh()
         {
-            //if the chunk has been told to update the collsions but the chunk has ne verts dont do it as their is no point
+            //* if the chunk has been told to update the collsions but the chunk has ne verts dont do it as their is no point
             if (this.mesh.verts.Count == 0)
                 return;
 
-            //if the render and collision meshes should be shared set the render mesh to the collision mesh otherwise make a collision mesh
+            //* if the render and collision meshes should be shared set the render mesh to the collision mesh otherwise make a collision mesh
             if (this.mesh.shareMeshes)
             {
                 world.chunkHasMadeCollisionMesh = true;
@@ -247,9 +252,9 @@ namespace BeeGame.Terrain.Chunks
             }
 
             world.chunkHasMadeCollisionMesh = true;
-            //Applying the mesh takes the longest but nothing can be dont with the mesh class in a secondary thread...thanks Unity
+            //* Applying the mesh takes the longest but nothing can be done with the mesh class in a secondary thread...thanks Unity
 
-            //makes a new mesh setting the name for convenience
+            //* makes a new mesh setting the name for convenience
             Mesh mesh = new Mesh()
             {
                 name = "Collider Mesh",
@@ -257,7 +262,7 @@ namespace BeeGame.Terrain.Chunks
                 triangles = this.mesh.colTris.ToArray()
             };
             
-            //recalcs the normals and applies the mesh
+            //* recalcs the normals and applies the mesh
             mesh.RecalculateNormals();
 
             meshCollider.sharedMesh = mesh;

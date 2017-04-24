@@ -40,28 +40,28 @@ namespace BeeGame.Terrain.LandGeneration
         /// <param name="z">Z pos to make the new chunk</param>
         public void CreateChunk(int x, int y, int z)
         {
-            //*pos of the chunk
+            //* pos of the chunk
             ChunkWorldPos pos = new ChunkWorldPos(x, y, z);
 
-            //*makes the chunk at the given position
+            //* makes the chunk at the given position
             GameObject newChunk = Instantiate(chunkPrefab, new Vector3(x, y, z), Quaternion.identity);
             
             Chunk chunk = newChunk.GetComponent<Chunk>();
 
-            //*setting the chunks pos and a reference to this
+            //* setting the chunks pos and a reference to this
             chunk.chunkWorldPos = pos;
             chunk.world = this;
 
-            //*adds the nwe chunk to the dictionary
+            //* adds the nwe chunk to the dictionary
             chunks.Add(pos, chunk);
 
-            //*generates the new chunks blocks
+            //* generates the new chunks blocks
             chunk = new TerrainGeneration().ChunkGen(chunk);
             
             //loads any blocks that the chunk has had modified
             Serialization.Serialization.LoadChunk(chunk);
 
-            //*updates all chunks around this one to reduce drawing of unecisary faces
+            //* updates all chunks around this one to reduce drawing of unecisary faces
             chunks.TryGetValue(new ChunkWorldPos(x, y - 16, z), out chunk);
             if (chunk != null)
                 chunk.update = true;
@@ -85,7 +85,7 @@ namespace BeeGame.Terrain.LandGeneration
             chunks.TryGetValue(new ChunkWorldPos(x + 16, y, z), out chunk);
             if (chunk != null)
                 chunk.update = true;
-            //*the chunk will then make its meshes
+            //* the chunk will then make its meshes
         }
 
         /// <summary>
@@ -96,10 +96,10 @@ namespace BeeGame.Terrain.LandGeneration
         /// <param name="z">Z pos if the chunk</param>
         public void DestroyChunk(int x, int y, int z)
         {
-            //*if teh chnks exists destroy it
+            //* if teh chnks exists destroy it
             if (chunks.TryGetValue(new ChunkWorldPos(x, y, z), out Chunk chunk))
             {
-                //*saves the chunk before destroying it incase any block were changed in it
+                //* saves the chunk before destroying it incase any block were changed in it
                 Serialization.Serialization.SaveChunk(chunk);
                 Destroy(chunk.gameObject);
                 chunks.Remove(new ChunkWorldPos(x, y, z));
@@ -160,7 +160,7 @@ namespace BeeGame.Terrain.LandGeneration
         public Chunk GetChunk(int x, int y, int z)
         {
             float multiple = Chunk.chunkSize;
-            //*rounds the given x, y, z to a multiple of 16 as chunks are 16x16x16 in size
+            //* rounds the given x, y, z to a multiple of 16 as chunks are 16x16x16 in size
             ChunkWorldPos pos = new ChunkWorldPos()
             {
                 x = Mathf.FloorToInt(x / multiple) * Chunk.chunkSize,
@@ -168,9 +168,9 @@ namespace BeeGame.Terrain.LandGeneration
                 z = Mathf.FloorToInt(z / multiple) * Chunk.chunkSize
             };
             
-            //*gets the chunk if it exists
+            //* gets the chunk if it exists
             chunks.TryGetValue(pos, out Chunk chunk);
-            //*if the chunk does not exist will return null
+            //* if the chunk does not exist will return null
             return chunk;
         }
         
@@ -183,16 +183,16 @@ namespace BeeGame.Terrain.LandGeneration
         /// <returns><see cref="Block"/> at given x, y, z position</returns>
         public Block GetBlock(int x, int y, int z)
         {
-            //*gets the chunk that the block is in
+            //* gets the chunk that the block is in
             Chunk chunk = GetChunk(x, y, z);
 
             if(chunk != null)
             {
-                //*gets the block in the chunk
-                return chunk.GetBlock(x - chunk.chunkWorldPos.x, y - chunk.chunkWorldPos.y, z - chunk.chunkWorldPos.z);
+                //* gets the block in the chunk
+                return chunk.GetBlock(x - chunk.chunkWorldPos.x, y - chunk.chunkWorldPos.y, z - chunk.chunkWorldPos.z) ?? new Air();
             }
 
-            //*returns an empty block is the chunk was not found
+            //* returns an empty block is the chunk was not found
             return new Air();
         }
         #endregion

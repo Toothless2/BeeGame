@@ -33,6 +33,10 @@ namespace BeeGame.Blocks
             placeable = true;
         }
 
+        /// <summary>
+        /// Sets placeabel to true and sets name of the block/item
+        /// </summary>
+        /// <param name="name">Name of the block/item</param>
         public Block(string name) : base(name)
         {
             placeable = true;
@@ -77,44 +81,43 @@ namespace BeeGame.Blocks
         /// </remarks>
         public virtual MeshData BlockData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRenderMesh = true)
         {
-            //Adds the Top face of the block
+            //* Adds the Top face of the block
             if (!chunk.GetBlock(x, y + 1, z, false).IsSolid(Direction.DOWN))
             {
                 meshData = FaceDataUp(x, y, z, meshData, addToRenderMesh);
             }
 
-            //Adds the Bottom face of the block
+            //* Adds the Bottom face of the block
             if (!chunk.GetBlock(x, y - 1, z, false).IsSolid(Direction.UP))
             {
                 meshData = FaceDataDown(x, y, z, meshData, addToRenderMesh);
             }
 
-            //Adds the North face of the block
+            //* Adds the North face of the block
             if (!chunk.GetBlock(x, y, z + 1, false).IsSolid(Direction.SOUTH))
             {
                 meshData = FaceDataNorth(x, y, z, meshData, addToRenderMesh);
             }
 
-            //Adds the South face of the block
+            //* Adds the South face of the block
             if (!chunk.GetBlock(x, y, z - 1, false).IsSolid(Direction.NORTH))
             {
                 meshData = FaceDataSouth(x, y, z, meshData, addToRenderMesh);
             }
 
-            //Adds the East face of the block
+            //* Adds the East face of the block
             if (!chunk.GetBlock(x + 1, y, z, false).IsSolid(Direction.WEST))
             {
                 meshData = FaceDataEast(x, y, z, meshData, addToRenderMesh);
             }
 
-            //Adds the West face of the block
+            //* Adds the West face of the block
             if (!chunk.GetBlock(x - 1, y, z, false).IsSolid(Direction.EAST))
             {
                 meshData = FaceDataWest(x, y, z, meshData, addToRenderMesh);
             }
 
             return meshData;
-
         }
 
         /// <summary>

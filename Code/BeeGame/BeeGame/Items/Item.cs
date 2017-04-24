@@ -106,7 +106,7 @@ namespace BeeGame.Items
         /// <returns>given <see cref="MeshData"/> with the items mesh added</returns>
         public virtual MeshData ItemMesh(int x, int y, int z, MeshData meshData)
         {
-            //adds all faces of the item to the mesh as all faces could be seen at any time
+            //* adds all faces of the item to the mesh as all faces could be seen at any time
             meshData = FaceDataUp(x, y, z, meshData, true, 0.25f);
             meshData = FaceDataDown(x, y, z, meshData, true, 0.25f);
             meshData = FaceDataNorth(x, y, z, meshData, true, 0.25f);
@@ -124,11 +124,11 @@ namespace BeeGame.Items
         /// <returns>Array of <see cref="Vector2"/> to add to the UVsreturns>
         public virtual Vector2[] FaceUVs(Direction direction)
         {
-            //only 4 uvs per face
+            //* only 4 uvs per face
             Vector2[] UVs = new Vector2[4];
             Tile tilePos = TexturePosition(direction);
 
-            //sets the UVs for each vertex
+            //* sets the UVs for each vertex
             UVs[0] = new THVector2(tileSize * tilePos.x + tileSize - 0.01f, tileSize * tilePos.y + 0.01f);
             UVs[1] = new THVector2(tileSize * tilePos.x + tileSize - 0.01f, tileSize * tilePos.y + tileSize - 0.01f);
             UVs[2] = new THVector2(tileSize * tilePos.x + 0.01f, tileSize * tilePos.y + tileSize - 0.01f);
@@ -149,16 +149,16 @@ namespace BeeGame.Items
         /// <returns>Given <see cref="MeshData"/> with the face data added</returns>
         protected virtual MeshData FaceDataUp(int x, int y, int z, MeshData meshData, bool addToRenderMesh = true, float blockSize = 0.5f)
         {
-            //Adds vertices in a anti-clockwise order
+            //* Adds vertices in a anti-clockwise order
             meshData.AddVertices(new THVector3(x - blockSize, y + blockSize, z + blockSize), addToRenderMesh, Direction.UP);
             meshData.AddVertices(new THVector3(x + blockSize, y + blockSize, z + blockSize), addToRenderMesh, Direction.UP);
             meshData.AddVertices(new THVector3(x + blockSize, y + blockSize, z - blockSize), addToRenderMesh, Direction.UP);
             meshData.AddVertices(new THVector3(x - blockSize, y + blockSize, z - blockSize), addToRenderMesh, Direction.UP);
 
-            //adds teh tirs for the quad
+            //* adds teh tirs for the quad
             meshData.AddQuadTriangles(addToRenderMesh);
 
-            //if the data should be added to the render mesh also add the uvs to the mesh
+            //* if the data should be added to the render mesh also add the uvs to the mesh
             if (addToRenderMesh)
                 meshData.uv.AddRange(FaceUVs(Direction.UP));
 
@@ -177,16 +177,16 @@ namespace BeeGame.Items
         /// <returns>Given <see cref="MeshData"/> with the face data added</returns>
         protected virtual MeshData FaceDataDown(int x, int y, int z, MeshData meshData, bool addToRenderMesh = true, float blockSize = 0.5f)
         {
-            //Adds vertices in a anti-clockwise order
+            //* Adds vertices in a anti-clockwise order
             meshData.AddVertices(new THVector3(x - blockSize, y - blockSize, z - blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x + blockSize, y - blockSize, z - blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x + blockSize, y - blockSize, z + blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x - blockSize, y - blockSize, z + blockSize), addToRenderMesh);
 
-            //adds teh tirs for the quad
+            //* adds teh tirs for the quad
             meshData.AddQuadTriangles(addToRenderMesh);
 
-            //if the data should be added to the render mesh also add the uvs to the mesh
+            //* if the data should be added to the render mesh also add the uvs to the mesh
             if (addToRenderMesh)
                 meshData.uv.AddRange(FaceUVs(Direction.DOWN));
 
@@ -205,16 +205,16 @@ namespace BeeGame.Items
         /// <returns>Given <see cref="MeshData"/> with the face data added</returns>
         protected virtual MeshData FaceDataNorth(int x, int y, int z, MeshData meshData, bool addToRenderMesh = true, float blockSize = 0.5f)
         {
-            //Adds vertices in a anti-clockwise order
+            //* Adds vertices in a anti-clockwise order
             meshData.AddVertices(new THVector3(x + blockSize, y - blockSize, z + blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x + blockSize, y + blockSize, z + blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x - blockSize, y + blockSize, z + blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x - blockSize, y - blockSize, z + blockSize), addToRenderMesh);
 
-            //adds teh tirs for the quad
+            //* adds teh tirs for the quad
             meshData.AddQuadTriangles(addToRenderMesh);
 
-            //if the data should be added to the render mesh also add the uvs to the mesh
+            //* if the data should be added to the render mesh also add the uvs to the mesh
             if (addToRenderMesh)
                 meshData.uv.AddRange(FaceUVs(Direction.NORTH));
 
@@ -233,16 +233,16 @@ namespace BeeGame.Items
         /// <returns>Given <see cref="MeshData"/> with the face data added</returns>
         protected virtual MeshData FaceDataEast(int x, int y, int z, MeshData meshData, bool addToRenderMesh = true, float blockSize = 0.5f)
         {
-            //Adds vertices in a anti-clockwise order
+            //* Adds vertices in a anti-clockwise order
             meshData.AddVertices(new THVector3(x + blockSize, y - blockSize, z - blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x + blockSize, y + blockSize, z - blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x + blockSize, y + blockSize, z + blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x + blockSize, y - blockSize, z + blockSize), addToRenderMesh);
 
-            //adds teh tirs for the quad
+            //* adds teh tirs for the quad
             meshData.AddQuadTriangles(addToRenderMesh);
 
-            //if the data should be added to the render mesh also add the uvs to the mesh
+            //* if the data should be added to the render mesh also add the uvs to the mesh
             if (addToRenderMesh)
                 meshData.uv.AddRange(FaceUVs(Direction.EAST));
 
@@ -261,16 +261,16 @@ namespace BeeGame.Items
         /// <returns>Given <see cref="MeshData"/> with the face data added</returns>
         protected virtual MeshData FaceDataSouth(int x, int y, int z, MeshData meshData, bool addToRenderMesh = true, float blockSize = 0.5f)
         {
-            //Adds vertices in a anti-clockwise order
+            //* Adds vertices in a anti-clockwise order
             meshData.AddVertices(new THVector3(x - blockSize, y - blockSize, z - blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x - blockSize, y + blockSize, z - blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x + blockSize, y + blockSize, z - blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x + blockSize, y - blockSize, z - blockSize), addToRenderMesh);
 
-            //adds teh tirs for the quad
+            //* adds teh tirs for the quad
             meshData.AddQuadTriangles(addToRenderMesh);
 
-            //if the data should be added to the render mesh also add the uvs to the mesh
+            //* if the data should be added to the render mesh also add the uvs to the mesh
             if (addToRenderMesh)
                 meshData.uv.AddRange(FaceUVs(Direction.SOUTH));
 
@@ -289,16 +289,16 @@ namespace BeeGame.Items
         /// <returns>Given <see cref="MeshData"/> with the face data added</returns>
         protected virtual MeshData FaceDataWest(int x, int y, int z, MeshData meshData, bool addToRenderMesh = true, float blockSize = 0.5f)
         {
-            //Adds vertices in a anti-clockwise order
+            //* Adds vertices in a anti-clockwise order
             meshData.AddVertices(new THVector3(x - blockSize, y - blockSize, z + blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x - blockSize, y + blockSize, z + blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x - blockSize, y + blockSize, z - blockSize), addToRenderMesh);
             meshData.AddVertices(new THVector3(x - blockSize, y - blockSize, z - blockSize), addToRenderMesh);
 
-            //adds teh tirs for the quad
+            //* adds teh tirs for the quad
             meshData.AddQuadTriangles(addToRenderMesh);
 
-            //if the data should be added to the render mesh also add the uvs to the mesh
+            //* if the data should be added to the render mesh also add the uvs to the mesh
             if (addToRenderMesh)
                 meshData.uv.AddRange(FaceUVs(Direction.WEST));
 
@@ -313,7 +313,7 @@ namespace BeeGame.Items
         /// <returns>A deep copy of this</returns>
         public object Clone()
         {
-            //Saves this to a file then reads it back so that a copy and not a reference is passed
+            //* Saves this to a file then reads it back so that a copy and not a reference is passed
             BinaryFormatter bf = new BinaryFormatter();
             MemoryStream ms = new MemoryStream();
 

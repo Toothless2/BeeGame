@@ -44,11 +44,11 @@ namespace BeeGame.Inventory.Player_Inventory
         {
             UpdateBase();
 
-            //* whecks if the inventory should be opened/closed
-            if (THInput.GetButtonDown("Player Inventory"))
+            //* checks if the inventory should be opened/closed
+            if (THInput.GetButtonDown("Player Inventory") && (thisInventoryOpen || !playerInventory.activeInHierarchy))
                 OpenPlayerInventory();
 
-            //* checks if somethig shoul dbe picked up and put into the inventory
+            //* checks if somethig should be picked up and put into the inventory
             RaycastHit[] hit = Physics.SphereCastAll(transform.position, 1f, transform.forward);
 
             for (int i = hit.Length - 1; i >= 0; i--)
@@ -102,6 +102,7 @@ namespace BeeGame.Inventory.Player_Inventory
         /// </summary>
         void OpenPlayerInventory()
         {
+            thisInventoryOpen = !thisInventoryOpen;
             playerInventory.SetActive(!playerInventory.activeInHierarchy);
             THInput.isAnotherInventoryOpen = !THInput.isAnotherInventoryOpen;
 

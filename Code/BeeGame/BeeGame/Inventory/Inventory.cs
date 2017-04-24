@@ -13,7 +13,7 @@ namespace BeeGame.Inventory
         /// <summary>
         /// Items in the invemtory
         /// </summary>
-        private ItemsInInventory items;
+        public ItemsInInventory items;
         /// <summary>
         /// Slots in the inventory
         /// </summary>
@@ -26,6 +26,10 @@ namespace BeeGame.Inventory
         /// Name of this inventory
         /// </summary>
         public string inventoryName = "";
+        /// <summary>
+        /// is this inventory open?
+        /// </summary>
+        protected bool thisInventoryOpen = false;
         #endregion
 
         #region Init

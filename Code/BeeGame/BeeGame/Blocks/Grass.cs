@@ -1,6 +1,8 @@
 ﻿using System;
+using UnityEngine;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
+using BeeGame.Core;
 using BeeGame.Items;
 
 namespace BeeGame.Blocks
@@ -16,6 +18,13 @@ namespace BeeGame.Blocks
         /// Constructor also sets teh items name
         /// </summary>
         public Grass() : base("Grass"){}
+        #endregion
+
+        #region Item Stuff
+        public override Sprite GetItemSprite()
+        {
+            return SpriteDictionary.GetSprite("Grass");
+        }
         #endregion
 
         #region Mesh

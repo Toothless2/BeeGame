@@ -102,7 +102,7 @@ namespace BeeGame.Resources {
                 {
                     splitText = lineText.Split(splitCharacters, StringSplitOptions.RemoveEmptyEntries);
                     lineText = "";
-                    tex = UnityEngine.Resources.Load("Sprites/" + splitText[1]) as Texture2D;
+                    tex = UnityEngine.Resources.Load("Sprites/" + splitText[1].Remove(splitText[1].Length - 1, 1)) as Texture2D;
                     sprites.Add(splitText[0], Sprite.Create(tex, new UnityEngine.Rect(0, 0, tex.width, tex.height), Vector2.zero));
                 }
             }

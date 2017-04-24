@@ -21,6 +21,11 @@ namespace BeeGame.Player
         public GameObject selector;
 
         /// <summary>
+        /// Player Inventory
+        /// </summary>
+        public PlayerInventory playerInventory;
+
+        /// <summary>
         /// Layers for the selector to look at
         /// </summary>
         public LayerMask layers;
@@ -139,10 +144,11 @@ namespace BeeGame.Player
 
             if (chunk == null)
                 return;
-            
-            //* gets the item in the hotbar and if the item is placeable place it
-            if(transform.parent.GetComponentInChildren<PlayerInventory>().GetItemFromHotBar(selectedHotbarSlot, out Item blockToPlace))
-                chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), (Block)blockToPlace.CloneObject(), true);
+
+            if (!chunk.GetBlock((int)selector.transform.position.x - chunk.chunkWorldPos.x, (int)selector.transform.position.y - chunk.chunkWorldPos.y, (int)selector.transform.position.z - chunk.chunkWorldPos.z).InteractWithBlock(playerInventory))
+                //* gets the item in the hotbar and if the item is placeable place it
+                if (transform.parent.GetComponentInChildren<PlayerInventory>().GetItemFromHotBar(selectedHotbarSlot, out Item blockToPlace))
+                    chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), (Block)blockToPlace.CloneObject(), true);
         }
         #endregion
     }

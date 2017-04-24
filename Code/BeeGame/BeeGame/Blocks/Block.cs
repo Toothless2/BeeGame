@@ -43,6 +43,13 @@ namespace BeeGame.Blocks
         }
         #endregion
 
+        #region Item Stuff
+        public override Sprite GetItemSprite()
+        {
+            return SpriteDictionary.GetSprite("Stone");
+        }
+        #endregion
+
         #region Update/Break Block
         /// <summary>
         /// Spawns an item with the same texture as the broken block
@@ -62,6 +69,15 @@ namespace BeeGame.Blocks
         /// <param name="z">Z pos of the block</param>
         /// <param name="chunk">Chunk that the block is in</param>
         public virtual void UpdateBlock(int x, int y, int z, Chunk chunk) { }
+
+        /// <summary>
+        /// Can this block be interacted with?
+        /// </summary>
+        /// <returns>False by default</returns>
+        public virtual bool InteractWithBlock(BeeGame.Inventory.Inventory inv)
+        {
+            return false;
+        }
         #endregion
         
         #region Mesh

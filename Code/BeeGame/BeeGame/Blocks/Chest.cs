@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using BeeGame.Core;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
+using BeeGame.Inventory;
 
 namespace BeeGame.Blocks
 {
@@ -23,6 +21,7 @@ namespace BeeGame.Blocks
 
         public override GameObject GetGameObject()
         {
+
             return PrefabDictionary.GetPrefab("Chest");
         }
 
@@ -33,8 +32,19 @@ namespace BeeGame.Blocks
 
         public override MeshData BlockData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRenderMesh = true)
         {
-            myGameobject = UnityEngine.Object.Instantiate(PrefabDictionary.GetPrefab("Chest"), new THVector3(x, y, z) + chunk.chunkWorldPos, Quaternion.identity, chunk.transform);
+            if (myGameobject == null)
+            {
+                myGameobject = UnityEngine.Object.Instantiate(PrefabDictionary.GetPrefab("Chest"), new THVector3(x, y, z) + chunk.chunkWorldPos, Quaternion.identity, chunk.transform);
+                myGameobject.GetComponent<ChestInventory>().inventoryPosition = new THVector3(x, y, z) + chunk.chunkWorldPos;
+                myGameobject.GetComponent<ChestInventory>().SetChestInventory(); 
+            }
             return base.BlockData(chunk, x, y, z, meshData, true);
+        }
+
+        public override bool InteractWithBlock(BeeGame.Inventory.Inventory inv)
+        {
+            myGameobject.GetComponent<ChestInventory>().ToggleInventory(inv);
+             return true;
         }
 
         public override void BreakBlock(THVector3 pos)

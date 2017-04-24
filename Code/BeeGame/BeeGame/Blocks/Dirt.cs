@@ -1,6 +1,8 @@
 ﻿using System;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
+using BeeGame.Core;
+using UnityEngine;
 
 namespace BeeGame.Blocks
 {
@@ -15,6 +17,13 @@ namespace BeeGame.Blocks
         /// Constructor
         /// </summary>
         public Dirt() : base("Dirt"){}
+        #endregion
+
+        #region Item Stuff
+        public override Sprite GetItemSprite()
+        {
+            return SpriteDictionary.GetSprite("Dirt");
+        }
         #endregion
 
         #region Mesh

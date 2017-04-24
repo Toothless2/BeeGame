@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using UnityEngine;
+using BeeGame.Core;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
 
@@ -15,6 +14,13 @@ namespace BeeGame.Blocks
         {
 
         }
+        
+        #region Item Stuff
+        public override Sprite GetItemSprite()
+        {
+            return SpriteDictionary.GetSprite("Leaves");
+        }
+        #endregion
 
         public override Tile TexturePosition(Direction direction)
         {

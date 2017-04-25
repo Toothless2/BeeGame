@@ -18,30 +18,40 @@ namespace BeeGame.Inventory
         public void SetChestInventory()
         {
             //if (InventorySet())
-                SetInventorySize(36);
+                SetInventorySize(63);
 
             //inventory = Instantiate(PrefabDictionary.GetPrefab("PlayerInventory"), transform);
             inventory.SetActive(false);
 
             inventoryName = $"Chest @ {(ChunkWorldPos)inventoryPosition}";
-            //Serialization.Serialization.DeSerializeInventory(this, inventoryName);
+            Serialization.Serialization.DeSerializeInventory(this, inventoryName);
         }
 
         void Update()
         {
             if (playerinventory != null)
-            {
-                SetPlayerItems();
                 UpdateBase();
-            }
+
+            if (GetButtonDown("Player Inventory") && thisInventoryOpen)
+                ToggleInventory(playerinventory);
         }
 
         void SetPlayerItems()
         {
-            for (int i = 0; i < playerinventory.items.itemsInInventory.Length - 9; i++)
+            for (int i = 0; i < playerinventory.items.itemsInInventory.Length; i++)
             {
-                items.itemsInInventory[i] = playerinventory.items.itemsInInventory[i];
+                items.itemsInInventory[i + 27] = playerinventory.items.itemsInInventory[i];
             }
+        }
+
+        void ApplyPlayerItems()
+        {
+            for (int i = 0; i < playerinventory.items.itemsInInventory.Length; i++)
+            {
+                playerinventory.items.itemsInInventory[i] = items.itemsInInventory[i + 27];
+            }
+
+            playerinventory.SaveInv();
         }
 
         public void ToggleInventory(Inventory inv)
@@ -59,11 +69,13 @@ namespace BeeGame.Inventory
 
             if (inventory.activeInHierarchy)
             {
+                SetPlayerItems();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
             else
             {
+                ApplyPlayerItems();
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }

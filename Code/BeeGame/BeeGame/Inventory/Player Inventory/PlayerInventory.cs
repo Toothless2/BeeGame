@@ -45,7 +45,7 @@ namespace BeeGame.Inventory.Player_Inventory
             UpdateBase();
 
             //* checks if the inventory should be opened/closed
-            if (THInput.GetButtonDown("Player Inventory") && (thisInventoryOpen || !playerInventory.activeInHierarchy))
+            if ((thisInventoryOpen || !playerInventory.activeInHierarchy) && THInput.GetButtonDown("Player Inventory"))
                 OpenPlayerInventory();
 
             //* checks if somethig should be picked up and put into the inventory

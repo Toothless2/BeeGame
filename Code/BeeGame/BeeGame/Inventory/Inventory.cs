@@ -79,6 +79,17 @@ namespace BeeGame.Inventory
 
         #region Edit Inventory
         /// <summary>
+        /// Saves the inventory
+        /// </summary>
+        /// <remarks>
+        /// Used when closeing a chest so the changes to the player inventory are saved
+        /// </remarks>
+        public void SaveInv()
+        {
+            Serialization.Serialization.SerializeInventory(this, inventoryName);
+        }
+
+        /// <summary>
         /// Sets an <see cref="Item"/> in the <see cref="ItemsInInventory.itemsInInventory"/> array to a <see cref="InventorySlot.item"/>
         /// </summary>
         void PutItemsInSlots()

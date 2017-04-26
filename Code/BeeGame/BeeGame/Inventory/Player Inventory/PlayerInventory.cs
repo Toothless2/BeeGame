@@ -20,7 +20,7 @@ namespace BeeGame.Inventory.Player_Inventory
         /// <summary>
         /// Sets all requred params for the inventory and loads ant saved versions of it
         /// </summary>
-        void Start()
+        void Awake()
         {
             SetPlayerInventory();
             inventoryName = "PlayerInventory";
@@ -32,8 +32,8 @@ namespace BeeGame.Inventory.Player_Inventory
         /// </summary>
         void SetPlayerInventory()
         {
-            if (InventorySet())
-                SetInventorySize(20);
+            if (!InventorySet())
+                SetInventorySize(36);
         }
         #endregion
 
@@ -46,7 +46,17 @@ namespace BeeGame.Inventory.Player_Inventory
 
             //* checks if the inventory should be opened/closed
             if ((thisInventoryOpen || !playerInventory.activeInHierarchy) && THInput.GetButtonDown("Player Inventory"))
-                OpenPlayerInventory();
+            {
+                if (THInput.blockInventoryJustClosed)
+                {
+                    THInput.blockInventoryJustClosed = false;
+                    return;
+                }
+                else
+                {
+                    OpenPlayerInventory();
+                }
+            }
 
             //* checks if somethig should be picked up and put into the inventory
             RaycastHit[] hit = Physics.SphereCastAll(transform.position, 1f, transform.forward);
@@ -106,7 +116,7 @@ namespace BeeGame.Inventory.Player_Inventory
             playerInventory.SetActive(!playerInventory.activeInHierarchy);
             THInput.isAnotherInventoryOpen = !THInput.isAnotherInventoryOpen;
 
-            //* hides/ shows the mouse depending on if te inventory is open or not
+            //* hides/shows the mouse depending on if te inventory is open or not
             if (playerInventory.activeInHierarchy)
             {
                 Cursor.lockState = CursorLockMode.None;

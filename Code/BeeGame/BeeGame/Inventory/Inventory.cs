@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using BeeGame.Items;
-using BeeGame.Core;
 
 namespace BeeGame.Inventory
 {

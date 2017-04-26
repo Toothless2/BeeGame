@@ -15,12 +15,12 @@ namespace BeeGame.Inventory
         /// </summary>
         public GameObject inventory;
 
+        public int inventorySize;
+
         public void SetChestInventory()
         {
-            //if (InventorySet())
-                SetInventorySize(63);
-
-            //inventory = Instantiate(PrefabDictionary.GetPrefab("PlayerInventory"), transform);
+            SetInventorySize(inventorySize);
+            
             inventory.SetActive(false);
 
             inventoryName = $"Chest @ {(ChunkWorldPos)inventoryPosition}";
@@ -40,7 +40,7 @@ namespace BeeGame.Inventory
         {
             for (int i = 0; i < playerinventory.items.itemsInInventory.Length; i++)
             {
-                items.itemsInInventory[i + 27] = playerinventory.items.itemsInInventory[i];
+                items.itemsInInventory[i + (inventorySize - 36)] = playerinventory.items.itemsInInventory[i];
             }
         }
 
@@ -48,7 +48,7 @@ namespace BeeGame.Inventory
         {
             for (int i = 0; i < playerinventory.items.itemsInInventory.Length; i++)
             {
-                playerinventory.items.itemsInInventory[i] = items.itemsInInventory[i + 27];
+                playerinventory.items.itemsInInventory[i] = items.itemsInInventory[i + (inventorySize - 36)];
             }
 
             playerinventory.SaveInv();
@@ -69,6 +69,7 @@ namespace BeeGame.Inventory
 
             if (inventory.activeInHierarchy)
             {
+                blockInventoryJustClosed = true;
                 SetPlayerItems();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;

@@ -33,6 +33,11 @@ namespace BeeGame.Core
         public static bool isAnotherInventoryOpen;
 
         /// <summary>
+        /// Was a Block inventory just closed
+        /// </summary>
+        public static bool blockInventoryJustClosed;
+
+        /// <summary>
         /// Has the given button been pressed this update
         /// </summary>
         /// <param name="button">The button name eg "Inventory"</param>

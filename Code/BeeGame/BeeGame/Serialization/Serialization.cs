@@ -2,6 +2,7 @@
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using BeeGame.Core;
 using BeeGame.Terrain;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Inventory;
@@ -42,6 +43,66 @@ namespace BeeGame.Serialization
             if (!(Directory.Exists(savePath)))
                 Directory.CreateDirectory(savePath);
         }
+
+        /// <summary>
+        /// Deletes the given file if it exists, Starts in <see cref="Application.dataPath"/>
+        /// </summary>
+        /// <param name="fileName">File to delete</param>
+        public static void DeleteFile(string fileName)
+        {
+            string[] file = Directory.GetFiles(Application.dataPath + "/Saves", "*.dat", SearchOption.AllDirectories);
+
+            string[] splitCharacters = { "/", "\\" };
+
+            for (int i = 0; i < file.Length; i++)
+            {
+                string[] temp = file[i].Split(splitCharacters, System.StringSplitOptions.RemoveEmptyEntries);
+
+                if(temp[temp.Length - 1] == fileName)
+                {
+                    File.Delete(file[i]);
+
+                    return;
+                }
+            }
+        }
+
+        #region Player
+        /// <summary>
+        /// Saves the player positon, rotation, and scale
+        /// </summary>
+        /// <param name="positon">Transform to get the data from</param>
+        public static void SavePlayerPosition(Transform positon)
+        {
+            THVector3[] playerTransform = new THVector3[3];
+
+            playerTransform[0] = positon.position;
+            playerTransform[1] = positon.rotation.eulerAngles;
+            playerTransform[2] = positon.localScale;
+
+            string playerPosSavePath = $"{savePath}/player.dat";
+
+            SaveFile(playerTransform, playerPosSavePath);
+        }
+
+        /// <summary>
+        /// Loads the players positon, roatation, and scale if it has previously been saved
+        /// </summary>
+        /// <param name="playerTransfom">Transform to apply the data to</param>
+        public static void LoadPlayerPosition(Transform playerTransfom)
+        {
+            string playerPosSavePath = $"{savePath}/player.dat";
+
+            if (!File.Exists(playerPosSavePath))
+                return;
+
+            THVector3[] pos = (THVector3[])LoadFile(playerPosSavePath);
+
+            playerTransfom.position = pos[0];
+            playerTransfom.rotation = (Quaternion)pos[1];
+            playerTransfom.localScale = pos[2];
+        }
+        #endregion
 
         #region Inventorys
         /// <summary>

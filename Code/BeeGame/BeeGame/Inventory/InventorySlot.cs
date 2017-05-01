@@ -62,6 +62,18 @@ namespace BeeGame.Inventory
             {
                 GetComponent<Image>().color = Color.white;
             }
+
+            //* sets the colour of the slot to the correct colour for the item
+            //* make this easier then colouring many of the same sprite different colours
+            if(item != null)
+            {
+                switch (item)
+                {
+                    case HoneyComb c:
+                        GetComponent<Image>().color = c.CombColour;
+                        break;
+                }
+            }
         }
 
         #region Interact With Slot

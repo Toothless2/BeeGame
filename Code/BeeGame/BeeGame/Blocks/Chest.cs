@@ -49,6 +49,7 @@ namespace BeeGame.Blocks
 
         public override void BreakBlock(THVector3 pos)
         {
+            Serialization.Serialization.DeleteFile(myGameobject.GetComponent<ChestInventory>().inventoryName);
             UnityEngine.Object.Destroy(myGameobject);
             base.BreakBlock(pos);
         }

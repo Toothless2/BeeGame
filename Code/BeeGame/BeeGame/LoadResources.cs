@@ -14,6 +14,9 @@ namespace BeeGame
         void Awake()
         {
             Serialization.Serialization.MakeDirectorys();
+
+            Serialization.Serialization.LoadPlayerPosition(GameObject.Find("Player").GetComponent<Transform>());
+
             SpriteDictionary.LoadSprites();
             PrefabDictionary.LoadPrefabs();
         }

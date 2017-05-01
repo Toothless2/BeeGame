@@ -315,5 +315,19 @@ namespace BeeGame.Core
             return new THVector3(vec3.x, vec3.y, vec3.z);
         }
         #endregion
+
+        #region Explicit Operators
+        /// <summary>
+        /// Converts a THVector3 to a <see cref="Quaternion"/>
+        /// </summary>
+        /// <param name="vec3">Vector to convert to <see cref="Quaternion"/></param>
+        /// <remarks>
+        /// Explicit as conversion is not exact
+        /// </remarks>
+        public static explicit operator Quaternion(THVector3 vec3)
+        {
+            return new Quaternion(vec3.x, vec3.y, vec3.z, 0);
+        }
+        #endregion
     }
 }

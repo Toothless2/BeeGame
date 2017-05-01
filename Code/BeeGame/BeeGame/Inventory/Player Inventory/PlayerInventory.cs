@@ -58,6 +58,10 @@ namespace BeeGame.Inventory.Player_Inventory
                 }
             }
 
+            //* dont pickup items if the inventory is open
+            if (THInput.isAnotherInventoryOpen)
+                return;
+
             //* checks if somethig should be picked up and put into the inventory
             RaycastHit[] hit = Physics.SphereCastAll(transform.position, 1f, transform.forward);
 

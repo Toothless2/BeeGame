@@ -5,6 +5,9 @@ using static BeeGame.Core.THInput;
 
 namespace BeeGame.Inventory
 {
+    /// <summary>
+    /// Incentory for the chests
+    /// </summary>
     public class ChestInventory : Inventory
     {
         #region Data
@@ -59,6 +62,10 @@ namespace BeeGame.Inventory
             Serialization.Serialization.DeSerializeInventory(this, inventoryName);
         }
 
+        #region Player Inventory
+        /// <summary>
+        /// Puts the player items into the chest
+        /// </summary>
         void SetPlayerItems()
         {
             for (int i = 0; i < playerinventory.items.itemsInInventory.Length; i++)
@@ -67,6 +74,9 @@ namespace BeeGame.Inventory
             }
         }
 
+        /// <summary>
+        /// Applies the changes made to the <see cref="playerinventory"/> in <see cref="this"/>
+        /// </summary>
         void ApplyPlayerItems()
         {
             for (int i = 0; i < playerinventory.items.itemsInInventory.Length; i++)
@@ -76,29 +86,36 @@ namespace BeeGame.Inventory
 
             playerinventory.SaveInv();
         }
+        #endregion
 
+        /// <summary>
+        /// Opens and closes the inventory
+        /// </summary>
+        /// <param name="inv"></param>
         public void ToggleInventory(Inventory inv)
         {
+            //* sets the player inventory
             playerinventory = inv;
             
             thisInventoryOpen = !thisInventoryOpen;
 
             isAnotherInventoryOpen = thisInventoryOpen;
 
-            if(thisInventoryOpen)
-                SetPlayerItems();
-
             inventory.SetActive(!inventory.activeInHierarchy);
 
             if (inventory.activeInHierarchy)
             {
+                //* stops the player invnetory from being opened immidiatly after this is closed
                 blockInventoryJustClosed = true;
                 SetPlayerItems();
+                //* hides and locks the cursor
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
             else
             {
+                //* puts the items into the chest
+                //* shows and unlocks the cursor
                 ApplyPlayerItems();
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;

@@ -75,6 +75,7 @@
     <Compile Include="Inventory\InventorySlot.cs" />
     <Compile Include="Inventory\ItemsInInventory.cs" />
     <Compile Include="Inventory\Player Inventory\PlayerInventory.cs" />
+    <Compile Include="Items\ApplyColour.cs" />
     <Compile Include="Items\HoneyComb.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ItemGameObject.cs" />

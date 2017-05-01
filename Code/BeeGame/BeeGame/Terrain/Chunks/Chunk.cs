@@ -78,8 +78,6 @@ namespace BeeGame.Terrain.Chunks
         {
             filter = GetComponent<MeshFilter>();
             meshCollider = GetComponent<MeshCollider>();
-
-            gameObject.isStatic = true;
         }
 
         /// <summary>

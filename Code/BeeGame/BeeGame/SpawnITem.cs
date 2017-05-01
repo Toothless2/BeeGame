@@ -15,6 +15,9 @@ namespace BeeGame
         {
             GameObject go = Instantiate(UnityEngine.Resources.Load("Prefabs/ItemGameObject") as GameObject, transform.position, Quaternion.identity) as GameObject;
             go.GetComponent<ItemGameObject>().item = new HoneyComb(HoneyCombType.ICEY);
+
+            go = Instantiate(UnityEngine.Resources.Load("Prefabs/ItemGameObject") as GameObject, transform.position, Quaternion.identity) as GameObject;
+            go.GetComponent<ItemGameObject>().item = new HoneyComb(HoneyCombType.HONEY);
         }
 
         private void OnDrawGizmos()

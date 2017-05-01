@@ -42,6 +42,17 @@ namespace BeeGame.Items
         }
 
         /// <summary>
+        /// Destroys the game object if it falls to low
+        /// </summary>
+        private void Update()
+        {
+           if(transform.position.y < -100)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        /// <summary>
         /// Makes the items mesh
         /// </summary>
         void MakeMesh()

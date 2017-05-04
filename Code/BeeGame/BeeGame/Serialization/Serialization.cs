@@ -136,7 +136,16 @@ namespace BeeGame.Serialization
 
             //* checks that the file exists
             if (!File.Exists(inventorySavePath))
+            {
+                for (int i = 0; i < inventory.items.itemsInInventory.Length; i++)
+                {
+                    inventory.items.itemsInInventory[i] = null;
+                }
+
+                SerializeInventory(inventory, inventoryName);
+
                 return;
+            }
 
             inventory.SetAllItems((ItemsInInventory)LoadFile($"{inventorySavePath}"));
         }

@@ -12,7 +12,7 @@ namespace BeeGame.Items
     /// Base class for all Items and Blocks in the game
     /// </summary>
     [Serializable]
-    public class Item : ICloneable
+    public class Item : AbstractItem, ICloneable
     {
         #region Data
         /// <summary>
@@ -22,7 +22,7 @@ namespace BeeGame.Items
         /// <summary>
         /// Is this item placeable. Saves checking if the item is a block type
         /// </summary>
-        public bool placeable = false;
+        public virtual bool placeable => false;
         /// <summary>
         /// Does the item use a gameobject
         /// </summary>
@@ -39,7 +39,7 @@ namespace BeeGame.Items
         /// <summary>
         /// Max number of items in a stack
         /// </summary>
-        public int maxStackCount = 64;
+        public virtual int maxStackCount => 64;
         #endregion
 
         #region Constructors
@@ -65,7 +65,7 @@ namespace BeeGame.Items
         /// Returns the id for the item as a string
         /// </summary>
         /// <returns></returns>
-        public virtual string GetItemID()
+        public override string GetItemID()
         {
             return $"{GetHashCode()}";
         }
@@ -79,7 +79,7 @@ namespace BeeGame.Items
             return SpriteDictionary.GetSprite("TestSprite");
         }
 
-        public virtual string GetItemName()
+        public override string GetItemName()
         {
             return $"{itemName}";
         }

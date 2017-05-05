@@ -7,6 +7,20 @@ namespace BeeGame.Core
     public static class BeeDictionarys
     {
         #region Bee Colours
+        private static Dictionary<BeeSpecies, Color> beeColour = new Dictionary<BeeSpecies, Color>()
+        {
+            {BeeSpecies.FOREST, CombColour(0, 255, 0) }
+        };
+
+        public static Color GetBeeColour(BeeSpecies species)
+        {
+            beeColour.TryGetValue(species, out Color colour);
+
+            return colour != null ? colour : new Color();
+        }
+        #endregion
+
+        #region Comb Colours
         /// <summary>
         /// The colour of the <see cref="BeeGame.Items.HoneyComb"/> for each of teh <see cref="HoneyCombType"/>s
         /// </summary>

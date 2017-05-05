@@ -28,6 +28,9 @@ namespace BeeGame.Items
                 return BeeDictionarys.GetCombColour(type);
             }
         }
+
+        [NonSerialized]
+        private Sprite itemSprite;
         #endregion
 
         #region Constructors
@@ -53,12 +56,12 @@ namespace BeeGame.Items
         
         #region Item Overrides
         /// <summary>
-        /// Retuens the sprite for the this
+        /// Retuens the sprite for the this of the correct colour
         /// </summary>
-        /// <returns></returns>
+        /// <returns><see cref="Sprite"/></returns>
         public override Sprite GetItemSprite()
         {
-            return SpriteDictionary.GetSprite("HoneyComb");
+            return itemSprite ?? (itemSprite = SpriteDictionary.GetSprite("HoneyComb").ColourSprite(CombColour));
         }
 
         /// <summary>

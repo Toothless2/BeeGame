@@ -21,6 +21,10 @@ namespace BeeGame.Blocks
         /// Has this block been placed by the player
         /// </summary>
         public bool changed = true;
+        /// <summary>
+        /// Sets so that blocks can be placed
+        /// </summary>
+        public override bool placeable => true;
         #endregion
 
         #region Constructor
@@ -30,7 +34,6 @@ namespace BeeGame.Blocks
         public Block() : base()
         {
             itemName = "Stone";
-            placeable = true;
         }
 
         /// <summary>
@@ -39,7 +42,6 @@ namespace BeeGame.Blocks
         /// <param name="name">Name of the block/item</param>
         public Block(string name) : base(name)
         {
-            placeable = true;
         }
         #endregion
 

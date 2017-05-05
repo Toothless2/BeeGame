@@ -1,14 +1,6 @@
 ﻿namespace BeeGame.Core.Enums
 {
     /// <summary>
-    /// The item types
-    /// </summary>
-    public enum ItemType
-    {
-        ITEM, BEE
-    };
-
-    /// <summary>
     /// Honey Comb Types
     /// </summary>
     public enum HoneyCombType

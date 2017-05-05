@@ -73,11 +73,6 @@ namespace BeeGame.Blocks
         #endregion
 
         #region Overrides
-        public override string GetItemName()
-        {
-            return "Grass";
-        }
-
         /// <summary>
         /// The Base id for the block
         /// </summary>

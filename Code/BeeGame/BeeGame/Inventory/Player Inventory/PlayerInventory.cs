@@ -45,7 +45,7 @@ namespace BeeGame.Inventory.Player_Inventory
             UpdateBase();
 
             //* checks if the inventory should be opened/closed
-            if ((thisInventoryOpen || !playerInventory.activeInHierarchy) && THInput.GetButtonDown("Player Inventory"))
+            if ((thisInventoryOpen || !playerInventory.activeInHierarchy) && !THInput.chestOpen && THInput.GetButtonDown("Player Inventory"))
             {
                 if (THInput.blockInventoryJustClosed)
                 {
@@ -116,6 +116,8 @@ namespace BeeGame.Inventory.Player_Inventory
         /// </summary>
         void OpenPlayerInventory()
         {
+            if (floatingItem != null)
+                return;
             thisInventoryOpen = !thisInventoryOpen;
             playerInventory.SetActive(!playerInventory.activeInHierarchy);
             THInput.isAnotherInventoryOpen = !THInput.isAnotherInventoryOpen;

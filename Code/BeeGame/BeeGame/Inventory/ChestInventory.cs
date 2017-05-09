@@ -41,7 +41,7 @@ namespace BeeGame.Inventory
                 UpdateBase();
 
             //* checks if the inventory should be closed
-            if (GetButtonDown("Player Inventory") && thisInventoryOpen)
+            if (GetButtonDown("Player Inventory") && thisInventoryOpen && floatingItem == null)
                 ToggleInventory(playerinventory);
         }
         #endregion
@@ -105,6 +105,8 @@ namespace BeeGame.Inventory
 
             if (inventory.activeInHierarchy)
             {
+                chestOpen = true;
+
                 //* stops the player invnetory from being opened immidiatly after this is closed
                 blockInventoryJustClosed = true;
                 SetPlayerItems();
@@ -114,6 +116,8 @@ namespace BeeGame.Inventory
             }
             else
             {
+                chestOpen = false;
+
                 //* puts the items into the chest
                 //* shows and unlocks the cursor
                 ApplyPlayerItems();

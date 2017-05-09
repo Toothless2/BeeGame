@@ -44,7 +44,7 @@ namespace BeeGame.Blocks
         public override bool InteractWithBlock(BeeGame.Inventory.Inventory inv)
         {
             myGameobject.GetComponent<ChestInventory>().ToggleInventory(inv);
-             return true;
+            return true;
         }
 
         public override void BreakBlock(THVector3 pos)

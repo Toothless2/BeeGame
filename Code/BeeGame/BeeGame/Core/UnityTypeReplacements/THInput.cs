@@ -36,6 +36,10 @@ namespace BeeGame.Core
         /// Was a Block inventory just closed
         /// </summary>
         public static bool blockInventoryJustClosed;
+        /// <summary>
+        /// Stops the player from being able to open the <see cref="BeeGame.Inventory.Player_Inventory.PlayerInventory"/> whilst a block/item <see cref="BeeGame.Inventory.Inventory"/> is open
+        /// </summary>
+        internal static bool chestOpen;
 
         /// <summary>
         /// Has the given button been pressed this update

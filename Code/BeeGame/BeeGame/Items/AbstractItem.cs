@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BeeGame.Items
 {
+    [Serializable]
     public abstract class AbstractItem
     {
         public abstract string GetItemName();

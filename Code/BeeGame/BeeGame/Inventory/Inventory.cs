@@ -29,6 +29,10 @@ namespace BeeGame.Inventory
         /// is this inventory open?
         /// </summary>
         protected bool thisInventoryOpen = false;
+        /// <summary>
+        /// The sprite at the cursor
+        /// </summary>
+        private GameObject spriteAtCursor;
         #endregion
 
         #region Init
@@ -73,6 +77,28 @@ namespace BeeGame.Inventory
         public void UpdateBase()
         {
             PutItemsInSlots();
+            DrawItemAtCursor();
+        }
+
+        /// <summary>
+        /// Draws the <see cref="floatingItem"/>s <see cref="Item.GetItemSprite()"/> at the mouse position
+        /// </summary>
+        private void DrawItemAtCursor()
+        {
+            if(floatingItem != null)
+            {
+                if (spriteAtCursor == null)
+                {
+                    spriteAtCursor = Instantiate(BeeGame.Core.PrefabDictionary.GetPrefab("ItemIcon"));
+                    spriteAtCursor.GetComponentInChildren<UnityEngine.UI.Image>().sprite = floatingItem.GetItemSprite();
+                }
+
+                spriteAtCursor.transform.GetChild(0).position = Input.mousePosition;
+            }
+            else
+            {
+                Destroy(spriteAtCursor);
+            }
         }
         #endregion
 

@@ -46,16 +46,41 @@ namespace BeeGame.Core
 
                         if (propertyValue == null)
                         {
-                            property.SetValue(obj, null, null);
+                            property.SetValue(objTarget, null, null);
                         }
                         else
                         {
-                            property.SetValue(obj, propertyValue.CloneObject(), null);
+                            property.SetValue(objTarget, propertyValue.CloneObject(), null);
                         }
                     }
                 }
-
             }
+
+            //* gets all of the field in T
+            FieldInfo[] fieldInfo = typeSource.GetFields();
+
+            //* applies all of the fiels of T to the new object if type T in the same manor that the properites are applied
+            foreach (var field in fieldInfo)
+            {
+                if(field.FieldType.IsValueType || field.FieldType.IsEnum || field.FieldType.Equals(typeof(string)))
+                {
+                    field.SetValue(objTarget, field.GetValue(obj));
+                }
+                else
+                {
+                    object fieldValue = field.GetValue(obj);
+
+                    if(fieldValue == null)
+                    {
+                        field.SetValue(objTarget, null);
+                    }
+                    else
+                    {
+                        field.SetValue(objTarget, field.CloneObject());
+                    }
+                }
+            }
+
             return objTarget;
         }
         
@@ -67,7 +92,7 @@ namespace BeeGame.Core
         /// <param name="coloursToAvoid">Colours to avoid, Optional</param>
         /// <param name="setTransparentToWhite">Should transparent value to set wo white, Default <see cref="true"/></param>
         /// <returns></returns>
-        public static Sprite ColourSprite(this Sprite sprite, Color colour, Color[] coloursToAvoid = null, bool setTransparentToWhite = true)
+        public static Sprite ColourSprite(this Sprite sprite, Color colour, Color[] coloursToAvoid = null, bool setTransparentToWhite = false)
         {
             Texture2D tex = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height)
             {
@@ -91,7 +116,7 @@ namespace BeeGame.Core
                     {
                         for (int i = 0; i < coloursToAvoid.Length; i++)
                         {
-                            //* if this coliur should be avoided skip this iteration of the loop and move on
+                            //* if this colour should be avoided skip this iteration of the loop and move on
                             if (tex.GetPixel(x, y) == coloursToAvoid[i])
                                 goto Skip;
                         }
@@ -99,7 +124,7 @@ namespace BeeGame.Core
                         tex.SetPixel(x, y, tex.GetPixel(x, y) * colour);
                     }
 
-                    //* if transparent pixels should be set to shite do that
+                    //* if transparent pixels should be set to white do that
                     if (setTransparentToWhite && tex.GetPixel(x, y).a == 0)
                         tex.SetPixel(x, y, Color.white);
 

@@ -18,11 +18,11 @@ namespace BeeGame.Items
         /// <summary>
         /// This bees <see cref="BeeType"/>
         /// </summary>
-        public BeeType beeType;
+        public BeeType beeType { get; set; }
         /// <summary>
         /// What was this bees <see cref="BeeType"/>?
         /// </summary>
-        private BeeType previousBeeType;
+        private BeeType previousBeeType { get; set; }
 
         /// <summary>
         /// This bees <see cref="Sprite"/>
@@ -36,14 +36,20 @@ namespace BeeGame.Items
         /// <remarks>
         /// Possibly change this to an array to 2 <see cref="NormalBee"/>s
         /// </remarks>
-        public QueenBee queenBee;
+        public QueenBee queenBee { get; set; }
         /// <summary>
         /// If this bee is not a <see cref="BeeType.QUEEN"/> this will be not null
         /// </summary>
-        public NormalBee normalBee;
+        public NormalBee normalBee { get; set; }
         #endregion
 
         #region Constructors
+        public Bee()
+        {
+            normalBee = new NormalBee();
+        }
+
+
         /// <summary>
         /// Create a bee from <see cref="NormalBee"/>
         /// </summary>
@@ -87,19 +93,19 @@ namespace BeeGame.Items
             {
                 //* avoids the crown, black body, yellow body, and both colours of the wings
                 Color[] colorsToAvoid = { new Color(0, 0, 0), new Color(232f, 200f, 42f, 255f) / 255f, new Color(232f, 213f, 106f, 255f) / 255f, new Color(156f, 146f, 130f, 255f) / 255f, new Color(225f, 223f, 219f, 255f) / 255f };
-                return itemSprite = SpriteDictionary.GetSprite("Queen").ColourSprite(BeeDictionarys.GetBeeColour(queenBee.queen.pSpecies), coloursToAvoid: colorsToAvoid);
+                return itemSprite = SpriteDictionary.GetSprite("Queen").ColourSprite(BeeDictionarys.GetBeeColour((BeeSpecies)(queenBee?.queen.pSpecies)), coloursToAvoid: colorsToAvoid);
             }
             else if (beeType == BeeType.PRINCESS)
             {
                 //* avoids the tiara, black body, yellow body, and both colours of the wings
                 Color[] colorsToAvoid = { new Color(0, 0, 0), new Color(191f, 195f, 45f, 255f) / 255f, new Color(191f, 195f, 44f, 255f) / 255f, new Color(156f, 146f, 130f, 255f) / 255f, new Color(225f, 223f, 219f, 255f) / 255f, new Color(232f, 200, 42, 255f) / 255f };
-                return itemSprite = SpriteDictionary.GetSprite("Princess").ColourSprite(BeeDictionarys.GetBeeColour(normalBee.pSpecies), coloursToAvoid: colorsToAvoid);
+                return itemSprite = SpriteDictionary.GetSprite("Princess").ColourSprite(BeeDictionarys.GetBeeColour((BeeSpecies)(normalBee?.pSpecies)), coloursToAvoid: colorsToAvoid);
             }
             else
             {
                 //* avoids the block body, yellow body, and both wing colours
                 Color[] colorsToAvoid = { new Color(0, 0, 0), new Color(156f, 146f, 130f, 255f) / 255f, new Color(225f, 223f, 219f, 255f) / 255f, new Color(232f, 200, 42, 255f) / 255f };
-                return itemSprite = SpriteDictionary.GetSprite("Drone").ColourSprite(BeeDictionarys.GetBeeColour(normalBee.sSpecies), coloursToAvoid: colorsToAvoid);
+                return itemSprite = SpriteDictionary.GetSprite("Drone").ColourSprite(BeeDictionarys.GetBeeColour((BeeSpecies)normalBee?.sSpecies), coloursToAvoid: colorsToAvoid);
             }
         }
 
@@ -128,8 +134,15 @@ namespace BeeGame.Items
     [Serializable]
     public class QueenBee
     {
-        public NormalBee queen;
-        public NormalBee drone;
+        //* Properties so that they can be copied by reflection as it does not copy variables only properties
+        /// <summary>
+        /// Original princess traits
+        /// </summary>
+        public NormalBee queen { get; set; }
+        /// <summary>
+        /// Paired drone traits
+        /// </summary>
+        public NormalBee drone { get; set; }
 
         public override int GetHashCode()
         {

@@ -50,7 +50,8 @@ namespace BeeGame.Inventory
             }
             else
             {
-                GetComponent<Image>().sprite = item.GetItemSprite();
+                if(!item.Equals(new Item()))
+                    GetComponent<Image>().sprite = item.GetItemSprite();
             }
 
             //* if the slot is selected in the hotbar give the player some indication by colouring it grey

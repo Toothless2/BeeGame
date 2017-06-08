@@ -16,7 +16,7 @@ namespace BeeGame.Items
         /// <summary>
         /// The type of comb this is, <see cref="HoneyCombType"/>
         /// </summary>
-        public HoneyCombType type;
+        public HoneyCombType type { get; set; }
 
         /// <summary>
         /// The colour if this coumb, <see cref="BeeDictionarys.GetCombColour(HoneyCombType)"/>
@@ -29,6 +29,9 @@ namespace BeeGame.Items
             }
         }
 
+        /// <summary>
+        /// The <see cref="Sprite"/> for this honey comb
+        /// </summary>
         [NonSerialized]
         private Sprite itemSprite;
         #endregion

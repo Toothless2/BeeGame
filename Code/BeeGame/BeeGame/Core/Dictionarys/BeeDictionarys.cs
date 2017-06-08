@@ -14,6 +14,8 @@ namespace BeeGame.Core
 
         public static Color GetBeeColour(BeeSpecies species)
         {
+            species = species == null ? BeeSpecies.FOREST : species;
+
             beeColour.TryGetValue(species, out Color colour);
 
             return colour != null ? colour : new Color();

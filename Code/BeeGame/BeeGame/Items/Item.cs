@@ -18,7 +18,7 @@ namespace BeeGame.Items
         /// <summary>
         /// Name of the item
         /// </summary>
-        internal string itemName = "Test Item";
+        internal string itemName { get; set;}
         /// <summary>
         /// Is this item placeable. Saves checking if the item is a block type
         /// </summary>
@@ -26,7 +26,7 @@ namespace BeeGame.Items
         /// <summary>
         /// Does the item use a gameobject
         /// </summary>
-        public bool usesGameObject = false;
+        public bool usesGameObject { get; set; }
         /// <summary>
         /// How big are the texture tiles in the texture map (1/tile number x)
         /// </summary>
@@ -35,7 +35,9 @@ namespace BeeGame.Items
         /// <summary>
         /// Number of items in the stack
         /// </summary>
-        public int itemStackCount = 1;
+        public int itemStackCount { set { count = value; } get{ return count; } }
+        private int count = 1;
+
         /// <summary>
         /// Max number of items in a stack
         /// </summary>
@@ -51,6 +53,13 @@ namespace BeeGame.Items
         public Item(string name)
         {
             itemName = name;
+        }
+        #endregion
+
+        #region Player Item Interactions
+        public virtual bool InteractWithObject()
+        {
+            return false;
         }
         #endregion
 
@@ -79,6 +88,10 @@ namespace BeeGame.Items
             return SpriteDictionary.GetSprite("TestSprite");
         }
 
+        /// <summary>
+        /// Returns the items name
+        /// </summary>
+        /// <returns></returns>
         public override string GetItemName()
         {
             return $"{itemName}";

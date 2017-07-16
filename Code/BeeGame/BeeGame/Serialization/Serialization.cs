@@ -52,7 +52,7 @@ namespace BeeGame.Serialization
         {
             string[] file = Directory.GetFiles(Application.dataPath + "/Saves", "*.dat", SearchOption.AllDirectories);
 
-            string[] splitCharacters = { "/", "\\" };
+            string[] splitCharacters = { "/", "\\", ".dat" };
 
             for (int i = 0; i < file.Length; i++)
             {

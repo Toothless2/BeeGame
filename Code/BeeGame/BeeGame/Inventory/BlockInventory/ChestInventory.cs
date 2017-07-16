@@ -36,6 +36,14 @@ namespace BeeGame.Inventory
         /// </summary>
         void Update()
         {
+            UpdateChestInventory();
+        }
+
+        /// <summary>
+        /// The unity Update method is not called if the class is is child...annoyingly
+        /// </summary>
+        public void UpdateChestInventory()
+        {
             //* the chest should always have a player inventory when it does this but checks just in case
             if (playerinventory != null)
                 UpdateBase();
@@ -49,14 +57,14 @@ namespace BeeGame.Inventory
         /// <summary>
         /// Sets the Size and name of this <see cref="Inventory"/>
         /// </summary>
-        public void SetChestInventory()
+        public virtual void SetChestInventory(string invName = "Chest")
         {
             SetInventorySize(inventorySize);
             //* sets the UI to not be seen as inventorys cannot start open
             inventory.SetActive(false);
 
             //* sets the name and postion if this inventory used during serialization and deserialization
-            inventoryName = $"Chest @ {(ChunkWorldPos)inventoryPosition}";
+            inventoryName = $"{invName} @ {(ChunkWorldPos)inventoryPosition}";
 
             //* loads the inventory if it had had items put in it last time it existed
             Serialization.Serialization.DeSerializeInventory(this, inventoryName);
@@ -92,7 +100,7 @@ namespace BeeGame.Inventory
         /// Opens and closes the inventory
         /// </summary>
         /// <param name="inv"></param>
-        public void ToggleInventory(Inventory inv)
+        public override void ToggleInventory(Inventory inv)
         {
             //* sets the player inventory
             playerinventory = inv;

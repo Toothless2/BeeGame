@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using BeeGame.Items;
 
 namespace BeeGame.Inventory
@@ -108,6 +109,11 @@ namespace BeeGame.Inventory
         #endregion
 
         #region Edit Inventory
+        public virtual void ToggleInventory(Inventory inv)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Saves the inventory
         /// </summary>

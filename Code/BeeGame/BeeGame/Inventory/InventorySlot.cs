@@ -29,6 +29,10 @@ namespace BeeGame.Inventory
         /// Is this slot currently the selected slot in the hotbar?
         /// </summary>
         public bool selectedSlot = false;
+        /// <summary>
+        /// Can items be inserted into this slot by the player
+        /// </summary>
+        public bool itemsCanBeInserted = true;
         #endregion
 
         /// <summary>
@@ -77,11 +81,11 @@ namespace BeeGame.Inventory
         {
             if (myInventory.floatingItem != null)
             {
-                //* Left click moves whole stacks if items
+                //* Left click moves whole stacks of items
                 if (eventData.button == PointerEventData.InputButton.Left)
                 {
-                    //* If the item in the slot is empty put the floating item into it then clear it
-                    if (item == null)
+                    //* If the item in the slot is empty put the floating item into it then clear it and the slot can have items inserted
+                    if (item == null && itemsCanBeInserted)
                     {
                         item = myInventory.floatingItem;
                         myInventory.floatingItem = null;
@@ -89,7 +93,7 @@ namespace BeeGame.Inventory
                         return;
                     }
                     //* if the items are the same
-                    if(myInventory.floatingItem == item)
+                    if(myInventory.floatingItem == item && itemsCanBeInserted)
                     {
                         //* if the item in the inventoys stack count + the floating items stack count is less than the max stack count 
                         if (myInventory.floatingItem.itemStackCount + item.itemStackCount <= item.maxStackCount)
@@ -104,23 +108,32 @@ namespace BeeGame.Inventory
                             return;
                         }
                     }
+                    //* if the tiems are the same but items cannot be inserted into the slot add as many items as you 
+                    //* can from the slot to the floating item
+                    else if(myInventory.floatingItem == item && !itemsCanBeInserted)
+                    {
+                        AddToFloatingItem();
+                        return;
+                    }
                     //* If the items were not == swap them
                     else
                     {
-                        SwapItems();
+                        //* only if items can be inserted into the slot
+                        if(itemsCanBeInserted)
+                            SwapItems();
                         return;
                     }
                 }
                 else if(eventData.button == PointerEventData.InputButton.Right)
                 {
                     //* if the item in slot is null add 1 from the floating item to it
-                    if(item == null)
+                    if(item == null && itemsCanBeInserted)
                     {
                         AddToSlot(1);
                         return;
                     }
                     //* if the items are the same add 1 from the floating item to this item
-                    else if(item == myInventory.floatingItem)
+                    else if(item == myInventory.floatingItem && itemsCanBeInserted)
                     {
                         AddToSlot(1);
                         return;
@@ -139,9 +152,35 @@ namespace BeeGame.Inventory
 
                 //* otherwie add the items into the floating item slot
                 SwapItems();
+                //* ^ does not need to check that the slot cannot be inserted into as null be being inserted because the floating item is null
                 return;
             }
 
+        }
+
+        /// <summary>
+        /// Add items from the slot to the <see cref="Inventory.floatingItem"/>
+        /// </summary>
+        void AddToFloatingItem()
+        {
+            //* if the whole stack can be added do it and move on
+            if(myInventory.floatingItem.itemStackCount + item.itemStackCount <= item.maxStackCount)
+            {
+                myInventory.floatingItem.itemStackCount += item.itemStackCount;
+
+                item = null;
+
+                myInventory.AddItemToSlots(slotIndex, item);
+
+                return;
+            }
+
+            //* if the whole stack cannot be added calculate how many need to be removed from the slots item stack
+            item.itemStackCount -= (item.maxStackCount - myInventory.floatingItem.itemStackCount);
+            //* set the floating item to the max stack count
+            myInventory.floatingItem.itemStackCount = item.maxStackCount;
+
+            myInventory.AddItemToSlots(slotIndex, item);
         }
 
         /// <summary>

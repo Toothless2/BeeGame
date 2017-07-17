@@ -6,6 +6,9 @@ using BeeGame.Core.Enums;
 
 namespace BeeGame.Items
 {
+    /// <summary>
+    /// The bee item
+    /// </summary>
     [Serializable]
     public class Bee : Item
     {
@@ -119,6 +122,66 @@ namespace BeeGame.Items
         }
         #endregion
 
+        #region Bee Stuff
+        /// <summary>
+        /// Will convery this bee to a <see cref="BeeType.QUEEN"/> useing this bees stats as the <see cref="BeeType.PRINCESS"/> stats
+        /// </summary>
+        /// <param name="drone"></param>
+        public void ConvertToQueen(NormalBee drone)
+        {
+            ConvertToQueen(this.normalBee, drone);
+        }
+
+        /// <summary>
+        /// Will Convert this bee into a <see cref="BeeType.QUEEN"/> Bee
+        /// </summary>
+        /// <param name="princess">The <see cref="BeeType.PRINCESS"/> Stats</param>
+        /// <param name="drone">The <see cref="BeeType.DRONE"/></param>
+        public void ConvertToQueen(NormalBee princess, NormalBee drone)
+        {
+            beeType = BeeType.QUEEN;
+            queenBee = new QueenBee(princess, drone);
+            normalBee = null;
+
+            itemName = new CultureInfo("en-US", false).TextInfo.ToTitleCase($"{queenBee.queen.pSpecies} {beeType}".ToLower());
+        }
+
+        /// <summary>
+        /// Make a bee with given stats
+        /// </summary>
+        /// <param name="beeType"><see cref="BeeType"/></param>
+        /// <param name="species"><see cref="BeeSpecies"/></param>
+        /// <param name="lifespan"><see cref="BeeLifeSpan"/></param>
+        /// <param name="fertility">1 or greater</param>
+        /// <param name="effect"><see cref="BeeEffect"/></param>
+        /// <param name="prodSpeed"><see cref="BeeProductionSpeed"/></param>
+        /// <returns>A <see cref="Bee"/> with the given stats</returns>
+        public Bee MakeBeeWithStats(BeeType beeType = BeeType.DRONE, BeeSpecies species = BeeSpecies.FOREST, BeeLifeSpan lifespan = BeeLifeSpan.NORMAL, uint fertility = 2, BeeEffect effect = BeeEffect.NONE, BeeProductionSpeed prodSpeed = BeeProductionSpeed.NORMAL)
+        {
+            NormalBee normBee = new NormalBee()
+            {
+                pSpecies = species,
+                pLifespan = lifespan,
+                pFertility = fertility,
+                pProdSpeed = prodSpeed,
+                pEffect = effect,
+                sEffect = effect,
+                sFertility = fertility,
+                sLifespan = lifespan,
+                sProdSpeed = prodSpeed,
+                sSpecies = species
+            };
+
+            switch (beeType)
+            {
+                case BeeType.QUEEN:
+                    return new Bee(beeType, new QueenBee(normBee, normBee));
+                default:
+                    return new Bee(beeType, normalBee);
+            }
+        }
+        #endregion
+
         #region Overrides
         /// <summary>
         /// Retuens the hashcode for <see cref="this"/> <see cref="Item"/>
@@ -143,6 +206,14 @@ namespace BeeGame.Items
         /// Paired drone traits
         /// </summary>
         public NormalBee drone { get; set; }
+
+        public QueenBee() { }
+
+        public QueenBee(NormalBee princess, NormalBee drone)
+        {
+            this.queen = princess;
+            this.drone = drone;
+        }
 
         public override int GetHashCode()
         {

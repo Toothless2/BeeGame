@@ -1,5 +1,10 @@
 Inventory save files not deleting after block beig removed.
 		FIXED: added .dat to the list of split characters so "Apiary @ (0, 0, 0).dat" would be split to ["Apiary @ (0, 0, 0)", "dat"] instead of ["Apiary @ (0, 0, 0).dat"]
 
-Sometimes player inventory will fill with "Testtt Item"
+Sometimes player inventory will fill with "Test Item"
 	Unknown cause, possibly something to do with the deletion of block inventory saves whilst play is looking at them...but that should not be possible...I think
+	Cannot reproduce when attempting to
+
+A Test Item will soemtimes be produced when moveing queen bees around
+	Happens when adding a queen bee to a stack
+	hapens when removeinga queen bee from an apiary

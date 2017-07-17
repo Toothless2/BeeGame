@@ -711,7 +711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1680722611648624
 GameObject:
   m_ObjectHideFlags: 1
@@ -1306,6 +1306,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114012558877415200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1379,6 +1380,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114027171568419732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1502,6 +1504,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114032818421369758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1516,6 +1519,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114032913893759274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1817,6 +1821,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114091716875331576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2059,6 +2064,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114134792572678298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2182,6 +2188,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114157232407984252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2196,6 +2203,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114164512873122938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2360,6 +2368,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114202361659327496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2528,6 +2537,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114242276809031672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2560,6 +2570,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114247727466800548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2669,6 +2680,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114259209431110306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2751,6 +2763,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114285471479108856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2765,6 +2778,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114289022477547074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2833,6 +2847,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114300139313247612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2960,6 +2975,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114327024272330848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3001,6 +3017,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114335372290416070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3033,6 +3050,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114339824970037182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3106,6 +3124,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114345803075511740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3138,6 +3157,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114352589970419946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3297,6 +3317,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114380353528931002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3542,6 +3563,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114417453921939746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3615,6 +3637,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114439437796509086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3670,6 +3693,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114450032120466250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3684,6 +3708,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114452603161424184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3698,6 +3723,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114453021162042548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4060,6 +4086,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114531767582592260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4092,6 +4119,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114534289891293976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4147,6 +4175,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114545951672319814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4161,6 +4190,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114547901334547848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4301,6 +4331,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114589833354800976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4451,6 +4482,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114624662682215682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4465,6 +4497,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114628810265968716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4697,6 +4730,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114685089295100264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4882,6 +4916,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114750052587683310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5000,6 +5035,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114764412345995102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5014,6 +5050,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114784135638971962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5069,6 +5106,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114792081414610694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5196,6 +5234,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114806825596962416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5210,6 +5249,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114810532594014440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5528,6 +5568,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114847652548946040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5694,6 +5735,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114915585109387440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5794,6 +5836,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114934642330951316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5826,6 +5869,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114948160373951530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5922,6 +5966,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114954022400872832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5936,6 +5981,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114961713760177672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6049,6 +6095,7 @@ MonoBehaviour:
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114982224001219014
 MonoBehaviour:
   m_ObjectHideFlags: 1

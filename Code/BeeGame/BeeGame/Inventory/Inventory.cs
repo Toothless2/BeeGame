@@ -34,6 +34,13 @@ namespace BeeGame.Inventory
         /// The sprite at the cursor
         /// </summary>
         private GameObject spriteAtCursor;
+        /// <summary>
+        /// The block class that this inventory is part of
+        /// </summary>
+        /// <remarks>
+        /// currently only used for the <see cref="Blocks.Apiary"/> but could be used so that block inventorys are stord in the chunk and not in a seperate file
+        /// </remarks>
+        public Blocks.Block myblock;
         #endregion
 
         #region Init

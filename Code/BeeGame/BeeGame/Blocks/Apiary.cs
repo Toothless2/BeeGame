@@ -115,6 +115,7 @@ namespace BeeGame.Blocks
         /// <returns></returns>
         public override bool InteractWithBlock(Inventory.Inventory inv)
         {
+            myGameobject.GetComponent<ApiaryInventory>().myblock = this;
             myGameobject.GetComponent<ApiaryInventory>().ToggleInventory(inv);
             return true;
         }

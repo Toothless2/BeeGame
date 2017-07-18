@@ -26,6 +26,11 @@ namespace BeeGame.Items
         /// What was this bees <see cref="BeeType"/>?
         /// </summary>
         private BeeType previousBeeType { get; set; }
+        /// <summary>
+        /// Overrided so can be set
+        /// </summary>
+        public override int maxStackCount { get { return maxStack; } }
+        private int maxStack = 64;
 
         /// <summary>
         /// This bees <see cref="Sprite"/>
@@ -60,6 +65,8 @@ namespace BeeGame.Items
         /// <param name="normalBee"><see cref="NormalBee"/> data</param>
         public Bee(BeeType beeType, NormalBee normalBee) : base(new CultureInfo("en-US", false).TextInfo.ToTitleCase($"{normalBee.pSpecies} {beeType}".ToLower()))
         {
+            if (beeType == BeeType.PRINCESS || beeType == BeeType.QUEEN)
+                maxStack = 1;
             this.beeType = beeType;
             this.normalBee = normalBee;
         }
@@ -71,6 +78,8 @@ namespace BeeGame.Items
         /// <param name="normalBee"><see cref="QueenBee"/> data</param>
         public Bee(BeeType beeType, QueenBee queenBee) : base(new CultureInfo("en-US", false).TextInfo.ToTitleCase($"{queenBee.queen.pSpecies} {beeType}".ToLower()))
         {
+            if (beeType == BeeType.PRINCESS || beeType == BeeType.QUEEN)
+                maxStack = 1;
             this.beeType = beeType;
             this.queenBee = queenBee;
         }

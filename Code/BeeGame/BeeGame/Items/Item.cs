@@ -42,6 +42,8 @@ namespace BeeGame.Items
         /// Max number of items in a stack
         /// </summary>
         public virtual int maxStackCount => 64;
+
+        private int stack;
         #endregion
 
         #region Constructors

@@ -2,6 +2,7 @@
 using BeeGame.Core;
 using BeeGame.Terrain;
 using UnityEngine;
+using BeeGame.Blocks;
 using static BeeGame.Core.THInput;
 
 namespace BeeGame.Inventory
@@ -14,12 +15,34 @@ namespace BeeGame.Inventory
     /// </remarks>
     public class ApiaryInventory : ChestInventory
     {
+        private bool beesCombineing;
+
+        public float combinationTime = 0;
+
         private void Update()
         {
             UpdateChestInventory();
 
-            if(items.itemsInInventory.Length > 0)
+            if(items.itemsInInventory.Length > 0 && !beesCombineing)
                 CheckforBees();
+
+            if (combinationTime < 0 && beesCombineing)
+            {
+                ((Apiary)myblock).MakeBees(items.itemsInInventory[0] as Items.Bee, ref items.itemsInInventory);
+                beesCombineing = false;
+                items.itemsInInventory[0] = null;
+
+                SaveInv();
+            }
+        }
+
+        /// <summary>
+        /// Updates the combination time because of this was frame rate dependand weird things would happen
+        /// </summary>
+        private void FixedUpdate()
+        {
+            if (beesCombineing && combinationTime > 0)
+                combinationTime -= 0.1f;
         }
 
         private void CheckforBees()
@@ -27,8 +50,12 @@ namespace BeeGame.Inventory
             Items.Item posOneItem = items.itemsInInventory[0];
             Items.Item posTwoItem = items.itemsInInventory[1];
 
+            //* the item is checkd if it is aa bee and if it is then a new variable is made for convenience
             if(posOneItem is Items.Bee b && b.beeType == Core.Enums.BeeType.QUEEN)
             {
+                combinationTime = ((float)b.queenBee.queen.pLifespan + 1) * 2;
+                beesCombineing = true;
+                SaveInv();
                 MonoBehaviour.print($"Bee is a Queen");
             }
 
@@ -37,6 +64,13 @@ namespace BeeGame.Inventory
                 b1.ConvertToQueen(b2.normalBee);
                 items.itemsInInventory[1].itemStackCount -= 1;
                 slots[0].item = b1;
+
+                if (items.itemsInInventory[1].itemStackCount <= 0)
+                    items.itemsInInventory[1] = null;
+
+                combinationTime = ((float)b1.queenBee.queen.pLifespan + 1) * 2;
+                beesCombineing = true;
+                SaveInv();
                 MonoBehaviour.print($"Converted to Queen");
             }
         }

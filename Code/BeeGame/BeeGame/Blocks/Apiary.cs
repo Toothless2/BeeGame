@@ -17,6 +17,8 @@ namespace BeeGame.Blocks
         [NonSerialized]
         private GameObject myGameobject;
 
+        public int mutationMultiplyer;
+
         #region Constructor
         /// <summary>
         /// Constructor
@@ -119,5 +121,192 @@ namespace BeeGame.Blocks
             myGameobject.GetComponent<ApiaryInventory>().ToggleInventory(inv);
             return true;
         }
+
+        #region Bee Combineing Stuff
+        /// <summary>
+        /// Will make new <see cref="Bee"/>/<see cref="Item"/>s from the given <see cref="BeeType.QUEEN"/> <see cref="Bee"/>
+        /// </summary>
+        /// <param name="queen">The <see cref="BeeType.QUEEN"/> to make the new <see cref="Bee"/>s from</param>
+        /// <param name="inventory"><see cref="Inventory.Inventory"/> to put the new Bees/Items into</param>
+        /// <remarks>
+        /// Inventory is passed by reference to make it easier to modify the inventory. However is not necisseraly needed as a <see cref="class"/> array is being passed so a reference would be created anyway however so <see cref="ref"/> is their more for clarity due to the function modifying the invetory directly
+        /// </remarks>
+        public void MakeBees(Bee queen, ref Item[] inventory)
+        {
+            Item[] producedItems = new Item[9];
+
+            //* will always return a new princess and drone
+            producedItems[0] = MakeBee(BeeType.PRINCESS, queen.queenBee);
+            producedItems[1] =  MakeBee(BeeType.DRONE, queen.queenBee);
+
+            //* produces as many other children as the bee staats will allow
+            for (int i = 0; i < queen.queenBee.queen.pFertility; i++)
+            {
+                producedItems[i + 2] = MakeBee((BeeType)UnityEngine.Random.Range(1, 3), queen.queenBee);
+            }
+
+            //* gets the produced items
+            var beeProduce = BeeDictionarys.GetBeeProduce(queen.queenBee.queen.pSpecies);
+
+            //* chnages the stack count of the produced items to the correct number
+            for (int i = 0; i < beeProduce.Length; i++)
+            {
+                beeProduce[i].itemStackCount += UnityEngine.Random.Range(1, (int)queen.queenBee.queen.sProdSpeed + 1);
+            }
+
+            //* adds the itmes that the bee species produces into the procued item array
+            for (int i = (int)queen.queenBee.queen.pFertility + 2, prod = 0; prod < beeProduce.Length; i++, prod++)
+            {
+                producedItems[i] = beeProduce[prod];
+            }
+
+            //* puts the items into the inventory
+            for (int i = 0; i < 9; i++)
+            {
+                if (inventory[i + 2] != null)
+                {
+                    //* if the slot has the same item in it and it wont be more than the max stack ount but the new item into it
+                    if (producedItems[i] == inventory[i + 2] && inventory[i + 2].itemStackCount + 1 <= inventory[i + 2].maxStackCount)
+                        inventory[i + 2].itemStackCount++;
+                    else
+                        //* otherwise find a new slot to put the item into
+                        for (int j = i; j < (9 - i); j++)
+                        {
+                            if (inventory[j + 2] == null)
+                            {
+                                inventory[j + 2] = producedItems[i];
+                                break;
+                            }
+                            else if (producedItems[i] == inventory[j + 2] && inventory[j + 2].itemStackCount + 1 <= inventory[j + 2].maxStackCount)
+                            {
+                                inventory[j + 2].itemStackCount++;
+                                break;
+                            }
+                        }
+                }
+                //* if the slot is empty put the item into it
+                else
+                    inventory[i + 2] = producedItems[i];
+            }
+        }
+
+        /// <summary>
+        /// Nakes a new <see cref="Bee"/>
+        /// </summary>
+        /// <param name="beeType">The type of bee to make, <see cref="BeeType"/></param>
+        /// <param name="queen">Th stats the new <see cref="Bee"/> should be made with, <see cref="QueenBee"/></param>
+        /// <returns>A new <see cref="Bee"/></returns>
+        public Bee MakeBee(BeeType beeType, QueenBee queen)
+        {
+            //* gives all of the primary and secondary stats to the bee
+            NormalBee nb = new NormalBee()
+            {
+                pEffect = CombineEffect(queen.queen.sEffect, queen.drone.sEffect),
+                pFertility = CombineFertility(queen.queen.sFertility, queen.drone.sFertility),
+                pLifespan = CombineLifespan(queen.queen.sLifespan, queen.drone.sLifespan),
+                pProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed),
+                sEffect = CombineEffect(queen.queen.sEffect, queen.drone.sEffect),
+                sFertility = CombineFertility(queen.queen.sFertility, queen.drone.sFertility),
+                sLifespan = CombineLifespan(queen.queen.sLifespan, queen.drone.sLifespan),
+                sProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed),
+            };
+
+            //* gets the species
+            BeeSpecies species = CombineSpecies(queen.queen.sSpecies, queen.drone.sSpecies);
+
+            //TODO: remove this
+            nb.pSpecies = nb.sSpecies = species;
+
+            //* returns the new bee
+            return new Bee(beeType, nb);
+        }
+
+        /// <summary>
+        /// Returns a <see cref="BeeSpecies"/> depending on the given <see cref="BeeSpecies"/>
+        /// </summary>
+        /// <param name="s1">First <see cref="BeeSpecies"/></param>
+        /// <param name="s2">Second <see cref="BeeSpecies"/></param>
+        /// <returns>A new <see cref="BeeSpecies"/></returns>
+        private BeeSpecies CombineSpecies(BeeSpecies s1, BeeSpecies s2)
+        {
+            //TODO: Implement this!!!!!!!!
+            return BeeSpecies.FOREST;
+        }
+
+        /// <summary>
+        /// Combines the <see cref="BeeLifeSpan"/> of the given <see cref="BeeLifeSpan"/>
+        /// </summary>
+        /// <param name="b1">Fist <see cref="BeeLifeSpan"/></param>
+        /// <param name="b2">Second <see cref="BeeLifeSpan"/></param>
+        /// <returns>A new <see cref="BeeLifeSpan"/></returns>
+        private BeeLifeSpan CombineLifespan(BeeLifeSpan b1, BeeLifeSpan b2)
+        {
+            return (BeeLifeSpan)ReturnChange((int)b1, (int)b2, (int)BeeLifeSpan.SEATURTLE);
+        }
+
+        /// <summary>
+        /// Combines the fertility of the given fertility
+        /// </summary>
+        /// <param name="b1">Fist <see cref="Bee"/>s fertility</param>
+        /// <param name="b2">Second <see cref="Bee"/>s fertility</param>
+        /// <returns>A new fertility, <see cref="uint"/></returns>
+        private uint CombineFertility(uint b1, uint b2)
+        {
+            return (uint)ReturnChange((int)b1, (int)b2, 5, 1);
+        }
+
+        /// <summary>
+        /// Combines the <see cref="BeeEffect"/> of the given <see cref="BeeEffect"/>
+        /// </summary>
+        /// <param name="b1">Fist <see cref="BeeEffect"/></param>
+        /// <param name="b2">Second <see cref="BeeEffect"/></param>
+        /// <returns>A new <see cref="BeeEffect"/></returns>
+        private BeeEffect CombineEffect(BeeEffect b1, BeeEffect b2)
+        {
+            return (BeeEffect)ReturnChange((int)b1, (int)b2, (int)BeeEffect.POSION);
+        }
+
+        /// <summary>
+        /// Combines the <see cref="BeeProductionSpeed"/> of the given <see cref="BeeProductionSpeed"/>
+        /// </summary>
+        /// <param name="b1">Fist <see cref="BeeProductionSpeed"/></param>
+        /// <param name="b2">Second <see cref="BeeProductionSpeed"/></param>
+        /// <returns>A new <see cref="BeeProductionSpeed"/></returns>
+        public  BeeProductionSpeed CombineProductionSpeed(BeeProductionSpeed b1, BeeProductionSpeed b2)
+        {
+            return (BeeProductionSpeed)ReturnChange((int)b1, (int)b2, (int)BeeProductionSpeed.FAST);
+        }
+
+        /// <summary>
+        /// Returns a number between <paramref name="maxChange"/> and <paramref name="minChange"/> based of <paramref name="b1"/> and <paramref name="b2"/>
+        /// </summary>
+        /// <param name="b1">First number</param>
+        /// <param name="b2">Second number</param>
+        /// <param name="maxChange">Max return value</param>
+        /// <param name="minChange">Min return value</param>
+        /// <returns>A number between <paramref name="maxChange"/> and <paramref name="minChange"/></returns>
+        /// <remarks>
+        /// If <paramref name="b1"/> and <paramref name="b2"/> are the same their is still a chance of change due to this function also takeing <see cref="mutationMultiplyer"/>, the value of wich is dictated by the apairy
+        /// </remarks>
+        private int ReturnChange(int b1, int b2, int maxChange, int minChange = 0)
+        {
+            //* b1 and b2 are checked for which one is bigger than the other here as the 
+            //* queen my have a lower stat the an the drone and the drone is always passed in second
+            var change = UnityEngine.Random.Range(b1 < b2 ? b1 : b2, (b2 > b1 ? b2 : b1) + 1);
+
+            //* this will make it possible for the bees to mutate during combination of the stats are the same
+            //* it will also cause more random mutation more mimicing nature
+            change += UnityEngine.Random.Range(-mutationMultiplyer, mutationMultiplyer);
+
+            //* as all but on ef the stats are enums they have a min/max value so need to check that this is not exceded
+            if (change > maxChange)
+                change = maxChange;
+            else if (minChange > change)
+                change = minChange;
+
+            return change;
+
+        }
+        #endregion
     }
 }

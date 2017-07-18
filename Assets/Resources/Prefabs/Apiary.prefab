@@ -1292,6 +1292,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114007801707132462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1366,6 +1367,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114019199390228946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1840,6 +1842,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114095856663246154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1955,6 +1958,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114123177820855992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2482,6 +2486,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114221398251616830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2556,6 +2561,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114247121327648374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2589,6 +2595,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114249442464073250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2607,6 +2614,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114251645883896006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2625,6 +2633,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114254664902153038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2907,6 +2916,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114309659448773902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3036,6 +3046,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114335502453665608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3110,6 +3121,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114345593278009206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3143,6 +3155,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114350988264926624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3285,6 +3298,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114375634242002800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3303,6 +3317,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114376464013722728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3431,6 +3446,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114404325809821438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3449,6 +3465,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114408584747229294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3549,6 +3566,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114416597134726892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3623,6 +3641,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114439162205365292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3742,6 +3761,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114457725477790438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3787,6 +3807,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114465502231936008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3805,6 +3826,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114466586681978800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3877,6 +3899,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114493113564009396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4004,6 +4027,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114529917040483792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4105,6 +4129,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114532633192155252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4209,6 +4234,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114558532386545922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4391,6 +4417,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114597236376753348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4450,6 +4477,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114604960489729648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4468,6 +4496,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114616708560174872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4709,6 +4738,9 @@ MonoBehaviour:
   - {fileID: 114247121327648374}
   - {fileID: 114789975419656588}
   inventoryName: 
+  myblock:
+    breakable: 1
+    changed: 1
   inventoryPosition:
     x: 0
     y: 0
@@ -4716,6 +4748,7 @@ MonoBehaviour:
   playerinventory: {fileID: 0}
   inventory: {fileID: 1673968076489600}
   inventorySize: 47
+  combinationTime: 0
 --- !u!114 &114684393920323144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4749,6 +4782,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114689475979529084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4767,6 +4801,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114693758682809638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4839,6 +4874,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114720953033616484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4884,6 +4920,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114739000609946872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4902,6 +4939,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114744745165815998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4935,6 +4973,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114751307363603632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5021,6 +5060,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114762648712576424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5125,6 +5165,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114793377422654612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5309,6 +5350,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114815851572159364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5400,6 +5442,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114826798188742740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5527,6 +5570,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114841707128928992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5703,6 +5747,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114895706135392750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5721,6 +5766,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114900865797330172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5795,6 +5841,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114928638308166794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5855,6 +5902,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114939703755515446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6081,6 +6129,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114981620443771730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6182,6 +6231,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114992915924755900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6227,6 +6277,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!222 &222006291631817302
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -40,8 +40,10 @@ namespace BeeGame.Inventory
         /// </summary>
         private void Update()
         {
+            CheckItem();
             UpdateIcon();
         }
+
 
         /// <summary>
         /// Applies the correct icon to the slot depending on what is in the slot
@@ -260,6 +262,21 @@ namespace BeeGame.Inventory
             }
         }
         #endregion
+
+        /// <summary>
+        /// checks that the item is valid
+        /// </summary>
+        private void CheckItem()
+        {
+            if (item != null)
+            {
+                if (item.itemStackCount == 0 || item == new Item())
+                {
+                    myInventory.items.itemsInInventory[slotIndex] = null;
+                    Destroy(itemText);
+                }
+            }
+        }
 
         #region Display Item On Hover
         /// <summary>

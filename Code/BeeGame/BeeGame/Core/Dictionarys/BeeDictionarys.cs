@@ -6,6 +6,21 @@ namespace BeeGame.Core
 {
     public static class BeeDictionarys
     {
+        #region Bee Produce
+        private static Dictionary<BeeSpecies, Items.Item[]> beeProduce = new Dictionary<BeeSpecies, Items.Item[]>()
+        {
+            {BeeSpecies.FOREST, new Items.Item[]{new Items.HoneyComb(HoneyCombType.HONEY) } }
+        };
+
+        public static Items.Item[] GetBeeProduce(BeeSpecies species)
+        {
+            beeProduce.TryGetValue(species, out Items.Item[] produce);
+
+            //* of the produce cant be found then return a honey comb as it is probly a bug
+            return produce ?? new Items.Item[1] { new Items.HoneyComb(HoneyCombType.HONEY) };
+        }
+        #endregion
+
         #region Bee Colours
         private static Dictionary<BeeSpecies, Color> beeColour = new Dictionary<BeeSpecies, Color>()
         {
@@ -14,8 +29,6 @@ namespace BeeGame.Core
 
         public static Color GetBeeColour(BeeSpecies species)
         {
-            species = species == null ? BeeSpecies.FOREST : species;
-
             beeColour.TryGetValue(species, out Color colour);
 
             return colour != null ? colour : new Color();

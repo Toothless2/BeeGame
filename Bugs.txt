@@ -4,7 +4,12 @@ Inventory save files not deleting after block beig removed.
 Sometimes player inventory will fill with "Test Item"
 	Unknown cause, possibly something to do with the deletion of block inventory saves whilst play is looking at them...but that should not be possible...I think
 	Cannot reproduce when attempting to
+		FIXED: make so that if inv lots contain "Test Item" it is removed. Should probly try to find a better fix but CBA
 
 A Test Item will soemtimes be produced when moveing queen bees around
 	Happens when adding a queen bee to a stack
-	hapens when removeinga queen bee from an apiary
+	hapens when removeing a queen bee from an apiary
+		FIXED: make so that if inv lots contain "Test Item" it is removed. Should probly try to find a better fix but CBA
+
+Item stacks can be 0
+		FIXED: make so that if a slot has an item with a stack of 0 it is removed

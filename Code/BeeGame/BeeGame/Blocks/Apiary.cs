@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BeeGame.Core;
 using BeeGame.Inventory;
 using UnityEngine;
@@ -229,8 +230,37 @@ namespace BeeGame.Blocks
         /// <returns>A new <see cref="BeeSpecies"/></returns>
         private BeeSpecies CombineSpecies(BeeSpecies s1, BeeSpecies s2)
         {
-            //TODO: Implement this!!!!!!!!
-            return BeeSpecies.FOREST;
+            BeeSpecies[] possibleSpecies = BeeDictionarys.GetCombinations(s1, s2);
+            float[] weights = possibleSpecies.Length > 2 ? BeeDictionarys.GetWeights(possibleSpecies) : new float[] { 0.5f, 0.5f };
+
+            var randomNum = Rand(weights);
+            var weightsSum = 0f;
+
+            //* when the rumber generated is less than the current sum of the weights return that bee
+            for (int i = 0; i < weights.Length; i++)
+            {
+                if(randomNum <= weightsSum)
+                {
+                    return possibleSpecies[i];
+                }
+
+                weightsSum += weights[i];
+            }
+
+            //* if for some reason the weights cannot work return the first bee in the combination list
+            return possibleSpecies[0];
+        }
+
+        private float Rand(float[] weights)
+        {
+            var totalWeights = 0f;
+
+            for (int i = 0; i < weights.Length; i++)
+            {
+                totalWeights += weights[i];
+            }
+
+            return (float)Math.Round(UnityEngine.Random.Range(0, totalWeights), 2);
         }
 
         /// <summary>

@@ -1,15 +1,75 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BeeGame.Core.Enums;
 using UnityEngine;
+using BeeGame.Core.Dictionarys;
 
 namespace BeeGame.Core
 {
     public static class BeeDictionarys
     {
+        #region Bee Combination Weights
+        private static Dictionary<BeeSpecies, float> beeCombinationWeights = new Dictionary<BeeSpecies, float>()
+        {
+            {BeeSpecies.COMMON, 0.15f },
+            {BeeSpecies.HEROIC, 0.06f }
+        };
+
+        public static float[] GetWeights(BeeSpecies[] species)
+        {
+            var returnArray = new float[species.Length];
+
+            for (int i = 0; i < species.Length; i++)
+            {
+                if(beeCombinationWeights.ContainsKey(species[i]))
+                    returnArray[i] = beeCombinationWeights[species[i]];
+                else
+                    returnArray[i] = 0.5f;
+            }
+
+            return returnArray;
+        }
+        #endregion
+
+        #region Bee Combinations
+        public static Dictionary<BeeSpecies[], BeeSpecies[]> beeCombinations = new Dictionary<BeeSpecies[], BeeSpecies[]>(new BeeCombinationDictionaryEqualityComparer())
+        {
+             { new BeeSpecies[6] { BeeSpecies.FOREST, BeeSpecies.MEADOWS, BeeSpecies.TROPICAL, BeeSpecies.WINTRY, BeeSpecies.MODEST, BeeSpecies.MARSHY }, new BeeSpecies[1] { BeeSpecies.COMMON } }
+        };
+
+        public static BeeSpecies[] GetCombinations(BeeSpecies s1, BeeSpecies s2)
+        {
+            var beeSpecies = new BeeSpecies[2] { s1, s2 };
+            var returnBeeList = new List<BeeSpecies>();
+
+            var keys = beeCombinations.Keys.ToArray();
+            var comparor = new BeeCombinationDictionaryEqualityComparer();
+
+            for (int i = 0; i < keys.Length; i++)
+            {
+                if(comparor.Equals(keys[i], beeSpecies))
+                {
+                    var temp = beeCombinations[keys[i]];
+
+                    for (int j = 0; j < temp.Length; j++)
+                    {
+                        returnBeeList.Add(temp[i]);
+                    }
+                }
+            }
+
+            returnBeeList.Add(s1);
+            returnBeeList.Add(s2);
+
+            return returnBeeList.ToArray();
+        }
+        #endregion
+
         #region Bee Produce
         private static Dictionary<BeeSpecies, Items.Item[]> beeProduce = new Dictionary<BeeSpecies, Items.Item[]>()
         {
-            {BeeSpecies.FOREST, new Items.Item[]{new Items.HoneyComb(HoneyCombType.HONEY) } }
+            {BeeSpecies.FOREST, new Items.Item[]{new Items.HoneyComb(HoneyCombType.HONEY) } },
+            {BeeSpecies.COMMON, new Items.Item[]{new Items.HoneyComb(HoneyCombType.HONEY) } }
         };
 
         public static Items.Item[] GetBeeProduce(BeeSpecies species)
@@ -24,7 +84,8 @@ namespace BeeGame.Core
         #region Bee Colours
         private static Dictionary<BeeSpecies, Color> beeColour = new Dictionary<BeeSpecies, Color>()
         {
-            {BeeSpecies.FOREST, CombColour(0, 255, 0) }
+            {BeeSpecies.FOREST, CombColour(0, 255, 0) },
+            {BeeSpecies.COMMON, CombColour(255, 0, 0) }
         };
 
         public static Color GetBeeColour(BeeSpecies species)

@@ -268,7 +268,7 @@ namespace BeeGame.Inventory
         /// </summary>
         private void CheckItem()
         {
-            if (item != null)
+            if (item != null && myInventory != null)
             {
                 if (item.itemStackCount == 0 || item == new Item())
                 {

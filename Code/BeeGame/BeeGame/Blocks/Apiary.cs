@@ -202,21 +202,21 @@ namespace BeeGame.Blocks
             //* gives all of the primary and secondary stats to the bee
             NormalBee nb = new NormalBee()
             {
+                pSpecies = CombineSpecies(queen.queen.sSpecies, queen.drone.sSpecies),
+                sSpecies = CombineSpecies(queen.queen.sSpecies, queen.drone.sSpecies),
+
                 pEffect = CombineEffect(queen.queen.sEffect, queen.drone.sEffect),
-                pFertility = CombineFertility(queen.queen.sFertility, queen.drone.sFertility),
-                pLifespan = CombineLifespan(queen.queen.sLifespan, queen.drone.sLifespan),
-                pProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed),
                 sEffect = CombineEffect(queen.queen.sEffect, queen.drone.sEffect),
+
+                pFertility = CombineFertility(queen.queen.sFertility, queen.drone.sFertility),
                 sFertility = CombineFertility(queen.queen.sFertility, queen.drone.sFertility),
+
+                pLifespan = CombineLifespan(queen.queen.sLifespan, queen.drone.sLifespan),
                 sLifespan = CombineLifespan(queen.queen.sLifespan, queen.drone.sLifespan),
-                sProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed),
+
+                pProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed),
+                sProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed)
             };
-
-            //* gets the species
-            BeeSpecies species = CombineSpecies(queen.queen.sSpecies, queen.drone.sSpecies);
-
-            //TODO: remove this
-            nb.pSpecies = nb.sSpecies = species;
 
             //* returns the new bee
             return new Bee(beeType, nb);
@@ -251,10 +251,16 @@ namespace BeeGame.Blocks
             return possibleSpecies[0];
         }
 
+        /// <summary>
+        /// Returns a random float bewteen 0 and the sum of <paramref name="weights"/> rounded to 2dp
+        /// </summary>
+        /// <param name="weights">The weights</param>
+        /// <returns><see cref="float"/> bewteen 0 and the sum of <paramref name="weights"/> rounded to 2dp</returns>
         private float Rand(float[] weights)
         {
             var totalWeights = 0f;
 
+            //* sums the weights
             for (int i = 0; i < weights.Length; i++)
             {
                 totalWeights += weights[i];

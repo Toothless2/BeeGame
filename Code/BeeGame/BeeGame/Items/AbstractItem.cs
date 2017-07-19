@@ -5,6 +5,9 @@ using System.Text;
 
 namespace BeeGame.Items
 {
+    /// <summary>
+    /// Does this need to exist?
+    /// </summary>
     [Serializable]
     public abstract class AbstractItem
     {

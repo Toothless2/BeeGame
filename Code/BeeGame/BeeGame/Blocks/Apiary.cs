@@ -20,7 +20,7 @@ namespace BeeGame.Blocks
 
         public int mutationMultiplyer;
 
-        public new static int ID => 3;
+        public new static int ID => 10;
 
         #region Constructor
         /// <summary>

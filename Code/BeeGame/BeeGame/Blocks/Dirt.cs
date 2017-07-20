@@ -12,7 +12,7 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Dirt : Block
     {
-        public new static int ID => 5;
+        public new static int ID => 3;
 
         #region Constructor
         /// <summary>

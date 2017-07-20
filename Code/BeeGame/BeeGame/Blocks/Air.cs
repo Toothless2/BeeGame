@@ -11,7 +11,7 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Air : Block
     {
-        public new static int ID => 2;
+        public new static int ID => 0;
 
         public Air() : base("Air")
         {

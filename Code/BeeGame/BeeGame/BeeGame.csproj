@@ -65,6 +65,7 @@
     <Compile Include="Blocks\Leaves.cs" />
     <Compile Include="Blocks\Wood.cs" />
     <Compile Include="Core\Dictionarys\BeeDictionarys.cs" />
+    <Compile Include="Core\Dictionarys\CraftingRecipies.cs" />
     <Compile Include="Core\Dictionarys\EqualityComperors.cs" />
     <Compile Include="Core\Enums\Enums.cs" />
     <Compile Include="Core\Extensions.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Core\UnityTypeReplacements\THInput.cs" />
     <Compile Include="Core\UnityTypeReplacements\THVector2.cs" />
     <Compile Include="Core\UnityTypeReplacements\THVector3.cs" />
+    <Compile Include="Exceptipns\CraftingRecipieAdditionException.cs" />
     <Compile Include="Inventory\BlockInventory\ApiaryInventory.cs" />
     <Compile Include="Inventory\BlockInventory\ChestInventory.cs" />
     <Compile Include="Inventory\InventorySlot.cs" />

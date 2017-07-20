@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using BeeGame.Core.Dictionarys;
+using BeeGame.Items;
+using BeeGame.Blocks;
 
 namespace BeeGame
 {
@@ -11,7 +14,7 @@ namespace BeeGame
     {
         private void Start()
         {
-            Instantiate(BeeGame.Core.PrefabDictionary.GetPrefab("Selector"));
+            CraftingRecipies.AddShapedRecipie(new object[] { "XXX", "XXX", "XXX", "X", Dirt.ID }, new Grass());
         }
     }
 }

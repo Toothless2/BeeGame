@@ -1,11 +1,13 @@
 Bedrock: -1
+Air: 0
 Stone: 1
-Air: 2
-Apiary: 3
+Dirt: 3
 Grass: 4
-Dirt: 5
-Wood: 6
-Leaves: 7
+Wood: 5
+Leaves: 6
+Planks:              7
 Chest: 8
-Honeycomb :8
-Bee: 9
+Crafting Table: 9
+Apiary: 10
+Honeycomb: 12
+Bee: 11

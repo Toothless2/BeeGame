@@ -35,7 +35,7 @@ namespace BeeGame.Items
         [NonSerialized]
         private Sprite itemSprite;
 
-        public new static int ID => 8;
+        public new static int ID => 12;
         #endregion
 
         #region Constructors

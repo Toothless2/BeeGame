@@ -50,7 +50,7 @@ namespace BeeGame.Items
         /// </summary>
         public NormalBee normalBee { get; set; }
 
-        public new static int ID => 9;
+        public new static int ID => 11;
         #endregion
 
         #region Constructors

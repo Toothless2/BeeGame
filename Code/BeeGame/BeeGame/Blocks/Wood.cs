@@ -12,7 +12,7 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Wood : Block
     {
-        public new static int ID => 6;
+        public new static int ID => 5;
 
         public Wood() : base("Wood")
         {

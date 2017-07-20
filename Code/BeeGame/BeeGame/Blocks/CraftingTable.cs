@@ -16,7 +16,7 @@ namespace BeeGame.Blocks
         [NonSerialized]
         private GameObject myGameobject;
 
-        public new static int ID => 10;
+        public new static int ID => 9;
 
         public CraftingTable() : base("Crafting Table")
         {

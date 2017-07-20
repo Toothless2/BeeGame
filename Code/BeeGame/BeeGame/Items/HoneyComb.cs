@@ -34,6 +34,8 @@ namespace BeeGame.Items
         /// </summary>
         [NonSerialized]
         private Sprite itemSprite;
+
+        public new static int ID => 8;
         #endregion
 
         #region Constructors
@@ -96,7 +98,7 @@ namespace BeeGame.Items
         /// <returns>8</returns>
         public override int GetHashCode()
         {
-            return 8;
+            return ID;
         }
         #endregion
     }

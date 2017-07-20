@@ -49,6 +49,8 @@ namespace BeeGame.Items
         /// If this bee is not a <see cref="BeeType.QUEEN"/> this will be not null
         /// </summary>
         public NormalBee normalBee { get; set; }
+
+        public new static int ID => 9;
         #endregion
 
         #region Constructors
@@ -198,7 +200,7 @@ namespace BeeGame.Items
         /// <returns>9</returns>
         public override int GetHashCode()
         {
-            return 9;
+            return ID;
         }
         #endregion
     }

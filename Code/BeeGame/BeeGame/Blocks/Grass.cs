@@ -13,6 +13,8 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Grass : Block
     {
+        public new static int ID => 4;
+
         #region Constructor
         /// <summary>
         /// Constructor also sets teh items name
@@ -79,7 +81,7 @@ namespace BeeGame.Blocks
         /// <returns>4</returns>
         public override int GetHashCode()
         {
-            return 4;
+            return ID;
         }
 
         /// <summary>

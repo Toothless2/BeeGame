@@ -11,6 +11,8 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Air : Block
     {
+        public new static int ID => 2;
+
         public Air() : base("Air")
         {
         }
@@ -49,7 +51,7 @@ namespace BeeGame.Blocks
         /// <returns>2</returns>
         public override int GetHashCode()
         {
-            return 2;
+            return ID;
         }
 
         /// <summary>

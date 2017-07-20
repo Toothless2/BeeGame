@@ -11,6 +11,10 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Bedrock : Block
     {
+        #region Data
+        public new static int ID => -1;
+        #endregion
+
         #region Constructor
         /// <summary>
         /// Constructor
@@ -51,7 +55,7 @@ namespace BeeGame.Blocks
         /// <returns>-1</returns>
         public override int GetHashCode()
         {
-            return -1;
+            return ID;
         }
 
         /// <summary>

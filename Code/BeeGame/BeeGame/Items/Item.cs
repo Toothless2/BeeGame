@@ -43,7 +43,7 @@ namespace BeeGame.Items
         /// </summary>
         public virtual int maxStackCount => 64;
 
-        private int stack;
+        public static int ID => 1;
         #endregion
 
         #region Constructors
@@ -355,7 +355,7 @@ namespace BeeGame.Items
         /// <returns>1</returns>
         public override int GetHashCode()
         {
-            return 1;
+            return ID;
         }
 
         /// <summary>

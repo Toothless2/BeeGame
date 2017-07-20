@@ -12,6 +12,8 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Dirt : Block
     {
+        public new static int ID => 5;
+
         #region Constructor
         /// <summary>
         /// Constructor
@@ -45,7 +47,7 @@ namespace BeeGame.Blocks
         /// <returns>5</returns>
         public override int GetHashCode()
         {
-            return 5;
+            return ID;
         }
 
         /// <summary>

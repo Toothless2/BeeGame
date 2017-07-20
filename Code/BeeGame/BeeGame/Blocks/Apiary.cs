@@ -20,6 +20,8 @@ namespace BeeGame.Blocks
 
         public int mutationMultiplyer;
 
+        public new static int ID => 3;
+
         #region Constructor
         /// <summary>
         /// Constructor
@@ -98,7 +100,7 @@ namespace BeeGame.Blocks
         /// <returns>3</returns>
         public override int GetHashCode()
         {
-            return 3;
+            return ID;
         }
 
         /// <summary>

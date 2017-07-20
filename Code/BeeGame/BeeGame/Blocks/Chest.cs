@@ -20,6 +20,8 @@ namespace BeeGame.Blocks
         /// </summary>
         [NonSerialized]
         private GameObject myGameobject;
+
+        public new static int ID => 8;
         #endregion
 
         #region Constructors
@@ -113,7 +115,7 @@ namespace BeeGame.Blocks
         /// <returns>8</returns>
         public override int GetHashCode()
         {
-            return 8;
+            return ID;
         }
 
         /// <summary>

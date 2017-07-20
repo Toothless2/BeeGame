@@ -156,7 +156,7 @@ namespace BeeGame.Blocks
         /// <returns>1</returns>
         public override int GetHashCode()
         {
-            return 1;
+            return ID;
         }
 
         /// <summary>

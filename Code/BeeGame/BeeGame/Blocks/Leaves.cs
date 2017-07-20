@@ -9,6 +9,7 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Leaves : Block
     {
+        public new static int ID => 7;
 
         public Leaves() : base("Leaves")
         {
@@ -39,7 +40,7 @@ namespace BeeGame.Blocks
         /// <returns>5</returns>
         public override int GetHashCode()
         {
-            return 7;
+            return ID;
         }
 
         /// <summary>

@@ -12,6 +12,8 @@ namespace BeeGame.Blocks
     [Serializable]
     public class Wood : Block
     {
+        public new static int ID => 6;
+
         public Wood() : base("Wood")
         {
 
@@ -36,7 +38,7 @@ namespace BeeGame.Blocks
         /// <returns>5</returns>
         public override int GetHashCode()
         {
-            return 6;
+            return ID;
         }
 
         /// <summary>

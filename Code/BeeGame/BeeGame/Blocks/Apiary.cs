@@ -140,12 +140,17 @@ namespace BeeGame.Blocks
 
             //* will always return a new princess and drone
             producedItems[0] = MakeBee(BeeType.PRINCESS, queen.queenBee);
-            producedItems[1] =  MakeBee(BeeType.DRONE, queen.queenBee);
+            producedItems[1] = MakeBee(BeeType.DRONE, queen.queenBee);
+
+            var repeats = UnityEngine.Random.Range(0, queen.queenBee.queen.pFertility);
 
             //* produces as many other children as the bee staats will allow
-            for (int i = 0; i < queen.queenBee.queen.pFertility; i++)
+            for (int i = 0; i < repeats; i++)
             {
-                producedItems[i + 2] = MakeBee((BeeType)UnityEngine.Random.Range(1, 3), queen.queenBee);
+                producedItems[i + 2] = MakeBee(queen.queenBee.queen.pFertility > 6 ? (BeeType)UnityEngine.Random.Range(1, 3) : BeeType.DRONE, queen.queenBee);
+
+                if (producedItems[i + 2] is Bee b && b.beeType != BeeType.PRINCESS)
+                    producedItems[i + 2].itemStackCount = UnityEngine.Random.Range(1, (int)queen.queenBee.queen.pFertility + 1);
             }
 
             //* gets the produced items
@@ -330,7 +335,7 @@ namespace BeeGame.Blocks
         {
             //* b1 and b2 are checked for which one is bigger than the other here as the 
             //* queen my have a lower stat the an the drone and the drone is always passed in second
-            var change = UnityEngine.Random.Range(b1 < b2 ? b1 : b2, (b2 > b1 ? b2 : b1) + 1);
+            var change = UnityEngine.Random.Range(b1 < b2 ? b1 : b2, (b2 > b1 ? b2 : b1) + 2);
 
             //* this will make it possible for the bees to mutate during combination of the stats are the same
             //* it will also cause more random mutation more mimicing nature

@@ -26,7 +26,6 @@ namespace BeeGame.Inventory
         /// <summary>
         /// Sider to give a visual indication of <see cref="combinationTime"/>
         /// </summary>
-        [System.NonSerialized]
         public Slider timerSlideer;
         #endregion
 
@@ -93,7 +92,7 @@ namespace BeeGame.Inventory
             if(posOneItem is Items.Bee b1 && posTwoItem is Items.Bee b2 && b1.beeType == Core.Enums.BeeType.PRINCESS && b2.beeType == Core.Enums.BeeType.DRONE)
             {
                 //* comvert the princess to a queen with the paired drone
-                b1.ConvertToQueen(b2.normalBee);
+                Items.Bee.ConvertToQueen(ref b1, b2.normalBee);
 
                 //* reduce number of drones in slot by 1 and check it is a valid stack number
                 items.itemsInInventory[1].itemStackCount -= 1;

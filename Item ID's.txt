@@ -1,0 +1,11 @@
+Bedrock: -1
+Stone: 1
+Air: 2
+Apiary: 3
+Grass: 4
+Dirt: 5
+Wood: 6
+Leaves: 7
+Chest: 8
+Honeycomb :8
+Bee: 9

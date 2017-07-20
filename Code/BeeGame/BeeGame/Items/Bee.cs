@@ -119,7 +119,7 @@ namespace BeeGame.Items
             {
                 //* avoids the block body, yellow body, and both wing colours
                 Color[] colorsToAvoid = { new Color(0, 0, 0), new Color(156f, 146f, 130f, 255f) / 255f, new Color(225f, 223f, 219f, 255f) / 255f, new Color(232f, 200, 42, 255f) / 255f };
-                return itemSprite = SpriteDictionary.GetSprite("Drone").ColourSprite(BeeDictionarys.GetBeeColour((BeeSpecies)normalBee?.sSpecies), coloursToAvoid: colorsToAvoid);
+                return itemSprite = SpriteDictionary.GetSprite("Drone").ColourSprite(BeeDictionarys.GetBeeColour((BeeSpecies)normalBee?.pSpecies), coloursToAvoid: colorsToAvoid);
             }
         }
 
@@ -138,9 +138,9 @@ namespace BeeGame.Items
         /// Will convery this bee to a <see cref="BeeType.QUEEN"/> useing this bees stats as the <see cref="BeeType.PRINCESS"/> stats
         /// </summary>
         /// <param name="drone"></param>
-        public void ConvertToQueen(NormalBee drone)
+        public static void ConvertToQueen(Bee princess, NormalBee drone)
         {
-            ConvertToQueen(this.normalBee, drone);
+            ConvertToQueen(ref princess, drone);
         }
 
         /// <summary>
@@ -148,13 +148,13 @@ namespace BeeGame.Items
         /// </summary>
         /// <param name="princess">The <see cref="BeeType.PRINCESS"/> Stats</param>
         /// <param name="drone">The <see cref="BeeType.DRONE"/></param>
-        public void ConvertToQueen(NormalBee princess, NormalBee drone)
+        public static void ConvertToQueen(ref Bee princess, NormalBee drone)
         {
-            beeType = BeeType.QUEEN;
-            queenBee = new QueenBee(princess, drone);
-            normalBee = null;
+            princess.beeType = BeeType.QUEEN;
+            princess.queenBee = new QueenBee(princess.normalBee, drone);
+            princess.normalBee = null;
 
-            itemName = new CultureInfo("en-US", false).TextInfo.ToTitleCase($"{queenBee.queen.pSpecies} {beeType}".ToLower());
+            princess.itemName = new CultureInfo("en-US", false).TextInfo.ToTitleCase($"{princess.queenBee.queen.pSpecies} {princess.beeType}".ToLower());
         }
 
         /// <summary>
@@ -188,7 +188,7 @@ namespace BeeGame.Items
                 case BeeType.QUEEN:
                     return new Bee(beeType, new QueenBee(normBee, normBee));
                 default:
-                    return new Bee(beeType, normalBee);
+                    return new Bee(beeType, normBee);
             }
         }
         #endregion
@@ -228,7 +228,10 @@ namespace BeeGame.Items
 
         public override int GetHashCode()
         {
-            return queen.GetHashCode() ^ drone.GetHashCode();
+            unchecked
+            {
+                return (int)Int64.Parse($"{queen.GetHashCode()}{drone.GetHashCode()}");
+            }
         }
     }
 
@@ -289,10 +292,14 @@ namespace BeeGame.Items
         {
             unchecked
             {
-                int hashcode = 13;
+                //int hashcode = 13;
 
-                hashcode += ((int)pSpecies ^ (int)pLifespan ^ (int)pFertility ^ (int)pEffect ^ (int)pProdSpeed) * 127;
-                hashcode += ((int)sSpecies ^ (int)sLifespan ^ (int)sFertility ^ (int)sEffect ^ (int)sProdSpeed) * 307;
+                var temp = $"{(int)pSpecies}{(int)sSpecies}{(int)pLifespan}{(int)sLifespan}{(int)pFertility}{(int)sFertility}{(int)pEffect}{(int)sEffect}{(int)pProdSpeed}{(int)sProdSpeed}";
+
+                var hashcode = (int)(Int64.Parse(temp) ^ (127 * 13) / 159);
+
+                //hashcode += ((int)pSpecies ^ (int)pLifespan ^ (int)pFertility ^ (int)pEffect ^ (int)pProdSpeed) * 127;
+                //hashcode += ((int)sSpecies ^ (int)sLifespan ^ (int)sFertility ^ (int)sEffect ^ (int)sProdSpeed) * 307;
 
                 return hashcode;
             }

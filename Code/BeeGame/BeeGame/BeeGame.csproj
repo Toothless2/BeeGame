@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blocks\Chest.cs" />
+    <Compile Include="Blocks\CraftingTable.cs" />
     <Compile Include="Blocks\Leaves.cs" />
     <Compile Include="Blocks\Wood.cs" />
     <Compile Include="Core\Dictionarys\BeeDictionarys.cs" />

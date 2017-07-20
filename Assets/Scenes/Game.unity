@@ -202,6 +202,10 @@ Prefab:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1883698600871666, guid: 2bffedf263d1ad64492004bca523e14c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bffedf263d1ad64492004bca523e14c, type: 2}
   m_IsPrefabParent: 0

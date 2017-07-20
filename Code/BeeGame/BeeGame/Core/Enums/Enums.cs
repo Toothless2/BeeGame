@@ -22,7 +22,7 @@
     /// </summary>
     public enum BeeType
     {
-        QUEEN, PRINCESS, DRONE
+        QUEEN, DRONE, PRINCESS
     };
 
     /// <summary>

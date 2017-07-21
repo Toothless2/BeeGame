@@ -9,7 +9,7 @@ namespace BeeGame.Core.Dictionarys
 {
     public static class CraftingRecipies
     {
-        #region Shaped Recipies
+        #region Shaped Crafting
         /// <summary>
         /// Contains all crafting recipies that require a certian layout in the crafting grid (<see cref="Blocks.CraftingTable"/>
         /// </summary>
@@ -73,11 +73,36 @@ namespace BeeGame.Core.Dictionarys
         }
         #endregion
 
+        #region Shapless Crafting
+        /// <summary>
+        /// All shapless recipies
+        /// </summary>
         private static Dictionary<string, Item> shaplessRecipies = new Dictionary<string, Item>()
         {
 
         };
-        
+
+        /// <summary>
+        /// Adds a Shapless recipie to the dictionary
+        /// </summary>
+        /// <param name="recipie">Recipie to add. Format as { Item, Number of items }</param>
+        /// <param name="result">Result of the crafting recipie</param>
+        /// <example>
+        /// 2 Examples of adding a shapless recipie
+        /// <code>
+        /// void Main()
+        /// {
+        ///     CraftingRecipies.AddShaplessRecipie(new object[] { new Dirt(), 2 }, new Grass());
+        /// }
+        /// </code>
+        /// 
+        /// <code>
+        /// void Main()
+        /// {
+        ///     CraftingRecipies.AddShaplessRecipie(new object[] { new Stone(), 3, new Wood(), 3 }, new Apiary());
+        /// }
+        /// </code>
+        /// </example>
         public static void AddShaplessRecipie(object[] recipie, Item result)
         {
             var itemList = new List<int>();
@@ -104,26 +129,60 @@ namespace BeeGame.Core.Dictionarys
             shaplessRecipies.Add(stringRecpie, result);
         }
 
-        public static string GetShaplessRecipie(Item[] recipie)
+        /// <summary>
+        /// Gets a shapless recipie string from a given recipie
+        /// </summary>
+        /// <param name="recipie">Recipie for string</param>
+        /// <returns>A string of the given shapless recipie</returns>
+        public static string GetShaplessRecipieString(Item[] recipie)
         {
             var IDList = new List<int>();
             var stringRecipe = "";
 
+            //* converts tthe given item list to an ID list so it can be sorted
             for (int i = 0; i < recipie.Length; i++)
             {
-                IDList.Add(recipie[i].GetHashCode());
+                if(recipie[i] != null)
+                    IDList.Add(recipie[i].GetHashCode());
             }
 
             IDList.Sort();
 
+            //* converts the sorted ID list to a string so can be used as a dictionary key
             for (int i = 0; i < IDList.Count; i++)
             {
+                //* : after each ID as it is possible for ID clashes without eg ID: 11 can be seen as 2 * ID: 1
                 stringRecipe += $"{IDList[i]}:";
             }
 
             return stringRecipe;
         }
 
+        /// <summary>
+        /// Trys to get a shapless recipe
+        /// </summary>
+        /// <param name="recipie">Recipie to get</param>
+        /// <returns><see cref="Item"/> for the recipie, null if recipie does not exist</returns>
+        public static Item GetShaplessRecipieResult(int[] recipie)
+        {
+            var list = recipie.ToList();
+            list.Sort();
+
+            var stringRecipe = "";
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                stringRecipe += $"{list[i]}:";
+            }
+
+            return GetShaplessRecipieResult(stringRecipe);
+        }
+
+        /// <summary>
+        /// Trys to get a shapless recipie
+        /// </summary>
+        /// <param name="recipie">Recipie to get</param>
+        /// <returns><see cref="Item"/> for the recipie, null if recipie does not exist</returns>
         public static Item GetShaplessRecipieResult(string recipie)
         {
             shaplessRecipies.TryGetValue(recipie, out var item);
@@ -131,13 +190,17 @@ namespace BeeGame.Core.Dictionarys
             return item;
         }
 
-        public static Item GetShaplessRecipeResult(Item[] recipie)
+        /// <summary>
+        /// Trys to get a shapless recipie
+        /// </summary>
+        /// <param name="recipie">Recipie to get</param>
+        /// <returns><see cref="Item"/> for the recipie, null if recipie does not exist</returns>
+        public static Item GetShaplessRecipieResult(Item[] recipie)
         {
-            shaplessRecipies.TryGetValue(GetShaplessRecipie(recipie), out var item);
-
-            UnityEngine.MonoBehaviour.print(item.ToString());
+            shaplessRecipies.TryGetValue(GetShaplessRecipieString(recipie), out var item);
 
             return item;
         }
+        #endregion
     }
 }

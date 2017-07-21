@@ -30,15 +30,21 @@ namespace BeeGame.Inventory.BlockInventory
             UpdateChestInventory();
 
             if (inventory.activeInHierarchy)
-                CheckRecipie();
+            {
+                CheckShapedRecipie();
+
+                //* checks for shapless recipies second 
+                if(items.itemsInInventory[9] == null)
+                    CheckShapelessRecipie();
+            }
         }
         #endregion
 
         #region Crafting Stuff
         /// <summary>
-        /// check in the recpie in the grid is a crafting recipie
+        /// Check in the recpie in the grid for a shaped crafting recipie
         /// </summary>
-        public virtual void CheckRecipie()
+        public virtual void CheckShapedRecipie()
         {
             var items = new Item[9];
 
@@ -49,6 +55,21 @@ namespace BeeGame.Inventory.BlockInventory
 
             //* if it is a recipie put the result into the rafting result slot
             base.items.itemsInInventory[9] = ((CraftingTable)myblock).ReturnShapedRecipieItem(items);
+        }
+
+        /// <summary>
+        /// Check in the recipie grid for a shapless crafting recipie
+        /// </summary>
+        public virtual void CheckShapelessRecipie()
+        {
+            var items = new Item[9];
+
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i] = base.items.itemsInInventory[i];
+            }
+
+            base.items.itemsInInventory[9] = ((CraftingTable)myblock).ReturnShapelessRecipieItem(items);
         }
 
         /// <summary>

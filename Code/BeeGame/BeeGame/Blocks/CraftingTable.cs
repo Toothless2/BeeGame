@@ -61,6 +61,11 @@ namespace BeeGame.Blocks
             return ReturnShapedRecipieItem(recipie);
         }
 
+        public virtual Item ReturnShapelessRecipieItem(Item[] items)
+        {
+            return CraftingRecipies.GetShaplessRecipieResult(items);
+        }
+
         /// <summary>
         /// Returns a crafting recipie from a given recipie
         /// </summary>

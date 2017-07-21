@@ -3,6 +3,7 @@ using System.Globalization;
 using UnityEngine;
 using BeeGame.Core;
 using BeeGame.Core.Enums;
+using BeeGame.Core.Dictionarys;
 
 namespace BeeGame.Items
 {

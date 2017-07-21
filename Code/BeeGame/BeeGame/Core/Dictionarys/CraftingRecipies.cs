@@ -9,6 +9,7 @@ namespace BeeGame.Core.Dictionarys
 {
     public static class CraftingRecipies
     {
+        #region Shaped Recipies
         /// <summary>
         /// Contains all crafting recipies that require a certian layout in the crafting grid (<see cref="Blocks.CraftingTable"/>
         /// </summary>
@@ -45,15 +46,15 @@ namespace BeeGame.Core.Dictionarys
                 var itemID = (int)recipie[i + 1];
 
                 //* replaces the character with the items id
-                stringRecipie = stringRecipie.Replace(character, itemID.ToString());
+                stringRecipie = stringRecipie.Replace(character, $"{itemID.ToString()}:");
             }
 
-            //* converts empty sots ' ' into '0'
-            stringRecipie = stringRecipie.Replace(' ', '0');
+            //* converts empty sots " " into "0:"
+            stringRecipie = stringRecipie.Replace(" ", "0:");
 
             //* if the recipe exists an exception is thrown as two recipies cannot be the same
             if (shapedCraftingRecipies.ContainsKey(stringRecipie))
-                throw new CraftingRecipieAdditionException("Failed to add crafting recipie as it already exists");
+                throw new CraftingRecipieAdditionException($"Shaped Recipie already exists: {stringRecipie}");
 
             //* adds the recipie to the dictionary
             shapedCraftingRecipies.Add(stringRecipie, result);
@@ -67,6 +68,74 @@ namespace BeeGame.Core.Dictionarys
         public static Item GetShapedRecipeItem(string recipie)
         {
             shapedCraftingRecipies.TryGetValue(recipie, out var item);
+
+            return item;
+        }
+        #endregion
+
+        private static Dictionary<string, Item> shaplessRecipies = new Dictionary<string, Item>()
+        {
+
+        };
+        
+        public static void AddShaplessRecipie(object[] recipie, Item result)
+        {
+            var itemList = new List<int>();
+            var stringRecpie = "";
+
+            for (int i = 0; i < recipie.Length; i+=2)
+            {
+                for (int j = 0; j < (int)recipie[i+1]; j++)
+                {
+                    itemList.Add(int.Parse(((Item)recipie[i]).GetItemID()));
+                }
+            }
+
+            itemList.Sort();
+
+            for (int i = 0; i < itemList.Count; i++)
+            {
+                stringRecpie += $"{itemList[i]}:";
+            }
+
+            if (shaplessRecipies.ContainsKey(stringRecpie))
+                throw new CraftingRecipieAdditionException($"Shaped Recipie already exists: {stringRecpie}");
+
+            shaplessRecipies.Add(stringRecpie, result);
+        }
+
+        public static string GetShaplessRecipie(Item[] recipie)
+        {
+            var IDList = new List<int>();
+            var stringRecipe = "";
+
+            for (int i = 0; i < recipie.Length; i++)
+            {
+                IDList.Add(recipie[i].GetHashCode());
+            }
+
+            IDList.Sort();
+
+            for (int i = 0; i < IDList.Count; i++)
+            {
+                stringRecipe += $"{IDList[i]}:";
+            }
+
+            return stringRecipe;
+        }
+
+        public static Item GetShaplessRecipieResult(string recipie)
+        {
+            shaplessRecipies.TryGetValue(recipie, out var item);
+
+            return item;
+        }
+
+        public static Item GetShaplessRecipeResult(Item[] recipie)
+        {
+            shaplessRecipies.TryGetValue(GetShaplessRecipie(recipie), out var item);
+
+            UnityEngine.MonoBehaviour.print(item.ToString());
 
             return item;
         }

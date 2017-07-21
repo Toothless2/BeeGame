@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using BeeGame.Items;
+using BeeGame.Core.Dictionarys;
 
 namespace BeeGame.Inventory
 {
@@ -97,7 +98,7 @@ namespace BeeGame.Inventory
             {
                 if (spriteAtCursor == null)
                 {
-                    spriteAtCursor = Instantiate(BeeGame.Core.PrefabDictionary.GetPrefab("ItemIcon"));
+                    spriteAtCursor = Instantiate(PrefabDictionary.GetPrefab("ItemIcon"));
                     spriteAtCursor.GetComponentInChildren<UnityEngine.UI.Image>().sprite = floatingItem.GetItemSprite();
                 }
                 //* will update a the sprite of in item is swapped between a slot and teh floating item if the previous item wasnt put into a slot first

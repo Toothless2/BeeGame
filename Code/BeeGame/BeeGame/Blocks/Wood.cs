@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BeeGame.Core;
+using BeeGame.Core.Dictionarys;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
 

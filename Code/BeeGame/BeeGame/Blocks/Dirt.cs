@@ -1,7 +1,7 @@
 ﻿using System;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
-using BeeGame.Core;
+using BeeGame.Core.Dictionarys;
 using UnityEngine;
 
 namespace BeeGame.Blocks

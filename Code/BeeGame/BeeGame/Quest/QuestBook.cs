@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BeeGame.Core;
+using BeeGame.Core.Dictionarys;
 using BeeGame.Items;
 using UnityEngine;
 

@@ -2,7 +2,7 @@
 using UnityEngine;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
-using BeeGame.Core;
+using BeeGame.Core.Dictionarys;
 using BeeGame.Items;
 
 namespace BeeGame.Blocks

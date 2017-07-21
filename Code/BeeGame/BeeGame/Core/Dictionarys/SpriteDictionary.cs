@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace BeeGame.Core
+namespace BeeGame.Core.Dictionarys
 {
     /// <summary>
     /// All of the sprites avaliable to the game

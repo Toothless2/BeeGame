@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using BeeGame.Core;
-using BeeGame.Core.Enums;
 using BeeGame.Items;
+using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
+using BeeGame.Core.Dictionarys;
 
 namespace BeeGame.Blocks
 {
@@ -53,12 +51,11 @@ namespace BeeGame.Blocks
             {
                 if (items[i] == null)
                 {
-                    recipie += 0;
+                    recipie += "0:";
                     continue;
-
                 }
 
-                recipie += items[i].GetItemID();
+                recipie += $"{items[i].GetItemID()}:";
             }
 
             return ReturnShapedRecipieItem(recipie);

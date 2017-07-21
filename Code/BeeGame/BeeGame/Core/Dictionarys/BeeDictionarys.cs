@@ -4,7 +4,7 @@ using BeeGame.Core.Enums;
 using UnityEngine;
 using BeeGame.Core.Dictionarys;
 
-namespace BeeGame.Core
+namespace BeeGame.Core.Dictionarys
 {
     public static class BeeDictionarys
     {

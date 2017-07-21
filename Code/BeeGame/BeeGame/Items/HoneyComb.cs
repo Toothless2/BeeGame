@@ -2,6 +2,7 @@
 using System.Globalization;
 using BeeGame.Core;
 using BeeGame.Core.Enums;
+using BeeGame.Core.Dictionarys;
 using UnityEngine;
 
 namespace BeeGame.Items

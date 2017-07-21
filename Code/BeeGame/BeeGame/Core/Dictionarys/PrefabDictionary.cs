@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace BeeGame.Core
+namespace BeeGame.Core.Dictionarys
 {
     /// <summary>
     /// The prefabs avaliable to the game

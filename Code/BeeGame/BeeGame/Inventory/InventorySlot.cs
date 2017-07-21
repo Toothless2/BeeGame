@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using BeeGame.Items;
 using BeeGame.Core;
+using BeeGame.Core.Dictionarys;
 
 namespace BeeGame.Inventory
 {

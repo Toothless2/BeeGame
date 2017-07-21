@@ -84,7 +84,7 @@ namespace BeeGame.Inventory.BlockInventory
             {
                 for (int i = 0; i < 9; i++)
                 {
-                    items.itemsInInventory[i] = null;
+                    items.itemsInInventory[i].itemStackCount -= 1;
                 }
             }
         }

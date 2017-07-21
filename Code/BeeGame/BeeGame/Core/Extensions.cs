@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using System.Threading;
+using BeeGame.Items;
 
 namespace BeeGame.Core
 {
@@ -138,6 +139,12 @@ namespace BeeGame.Core
             
             //* return the Texture2D as a sprite
             return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new THVector2(0.5f, 0.5f));
+        }
+        
+        public static void SpawnItem(this Item item, THVector3 position, Quaternion rotation = new Quaternion())
+        {
+            GameObject go = MonoBehaviour.Instantiate(UnityEngine.Resources.Load("Prefabs/ItemGameObject") as GameObject, position, rotation) as GameObject;
+            go.GetComponent<ItemGameObject>().item = item;
         }
     }
 }

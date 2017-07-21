@@ -43,7 +43,7 @@ namespace BeeGame.Items
         /// </summary>
         public virtual int maxStackCount => 64;
 
-        public static int ID => 1;
+        public static int ID => 0;
         #endregion
 
         #region Constructors

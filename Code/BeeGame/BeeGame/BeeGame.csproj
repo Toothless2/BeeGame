@@ -72,11 +72,13 @@
     <Compile Include="Core\Dictionarys\PrefabDictionary.cs" />
     <Compile Include="Core\Dictionarys\SpriteDictionary.cs" />
     <Compile Include="Core\UnityTypeReplacements\THInput.cs" />
+    <Compile Include="Core\UnityTypeReplacements\THQuaternion.cs" />
     <Compile Include="Core\UnityTypeReplacements\THVector2.cs" />
     <Compile Include="Core\UnityTypeReplacements\THVector3.cs" />
     <Compile Include="Exceptipns\CraftingRecipieAdditionException.cs" />
     <Compile Include="Inventory\BlockInventory\ApiaryInventory.cs" />
     <Compile Include="Inventory\BlockInventory\ChestInventory.cs" />
+    <Compile Include="Inventory\BlockInventory\CraftingTableInventory.cs" />
     <Compile Include="Inventory\InventorySlot.cs" />
     <Compile Include="Inventory\ItemsInInventory.cs" />
     <Compile Include="Inventory\Player Inventory\PlayerInventory.cs" />

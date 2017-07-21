@@ -13,3 +13,7 @@ A Test Item will soemtimes be produced when moveing queen bees around
 
 Item stacks can be 0
 		FIXED: make so that if a slot has an item with a stack of 0 it is removed
+
+Stone does not have an icon when in a slot
+		Item icon for this block works all other times? Interesting...
+			FIXED: Possible ID connnflict with Item caused it? IDK...

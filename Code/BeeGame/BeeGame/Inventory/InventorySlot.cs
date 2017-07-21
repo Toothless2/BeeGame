@@ -270,7 +270,7 @@ namespace BeeGame.Inventory
         {
             if (item != null && myInventory != null)
             {
-                if (item.itemStackCount == 0 || item == new Item())
+                if (item.itemStackCount == 0 || item.itemName == "TestItem")
                 {
                     myInventory.items.itemsInInventory[slotIndex] = null;
                     Destroy(itemText);

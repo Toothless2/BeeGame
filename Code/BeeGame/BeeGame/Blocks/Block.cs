@@ -13,6 +13,7 @@ namespace BeeGame.Blocks
     public class Block : Item
     {
         #region Data
+        public new static int ID = 1;
         /// <summary>
         /// Can this <see cref="Block"/> be broken
         /// </summary>

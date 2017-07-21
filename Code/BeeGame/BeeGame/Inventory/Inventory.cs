@@ -127,7 +127,7 @@ namespace BeeGame.Inventory
         /// <remarks>
         /// Used when closeing a chest so the changes to the player inventory are saved
         /// </remarks>
-        public void SaveInv()
+        public virtual void SaveInv()
         {
             Serialization.Serialization.SerializeInventory(this, inventoryName);
         }
@@ -160,7 +160,7 @@ namespace BeeGame.Inventory
         /// </summary>
         /// <param name="slotIndex">Slot to add item to</param>
         /// <param name="item">Item to add</param>
-        public void AddItemToSlots(int slotIndex, Item item)
+        public virtual void AddItemToSlots(int slotIndex, Item item)
         {
             items.AddItem(slotIndex, item);
             //* saves the inventory changes

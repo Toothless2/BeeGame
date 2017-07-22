@@ -116,6 +116,10 @@ namespace BeeGame.Inventory
                     else if(myInventory.floatingItem == item && !itemsCanBeInserted)
                     {
                         AddToFloatingItem();
+                        {
+                            if (myInventory is BlockInventory.CraftingTableInventory c)
+                                c.result.Invoke();
+                        }
                         return;
                     }
                     //* If the items were not == swap them
@@ -150,12 +154,25 @@ namespace BeeGame.Inventory
                 if(eventData.button == PointerEventData.InputButton.Right)
                 {
                     SplitStack();
+
+                    //* blocks removed some weird name confliction
+                    {
+                        if (myInventory is BlockInventory.CraftingTableInventory c)
+                            c.result.Invoke();
+                    }
+
                     return;
                 }
 
                 //* otherwie add the items into the floating item slot
                 SwapItems();
                 //* ^ does not need to check that the slot cannot be inserted into as null be being inserted because the floating item is null
+
+                {
+                    if (myInventory is BlockInventory.CraftingTableInventory c)
+                        c.result.Invoke();
+                }
+
                 return;
             }
 

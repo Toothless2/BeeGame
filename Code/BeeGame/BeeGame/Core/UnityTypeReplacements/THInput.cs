@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using BeeGame.Exceptipns;
 
 namespace BeeGame.Core
 {
@@ -50,7 +51,7 @@ namespace BeeGame.Core
         {
             if (!inputButtons.ContainsKey(button))
             {
-                throw new Exception("Input Manager: Key button name not defined: " + button);
+                throw new InputException($"Key input name not defined: {button}");
             }
 
             switch (inputButtons[button])
@@ -80,7 +81,7 @@ namespace BeeGame.Core
         {
             if (!inputButtons.ContainsKey(button))
             {
-                throw new Exception("Input Manager: Key button name not defined: " + button);
+                throw new InputException($"Key input name not defined: {button}");
             }
 
             switch (inputButtons[button])
@@ -110,7 +111,7 @@ namespace BeeGame.Core
         {
             if (!inputButtons.ContainsKey(button))
             {
-                throw new Exception("Input Manager: Key button name not defined: " + button);
+                throw new InputException($"Key input name not defined: {button}");
             }
 
             switch (inputButtons[button])

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using BeeGame.Core.Dictionarys;
 using BeeGame.Items;
 using BeeGame.Blocks;
+using BeeGame.Core;
 
 namespace BeeGame
 {
@@ -14,8 +15,11 @@ namespace BeeGame
     {
         private void Start()
         {
-            CraftingRecipies.AddShapedRecipie(new object[] { "XXX", "XXX", "XXX", "X", Dirt.ID }, new Grass());
+            CraftingRecipies.AddShapedRecipie(new object[] { "   ", " X ", "   ", "X", Dirt.ID }, new Grass());
             CraftingRecipies.AddShaplessRecipie(new object[] { new Grass(), 1 }, new Dirt());
+
+            Events.shapedRecipieCrafted += Print;
         }
+        public void Print(Item item) => print(item.GetItemID());
     }
 }

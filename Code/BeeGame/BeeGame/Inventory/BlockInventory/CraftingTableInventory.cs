@@ -13,6 +13,17 @@ namespace BeeGame.Inventory.BlockInventory
     /// </summary>
     public class CraftingTableInventory : ChestInventory
     {
+        #region Data
+        /// <summary>
+        /// Makes the delegate
+        /// </summary>
+        public delegate void ItemRemovedFromResult();
+        /// <summary>
+        /// Holds the method for the delegate to call
+        /// </summary>
+        public ItemRemovedFromResult result;
+        #endregion
+
         #region Unity Methods
         /// <summary>
         /// Sets the size of the inventory
@@ -20,10 +31,12 @@ namespace BeeGame.Inventory.BlockInventory
         protected void Start()
         {
             SetChestInventory();
+            result = CraftedItemRemoved;
         }
 
+
         /// <summary>
-        /// Updates thhe base and checks crafting recipies
+        /// Updates the base and checks crafting recipies
         /// </summary>
         protected void Update()
         {
@@ -37,6 +50,15 @@ namespace BeeGame.Inventory.BlockInventory
                 if(items.itemsInInventory[9] == null)
                     CheckShapelessRecipie();
             }
+        }
+
+        /// <summary>
+        /// Ensureing no memory leaks occur due to the <see cref="delegate"/>
+        /// </summary>
+        protected void OnDestroy()
+        {
+            //* just ensures no memory leaks occur
+            result -= CraftedItemRemoved;
         }
         #endregion
 
@@ -53,8 +75,10 @@ namespace BeeGame.Inventory.BlockInventory
                 items[i] = base.items.itemsInInventory[i];
             }
 
-            //* if it is a recipie put the result into the rafting result slot
-            base.items.itemsInInventory[9] = ((CraftingTable)myblock).ReturnShapedRecipieItem(items);
+            //* if it is a recipie put the result into the crafting result slot
+            Item item = ((CraftingTable)myblock).ReturnShapedRecipieItem(items);
+            if (item != base.items.itemsInInventory[9])
+                base.items.itemsInInventory[9] = item;
         }
 
         /// <summary>
@@ -68,23 +92,24 @@ namespace BeeGame.Inventory.BlockInventory
             {
                 items[i] = base.items.itemsInInventory[i];
             }
-
-            base.items.itemsInInventory[9] = ((CraftingTable)myblock).ReturnShapelessRecipieItem(items);
+            
+            Item item = ((CraftingTable)myblock).ReturnShapelessRecipieItem(items);
+            if (item != base.items.itemsInInventory[9])
+                base.items.itemsInInventory[9] = item;
         }
 
         /// <summary>
-        /// Removes the items form the crafting grid one an item has been removed from the crafting result slot
+        /// Removes the items form the crafting grid one an item has been removed from the crafting result slot, Called via the <see cref="result"/> <see cref="delegate"/> from <see cref="InventorySlot.OnPointerClick(UnityEngine.EventSystems.PointerEventData)"/>
         /// </summary>
-        /// <remarks>
-        /// Not sure if this will work 100% of the time as not sure order of operations in guaranted. This is being caled when the button is clicked and so is the function that removes an item from a slot (<see cref="InventorySlot.OnPointerClick(UnityEngine.EventSystems.PointerEventData)"/>)
-        /// </remarks>
         public void CraftedItemRemoved()
         {
-            if(items.itemsInInventory[9] != null)
+            if (items.itemsInInventory[9] != null)
             {
+                Events.CallShapedRecipieCraftedEvent(items.itemsInInventory[9]);
                 for (int i = 0; i < 9; i++)
                 {
-                    items.itemsInInventory[i].itemStackCount -= 1;
+                    if (items.itemsInInventory[i] != null)
+                        items.itemsInInventory[i].itemStackCount -= 1;
                 }
             }
         }

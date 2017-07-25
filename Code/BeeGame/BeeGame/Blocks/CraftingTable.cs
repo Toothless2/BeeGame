@@ -142,7 +142,7 @@ namespace BeeGame.Blocks
         /// <returns><see cref="Sprite"/> for this <see cref="Item"/></returns>
         public override Sprite GetItemSprite()
         {
-            return SpriteDictionary.GetSprite("TestSprite");
+            return SpriteDictionary.GetSprite("CraftingTable");
         }
 
         /// <summary>

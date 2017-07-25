@@ -92,6 +92,11 @@ namespace BeeGame.Blocks
             //* removes the collision mesh from the chunk
             base.BreakBlock(pos);
         }
+
+        public override Sprite GetItemSprite()
+        {
+            return SpriteDictionary.GetSprite("Apiary");
+        }
         #endregion
 
         #region Overrides
@@ -307,7 +312,7 @@ namespace BeeGame.Blocks
         /// <returns>A new <see cref="BeeEffect"/></returns>
         private BeeEffect CombineEffect(BeeEffect b1, BeeEffect b2)
         {
-            return (BeeEffect)ReturnChange((int)b1, (int)b2, (int)BeeEffect.POSION);
+            return (BeeEffect)ReturnChange((int)b1, (int)b2, (int)BeeEffect.POISON);
         }
 
         /// <summary>

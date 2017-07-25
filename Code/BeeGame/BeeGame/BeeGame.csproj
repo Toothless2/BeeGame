@@ -47,21 +47,22 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEditor">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+      <HintPath>D:\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>D:\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+      <HintPath>D:\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blocks\Chest.cs" />
     <Compile Include="Blocks\CraftingTable.cs" />
+    <Compile Include="Blocks\Planks.cs" />
     <Compile Include="Blocks\Leaves.cs" />
     <Compile Include="Blocks\Wood.cs" />
     <Compile Include="Core\Dictionarys\BeeDictionarys.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Inventory\BlockInventory\ApiaryInventory.cs" />
     <Compile Include="Inventory\BlockInventory\ChestInventory.cs" />
     <Compile Include="Inventory\BlockInventory\CraftingTableInventory.cs" />
+    <Compile Include="Inventory\CraftingOutputSlot.cs" />
     <Compile Include="Inventory\InventorySlot.cs" />
     <Compile Include="Inventory\ItemsInInventory.cs" />
     <Compile Include="Inventory\Player Inventory\PlayerInventory.cs" />

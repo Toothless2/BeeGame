@@ -21,7 +21,7 @@ namespace BeeGame.Inventory.BlockInventory
         /// <summary>
         /// Holds the method for the delegate to call
         /// </summary>
-        public ItemRemovedFromResult result;
+        public ItemRemovedFromResult craftingResultRemoved;
         #endregion
 
         #region Unity Methods
@@ -31,7 +31,7 @@ namespace BeeGame.Inventory.BlockInventory
         protected void Start()
         {
             SetChestInventory();
-            result = CraftedItemRemoved;
+            craftingResultRemoved = CraftedItemRemoved;
         }
 
 
@@ -58,7 +58,7 @@ namespace BeeGame.Inventory.BlockInventory
         protected void OnDestroy()
         {
             //* just ensures no memory leaks occur
-            result -= CraftedItemRemoved;
+            craftingResultRemoved -= CraftedItemRemoved;
         }
         #endregion
 
@@ -99,7 +99,7 @@ namespace BeeGame.Inventory.BlockInventory
         }
 
         /// <summary>
-        /// Removes the items form the crafting grid one an item has been removed from the crafting result slot, Called via the <see cref="result"/> <see cref="delegate"/> from <see cref="InventorySlot.OnPointerClick(UnityEngine.EventSystems.PointerEventData)"/>
+        /// Removes the items form the crafting grid one an item has been removed from the crafting result slot, Called via the <see cref="craftingResultRemoved"/> <see cref="delegate"/> from <see cref="InventorySlot.OnPointerClick(UnityEngine.EventSystems.PointerEventData)"/>
         /// </summary>
         public void CraftedItemRemoved()
         {

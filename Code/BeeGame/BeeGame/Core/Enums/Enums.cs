@@ -54,7 +54,7 @@
     /// </summary>
     public enum BeeEffect
     {
-        NONE, POSION
+        NONE, POISON
     }
 
     /// <summary>

@@ -39,17 +39,16 @@ namespace BeeGame.Inventory
         /// <summary>
         /// Updates the slot
         /// </summary>
-        private void Update()
+        protected void Update()
         {
             CheckItem();
             UpdateIcon();
         }
-
-
+        
         /// <summary>
         /// Applies the correct icon to the slot depending on what is in the slot
         /// </summary>
-        void UpdateIcon()
+        internal void UpdateIcon()
         {
             if(item == null)
             {
@@ -80,7 +79,7 @@ namespace BeeGame.Inventory
         /// <remarks>
         /// Called by the unity event handler when the slot is clicked on
         /// </remarks>
-        public void OnPointerClick(PointerEventData eventData)
+        public virtual void OnPointerClick(PointerEventData eventData)
         {
             if (myInventory.floatingItem != null)
             {
@@ -116,10 +115,6 @@ namespace BeeGame.Inventory
                     else if(myInventory.floatingItem == item && !itemsCanBeInserted)
                     {
                         AddToFloatingItem();
-                        {
-                            if (myInventory is BlockInventory.CraftingTableInventory c)
-                                c.result.Invoke();
-                        }
                         return;
                     }
                     //* If the items were not == swap them
@@ -155,23 +150,12 @@ namespace BeeGame.Inventory
                 {
                     SplitStack();
 
-                    //* blocks removed some weird name confliction
-                    {
-                        if (myInventory is BlockInventory.CraftingTableInventory c)
-                            c.result.Invoke();
-                    }
-
                     return;
                 }
 
                 //* otherwie add the items into the floating item slot
                 SwapItems();
                 //* ^ does not need to check that the slot cannot be inserted into as null be being inserted because the floating item is null
-
-                {
-                    if (myInventory is BlockInventory.CraftingTableInventory c)
-                        c.result.Invoke();
-                }
 
                 return;
             }
@@ -284,7 +268,7 @@ namespace BeeGame.Inventory
         /// <summary>
         /// checks that the item is valid
         /// </summary>
-        private void CheckItem()
+        internal void CheckItem()
         {
             if (item != null && myInventory != null)
             {

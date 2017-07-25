@@ -94,6 +94,15 @@ namespace BeeGame.Blocks
             //* removes the collision mesh from the chunk
             base.BreakBlock(pos);
         }
+
+        /// <summary>
+        /// Gets the Chest <see cref="Sprite"/>
+        /// </summary>
+        /// <returns>The Chest <see cref="Sprite"/></returns>
+        public override Sprite GetItemSprite()
+        {
+            return SpriteDictionary.GetSprite("Chest");
+        }
         #endregion
 
         #region Inventory Suff

@@ -5,7 +5,7 @@ Dirt: 3
 Grass: 4
 Wood: 5
 Leaves: 6
-Planks:              7
+Planks: 7
 Chest: 8
 Crafting Table: 9
 Apiary: 10

@@ -81,19 +81,26 @@ namespace BeeGame.Resources {
             }
         }
 
+        /// <summary>
+        /// Gets the sprites from Sprites.dat file and loads them
+        /// </summary>
+        /// <returns>A dictionary of the <see cref="Sprite"/> with its reference name (dictionary key)</returns>
         internal static Dictionary<string, Sprite> GetSprites()
         {
             string[] splitCharacters = new string[] { "," };
             object obj = ResourceManager.GetObject("Sprites", resourceCulture);
 
+            //* gets the text from the spries.dat file
             string text = System.Text.Encoding.Default.GetString((byte[])obj);
             string lineText = "";
             string[] splitText;
             Texture2D tex;
             Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
 
+            //* goes through all characters in the file
             for (int i = 0; i < text.Length; i++)
             {
+                //* when their is a new line the path for that sprite is found
                 if (text[i] != '\n')
                 {
                     lineText += text[i];
@@ -103,6 +110,7 @@ namespace BeeGame.Resources {
                     splitText = lineText.Split(splitCharacters, StringSplitOptions.RemoveEmptyEntries);
                     lineText = "";
                     tex = UnityEngine.Resources.Load("Sprites/" + splitText[1].Remove(splitText[1].Length - 1, 1)) as Texture2D;
+                    //*                                   need to crafte a sprite from a texture 2D because Unity wont allow images to be loaded directly as sprites at runtime...for some reason
                     sprites.Add(splitText[0], Sprite.Create(tex, new UnityEngine.Rect(0, 0, tex.width, tex.height), Vector2.zero));
                 }
             }
@@ -115,6 +123,10 @@ namespace BeeGame.Resources {
             return sprites;
         }
 
+        /// <summary>
+        /// Gets the prefabs from Prefabs.dat file and loads them
+        /// </summary>
+        /// <returns>A dictionary of the <see cref="Sprite"/> with its reference name (dictionary key)</returns>
         internal static Dictionary<string, GameObject> GetPrefabs()
         {
             string[] splitCharacters = new string[] { "," };
@@ -126,14 +138,17 @@ namespace BeeGame.Resources {
             string[] splitText;
             Dictionary<string, GameObject> objects = new Dictionary<string, GameObject>();
 
+            //* goes through all characters in the file
             for (int i = 0; i < text.Length; i++)
             {
-                if(text[i] != '\n')
+                //* when their is a new line the path for that sprite is found
+                if (text[i] != '\n')
                 {
                     lineText += text[i];
                 }
                 else
                 {
+                    //* when their is a new line the path for that sprite is found
                     splitText = lineText.Split(splitCharacters, StringSplitOptions.RemoveEmptyEntries);
                     lineText = "";
                     objects.Add(splitText[0], UnityEngine.Resources.Load("Prefabs/" + splitText[1].Remove(splitText[1].Length - 1, 1)) as GameObject);

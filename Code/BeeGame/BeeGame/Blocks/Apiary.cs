@@ -347,7 +347,7 @@ namespace BeeGame.Blocks
             //* it will also cause more random mutation more mimicking nature
             change += UnityEngine.Random.Range(-mutationMultiplyer, mutationMultiplyer);
 
-            //* as all but on ef the stats are enums they have a min/max value so need to check that this is not exceeded
+            //* as all of the stats are enums they have a min/max value so need to check that this is not exceeded
             if (change > maxChange)
                 change = maxChange;
             else if (minChange > change)

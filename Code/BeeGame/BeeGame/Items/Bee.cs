@@ -3,7 +3,7 @@ using System.Globalization;
 using UnityEngine;
 using BeeGame.Core;
 using BeeGame.Core.Enums;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 
 namespace BeeGame.Items
 {
@@ -108,19 +108,19 @@ namespace BeeGame.Items
             {
                 //* avoids the crown, black body, yellow body, and both colours of the wings
                 Color[] colorsToAvoid = { new Color(0, 0, 0), new Color(232f, 200f, 42f, 255f) / 255f, new Color(232f, 213f, 106f, 255f) / 255f, new Color(156f, 146f, 130f, 255f) / 255f, new Color(225f, 223f, 219f, 255f) / 255f };
-                return itemSprite = SpriteDictionary.GetSprite("Queen").ColourSprite(BeeDictionarys.GetBeeColour((BeeSpecies)(queenBee?.queen.pSpecies)), coloursToAvoid: colorsToAvoid);
+                return itemSprite = SpriteDictionary.GetSprite("Queen").ColourSprite(BeeDictionaries.GetBeeColour((BeeSpecies)(queenBee?.queen.pSpecies)), coloursToAvoid: colorsToAvoid);
             }
             else if (beeType == BeeType.PRINCESS)
             {
                 //* avoids the tiara, black body, yellow body, and both colours of the wings
                 Color[] colorsToAvoid = { new Color(0, 0, 0), new Color(191f, 195f, 45f, 255f) / 255f, new Color(191f, 195f, 44f, 255f) / 255f, new Color(156f, 146f, 130f, 255f) / 255f, new Color(225f, 223f, 219f, 255f) / 255f, new Color(232f, 200, 42, 255f) / 255f };
-                return itemSprite = SpriteDictionary.GetSprite("Princess").ColourSprite(BeeDictionarys.GetBeeColour((BeeSpecies)(normalBee?.pSpecies)), coloursToAvoid: colorsToAvoid);
+                return itemSprite = SpriteDictionary.GetSprite("Princess").ColourSprite(BeeDictionaries.GetBeeColour((BeeSpecies)(normalBee?.pSpecies)), coloursToAvoid: colorsToAvoid);
             }
             else
             {
                 //* avoids the block body, yellow body, and both wing colours
                 Color[] colorsToAvoid = { new Color(0, 0, 0), new Color(156f, 146f, 130f, 255f) / 255f, new Color(225f, 223f, 219f, 255f) / 255f, new Color(232f, 200, 42, 255f) / 255f };
-                return itemSprite = SpriteDictionary.GetSprite("Drone").ColourSprite(BeeDictionarys.GetBeeColour((BeeSpecies)normalBee?.pSpecies), coloursToAvoid: colorsToAvoid);
+                return itemSprite = SpriteDictionary.GetSprite("Drone").ColourSprite(BeeDictionaries.GetBeeColour((BeeSpecies)normalBee?.pSpecies), coloursToAvoid: colorsToAvoid);
             }
         }
 

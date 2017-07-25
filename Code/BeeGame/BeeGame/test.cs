@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 using BeeGame.Items;
 using BeeGame.Blocks;
 using BeeGame.Core;

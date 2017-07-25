@@ -2,7 +2,7 @@
 using System.Globalization;
 using BeeGame.Core;
 using BeeGame.Core.Enums;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 using UnityEngine;
 
 namespace BeeGame.Items
@@ -20,13 +20,13 @@ namespace BeeGame.Items
         public HoneyCombType type { get; set; }
 
         /// <summary>
-        /// The colour if this coumb, <see cref="BeeDictionarys.GetCombColour(HoneyCombType)"/>
+        /// The colour if this coumb, <see cref="BeeDictionaries.GetCombColour(HoneyCombType)"/>
         /// </summary>
         public Color CombColour
         {
             get
             {
-                return BeeDictionarys.GetCombColour(type);
+                return BeeDictionaries.GetCombColour(type);
             }
         }
 

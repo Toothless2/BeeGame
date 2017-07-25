@@ -64,7 +64,7 @@ namespace BeeGame.Inventory.BlockInventory
 
         #region Crafting Stuff
         /// <summary>
-        /// Check in the recpie in the grid for a shaped crafting recipie
+        /// Check in the recpie in the grid for a shaped crafting recipe
         /// </summary>
         public virtual void CheckShapedRecipie()
         {
@@ -75,14 +75,14 @@ namespace BeeGame.Inventory.BlockInventory
                 items[i] = base.items.itemsInInventory[i];
             }
 
-            //* if it is a recipie put the result into the crafting result slot
+            //* if it is a recipe put the result into the crafting result slot
             Item item = ((CraftingTable)myblock).ReturnShapedRecipieItem(items);
             if (item != base.items.itemsInInventory[9])
                 base.items.itemsInInventory[9] = item;
         }
 
         /// <summary>
-        /// Check in the recipie grid for a shapless crafting recipie
+        /// Check in the recipe grid for a shapless crafting recipe
         /// </summary>
         public virtual void CheckShapelessRecipie()
         {

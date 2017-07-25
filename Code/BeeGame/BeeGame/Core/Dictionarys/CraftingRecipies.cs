@@ -5,7 +5,7 @@ using System.Text;
 using BeeGame.Items;
 using BeeGame.Exceptipns;
 
-namespace BeeGame.Core.Dictionarys
+namespace BeeGame.Core.Dictionaries
 {
     public static class CraftingRecipies
     {
@@ -16,10 +16,10 @@ namespace BeeGame.Core.Dictionarys
         private static Dictionary<string, Item> shapedCraftingRecipies = new Dictionary<string, Item>();
 
         /// <summary>
-        /// Will add a shaped crafting recipie to the game
+        /// Will add a shaped crafting recipe to the game
         /// </summary>
-        /// <param name="recipie">The desired recipie.  Layout is {"XXX", "XXX", "XXX", "X", ItemID} where each X is a slot in the crafting grid, Each group of 3 is a row, and a "X", ItemID is the <see cref="Item"/> ID X represents (for each new item a new symbol is required), a Sapce is no item required in that slot</param>
-        /// <param name="result">The <see cref="Item"/> that the recipie will produce</param>
+        /// <param name="reicpe">The desired recipe.  Layout is {"XXX", "XXX", "XXX", "X", ItemID} where each X is a slot in the crafting grid, Each group of 3 is a row, and a "X", ItemID is the <see cref="Item"/> ID X represents (for each new item a new symbol is required), a Sapce is no item required in that slot</param>
+        /// <param name="result">The <see cref="Item"/> that the recipe will produce</param>
         /// <example>
         /// This example shows how to call <see cref="AddShapedRecipie(object[], Item)"/>
         /// <code>
@@ -29,21 +29,21 @@ namespace BeeGame.Core.Dictionarys
         /// }
         /// </code>
         /// </example>
-        public static void AddShapedRecipie(object[] recipie, Item result)
+        public static void AddShapedRecipie(object[] reicpe, Item result)
         {
             //* converts the given blocks of 3 haracters to a 9 character string
             var stringRecipie = "";
 
             for (int i = 0; i < 3; i++)
             {
-                stringRecipie += recipie[i] as string;
+                stringRecipie += reicpe[i] as string;
             }
 
             //* gets what character represents which item
-            for (int i = 3; i < recipie.Length; i += 2)
+            for (int i = 3; i < reicpe.Length; i += 2)
             {
-                var character = (string)recipie[i];
-                var itemID = (int)recipie[i + 1];
+                var character = (string)reicpe[i];
+                var itemID = (int)reicpe[i + 1];
 
                 //* replaces the character with the items id
                 stringRecipie = stringRecipie.Replace(character, $"{itemID.ToString()}:");
@@ -56,18 +56,18 @@ namespace BeeGame.Core.Dictionarys
             if (shapedCraftingRecipies.ContainsKey(stringRecipie))
                 throw new CraftingRecipieAdditionException($"Shaped Recipie already exists: {stringRecipie}");
 
-            //* adds the recipie to the dictionary
+            //* adds the recipe to the dictionary
             shapedCraftingRecipies.Add(stringRecipie, result);
         }
 
         /// <summary>
         /// Returns an <see cref="Item"/> from the <see cref="shapedCraftingRecipies"/> dictionary
         /// </summary>
-        /// <param name="recipie">Recipie for <see cref="Item"/></param>
-        /// <returns>An <see cref="Item"/> or <see cref="null"/> is recipie was not found</returns>
-        public static Item GetShapedRecipeItem(string recipie)
+        /// <param name="recipe">Recipie for <see cref="Item"/></param>
+        /// <returns>An <see cref="Item"/> or <see cref="null"/> is recipe was not found</returns>
+        public static Item GetShapedRecipeItem(string recipe)
         {
-            shapedCraftingRecipies.TryGetValue(recipie, out var item);
+            shapedCraftingRecipies.TryGetValue(recipe, out var item);
 
             return item;
         }
@@ -83,12 +83,12 @@ namespace BeeGame.Core.Dictionarys
         };
 
         /// <summary>
-        /// Adds a Shapless recipie to the dictionary
+        /// Adds a Shapless recipe to the dictionary
         /// </summary>
-        /// <param name="recipie">Recipie to add. Format as { Item, Number of items }</param>
-        /// <param name="result">Result of the crafting recipie</param>
+        /// <param name="recipe">Recipie to add. Format as { Item, Number of items }</param>
+        /// <param name="result">Result of the crafting recipe</param>
         /// <example>
-        /// 2 Examples of adding a shapless recipie
+        /// 2 Examples of adding a shapless recipe
         /// <code>
         /// void Main()
         /// {
@@ -103,16 +103,16 @@ namespace BeeGame.Core.Dictionarys
         /// }
         /// </code>
         /// </example>
-        public static void AddShaplessRecipie(object[] recipie, Item result)
+        public static void AddShaplessRecipie(object[] recipe, Item result)
         {
             var itemList = new List<int>();
             var stringRecpie = "";
 
-            for (int i = 0; i < recipie.Length; i+=2)
+            for (int i = 0; i < recipe.Length; i+=2)
             {
-                for (int j = 0; j < (int)recipie[i+1]; j++)
+                for (int j = 0; j < (int)recipe[i+1]; j++)
                 {
-                    itemList.Add(int.Parse(((Item)recipie[i]).GetItemID()));
+                    itemList.Add(int.Parse(((Item)recipe[i]).GetItemID()));
                 }
             }
 
@@ -130,20 +130,20 @@ namespace BeeGame.Core.Dictionarys
         }
 
         /// <summary>
-        /// Gets a shapless recipie string from a given recipie
+        /// Gets a shapless recipe string from a given recipe
         /// </summary>
-        /// <param name="recipie">Recipie for string</param>
-        /// <returns>A string of the given shapless recipie</returns>
-        public static string GetShaplessRecipieString(Item[] recipie)
+        /// <param name="recipe">Recipie for string</param>
+        /// <returns>A string of the given shapless recipe</returns>
+        public static string GetShaplessRecipieString(Item[] recipe)
         {
             var IDList = new List<int>();
             var stringRecipe = "";
 
             //* converts tthe given item list to an ID list so it can be sorted
-            for (int i = 0; i < recipie.Length; i++)
+            for (int i = 0; i < recipe.Length; i++)
             {
-                if(recipie[i] != null)
-                    IDList.Add(recipie[i].GetHashCode());
+                if(recipe[i] != null)
+                    IDList.Add(recipe[i].GetHashCode());
             }
 
             IDList.Sort();
@@ -161,11 +161,11 @@ namespace BeeGame.Core.Dictionarys
         /// <summary>
         /// Trys to get a shapless recipe
         /// </summary>
-        /// <param name="recipie">Recipie to get</param>
-        /// <returns><see cref="Item"/> for the recipie, null if recipie does not exist</returns>
-        public static Item GetShaplessRecipieResult(int[] recipie)
+        /// <param name="recipe">Recipie to get</param>
+        /// <returns><see cref="Item"/> for the recipe, null if recipe does not exist</returns>
+        public static Item GetShaplessRecipieResult(int[] recipe)
         {
-            var list = recipie.ToList();
+            var list = recipe.ToList();
             list.Sort();
 
             var stringRecipe = "";
@@ -179,25 +179,26 @@ namespace BeeGame.Core.Dictionarys
         }
 
         /// <summary>
-        /// Trys to get a shapless recipie
+        /// Trys to get a shapless recipe
         /// </summary>
-        /// <param name="recipie">Recipie to get</param>
-        /// <returns><see cref="Item"/> for the recipie, null if recipie does not exist</returns>
-        public static Item GetShaplessRecipieResult(string recipie)
+        /// <param name="recipe">Recipie to get</param>
+        /// <returns><see cref="Item"/> for the recipe, null if recipe does not exist</returns>
+        public static Item GetShaplessRecipieResult(string recipe)
         {
-            shaplessRecipies.TryGetValue(recipie, out var item);
+            shaplessRecipies.TryGetValue(recipe, out var item);
 
             return item;
         }
 
         /// <summary>
-        /// Trys to get a shapless recipie
+        /// Trys to get a shapless recipe
         /// </summary>
-        /// <param name="recipie">Recipie to get</param>
-        /// <returns><see cref="Item"/> for the recipie, null if recipie does not exist</returns>
-        public static Item GetShaplessRecipieResult(Item[] recipie)
+        /// <param name="recipe">Recipie to get</param>
+        /// <returns><see cref="Item"/> for the recipe, null if 
+        /// does not exist</returns>
+        public static Item GetShaplessRecipieResult(Item[] recipe)
         {
-            shaplessRecipies.TryGetValue(GetShaplessRecipieString(recipie), out var item);
+            shaplessRecipies.TryGetValue(GetShaplessRecipieString(recipe), out var item);
 
             return item;
         }

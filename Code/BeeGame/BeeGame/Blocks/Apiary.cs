@@ -6,7 +6,7 @@ using BeeGame.Items;
 using BeeGame.Inventory;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 
 namespace BeeGame.Blocks
 {
@@ -160,7 +160,7 @@ namespace BeeGame.Blocks
             }
 
             //* gets the produced items
-            var beeProduce = BeeDictionarys.GetBeeProduce(queen.queenBee.queen.pSpecies);
+            var beeProduce = BeeDictionaries.GetBeeProduce(queen.queenBee.queen.pSpecies);
 
             //* chnages the stack count of the produced items to the correct number
             for (int i = 0; i < beeProduce.Length; i++)
@@ -243,8 +243,8 @@ namespace BeeGame.Blocks
         /// <returns>A new <see cref="BeeSpecies"/></returns>
         private BeeSpecies CombineSpecies(BeeSpecies s1, BeeSpecies s2)
         {
-            BeeSpecies[] possibleSpecies = BeeDictionarys.GetCombinations(s1, s2);
-            float[] weights = possibleSpecies.Length > 2 ? BeeDictionarys.GetWeights(possibleSpecies) : new float[] { 0.5f, 0.5f };
+            BeeSpecies[] possibleSpecies = BeeDictionaries.GetCombinations(s1, s2);
+            float[] weights = possibleSpecies.Length > 2 ? BeeDictionaries.GetWeights(possibleSpecies) : new float[] { 0.5f, 0.5f };
 
             var randomNum = Rand(weights);
             var weightsSum = 0f;

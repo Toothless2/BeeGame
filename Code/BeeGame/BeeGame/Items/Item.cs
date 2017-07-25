@@ -4,7 +4,7 @@ using UnityEngine;
 using BeeGame.Core;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace BeeGame.Items

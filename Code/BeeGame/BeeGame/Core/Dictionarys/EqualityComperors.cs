@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using BeeGame.Core.Enums;
 
-namespace BeeGame.Core.Dictionarys
+namespace BeeGame.Core.Dictionaries
 {
     public class BeeCombinationDictionaryEqualityComparer : IEqualityComparer<BeeSpecies[]>
     {

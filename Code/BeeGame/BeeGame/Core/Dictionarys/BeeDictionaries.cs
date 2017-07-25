@@ -3,9 +3,9 @@ using System.Linq;
 using BeeGame.Core.Enums;
 using UnityEngine;
 
-namespace BeeGame.Core.Dictionarys
+namespace BeeGame.Core.Dictionaries
 {
-    public static class BeeDictionarys
+    public static class BeeDictionaries
     {
         #region Bee Combination Weights
         private static Dictionary<BeeSpecies, float> beeCombinationWeights = new Dictionary<BeeSpecies, float>()

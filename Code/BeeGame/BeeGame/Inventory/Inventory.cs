@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using BeeGame.Items;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 
 namespace BeeGame.Inventory
 {

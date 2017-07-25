@@ -4,7 +4,7 @@ using BeeGame.Core;
 using BeeGame.Items;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 
 namespace BeeGame.Blocks
 {
@@ -39,26 +39,26 @@ namespace BeeGame.Blocks
 
         #region Crafting
         /// <summary>
-        /// Makes a shaped crafting recipie from the given items and return if it is a recipie
+        /// Makes a shaped crafting recipe from the given items and return if it is a recipe
         /// </summary>
-        /// <param name="items">Items to make the recipie from</param>
+        /// <param name="items">Items to make the recipe from</param>
         /// <returns>A <see cref="Item"/> if the recipe exists</returns>
         public Item ReturnShapedRecipieItem(Item[] items)
         {
-            var recipie = "";
+            var recipe = "";
 
             for (int i = 0; i < items.Length; i++)
             {
                 if (items[i] == null)
                 {
-                    recipie += "0:";
+                    recipe += "0:";
                     continue;
                 }
 
-                recipie += $"{items[i].GetItemID()}:";
+                recipe += $"{items[i].GetItemID()}:";
             }
 
-            return ReturnShapedRecipieItem(recipie);
+            return ReturnShapedRecipieItem(recipe);
         }
 
         public virtual Item ReturnShapelessRecipieItem(Item[] items)
@@ -67,16 +67,16 @@ namespace BeeGame.Blocks
         }
 
         /// <summary>
-        /// Returns a crafting recipie from a given recipie
+        /// Returns a crafting recipe from a given recipe
         /// </summary>
-        /// <param name="recipie"></param>
-        /// <returns>A <see cref="Item"/> if the recipie exists</returns>
+        /// <param name="recipe"></param>
+        /// <returns>A <see cref="Item"/> if the recipe exists</returns>
         /// <remarks>
         /// Virtual incase needs to be overriden by a different crafting system
         /// </remarks>
-        public virtual Item ReturnShapedRecipieItem(string recipie)
+        public virtual Item ReturnShapedRecipieItem(string recipe)
         {
-            return BeeGame.Core.Dictionarys.CraftingRecipies.GetShapedRecipeItem(recipie);
+            return BeeGame.Core.Dictionaries.CraftingRecipies.GetShapedRecipeItem(recipe);
         }
         #endregion
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
 

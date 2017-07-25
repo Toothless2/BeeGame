@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 
 namespace BeeGame
 {

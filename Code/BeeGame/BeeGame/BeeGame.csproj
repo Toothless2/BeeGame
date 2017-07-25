@@ -65,7 +65,7 @@
     <Compile Include="Blocks\Planks.cs" />
     <Compile Include="Blocks\Leaves.cs" />
     <Compile Include="Blocks\Wood.cs" />
-    <Compile Include="Core\Dictionarys\BeeDictionarys.cs" />
+    <Compile Include="Core\Dictionarys\BeeDictionaries.cs" />
     <Compile Include="Core\Dictionarys\CraftingRecipies.cs" />
     <Compile Include="Core\Dictionarys\EqualityComperors.cs" />
     <Compile Include="Core\Enums\Enums.cs" />

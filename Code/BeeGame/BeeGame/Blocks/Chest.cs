@@ -5,7 +5,7 @@ using BeeGame.Terrain.Chunks;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
 using BeeGame.Inventory;
-using BeeGame.Core.Dictionarys;
+using BeeGame.Core.Dictionaries;
 
 namespace BeeGame.Blocks
 {

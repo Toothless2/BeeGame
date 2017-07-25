@@ -146,7 +146,7 @@ namespace BeeGame.Blocks
         }
 
         /// <summary>
-        /// Returns the texture for the apiary <see cref="Block"/>
+        /// Returns the texture for the crafting table <see cref="Block"/>
         /// </summary>
         /// <param name="direction"><see cref="Direction"/> of thhe desired face</param>
         /// <returns><see cref="Tile"/> with the textture coordinates of the <see cref="Block"/> texture</returns>

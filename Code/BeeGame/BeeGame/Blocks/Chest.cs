@@ -27,7 +27,7 @@ namespace BeeGame.Blocks
 
         #region Constructors
         /// <summary>
-        /// Makes a new chest from a parmaterless constructor
+        /// Makes a new chest from a parameterless constructor
         /// </summary>
         public Chest() : base("Chest")
         {
@@ -39,7 +39,7 @@ namespace BeeGame.Blocks
         /// <summary>
         /// Gets the gme object for this chest
         /// </summary>
-        /// <returns>THe chest game object</returns>
+        /// <returns>The chest game object</returns>
         public override GameObject GetGameObject()
         {
             return PrefabDictionary.GetPrefab("Chest");
@@ -51,7 +51,7 @@ namespace BeeGame.Blocks
         /// <param name="direction"><see cref="Direction"/> of thhe desired face</param>
         /// <returns><see cref="Tile"/> with the textture coordinates of the <see cref="Block"/> texture</returns>
         /// <remarks>
-        /// REturns a trnasparent texture as the chest model already has a texture applied
+        /// Returns a transparent texture as the chest model already has a texture applied
         /// </remarks>
         public override Tile TexturePosition(Direction direction)
         {
@@ -65,11 +65,11 @@ namespace BeeGame.Blocks
         /// <param name="x">X pos of the block</param>
         /// <param name="y">Y pos of the block</param>
         /// <param name="z">Z pos of the block</param>
-        /// <param name="meshData">meshdata to add to</param>
-        /// <param name="addToRenderMesh">should the block also be added to the render mesh not just the collsion mesh</param>
+        /// <param name="meshData">meshdata to add to chunk</param>
+        /// <param name="addToRenderMesh">should the block also be added to the render mesh not just the collision mesh</param>
         /// <returns>Given <paramref name="meshData"/> with this blocks data added to it</returns>
         /// <remarks>
-        /// Only adds to the colision mesh as the model is handlled by the unity prefab system
+        /// Only adds to the collision mesh as the model is handlled by the unity prefab system
         /// </remarks>
         public override MeshData BlockData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRenderMesh = true)
         {
@@ -109,7 +109,7 @@ namespace BeeGame.Blocks
         /// <summary>
         /// Opens the <see cref="ChestInventory"/> when clicked on
         /// </summary>
-        /// <param name="inv">Inventory that the chest is interactiong with</param>
+        /// <param name="inv">Inventory that the chest is interacting with</param>
         /// <returns>true</returns>
         public override bool InteractWithBlock(BeeGame.Inventory.Inventory inv)
         {
@@ -129,7 +129,7 @@ namespace BeeGame.Blocks
         }
 
         /// <summary>
-        /// Returns the <see cref="Block"/> name and Id formatted nicely
+        /// Returns the <see cref="Block"/> name and ID formatted nicely
         /// </summary>
         /// <returns></returns>
         public override string ToString()

@@ -6,7 +6,7 @@ using BeeGame.Items;
 using BeeGame.Inventory;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
-using BeeGame.Core.Dictionaries;
+using BeeGame.Core.Dictionarys;
 
 namespace BeeGame.Blocks
 {
@@ -46,10 +46,10 @@ namespace BeeGame.Blocks
         /// <summary>
         /// Returns the texture for the apiary <see cref="Block"/>
         /// </summary>
-        /// <param name="direction"><see cref="Direction"/> of thhe desired face</param>
-        /// <returns><see cref="Tile"/> with the textture coordinates of the <see cref="Block"/> texture</returns>
+        /// <param name="direction"><see cref="Direction"/> of the desired face</param>
+        /// <returns><see cref="Tile"/> with the texture coordinates of the <see cref="Block"/> texture</returns>
         /// <remarks>
-        /// Returns a trnasparent texture as the chest model already has a texture applied
+        /// Returns a transparent texture as the chest model already has a texture applied
         /// </remarks>
         public override Tile TexturePosition(Direction direction)
         {
@@ -64,10 +64,10 @@ namespace BeeGame.Blocks
         /// <param name="y">Y pos of the block</param>
         /// <param name="z">Z pos of the block</param>
         /// <param name="meshData">meshdata to add to</param>
-        /// <param name="addToRenderMesh">should the block also be added to the render mesh not just the collsion mesh</param>
+        /// <param name="addToRenderMesh">should the block also be added to the render mesh not just the collision mesh</param>
         /// <returns>Given <paramref name="meshData"/> with this blocks data added to it</returns>
         /// <remarks>
-        /// Only adds to the colision mesh as the model is handlled by the unity prefab system
+        /// Only adds to the collision mesh as the model is handled by the unity prefab system
         /// </remarks>
         public override MeshData BlockData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRenderMesh = true)
         {
@@ -131,14 +131,14 @@ namespace BeeGame.Blocks
             return true;
         }
 
-        #region Bee Combineing Stuff
+        #region Bee Combining Stuff
         /// <summary>
         /// Will make new <see cref="Bee"/>/<see cref="Item"/>s from the given <see cref="BeeType.QUEEN"/> <see cref="Bee"/>
         /// </summary>
         /// <param name="queen">The <see cref="BeeType.QUEEN"/> to make the new <see cref="Bee"/>s from</param>
         /// <param name="inventory"><see cref="Inventory.Inventory"/> to put the new Bees/Items into</param>
         /// <remarks>
-        /// Inventory is passed by reference to make it easier to modify the inventory. However is not necisseraly needed as a <see cref="class"/> array is being passed so a reference would be created anyway however so <see cref="ref"/> is their more for clarity due to the function modifying the invetory directly
+        /// Inventory is passed by reference to make it easier to modify the inventory. However is not necessarily needed as a <see cref="class"/> array is being passed so a reference would be created anyway however so <see cref="ref"/> is their more for clarity due to the function modifying the invetory directly
         /// </remarks>
         public void MakeBees(Bee queen, ref Item[] inventory)
         {
@@ -150,7 +150,7 @@ namespace BeeGame.Blocks
 
             var repeats = UnityEngine.Random.Range(0, queen.queenBee.queen.pFertility);
 
-            //* produces as many other children as the bee staats will allow
+            //* produces as many other children as the bee stats will allow
             for (int i = 0; i < repeats; i++)
             {
                 producedItems[i + 2] = MakeBee(queen.queenBee.queen.pFertility > 6 ? (BeeType)UnityEngine.Random.Range(1, 3) : BeeType.DRONE, queen.queenBee);
@@ -160,15 +160,15 @@ namespace BeeGame.Blocks
             }
 
             //* gets the produced items
-            var beeProduce = BeeDictionaries.GetBeeProduce(queen.queenBee.queen.pSpecies);
+            var beeProduce = BeeDictionarys.GetBeeProduce(queen.queenBee.queen.pSpecies);
 
-            //* chnages the stack count of the produced items to the correct number
+            //* changes the stack count of the produced items to the correct number
             for (int i = 0; i < beeProduce.Length; i++)
             {
                 beeProduce[i].itemStackCount += UnityEngine.Random.Range(1, (int)queen.queenBee.queen.sProdSpeed + 1);
             }
 
-            //* adds the itmes that the bee species produces into the procued item array
+            //* adds the items that the bee species produces into the produced item array
             for (int i = (int)queen.queenBee.queen.pFertility + 2, prod = 0; prod < beeProduce.Length; i++, prod++)
             {
                 producedItems[i] = beeProduce[prod];
@@ -179,7 +179,7 @@ namespace BeeGame.Blocks
             {
                 if (inventory[i + 2] != null)
                 {
-                    //* if the slot has the same item in it and it wont be more than the max stack ount but the new item into it
+                    //* if the slot has the same item in it and it won't be more than the max stack count but the new item into it
                     if (producedItems[i] == inventory[i + 2] && inventory[i + 2].itemStackCount + 1 <= inventory[i + 2].maxStackCount)
                         inventory[i + 2].itemStackCount++;
                     else
@@ -205,10 +205,10 @@ namespace BeeGame.Blocks
         }
 
         /// <summary>
-        /// Nakes a new <see cref="Bee"/>
+        /// Makes a new <see cref="Bee"/>
         /// </summary>
         /// <param name="beeType">The type of bee to make, <see cref="BeeType"/></param>
-        /// <param name="queen">Th stats the new <see cref="Bee"/> should be made with, <see cref="QueenBee"/></param>
+        /// <param name="queen">The stats the new <see cref="Bee"/> should be made with, <see cref="QueenBee"/></param>
         /// <returns>A new <see cref="Bee"/></returns>
         public Bee MakeBee(BeeType beeType, QueenBee queen)
         {
@@ -243,13 +243,13 @@ namespace BeeGame.Blocks
         /// <returns>A new <see cref="BeeSpecies"/></returns>
         private BeeSpecies CombineSpecies(BeeSpecies s1, BeeSpecies s2)
         {
-            BeeSpecies[] possibleSpecies = BeeDictionaries.GetCombinations(s1, s2);
-            float[] weights = possibleSpecies.Length > 2 ? BeeDictionaries.GetWeights(possibleSpecies) : new float[] { 0.5f, 0.5f };
+            BeeSpecies[] possibleSpecies = BeeDictionarys.GetCombinations(s1, s2);
+            float[] weights = possibleSpecies.Length > 2 ? BeeDictionarys.GetWeights(possibleSpecies) : new float[] { 0.5f, 0.5f };
 
             var randomNum = Rand(weights);
             var weightsSum = 0f;
 
-            //* when the rumber generated is less than the current sum of the weights return that bee
+            //* when the number generated is less than the current sum of the weights return that bee
             for (int i = 0; i < weights.Length; i++)
             {
                 if(randomNum <= weightsSum)
@@ -285,7 +285,7 @@ namespace BeeGame.Blocks
         /// <summary>
         /// Combines the <see cref="BeeLifeSpan"/> of the given <see cref="BeeLifeSpan"/>
         /// </summary>
-        /// <param name="b1">Fist <see cref="BeeLifeSpan"/></param>
+        /// <param name="b1">First <see cref="BeeLifeSpan"/></param>
         /// <param name="b2">Second <see cref="BeeLifeSpan"/></param>
         /// <returns>A new <see cref="BeeLifeSpan"/></returns>
         private BeeLifeSpan CombineLifespan(BeeLifeSpan b1, BeeLifeSpan b2)
@@ -296,7 +296,7 @@ namespace BeeGame.Blocks
         /// <summary>
         /// Combines the fertility of the given fertility
         /// </summary>
-        /// <param name="b1">Fist <see cref="Bee"/>s fertility</param>
+        /// <param name="b1">First <see cref="Bee"/>s fertility</param>
         /// <param name="b2">Second <see cref="Bee"/>s fertility</param>
         /// <returns>A new fertility, <see cref="uint"/></returns>
         private uint CombineFertility(uint b1, uint b2)
@@ -307,7 +307,7 @@ namespace BeeGame.Blocks
         /// <summary>
         /// Combines the <see cref="BeeEffect"/> of the given <see cref="BeeEffect"/>
         /// </summary>
-        /// <param name="b1">Fist <see cref="BeeEffect"/></param>
+        /// <param name="b1">First <see cref="BeeEffect"/></param>
         /// <param name="b2">Second <see cref="BeeEffect"/></param>
         /// <returns>A new <see cref="BeeEffect"/></returns>
         private BeeEffect CombineEffect(BeeEffect b1, BeeEffect b2)
@@ -318,7 +318,7 @@ namespace BeeGame.Blocks
         /// <summary>
         /// Combines the <see cref="BeeProductionSpeed"/> of the given <see cref="BeeProductionSpeed"/>
         /// </summary>
-        /// <param name="b1">Fist <see cref="BeeProductionSpeed"/></param>
+        /// <param name="b1">First <see cref="BeeProductionSpeed"/></param>
         /// <param name="b2">Second <see cref="BeeProductionSpeed"/></param>
         /// <returns>A new <see cref="BeeProductionSpeed"/></returns>
         public  BeeProductionSpeed CombineProductionSpeed(BeeProductionSpeed b1, BeeProductionSpeed b2)
@@ -339,15 +339,15 @@ namespace BeeGame.Blocks
         /// </remarks>
         private int ReturnChange(int b1, int b2, int maxChange, int minChange = 0)
         {
-            //* b1 and b2 are checked for which one is bigger than the other here as the 
-            //* queen my have a lower stat the an the drone and the drone is always passed in second
+            //* b1 and b2 are checked for which one is larger here as the 
+            //* queen may have a lower stat than the drone as the drone is always passed in second
             var change = UnityEngine.Random.Range(b1 < b2 ? b1 : b2, (b2 > b1 ? b2 : b1) + 2);
 
             //* this will make it possible for the bees to mutate during combination of the stats are the same
-            //* it will also cause more random mutation more mimicing nature
+            //* it will also cause more random mutation more mimicking nature
             change += UnityEngine.Random.Range(-mutationMultiplyer, mutationMultiplyer);
 
-            //* as all but on ef the stats are enums they have a min/max value so need to check that this is not exceded
+            //* as all but on ef the stats are enums they have a min/max value so need to check that this is not exceeded
             if (change > maxChange)
                 change = maxChange;
             else if (minChange > change)

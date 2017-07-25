@@ -38,7 +38,7 @@ namespace BeeGame.Blocks
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="direction"><see cref="Direction"/> wanted to chesk solid</param>
+        /// <param name="direction"><see cref="Direction"/> wanted to check solid</param>
         /// <returns>false</returns>
         public override bool IsSolid(Direction direction)
         {

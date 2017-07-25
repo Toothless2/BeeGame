@@ -77,7 +77,7 @@
     <Compile Include="Core\UnityTypeReplacements\THQuaternion.cs" />
     <Compile Include="Core\UnityTypeReplacements\THVector2.cs" />
     <Compile Include="Core\UnityTypeReplacements\THVector3.cs" />
-    <Compile Include="Exceptipns\CraftingRecipieAdditionException.cs" />
+    <Compile Include="Exceptipns\CraftingRecipeAdditionException.cs" />
     <Compile Include="Exceptipns\InputException.cs" />
     <Compile Include="Inventory\BlockInventory\ApiaryInventory.cs" />
     <Compile Include="Inventory\BlockInventory\ChestInventory.cs" />

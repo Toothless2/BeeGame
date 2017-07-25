@@ -5,19 +5,19 @@ using System.Text;
 
 namespace BeeGame.Exceptipns
 {
-    public class CraftingRecipieAdditionException : Exception
+    public class CraftingRecipeAdditionException : Exception
     {
-        public CraftingRecipieAdditionException() : base()
+        public CraftingRecipeAdditionException() : base()
         {
 
         }
 
-        public CraftingRecipieAdditionException(string message) : base(message)
+        public CraftingRecipeAdditionException(string message) : base(message)
         {
 
         }
 
-        public CraftingRecipieAdditionException(string message, Exception innerException) : base(message, innerException)
+        public CraftingRecipeAdditionException(string message, Exception innerException) : base(message, innerException)
         {
 
         }

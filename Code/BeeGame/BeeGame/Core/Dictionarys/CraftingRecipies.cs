@@ -54,7 +54,7 @@ namespace BeeGame.Core.Dictionaries
 
             //* if the recipe exists an exception is thrown as two recipies cannot be the same
             if (shapedCraftingRecipies.ContainsKey(stringRecipie))
-                throw new CraftingRecipieAdditionException($"Shaped Recipie already exists: {stringRecipie}");
+                throw new CraftingRecipeAdditionException($"Shaped Recipie already exists: {stringRecipie}");
 
             //* adds the recipe to the dictionary
             shapedCraftingRecipies.Add(stringRecipie, result);
@@ -124,7 +124,7 @@ namespace BeeGame.Core.Dictionaries
             }
 
             if (shaplessRecipies.ContainsKey(stringRecpie))
-                throw new CraftingRecipieAdditionException($"Shaped Recipie already exists: {stringRecpie}");
+                throw new CraftingRecipeAdditionException($"Shaped Recipie already exists: {stringRecpie}");
 
             shaplessRecipies.Add(stringRecpie, result);
         }

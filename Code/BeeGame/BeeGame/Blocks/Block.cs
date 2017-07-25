@@ -16,15 +16,15 @@ namespace BeeGame.Blocks
         #region Data
         public new static int ID = 1;
         /// <summary>
-        /// Can this <see cref="Block"/> be broken
+        /// Can this <see cref="Block"/> be broken?
         /// </summary>
         public bool breakable = true;
         /// <summary>
-        /// Has this block been placed by the player
+        /// Has this block been placed by the player?
         /// </summary>
         public bool changed = true;
         /// <summary>
-        /// Sets so that blocks can be placed
+        /// Sets so that blocks can be placed?
         /// </summary>
         public override bool placeable => true;
         #endregion
@@ -39,7 +39,7 @@ namespace BeeGame.Blocks
         }
 
         /// <summary>
-        /// Sets placeabel to true and sets name of the block/item
+        /// Sets placeable to true and sets name of the block/item
         /// </summary>
         /// <param name="name">Name of the block/item</param>
         public Block(string name) : base(name)
@@ -66,7 +66,7 @@ namespace BeeGame.Blocks
         }
 
         /// <summary>
-        /// Should this <see cref="Block"/> be updated when the mesh is made
+        /// Should this <see cref="Block"/> be updated when the mesh is made?
         /// </summary>
         /// <param name="x">X pos if the block</param>
         /// <param name="y">Y pos of the block</param>
@@ -93,11 +93,11 @@ namespace BeeGame.Blocks
         /// <param name="y">Y pos of the block</param>
         /// <param name="z">Z pos of the block</param>
         /// <param name="meshData">meshdata to add to</param>
-        /// <param name="addToRenderMesh">should the block also be added to the render mesh not just the collsion mesh</param>
+        /// <param name="addToRenderMesh">should the block also be added to the render mesh not just the collsion mesh?</param>
         /// <returns>Given <paramref name="meshData"/> with this blocks data added to it</returns>
         /// <remarks>
-        /// If no data of either collider or render should be added override to return the givn mesh. \n
-        /// If only collsion data should be added override to say render mesh false.
+        /// If no data of either collider or render should be added override to return the given mesh \n
+        /// If only collsion data should be added override to say render mesh false
         /// </remarks>
         public virtual MeshData BlockData(Chunk chunk, int x, int y, int z, MeshData meshData, bool addToRenderMesh = true)
         {
@@ -141,7 +141,7 @@ namespace BeeGame.Blocks
         }
 
         /// <summary>
-        /// What <see cref="Direction"/>s is this <see cref="Block"/> solid in
+        /// What <see cref="Direction"/>s is this <see cref="Block"/> solid in?
         /// </summary>
         /// <param name="direction"><see cref="Direction"/> to check</param>
         /// <returns>Default returns true for all sides</returns>
@@ -153,7 +153,7 @@ namespace BeeGame.Blocks
 
         #region Overrides
         /// <summary>
-        /// Hascode for the <see cref="Block"/>
+        /// Has code for the <see cref="Block"/>
         /// </summary>
         /// <returns>1</returns>
         public override int GetHashCode()

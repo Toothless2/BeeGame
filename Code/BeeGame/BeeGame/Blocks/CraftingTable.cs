@@ -9,7 +9,7 @@ using BeeGame.Core.Dictionaries;
 namespace BeeGame.Blocks
 {
     /// <summary>
-    /// The Workbanch <see cref="Block"/> class
+    /// The Workbench <see cref="Block"/> class
     /// </summary>
     [Serializable]
     public class CraftingTable : Block
@@ -22,7 +22,7 @@ namespace BeeGame.Blocks
         private GameObject myGameobject;
 
         /// <summary>
-        /// This blocks ID
+        /// This block's ID
         /// </summary>
         public new static int ID => 9;
         #endregion
@@ -151,7 +151,7 @@ namespace BeeGame.Blocks
         /// <param name="direction"><see cref="Direction"/> of thhe desired face</param>
         /// <returns><see cref="Tile"/> with the textture coordinates of the <see cref="Block"/> texture</returns>
         /// <remarks>
-        /// Returns a trnasparent texture as the chest model already has a texture applied
+        /// Returns a transparent texture as the chest model already has a texture applied
         /// </remarks>
         public override Tile TexturePosition(Direction direction)
         {

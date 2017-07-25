@@ -38,7 +38,7 @@ namespace BeeGame.Blocks
 
         #region Mesh
         /// <summary>
-        /// Position if te bedrock texture in the atlas
+        /// Position if the bedrock texture in the atlas
         /// </summary>
         /// <param name="direction"><see cref="Direction"/></param>
         /// <returns>Position in the texture atlas</returns>

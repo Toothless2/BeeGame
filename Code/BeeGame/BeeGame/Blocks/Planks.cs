@@ -30,7 +30,7 @@ namespace BeeGame.Blocks
 
         #region Mesh
         /// <summary>
-        /// Position of the dirt texture in the atlas
+        /// Position of the planks texture in the atlas
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>

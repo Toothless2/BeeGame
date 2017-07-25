@@ -17,7 +17,7 @@ namespace BeeGame.Blocks
 
         #region Constructor
         /// <summary>
-        /// Constructor also sets teh items name
+        /// Constructor also sets the items name
         /// </summary>
         public Grass() : base("Grass"){}
         #endregion
@@ -76,16 +76,16 @@ namespace BeeGame.Blocks
 
         #region Overrides
         /// <summary>
-        /// The Base id for the block
+        /// The Base ID for the block
         /// </summary>
         /// <returns>4</returns>
         public override int GetHashCode()
         {
             return ID;
         }
-
+ 
         /// <summary>
-        /// REturns the name and value for the block as a string
+        /// Returns the name and value for the block as a string
         /// </summary>
         /// <returns>A nicely formatted string</returns>
         public override string ToString()

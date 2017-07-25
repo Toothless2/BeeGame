@@ -76,7 +76,7 @@ namespace BeeGame.Blocks
         /// </remarks>
         public virtual Item ReturnShapedRecipieItem(string recipe)
         {
-            return BeeGame.Core.Dictionaries.CraftingRecipies.GetShapedRecipeItem(recipe);
+            return CraftingRecipies.GetShapedRecipeItem(recipe);
         }
         #endregion
 

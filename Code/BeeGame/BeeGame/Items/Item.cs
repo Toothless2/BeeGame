@@ -36,8 +36,7 @@ namespace BeeGame.Items
         /// <summary>
         /// Number of items in the stack
         /// </summary>
-        public int itemStackCount { set { count = value; } get{ return count; } }
-        private int count = 1;
+        public int itemStackCount = 1;
 
         /// <summary>
         /// Max number of items in a stack

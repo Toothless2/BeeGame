@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 114914499336032056}
   - component: {fileID: 114807644587947678}
   - component: {fileID: 114189605553079510}
-  - component: {fileID: 114303171273890102}
+  - component: {fileID: 114023333571294794}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1261,6 +1261,21 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114023333571294794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919190320915268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1946763730, guid: 0d585c938d5482b45b9e480379356938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myInventory: {fileID: 0}
+  itemText: {fileID: 0}
+  selectedSlot: 0
+  itemsCanBeInserted: 0
 --- !u!114 &114038764072976618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2534,21 +2549,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &114303171273890102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1919190320915268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myInventory: {fileID: 0}
-  itemText: {fileID: 0}
-  selectedSlot: 0
-  itemsCanBeInserted: 0
 --- !u!114 &114310142757538908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3382,7 +3382,7 @@ MonoBehaviour:
   - {fileID: 114439211591154486}
   - {fileID: 114445248047405744}
   - {fileID: 114888663730413306}
-  - {fileID: 114303171273890102}
+  - {fileID: 114023333571294794}
   - {fileID: 114152206933684768}
   - {fileID: 114497272471686452}
   - {fileID: 114942375477335788}

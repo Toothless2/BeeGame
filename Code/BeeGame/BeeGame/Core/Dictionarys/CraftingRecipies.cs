@@ -56,6 +56,8 @@ namespace BeeGame.Core.Dictionaries
             if (shapedCraftingRecipies.ContainsKey(stringRecipie))
                 throw new CraftingRecipeAdditionException($"Shaped Recipie already exists: {stringRecipie}");
 
+            result.itemStackCount = 1;
+
             //* adds the recipe to the dictionary
             shapedCraftingRecipies.Add(stringRecipie, result);
         }
@@ -69,6 +71,9 @@ namespace BeeGame.Core.Dictionaries
         {
             shapedCraftingRecipies.TryGetValue(recipe, out var item);
 
+            if (item != null)
+                item.itemStackCount = 1;
+
             return item;
         }
         #endregion
@@ -79,7 +84,7 @@ namespace BeeGame.Core.Dictionaries
         /// </summary>
         private static Dictionary<string, Item> shaplessRecipies = new Dictionary<string, Item>()
         {
-
+            {"5:", new Blocks.Planks() }
         };
 
         /// <summary>
@@ -126,6 +131,7 @@ namespace BeeGame.Core.Dictionaries
             if (shaplessRecipies.ContainsKey(stringRecpie))
                 throw new CraftingRecipeAdditionException($"Shaped Recipie already exists: {stringRecpie}");
 
+            result.itemStackCount = 1;
             shaplessRecipies.Add(stringRecpie, result);
         }
 
@@ -199,6 +205,9 @@ namespace BeeGame.Core.Dictionaries
         public static Item GetShaplessRecipieResult(Item[] recipe)
         {
             shaplessRecipies.TryGetValue(GetShaplessRecipieString(recipe), out var item);
+
+            if (item != null)
+                item.itemStackCount = 1;
 
             return item;
         }

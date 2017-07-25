@@ -153,9 +153,14 @@ namespace BeeGame.Inventory
                     return;
                 }
 
+
+                if (item == null)
+                    return;
+
                 //* otherwie add the items into the floating item slot
-                SwapItems();
-                //* ^ does not need to check that the slot cannot be inserted into as null be being inserted because the floating item is null
+                myInventory.floatingItem = item.CloneObject();
+
+                item.itemStackCount -= item.itemStackCount;
 
                 return;
             }

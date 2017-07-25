@@ -44,11 +44,22 @@ namespace BeeGame.Inventory.BlockInventory
 
             if (inventory.activeInHierarchy)
             {
-                CheckShapedRecipie();
+                var shaped = CheckShapedRecipie();
+                var shapless = CheckShapelessRecipie();
 
+                if (shaped != null)
+                {
+                    items.itemsInInventory[9] = shaped;
+                    return;
+                }
                 //* checks for shapless recipies second 
-                if(items.itemsInInventory[9] == null)
-                    CheckShapelessRecipie();
+                else if(shapless != null)
+                {
+                    items.itemsInInventory[9] = shapless;
+                    return;
+                }
+
+                items.itemsInInventory[9] = null;
             }
         }
 
@@ -66,7 +77,7 @@ namespace BeeGame.Inventory.BlockInventory
         /// <summary>
         /// Check in the recpie in the grid for a shaped crafting recipe
         /// </summary>
-        public virtual void CheckShapedRecipie()
+        public virtual Item CheckShapedRecipie()
         {
             var items = new Item[9];
 
@@ -76,15 +87,13 @@ namespace BeeGame.Inventory.BlockInventory
             }
 
             //* if it is a recipe put the result into the crafting result slot
-            Item item = ((CraftingTable)myblock).ReturnShapedRecipieItem(items);
-            if (item != base.items.itemsInInventory[9])
-                base.items.itemsInInventory[9] = item;
+            return ((CraftingTable)myblock).ReturnShapedRecipieItem(items);
         }
 
         /// <summary>
         /// Check in the recipe grid for a shapless crafting recipe
         /// </summary>
-        public virtual void CheckShapelessRecipie()
+        public virtual Item CheckShapelessRecipie()
         {
             var items = new Item[9];
 
@@ -93,9 +102,7 @@ namespace BeeGame.Inventory.BlockInventory
                 items[i] = base.items.itemsInInventory[i];
             }
             
-            Item item = ((CraftingTable)myblock).ReturnShapelessRecipieItem(items);
-            if (item != base.items.itemsInInventory[9])
-                base.items.itemsInInventory[9] = item;
+            return ((CraftingTable)myblock).ReturnShapelessRecipieItem(items);
         }
 
         /// <summary>

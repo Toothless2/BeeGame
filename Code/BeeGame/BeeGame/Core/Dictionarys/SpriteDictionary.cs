@@ -4,12 +4,12 @@ using UnityEngine;
 namespace BeeGame.Core.Dictionaries
 {
     /// <summary>
-    /// All of the sprites avaliable to the game
+    /// All of the sprites available to the game
     /// </summary>
     public static class SpriteDictionary
     {
         /// <summary>
-        /// All of the sprites avaliable to spawn in
+        /// All of the sprites available to spawn in
         /// </summary>
         private static Dictionary<string, Sprite> itemSpriteDictionary = new Dictionary<string, Sprite>();
 

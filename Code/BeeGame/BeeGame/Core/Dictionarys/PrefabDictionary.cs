@@ -4,12 +4,12 @@ using UnityEngine;
 namespace BeeGame.Core.Dictionaries
 {
     /// <summary>
-    /// The prefabs avaliable to the game
+    /// The prefabs available to the game
     /// </summary>
     public static class PrefabDictionary
     {
         /// <summary>
-        /// All of the prefabs avaliable to spawn in
+        /// All of the prefabs available to spawn in
         /// </summary>
         private static Dictionary<string, GameObject> prefabDictionary = new Dictionary<string, GameObject>();
 

@@ -75,7 +75,7 @@ namespace BeeGame.Core.Dictionaries
         {
             beeProduce.TryGetValue(species, out Items.Item[] produce);
 
-            //* of the produce cant be found then return a honey comb as it is probly a bug
+            //* if the produce can't be found, then return a honey comb as it is probably a bug
             return produce ?? new Items.Item[1] { new Items.HoneyComb(HoneyCombType.HONEY) };
         }
         #endregion
@@ -97,7 +97,7 @@ namespace BeeGame.Core.Dictionaries
 
         #region Comb Colours
         /// <summary>
-        /// The colour of the <see cref="BeeGame.Items.HoneyComb"/> for each of teh <see cref="HoneyCombType"/>s
+        /// The colour of the <see cref="BeeGame.Items.HoneyComb"/> for each of the <see cref="HoneyCombType"/>s
         /// </summary>
         private static Dictionary<HoneyCombType, Color> honeyCoumbColour = new Dictionary<HoneyCombType, Color>()
         {
@@ -107,7 +107,7 @@ namespace BeeGame.Core.Dictionaries
 
         /// <summary>
         /// Makes a new colour given Red, <paramref name="r"/>, Green, <paramref name="g"/>, Blue, <paramref name="b"/>, optionaly an Alpha, <paramref name="a"/>.
-        /// Rangeing from 0f-255f
+        /// Ranging from 0f-255f
         /// </summary>
         /// <param name="r">Red</param>
         /// <param name="g">Green</param>

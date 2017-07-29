@@ -11,7 +11,7 @@ namespace BeeGame.Core.Dictionaries
     {
         #region Shaped Crafting
         /// <summary>
-        /// Contains all crafting recipies that require a certian layout in the crafting grid (<see cref="Blocks.CraftingTable"/>
+        /// Contains all crafting recipes that require a certain layout in the crafting grid (<see cref="Blocks.CraftingTable"/>
         /// </summary>
         private static Dictionary<string, Item> shapedCraftingRecipies = new Dictionary<string, Item>();
 
@@ -65,7 +65,7 @@ namespace BeeGame.Core.Dictionaries
         /// <summary>
         /// Returns an <see cref="Item"/> from the <see cref="shapedCraftingRecipies"/> dictionary
         /// </summary>
-        /// <param name="recipe">Recipie for <see cref="Item"/></param>
+        /// <param name="recipe">Recipe for <see cref="Item"/></param>
         /// <returns>An <see cref="Item"/> or <see cref="null"/> is recipe was not found</returns>
         public static Item GetShapedRecipeItem(string recipe)
         {
@@ -80,7 +80,7 @@ namespace BeeGame.Core.Dictionaries
 
         #region Shapless Crafting
         /// <summary>
-        /// All shapless recipies
+        /// All shapeless recipes
         /// </summary>
         private static Dictionary<string, Item> shaplessRecipies = new Dictionary<string, Item>()
         {
@@ -88,12 +88,12 @@ namespace BeeGame.Core.Dictionaries
         };
 
         /// <summary>
-        /// Adds a Shapless recipe to the dictionary
+        /// Adds a Shapeless recipe to the dictionary
         /// </summary>
-        /// <param name="recipe">Recipie to add. Format as { Item, Number of items }</param>
+        /// <param name="recipe">Recipe to add. Format as { Item, Number of items }</param>
         /// <param name="result">Result of the crafting recipe</param>
         /// <example>
-        /// 2 Examples of adding a shapless recipe
+        /// 2 Examples of adding a shapeless recipe
         /// <code>
         /// void Main()
         /// {
@@ -136,16 +136,16 @@ namespace BeeGame.Core.Dictionaries
         }
 
         /// <summary>
-        /// Gets a shapless recipe string from a given recipe
+        /// Gets a shapeless recipe string from a given recipe
         /// </summary>
-        /// <param name="recipe">Recipie for string</param>
-        /// <returns>A string of the given shapless recipe</returns>
+        /// <param name="recipe">Recipe for string</param>
+        /// <returns>A string of the given shapeless recipe</returns>
         public static string GetShaplessRecipieString(Item[] recipe)
         {
             var IDList = new List<int>();
             var stringRecipe = "";
 
-            //* converts tthe given item list to an ID list so it can be sorted
+            //* converts the given item list to an ID list so it can be sorted
             for (int i = 0; i < recipe.Length; i++)
             {
                 if(recipe[i] != null)
@@ -154,7 +154,7 @@ namespace BeeGame.Core.Dictionaries
 
             IDList.Sort();
 
-            //* converts the sorted ID list to a string so can be used as a dictionary key
+            //* converts the sorted ID list to a string so it can be used as a dictionary key
             for (int i = 0; i < IDList.Count; i++)
             {
                 //* : after each ID as it is possible for ID clashes without eg ID: 11 can be seen as 2 * ID: 1
@@ -165,9 +165,9 @@ namespace BeeGame.Core.Dictionaries
         }
 
         /// <summary>
-        /// Trys to get a shapless recipe
+        /// Tries to get a shapeless recipe
         /// </summary>
-        /// <param name="recipe">Recipie to get</param>
+        /// <param name="recipe">Recipe to get</param>
         /// <returns><see cref="Item"/> for the recipe, null if recipe does not exist</returns>
         public static Item GetShaplessRecipieResult(int[] recipe)
         {
@@ -185,9 +185,9 @@ namespace BeeGame.Core.Dictionaries
         }
 
         /// <summary>
-        /// Trys to get a shapless recipe
+        /// Tries to get a shapeless recipe
         /// </summary>
-        /// <param name="recipe">Recipie to get</param>
+        /// <param name="recipe">Recipe to get</param>
         /// <returns><see cref="Item"/> for the recipe, null if recipe does not exist</returns>
         public static Item GetShaplessRecipieResult(string recipe)
         {
@@ -197,9 +197,9 @@ namespace BeeGame.Core.Dictionaries
         }
 
         /// <summary>
-        /// Trys to get a shapless recipe
+        /// Tries to get a shapeless recipe
         /// </summary>
-        /// <param name="recipe">Recipie to get</param>
+        /// <param name="recipe">Recipe to get</param>
         /// <returns><see cref="Item"/> for the recipe, null if 
         /// does not exist</returns>
         public static Item GetShaplessRecipieResult(Item[] recipe)

@@ -185,7 +185,7 @@ namespace BeeGame.Core
         /// </summary>
         /// <param name="a">Vector a</param>
         /// <param name="b">Vector b</param>
-        /// <returns>returns new vector that is the subtraction of a and b</returns>
+        /// <returns>returns new vector that is the subtraction of a from b</returns>
         public static THVector3 operator -(THVector3 a, THVector3 b)
         {
             a.x -= b.x;
@@ -199,7 +199,7 @@ namespace BeeGame.Core
         /// </summary>
         /// <param name="a">Vector a</param>
         /// <param name="b">float b</param>
-        /// <returns>returns new vector that is the subtraction of a and b</returns>
+        /// <returns>returns new vector that is the subtraction of a from b</returns>
         public static THVector3 operator -(THVector3 a, float b)
         {
             a.x += b;
@@ -213,7 +213,7 @@ namespace BeeGame.Core
         /// </summary>
         /// <param name="a">Vector a</param>
         /// <param name="b">float b</param>
-        /// <returns>returns new vector that is the subtraction of a and b</returns>
+        /// <returns>returns new vector that is the subtraction of a from b</returns>
         public static THVector3 operator -(float a, THVector3 b)
         {
             return new THVector3(a - b.x, a - b.y, a - b.z);
@@ -257,11 +257,11 @@ namespace BeeGame.Core
             return new THVector3(a * b.x, a * b.y, a * b.z);
         }
         /// <summary>
-        /// Divides vector a and b
+        /// Divides vector a by vector b
         /// </summary>
         /// <param name="a">Vector a</param>
         /// <param name="b">Vector b</param>
-        /// <returns>returns new vector that is the division of a and b</returns>
+        /// <returns>returns new vector that is the division of a by b</returns>
         public static THVector3 operator /(THVector3 a, THVector3 b)
         {
             a.x /= b.x;
@@ -271,11 +271,11 @@ namespace BeeGame.Core
             return a;
         }
         /// <summary>
-        /// Divides a by b
+        /// Divides vector a by vector b
         /// </summary>
         /// <param name="a">Vector a</param>
         /// <param name="b">float b</param>
-        /// <returns>returns new vector that is the division of a and b</returns>
+        /// <returns>returns new vector that is the division of a by b</returns>
         public static THVector3 operator /(THVector3 a, float b)
         {
             a.x /= b;
@@ -285,11 +285,11 @@ namespace BeeGame.Core
             return a;
         }
         /// <summary>
-        /// Divides b by a
+        /// Divides vector b by vector a
         /// </summary>
         /// <param name="a">Vector a</param>
         /// <param name="b">float b</param>
-        /// <returns>returns new vector that is the division of a and b</returns>
+        /// <returns>returns new vector that is the division of b by a</returns>
         public static THVector3 operator /(float a, THVector3 b)
         {
             return new THVector3(a / b.x, a / b.y, a / b.z);

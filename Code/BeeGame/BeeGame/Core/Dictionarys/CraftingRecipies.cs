@@ -31,7 +31,7 @@ namespace BeeGame.Core.Dictionaries
         /// </example>
         public static void AddShapedRecipie(object[] reicpe, Item result)
         {
-            //* converts the given blocks of 3 haracters to a 9 character string
+            //* converts the given blocks of 3 characters to a 9 character string
             var stringRecipie = "";
 
             for (int i = 0; i < 3; i++)

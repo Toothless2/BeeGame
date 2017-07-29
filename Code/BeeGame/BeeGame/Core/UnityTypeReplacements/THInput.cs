@@ -57,7 +57,7 @@ namespace BeeGame.Core
             switch (inputButtons[button])
             {
                 case KeyCode[] arry:
-                    //*for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    //*for each possible key, check if it was pressed and if it was return that it was; if none of them was pressed, return false
                     foreach (var item in arry)
                     {
                         if (Input.GetKeyDown(item))
@@ -75,7 +75,7 @@ namespace BeeGame.Core
         /// <summary>
         /// Is the given button currently being held down
         /// </summary>
-        /// <param name="button">The button name eg "Forward"</param>
+        /// <param name="button">The button name e.g. "Forward"</param>
         /// <returns>true if the given button is currently being held down</returns>
         public static bool GetButton(string button)
         {
@@ -87,7 +87,7 @@ namespace BeeGame.Core
             switch (inputButtons[button])
             {
                 case KeyCode[] arry:
-                    //*for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    //*for each possible key, check if it was pressed and if it was return that it was; if none of them was pressed return false
                     foreach (var item in arry)
                     {
                         if (Input.GetKey(item))
@@ -103,10 +103,10 @@ namespace BeeGame.Core
         }
 
         /// <summary>
-        /// Has the given button been relesed this update
+        /// Has the given button been released this update
         /// </summary>
-        /// <param name="button">Button name eg "Inventory"</param>
-        /// <returns>true if the button has been relesed during this update</returns>
+        /// <param name="button">Button name e.g. "Inventory"</param>
+        /// <returns>true if the button has been relaesed during this update</returns>
         public static bool GetButtonUp(string button)
         {
             if (!inputButtons.ContainsKey(button))
@@ -117,7 +117,7 @@ namespace BeeGame.Core
             switch (inputButtons[button])
             {
                 case KeyCode[] arry:
-                    //*for each posible key, check if it was pressed and if it was return that it was, if none of them was poressed return false
+                    //*for each possible key, check if it was pressed and if it was return that it was; if none of them was pressed return false
                     foreach (var item in arry)
                     {
                         if (Input.GetKeyUp(item))

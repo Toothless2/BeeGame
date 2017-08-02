@@ -10,12 +10,10 @@ namespace BeeGame.Core
     public static class Events
     {
         public delegate void ItemCraftedEvent(Item item);
-        public static ItemCraftedEvent shapedRecipieCrafted;
-        public static ItemCraftedEvent shaplessRecipieCrafted;
+        public static ItemCraftedEvent itemCraftedInTableEvent;
         public static ItemCraftedEvent beeCraftedEvent;
 
-        public static void CallShapedRecipieCraftedEvent(Item item) => shapedRecipieCrafted?.Invoke(item);
-        public static void CallShaplessRecipirCraftedEvent(Item item) => shaplessRecipieCrafted?.Invoke(item);
+        public static void CallItemCraftedInTableEvent(Item item) => itemCraftedInTableEvent?.Invoke(item);
         public static void CallBeeCraftedEvent(Item item) => beeCraftedEvent?.Invoke(item);
     }
 }

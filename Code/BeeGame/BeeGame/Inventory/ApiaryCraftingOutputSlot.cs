@@ -9,7 +9,7 @@ namespace BeeGame.Inventory
     /// <summary>
     /// Overrides the 
     /// </summary>
-    public class CraftingOutputSlot : InventorySlot, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+    public class ApiaryCraftingOutputSlot : InventorySlot, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         /// <summary>
         /// Updates the base slot things
@@ -35,7 +35,10 @@ namespace BeeGame.Inventory
             if (before != item && before != null)
                 ((CraftingTableInventory)myInventory).craftingResultRemoved.Invoke();
 
-            Events.CallItemCraftedInTableEvent(before);
+            if (before is Bee)
+                Events.CallBeeCraftedEvent(before);
+            else
+                Events.CallItemCraftedInTableEvent(before);
         }
     }
 }

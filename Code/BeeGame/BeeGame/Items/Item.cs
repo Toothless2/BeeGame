@@ -63,6 +63,11 @@ namespace BeeGame.Items
         {
             return false;
         }
+
+        public virtual void InteractWithItem(Inventory.Inventory playerInventory)
+        {
+            return;
+        }
         #endregion
 
         #region Item Stuff

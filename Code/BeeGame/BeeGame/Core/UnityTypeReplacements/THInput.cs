@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using BeeGame.Exceptipns;
+using BeeGame.Exceptions;
 
 namespace BeeGame.Core
 {

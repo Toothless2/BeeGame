@@ -9,5 +9,6 @@ Planks: 7
 Chest: 8
 Crafting Table: 9
 Apiary: 10
-Honeycomb: 12
 Bee: 11
+Honeycomb: 12
+BeeAlyzer: 13

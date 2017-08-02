@@ -145,10 +145,23 @@ namespace BeeGame.Player
             if (chunk == null)
                 return;
 
+            transform.parent.GetComponentInChildren<PlayerInventory>().GetItemFromHotBar(selectedHotbarSlot, out var item);
+
+            if (item != null)
+            {
+                if (item.InteractWithObject())
+                {
+                    item.InteractWithItem(playerInventory);
+                    return;
+                }
+                else if (item.placeable)
+                {
+                    chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), (Block)item.CloneObject(), true);
+                }
+            }
+
             if (!chunk.GetBlock((int)selector.transform.position.x - chunk.chunkWorldPos.x, (int)selector.transform.position.y - chunk.chunkWorldPos.y, (int)selector.transform.position.z - chunk.chunkWorldPos.z).InteractWithBlock(playerInventory))
-                //* gets the item in the hotbar and if the item is placeable place it
-                if (transform.parent.GetComponentInChildren<PlayerInventory>().GetItemFromHotBar(selectedHotbarSlot, out Item blockToPlace))
-                    chunk.world.SetBlock((int)(selector.transform.position.x + hit.normal.x), (int)(selector.transform.position.y + hit.normal.y), (int)(selector.transform.position.z + hit.normal.z), (Block)blockToPlace.CloneObject(), true);
+                return;
         }
         #endregion
     }

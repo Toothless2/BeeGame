@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BeeGame.Items;
-using BeeGame.Exceptipns;
+using BeeGame.Exceptions;
 
 namespace BeeGame.Core.Dictionaries
 {

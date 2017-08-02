@@ -27,6 +27,8 @@ namespace BeeGame.Quest
             return SpriteDictionary.GetSprite("TestSprite");
         }
 
+
+
         /// <summary>
         /// Returns the hashcode for <see cref="this"/> <see cref="Item"/>
         /// </summary>

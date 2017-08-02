@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using BeeGame.Core.Dictionaries;
 using BeeGame.Items;
 using BeeGame.Blocks;
@@ -18,7 +13,7 @@ namespace BeeGame
             CraftingRecipies.AddShapedRecipie(new object[] { "   ", " X ", "   ", "X", Dirt.ID }, new Grass());
             CraftingRecipies.AddShaplessRecipie(new object[] { new Grass(), 1 }, new Dirt());
 
-            Events.shapedRecipieCrafted += Print;
+            Events.itemCraftedInTableEvent += Print;
         }
         public void Print(Item item) => print(item.GetItemID());
     }

@@ -77,11 +77,14 @@
     <Compile Include="Core\UnityTypeReplacements\THQuaternion.cs" />
     <Compile Include="Core\UnityTypeReplacements\THVector2.cs" />
     <Compile Include="Core\UnityTypeReplacements\THVector3.cs" />
-    <Compile Include="Exceptipns\CraftingRecipeAdditionException.cs" />
-    <Compile Include="Exceptipns\InputException.cs" />
+    <Compile Include="Exceptions\CraftingRecipeAdditionException.cs" />
+    <Compile Include="Exceptions\InputException.cs" />
+    <Compile Include="Exceptions\QuestAlreadyExistsException.cs" />
     <Compile Include="Inventory\BlockInventory\ApiaryInventory.cs" />
+    <Compile Include="Inventory\ItemInventory\BeeAlyzerInventory.cs" />
     <Compile Include="Inventory\BlockInventory\ChestInventory.cs" />
     <Compile Include="Inventory\BlockInventory\CraftingTableInventory.cs" />
+    <Compile Include="Inventory\ApiaryCraftingOutputSlot.cs" />
     <Compile Include="Inventory\CraftingOutputSlot.cs" />
     <Compile Include="Inventory\InventorySlot.cs" />
     <Compile Include="Inventory\ItemsInInventory.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="Items\AbstractItem.cs" />
     <Compile Include="Items\ApplyColour.cs" />
     <Compile Include="Items\Bee.cs" />
+    <Compile Include="Items\BeeAlyzer.cs" />
     <Compile Include="Items\HoneyComb.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ItemGameObject.cs" />
@@ -100,6 +104,7 @@
     <Compile Include="Player\Selector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quest\QuestBook.cs" />
+    <Compile Include="Quest\Quests.cs" />
     <Compile Include="Resources\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

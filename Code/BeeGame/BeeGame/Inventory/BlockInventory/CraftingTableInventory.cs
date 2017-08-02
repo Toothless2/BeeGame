@@ -112,7 +112,7 @@ namespace BeeGame.Inventory.BlockInventory
         {
             if (items.itemsInInventory[9] != null)
             {
-                Events.CallShapedRecipieCraftedEvent(items.itemsInInventory[9]);
+                Events.CallItemCraftedInTableEvent(items.itemsInInventory[9]);
                 for (int i = 0; i < 9; i++)
                 {
                     if (items.itemsInInventory[i] != null)

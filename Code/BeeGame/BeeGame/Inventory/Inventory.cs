@@ -133,6 +133,11 @@ namespace BeeGame.Inventory
             Serialization.Serialization.SerializeInventory(this, inventoryName);
         }
 
+        public virtual void SetItemInventory(Item[] items)
+        {
+
+        }
+
         /// <summary>
         /// Sets an <see cref="Item"/> in the <see cref="ItemsInInventory.itemsInInventory"/> array to a <see cref="InventorySlot.item"/>
         /// </summary>

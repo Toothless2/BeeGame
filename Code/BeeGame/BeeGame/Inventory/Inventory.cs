@@ -141,7 +141,7 @@ namespace BeeGame.Inventory
         /// <summary>
         /// Sets an <see cref="Item"/> in the <see cref="ItemsInInventory.itemsInInventory"/> array to a <see cref="InventorySlot.item"/>
         /// </summary>
-        void PutItemsInSlots()
+        public virtual void PutItemsInSlots()
         {
             //* goes through all of the items in the array setting then all to a slot
             for (int i = 0; i < slots.Length; i++)

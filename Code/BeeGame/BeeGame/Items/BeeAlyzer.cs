@@ -45,10 +45,18 @@ namespace BeeGame.Items
         #region ItemInventory
         public virtual void OpenItemInvnetory(Inventory.Inventory playerInventory)
         {
-            myInventory = (GameObject)UnityEngine.Object.Instantiate(UnityEngine.Resources.Load("Prefabs/BeeAlyzerInventory"));
+            if (myInventory == null)
+            {
+                myInventory = (GameObject)UnityEngine.Object.Instantiate(UnityEngine.Resources.Load("Prefabs/BeeAlyzerInventory"));
 
-            myInventory.GetComponent<BeeAlyzerInventory>().ToggleInventory(playerInventory);
-            myInventory.GetComponent<BeeAlyzerInventory>().myblock = new Blocks.Dirt();
+                myInventory.GetComponent<BeeAlyzerInventory>().ToggleInventory(playerInventory);
+                myInventory.GetComponent<BeeAlyzerInventory>().myItem = this;
+            }
+            else
+            {
+                //myInventory.GetComponent<BeeAlyzerInventory>().ToggleInventory(playerInventory);
+                myInventory = null;
+            }
         }
 
         public virtual void CloseItemInventory(Item[] itemsInInventory)

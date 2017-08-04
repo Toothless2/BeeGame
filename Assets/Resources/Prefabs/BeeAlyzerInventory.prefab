@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1039687708794626
 GameObject:
   m_ObjectHideFlags: 1
@@ -2103,13 +2103,6 @@ MonoBehaviour:
     itemStackCount: 1
     breakable: 1
     changed: 1
-  inventoryPosition:
-    x: 0
-    y: 0
-    z: 0
-  playerinventory: {fileID: 0}
-  inventory: {fileID: 1016166245137488}
-  inventorySize: 46
 --- !u!114 &114148294840453130
 MonoBehaviour:
   m_ObjectHideFlags: 1

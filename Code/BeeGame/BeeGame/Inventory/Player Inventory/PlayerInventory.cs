@@ -20,7 +20,7 @@ namespace BeeGame.Inventory.Player_Inventory
         /// <summary>
         /// Sets all requred params for the inventory and loads ant saved versions of it
         /// </summary>
-        void Awake()
+        protected void Awake()
         {
             SetPlayerInventory();
             inventoryName = "PlayerInventory";
@@ -30,17 +30,17 @@ namespace BeeGame.Inventory.Player_Inventory
         /// <summary>
         /// Set the size of the player inventory
         /// </summary>
-        void SetPlayerInventory()
+        public virtual void SetPlayerInventory(int size = 36)
         {
             if (!InventorySet())
-                SetInventorySize(36);
+                SetInventorySize(size);
         }
         #endregion
 
         /// <summary>
         /// Goves the inventory update ticks
         /// </summary>
-        void Update()
+        protected void Update()
         {
             UpdateBase();
 
@@ -114,7 +114,7 @@ namespace BeeGame.Inventory.Player_Inventory
         /// <summary>
         /// Show/Hide the player inventory
         /// </summary>
-        void OpenPlayerInventory()
+        internal void OpenPlayerInventory()
         {
             if (floatingItem != null)
                 return;

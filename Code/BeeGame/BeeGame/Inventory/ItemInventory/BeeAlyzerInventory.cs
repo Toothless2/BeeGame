@@ -30,7 +30,6 @@ namespace BeeGame.Inventory
         
         public override void SaveInv()
         {
-
             return;
         }
 
@@ -82,14 +81,15 @@ namespace BeeGame.Inventory
         public virtual void DropItemsFromInventory()
         {
             //* looks at every item in the crafting grid
-            for (int i = 0; i < CHANGEME; i++)
+            for (int i = 0; i < 3; i++)
             {
                 if (items.itemsInInventory[i] != null)
                 {
-                    //* spwns it and removes it from the inventory if an items exists within
+                    //* spawns it and removes it from the inventory if an items exists within
                     for (int j = 0; j < items.itemsInInventory[i].itemStackCount; j++)
                     {
-                        items.itemsInInventory[i].SpawnItem((THVector3)this.transform.position + new THVector3(0, 1, 0));
+                        MonoBehaviour.print(GameObject.FindGameObjectWithTag("Player").transform.position);
+                        items.itemsInInventory[i].SpawnItem((THVector3)GameObject.FindGameObjectWithTag("Player").transform.position + new THVector3(0, 1, 0));
                     }
                     items.itemsInInventory[i] = null;
                 }

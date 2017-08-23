@@ -17,7 +17,7 @@ namespace BeeGame.Items
         /// </summary>
         public Color colour;
         /// <summary>
-        /// Objects to apply the colour to
+        /// Objects to apply the colour too
         /// </summary>
         /// <remarks>
         /// Array set in the editor

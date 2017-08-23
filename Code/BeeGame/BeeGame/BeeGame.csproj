@@ -93,9 +93,10 @@
     <Compile Include="Items\ApplyColour.cs" />
     <Compile Include="Items\Bee.cs" />
     <Compile Include="Items\BeeAlyzer.cs" />
+    <Compile Include="Items\GameObjectStuff\SetBeeGOColours.cs" />
     <Compile Include="Items\HoneyComb.cs" />
     <Compile Include="Items\Item.cs" />
-    <Compile Include="Items\ItemGameObject.cs" />
+    <Compile Include="Items\GameObjectStuff\ItemGameObject.cs" />
     <Compile Include="LoadResources.cs" />
     <Compile Include="Inventory\Inventory.cs" />
     <Compile Include="Player\PlayerLook.cs" />

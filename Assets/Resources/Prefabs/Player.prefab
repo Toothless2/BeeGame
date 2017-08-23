@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 114764620468526428}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1055,11 +1055,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114017094873950488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1099,11 +1099,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114023233196369154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1157,11 +1157,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114039562069120436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1174,11 +1174,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114044234297306116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1197,6 +1197,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114044596122068346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1279,6 +1280,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114063616247653616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1333,11 +1335,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114124492462566704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1418,11 +1420,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114137458114645328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1509,6 +1511,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114149136420476828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1527,6 +1530,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114161771155117652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1545,6 +1549,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114193246370133010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1584,11 +1589,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114203042807378770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1601,11 +1606,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114213979256129216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1651,6 +1656,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114225803627733164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1710,6 +1716,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114247775546630172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1722,11 +1729,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114250090376146376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1745,6 +1752,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114251842406595254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1763,6 +1771,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114269521826704230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1808,6 +1817,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114276913866089804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1826,6 +1836,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114281620507961644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1838,11 +1849,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114284684214141136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1929,6 +1940,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114296886217330900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1941,11 +1953,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114297010822615864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2012,11 +2024,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114320448207772622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2035,6 +2047,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114330638161256660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2053,6 +2066,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114336965136282282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2112,6 +2126,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114342656634228212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2361,6 +2376,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114407014638108818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2400,11 +2416,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114434497797432048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2417,11 +2433,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114434929376103090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2584,11 +2600,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114455327682413468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2617,11 +2633,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114472954800509902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2661,11 +2677,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114490138797687324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2678,11 +2694,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114491275958540524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2742,6 +2758,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114492729252011058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2828,6 +2845,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114509523465241404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2881,11 +2899,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114517210556693226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2972,6 +2990,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114532794475504488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3023,6 +3042,10 @@ MonoBehaviour:
   - {fileID: 114894806471180578}
   - {fileID: 114540645054696430}
   inventoryName: 
+  myblock:
+    itemStackCount: 1
+    breakable: 1
+    changed: 1
   playerInventory: {fileID: 1547579735092320}
 --- !u!114 &114534987972695948
 MonoBehaviour:
@@ -3077,11 +3100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114555460343775288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3100,6 +3123,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114558342582614198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3209,11 +3233,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114586717594512294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3232,6 +3256,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114587475045005272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3393,11 +3418,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114620236369444690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3478,11 +3503,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114632745419829492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3501,6 +3526,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114636055019574812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3628,6 +3654,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114663767987001860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3669,6 +3696,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114687247694378450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3790,11 +3818,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114713678241900986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3854,6 +3882,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114717877839834842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3981,6 +4010,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114745677398827154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3993,11 +4023,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114747631362124156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4105,11 +4135,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114764620468526428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4228,11 +4258,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114796668716688320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4292,6 +4322,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114803087423355312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4310,6 +4341,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114807700999025828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4322,11 +4354,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114810631926069306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4339,11 +4371,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114817987145722392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4362,6 +4394,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114821609282223464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4504,6 +4537,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114840177900758414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4563,6 +4597,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114871117958361304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4581,6 +4616,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114886169156414060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4599,6 +4635,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114894806471180578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4611,11 +4648,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114903282685055878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4628,11 +4665,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114908378493992858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4666,11 +4703,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114921244711711044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4683,11 +4720,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114921419338456924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4700,11 +4737,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114926401959256208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4717,11 +4754,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!114 &114930643765558486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4794,6 +4831,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114964562679327902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4812,6 +4850,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114971050682019484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4884,6 +4923,7 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114999262387752922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4923,11 +4963,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    usesGameObject: 0
     itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
+  itemsCanBeInserted: 1
 --- !u!124 &124579472875603756
 Behaviour:
   m_ObjectHideFlags: 1

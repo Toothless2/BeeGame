@@ -57,6 +57,7 @@ namespace BeeGame.Items
         #region Constructors
         public Bee()
         {
+            usesGameObject = true;
             normalBee = new NormalBee();
         }
 
@@ -68,6 +69,7 @@ namespace BeeGame.Items
         /// <param name="normalBee"><see cref="NormalBee"/> data</param>
         public Bee(BeeType beeType, NormalBee normalBee) : base(new CultureInfo("en-US", false).TextInfo.ToTitleCase($"{normalBee.pSpecies} {beeType}".ToLower()))
         {
+            usesGameObject = true;
             if (beeType == BeeType.PRINCESS || beeType == BeeType.QUEEN)
                 maxStack = 1;
             this.beeType = beeType;
@@ -81,6 +83,7 @@ namespace BeeGame.Items
         /// <param name="normalBee"><see cref="QueenBee"/> data</param>
         public Bee(BeeType beeType, QueenBee queenBee) : base(new CultureInfo("en-US", false).TextInfo.ToTitleCase($"{queenBee.queen.pSpecies} {beeType}".ToLower()))
         {
+            usesGameObject = true;
             if (beeType == BeeType.PRINCESS || beeType == BeeType.QUEEN)
                 maxStack = 1;
             this.beeType = beeType;
@@ -122,6 +125,16 @@ namespace BeeGame.Items
                 Color[] colorsToAvoid = { new Color(0, 0, 0), new Color(156f, 146f, 130f, 255f) / 255f, new Color(225f, 223f, 219f, 255f) / 255f, new Color(232f, 200, 42, 255f) / 255f };
                 return itemSprite = SpriteDictionary.GetSprite("Drone").ColourSprite(BeeDictionaries.GetBeeColour((BeeSpecies)normalBee?.pSpecies), coloursToAvoid: colorsToAvoid);
             }
+        }
+
+        public override GameObject GetGameObject()
+        {
+            var go = PrefabDictionary.GetPrefab("Bee");
+
+            go.GetComponent<SetBeeGOColours>().colour = BeeDictionaries.GetBeeColour(normalBee?.pSpecies ?? queenBee.queen.pSpecies);
+            go.GetComponent<SetBeeGOColours>().beeType = beeType;
+
+            return go;
         }
 
         /// <summary>

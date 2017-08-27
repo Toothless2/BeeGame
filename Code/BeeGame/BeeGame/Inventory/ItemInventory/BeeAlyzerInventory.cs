@@ -1,9 +1,7 @@
 ﻿using BeeGame.Core;
-using BeeGame.Terrain;
 using UnityEngine;
-using System;
+using UnityEngine.UI;
 using static BeeGame.Core.THInput;
-using BeeGame.Inventory.Player_Inventory;
 using BeeGame.Items;
 
 namespace BeeGame.Inventory
@@ -13,36 +11,44 @@ namespace BeeGame.Inventory
     /// </summary>
     public class BeeAlyzerInventory : Inventory
     {
+        #region Data
+        /// <summary>
+        /// Text box that shows the bee data
+        /// </summary>
+        public Text infoText;
+        /// <summary>
+        /// The players inventory
+        /// </summary>
         private Inventory playerInventory;
+        /// <summary>
+        /// Item that this is attached to
+        /// </summary>
         internal BeeAlyzer myItem;
-
-        protected new void Awake()
-        {
-        }
-
+        #endregion
+        
         protected new void Update()
         {
             if (GetButtonDown("Close Menu/Inventory"))
                 ToggleInventory(playerInventory);
             UpdateBase();
             PutItemsInSlots();
+
+            CheckForBeeAndHoney();
         }
         
+        /// <summary>
+        /// This <see cref="Inventory"/> should not be saved
+        /// </summary>
         public override void SaveInv()
         {
             return;
         }
 
-        public void PutItemsInSlots(Inventory inv)
-        {
-            for (int i = slots.Length; i >=0; i--)
-            {
-                slots[i].slotIndex = i;
-                slots[i].myInventory = this;
-                slots[i].item = items.itemsInInventory[i] = inv.slots[i].item;
-            }
-        }
-
+        #region Open/Close Inventory
+        /// <summary>
+        /// Opens and closes this inventory
+        /// </summary>
+        /// <param name="inv"></param>
         public override void ToggleInventory(Inventory inv)
         {
             thisInventoryOpen = !thisInventoryOpen;
@@ -53,12 +59,16 @@ namespace BeeGame.Inventory
             {
                 chestOpen = false;
 
+                //* removes all of the items from thsi inventory
                 DropItemsFromInventory();
 
-                myItem.OpenItemInvnetory(inv);
+                //* tells item that inventory has been closed
+                myItem.OpenItemInvnetory();
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                //* applies the chanegs to the players inventory
                 ApplyPlayerItems();
+                //* destroys this as it is not needed
                 Destroy(this.gameObject);
             }
             else
@@ -78,6 +88,9 @@ namespace BeeGame.Inventory
             }
         }
 
+        /// <summary>
+        /// Removes the items from the inventory when it is closed, so they are not destroyed
+        /// </summary>
         public virtual void DropItemsFromInventory()
         {
             //* looks at every item in the crafting grid
@@ -95,7 +108,58 @@ namespace BeeGame.Inventory
                 }
             }
         }
+        #endregion
+        
+        #region Inventory Function
+        /// <summary>
+        /// checks if a <see cref="Bee"/>s and <see cref="Honey"/>(currently disabled) are in the correct slots
+        /// </summary>
+        public void CheckForBeeAndHoney()
+        {
+            if(slots[0].item == null)
+            {
+                //if (slots[1].item.GetHashCode() == Honey.ID && slots[1].item.itemStackCount >= 1)
+                if (slots[2].item is Bee b)
+                {
+                    b.canSeeBeeData = true;
+                    items.itemsInInventory[0] = slots[2].item;
+                    items.itemsInInventory[2] = null;
+                    //items.itemsInInventory[1].itemStackCount -= 1;
 
+                    infoText.text = ReturnData(b);
+                }
+                else
+                {
+                    infoText.text = "";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns the formatted bee data
+        /// </summary>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        private string ReturnData(Bee b)
+        {
+            string returnString = "";
+
+            if (b.beeType == Core.Enums.BeeType.QUEEN)
+            {
+
+            }
+
+            returnString += $"Primary Species: {b.normalBee.pSpecies}\nSecondary Species: {b.normalBee.sSpecies}\nPrimary Fertility: {b.normalBee.pFertility}\nSecondary Fertility: {b.normalBee.sFertility}\nPrimary Lifespan: {b.normalBee.pLifespan}\nSecondary Lifespan: {b.normalBee.sLifespan}\nPrimary Production Speed: {b.normalBee.pProdSpeed}\nSecondary Production Speed: {b.normalBee.sProdSpeed}";
+
+            return returnString;
+        }
+        #endregion
+
+
+        #region Set inventory
+        /// <summary>
+        /// Applies the players inventory to this inventory
+        /// </summary>
         void SetPlayerItems()
         {
             for (int i = 0; i < playerInventory.items.itemsInInventory.Length; i++)
@@ -104,6 +168,9 @@ namespace BeeGame.Inventory
             }
         }
 
+        /// <summary>
+        /// Applies this inventory to the player once it is closed
+        /// </summary>
         void ApplyPlayerItems()
         {
             for (int i = 0; i < playerInventory.items.itemsInInventory.Length; i++)
@@ -113,5 +180,6 @@ namespace BeeGame.Inventory
 
             playerInventory.SaveInv();
         }
+        #endregion
     }
 }

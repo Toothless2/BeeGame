@@ -125,6 +125,16 @@ namespace BeeGame.Blocks
         }
 
         /// <summary>
+        /// So that the game knows to render the faces of the blocks aroound the crafting table as they can be seen
+        /// </summary>
+        /// <param name="direction"><see cref="Direction"/></param>
+        /// <returns>false</returns>
+        public override bool IsSolid(Direction direction)
+        {
+            return false;
+        }
+
+        /// <summary>
         /// Breaks the <see cref="Block"/>
         /// </summary>
         /// <param name="pos">Positon of the <see cref="Block"/></param>

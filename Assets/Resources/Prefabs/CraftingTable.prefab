@@ -131,6 +131,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1160758106768420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4140256526884558}
+  - component: {fileID: 33513372979591162}
+  - component: {fileID: 23605553254746572}
+  m_Layer: 0
+  m_Name: workbench
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1183271640898962
 GameObject:
   m_ObjectHideFlags: 1
@@ -841,24 +858,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1822213472289446
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4086372575802794}
-  - component: {fileID: 33218194617618164}
-  - component: {fileID: 65164959592950150}
-  - component: {fileID: 23077493768739132}
-  m_Layer: 0
-  m_Name: CraftingTable
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1844871324384936
 GameObject:
   m_ObjectHideFlags: 1
@@ -1019,18 +1018,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4086372575802794
+--- !u!4 &4140256526884558
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822213472289446}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1160758106768420}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 49.999977, y: 49.99996, z: 49.999985}
   m_Children: []
   m_Father: {fileID: 4768128976570032}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4768128976570032
 Transform:
@@ -1042,17 +1041,17 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4086372575802794}
   - {fileID: 224513512987651200}
+  - {fileID: 4140256526884558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23077493768739132
+--- !u!23 &23605553254746572
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822213472289446}
+  m_GameObject: {fileID: 1160758106768420}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1060,7 +1059,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3733e7d3abf02e84e9ca7293b7cf26ed, type: 2}
+  - {fileID: 2100000, guid: c87481b0709963c4fa277bb7d2c2aa42, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1068,7 +1068,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_SelectedEditorRenderState: 3
@@ -1079,25 +1079,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33218194617618164
+--- !u!33 &33513372979591162
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822213472289446}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65164959592950150
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822213472289446}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1160758106768420}
+  m_Mesh: {fileID: 4300000, guid: 81f1e6262637c1e4a914d78976992800, type: 3}
 --- !u!114 &114001700355567428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1109,6 +1097,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -1151,6 +1141,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -1272,6 +1264,8 @@ MonoBehaviour:
   m_Script: {fileID: 1946763730, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -1314,6 +1308,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -1702,6 +1698,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -1790,6 +1788,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -1947,6 +1947,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -2054,6 +2056,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -2451,6 +2455,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -2526,6 +2532,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -2661,6 +2669,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -2817,6 +2827,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -2905,6 +2917,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -2980,6 +2994,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3022,6 +3038,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3238,6 +3256,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3294,6 +3314,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3355,6 +3377,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3421,6 +3445,7 @@ MonoBehaviour:
   - {fileID: 114170933085952066}
   inventoryName: 
   myblock:
+    itemStackCount: 1
     breakable: 1
     changed: 1
   inventoryPosition:
@@ -3479,6 +3504,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3562,6 +3589,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3618,6 +3647,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3698,6 +3729,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3732,6 +3765,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3929,6 +3964,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -3971,6 +4008,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4095,6 +4134,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4164,6 +4205,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4217,6 +4260,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4251,6 +4296,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4266,6 +4313,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4281,6 +4330,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4315,6 +4366,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4539,6 +4592,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4619,6 +4674,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4634,6 +4691,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4649,6 +4708,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4746,6 +4807,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -4761,6 +4824,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -5030,6 +5095,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -5113,6 +5180,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -5155,6 +5224,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -5170,6 +5241,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -5340,6 +5413,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -5442,6 +5517,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -5658,6 +5735,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -5850,6 +5929,8 @@ MonoBehaviour:
   m_Script: {fileID: 200959289, guid: 0d585c938d5482b45b9e480379356938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item:
+    itemStackCount: 1
   myInventory: {fileID: 0}
   itemText: {fileID: 0}
   selectedSlot: 0
@@ -6754,7 +6835,7 @@ RectTransform:
   - {fileID: 224329491907306858}
   - {fileID: 224781755246609410}
   m_Father: {fileID: 4768128976570032}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

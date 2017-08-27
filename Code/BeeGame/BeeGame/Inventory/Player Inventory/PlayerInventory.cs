@@ -165,6 +165,7 @@ namespace BeeGame.Inventory.Player_Inventory
             //* if the item can be added to the inventory do that
             if (AddItemToInventory(item.item))
             {
+                
                 //* if the item was added destroyits gameobject and save the inventory
                 Destroy(item.gameObject);
                 Serialization.Serialization.SerializeInventory(this, inventoryName);

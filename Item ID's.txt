@@ -12,3 +12,5 @@ Apiary: 10
 Bee: 11
 Honeycomb: 12
 BeeAlyzer: 13
+Honey: 14
+Quest Book: 15

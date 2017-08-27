@@ -94,6 +94,7 @@
     <Compile Include="Items\Bee.cs" />
     <Compile Include="Items\BeeAlyzer.cs" />
     <Compile Include="Items\GameObjectStuff\SetBeeGOColours.cs" />
+    <Compile Include="Items\Honey.cs" />
     <Compile Include="Items\HoneyComb.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\GameObjectStuff\ItemGameObject.cs" />

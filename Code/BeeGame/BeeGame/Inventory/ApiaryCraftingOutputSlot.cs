@@ -2,6 +2,7 @@
 using BeeGame.Items;
 using BeeGame.Inventory.BlockInventory;
 using BeeGame.Core;
+using BeeGame.Quest;
 using System;
 
 namespace BeeGame.Inventory
@@ -35,10 +36,10 @@ namespace BeeGame.Inventory
             if (before != item && before != null)
                 ((CraftingTableInventory)myInventory).craftingResultRemoved.Invoke();
 
-            if (before is Bee)
-                Events.CallBeeCraftedEvent(before);
+            if (before is Bee b)
+                QuestEvents.CallBeeCraftedEvent(b.normalBee?.pSpecies ?? b.queenBee.queen.pSpecies);
             else
-                Events.CallItemCraftedInTableEvent(before);
+                QuestEvents.CallItemCraftedEvent(before.GetHashCode());
         }
     }
 }

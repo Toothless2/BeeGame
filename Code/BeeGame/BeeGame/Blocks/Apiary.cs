@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
 using UnityEngine;
 using BeeGame.Core;
 using BeeGame.Items;
+using BeeGame.Quest;
 using BeeGame.Inventory;
 using BeeGame.Core.Enums;
 using BeeGame.Terrain.Chunks;
@@ -230,6 +230,8 @@ namespace BeeGame.Blocks
                 pProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed),
                 sProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed)
             };
+
+            QuestEvents.CallBeeCraftedEvent(nb.pSpecies);
 
             //* returns the new bee
             return new Bee(beeType, nb);

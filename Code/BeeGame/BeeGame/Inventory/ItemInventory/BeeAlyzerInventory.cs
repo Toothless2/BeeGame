@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static BeeGame.Core.THInput;
 using BeeGame.Items;
+using BeeGame.Quest;
 
 namespace BeeGame.Inventory
 {
@@ -149,13 +150,15 @@ namespace BeeGame.Inventory
 
             }
 
+            //* calles to check if a pure bread bee quest should be called
+            QuestEvents.CallPureBeeCraftedEvent(b.normalBee.pSpecies, b.normalBee.sSpecies);
+
             returnString += $"Primary Species: {b.normalBee.pSpecies}\nSecondary Species: {b.normalBee.sSpecies}\nPrimary Fertility: {b.normalBee.pFertility}\nSecondary Fertility: {b.normalBee.sFertility}\nPrimary Lifespan: {b.normalBee.pLifespan}\nSecondary Lifespan: {b.normalBee.sLifespan}\nPrimary Production Speed: {b.normalBee.pProdSpeed}\nSecondary Production Speed: {b.normalBee.sProdSpeed}";
 
             return returnString;
         }
         #endregion
-
-
+        
         #region Set inventory
         /// <summary>
         /// Applies the players inventory to this inventory

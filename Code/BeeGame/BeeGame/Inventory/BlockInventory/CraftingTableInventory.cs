@@ -5,6 +5,7 @@ using System.Text;
 using BeeGame.Core;
 using BeeGame.Blocks;
 using BeeGame.Items;
+using BeeGame.Quest;
 
 namespace BeeGame.Inventory.BlockInventory
 {
@@ -112,7 +113,7 @@ namespace BeeGame.Inventory.BlockInventory
         {
             if (items.itemsInInventory[9] != null)
             {
-                Events.CallItemCraftedInTableEvent(items.itemsInInventory[9]);
+                QuestEvents.CallItemCraftedEvent(items.itemsInInventory[9].GetHashCode());
                 for (int i = 0; i < 9; i++)
                 {
                     if (items.itemsInInventory[i] != null)
@@ -136,7 +137,7 @@ namespace BeeGame.Inventory.BlockInventory
             {
                 if (items.itemsInInventory[i] != null)
                 {
-                    //* spwns it and removes it from the inventory if an items exists within
+                    //* spawns it and removes it from the inventory if an items exists within
                     for (int j = 0; j < items.itemsInInventory[i].itemStackCount; j++)
                     {
                         items.itemsInInventory[i].SpawnItem((THVector3)this.transform.position + new THVector3(0, 1, 0));

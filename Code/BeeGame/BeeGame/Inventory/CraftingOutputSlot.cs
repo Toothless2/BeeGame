@@ -35,7 +35,7 @@ namespace BeeGame.Inventory
             if (before != item && before != null)
                 ((CraftingTableInventory)myInventory).craftingResultRemoved.Invoke();
 
-            Events.CallItemCraftedInTableEvent(before);
+            Quest.QuestEvents.CallItemCraftedEvent(before.GetHashCode());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using BeeGame.Items;
 using BeeGame.Core;
+using BeeGame.Quest;
 
 namespace BeeGame.Inventory.Player_Inventory
 {
@@ -165,8 +166,8 @@ namespace BeeGame.Inventory.Player_Inventory
             //* if the item can be added to the inventory do that
             if (AddItemToInventory(item.item))
             {
-                
-                //* if the item was added destroyits gameobject and save the inventory
+                QuestEvents.CallItemPickupEvent(item.item.GetHashCode());
+                //* if the item was added destroy its gameobject and save the inventory
                 Destroy(item.gameObject);
                 Serialization.Serialization.SerializeInventory(this, inventoryName);
             }

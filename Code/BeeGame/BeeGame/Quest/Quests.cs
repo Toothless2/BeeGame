@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using BeeGame.Items;
 using BeeGame.Blocks;
 using BeeGame.Core.Enums;
@@ -9,19 +6,49 @@ using BeeGame.Exceptions;
 
 namespace BeeGame.Quest
 {
+    [System.Serializable]
     public static class Quests
     {
+        /// <summary>
+        /// Quests that the player has compleated
+        /// </summary>
         private static Dictionary<string, Item> compleatedQuests = new Dictionary<string, Item>();
 
+        /// <summary>
+        /// Quests that have been compleated but the rewards have not been claimed
+        /// </summary>
+        private static Dictionary<string, Item> compleatedUnclaimedQuests = new Dictionary<string, Item>();
+
+        /// <summary>
+        /// Quests the player is currently finishing
+        /// </summary>
         private static Dictionary<string, object[]> currentQuests = new Dictionary<string, object[]>()
         {
             { $"Pickup: {Wood.ID}", new object[] {new CraftingTable(), $"Crafted: {Grass.ID}" } }
         };
 
+        /// <summary>
+        /// Quests that the player does not have accest to yet
+        /// </summary>
         private static Dictionary<string, object[]> lockedQuests = new Dictionary<string, object[]>()
         {
-            { $"Crafted: {Grass.ID}", new object[] {new Dirt(), "nothign" } }
+            { $"Crafted: {Grass.ID}", new object[] {new Dirt(), "nothing" } }
         };
+
+        public static Dictionary<string, Item> ReturnCompleatedQuests()
+        {
+            return compleatedUnclaimedQuests;
+        }
+
+        public static void ClaimQuest(string key)
+        {
+            var item = compleatedUnclaimedQuests[key];
+            compleatedQuests.Add(key, compleatedUnclaimedQuests[key]);
+            compleatedUnclaimedQuests.Remove(key);
+
+            var temp = UnityEngine.Object.Instantiate(UnityEngine.Resources.Load("Prefabs/ItemGameObject") as UnityEngine.GameObject, UnityEngine.Object.FindObjectOfType<Player.PlayerMove>().transform.position + UnityEngine.Vector3.one, UnityEngine.Quaternion.identity);
+            temp.GetComponent<ItemGameObject>().item = item;
+        }
 
         public static void AddQuest(string quest, Item result, string nextQuest)
         {
@@ -42,10 +69,7 @@ namespace BeeGame.Quest
         {
             if (currentQuests.ContainsKey($"Pickup: {pickupID}"))
             {
-                currentQuests.Add(currentQuests[$"Pickup: {pickupID}"][1] as string, lockedQuests[(string)currentQuests[$"Pickup: {pickupID}"][1]]);
-                lockedQuests.Remove($"Pickup: {pickupID}");
-
-                compleatedQuests.Add($"Pickup: {pickupID}", currentQuests[$"Pickup: {pickupID}"][0] as Item);
+                UnlockQuests($"Pickup: {pickupID}");
             }
         }
 
@@ -53,10 +77,7 @@ namespace BeeGame.Quest
         {
             if (currentQuests.ContainsKey($"Crafted: {craftedItemID}"))
             {
-                currentQuests.Add(currentQuests[$"Crafted: {craftedItemID}"][1] as string, lockedQuests[(string)currentQuests[$"Pickup: {craftedItemID}"][1]]);
-                lockedQuests.Remove($"Crafted: {craftedItemID}");
-
-                compleatedQuests.Add($"Crafted: {craftedItemID}", currentQuests[$"Crafted: {craftedItemID}"][0] as Item);
+                UnlockQuests($"Crafted: {craftedItemID}");
             }
         }
 
@@ -64,10 +85,7 @@ namespace BeeGame.Quest
         {
             if (currentQuests.ContainsKey($"BeeCrafted: {primaryBeeSpecies}"))
             {
-                currentQuests.Add(currentQuests[$"BeeCrafted: {primaryBeeSpecies}"][1] as string, lockedQuests[(string)currentQuests[$"BeeCrafted: {primaryBeeSpecies}"][1]]);
-                lockedQuests.Remove($"BeeCrafted: {primaryBeeSpecies}");
-
-                compleatedQuests.Add($"BeeCrafted: {primaryBeeSpecies}", currentQuests[$"BeeCrafted: {primaryBeeSpecies}"][0] as Item);
+                UnlockQuests($"BeeCrafted: {primaryBeeSpecies}");
             }
         }
 
@@ -75,11 +93,34 @@ namespace BeeGame.Quest
         {
             if (currentQuests.ContainsKey($"PureBredBee: {primaryBeeSpecies} {secondaryBeeSpecies}"))
             {
-                currentQuests.Add(currentQuests[$"PureBredBee: {primaryBeeSpecies} {secondaryBeeSpecies}"][1] as string, lockedQuests[(string)currentQuests[$"PureBredBee: {primaryBeeSpecies} {secondaryBeeSpecies}"][1]]);
-                lockedQuests.Remove($"PureBredBee: {primaryBeeSpecies} {secondaryBeeSpecies}");
-
-                compleatedQuests.Add($"PureBredBee: {primaryBeeSpecies} {secondaryBeeSpecies}", currentQuests[$"PureBredBee: {primaryBeeSpecies} {secondaryBeeSpecies}"][0] as Item);
+                UnlockQuests($"PureBredBee: {primaryBeeSpecies} {secondaryBeeSpecies}");
             }
+        }
+
+        private static void UnlockQuests(string key)
+        {
+            compleatedUnclaimedQuests.Add(key, (Item)currentQuests[key][0]);
+
+            var next = currentQuests[key][1];
+
+            if(next is string[] sa)
+            {
+                foreach (var q in sa)
+                {
+                    currentQuests.Add(q, lockedQuests[q]);
+                    lockedQuests.Remove(q);
+                }
+            }
+            else if(next is string ss)
+            {
+                if (lockedQuests.ContainsKey(ss))
+                {
+                    currentQuests.Add(ss, lockedQuests[ss]);
+                    lockedQuests.Remove(ss);
+                }
+            }
+            
+            currentQuests.Remove(key);
         }
     }
 }

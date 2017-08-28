@@ -12,9 +12,19 @@ namespace BeeGame
         {
             CraftingRecipies.AddShapedRecipie(new object[] { "   ", " X ", "   ", "X", Dirt.ID }, new Grass());
             CraftingRecipies.AddShaplessRecipie(new object[] { new Grass(), 1 }, new Dirt());
-
-            Events.itemCraftedInTableEvent += Print;
         }
-        public void Print(Item item) => print(item.GetItemID());
+
+        private void Update()
+        {
+            var temp = Quest.Quests.ReturnCompleatedQuests();
+
+            if(temp.Count > 0)
+            {
+                foreach (var item in temp)
+                {
+                    Quest.Quests.ClaimQuest(item.Key);
+                }
+            }
+        }
     }
 }

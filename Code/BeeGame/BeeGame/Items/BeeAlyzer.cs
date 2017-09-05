@@ -47,6 +47,13 @@ namespace BeeGame.Items
         public BeeAlyzer() : base("BeeAlyzer")
         {
         }
+
+        /// <summary>
+        /// Used of another object wants to use this as a parent class
+        /// </summary>
+        /// <param name="s">Name of child object</param>
+        public BeeAlyzer(string s) : base(s)
+        {}
         #endregion
 
         #region ItemInventory

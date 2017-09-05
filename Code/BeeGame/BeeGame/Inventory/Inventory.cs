@@ -83,7 +83,7 @@ namespace BeeGame.Inventory
         /// <summary>
         /// Things in the inventory that should be updated
         /// </summary>
-        public void UpdateBase()
+        protected void UpdateBase()
         {
             PutItemsInSlots();
             DrawItemAtCursor();

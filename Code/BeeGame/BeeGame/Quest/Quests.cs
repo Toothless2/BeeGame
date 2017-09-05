@@ -12,20 +12,20 @@ namespace BeeGame.Quest
         /// <summary>
         /// Quests that the player has compleated
         /// </summary>
-        private static Dictionary<string, Item> compleatedQuests = new Dictionary<string, Item>();
+        private static Dictionary<string, object[]> compleatedQuests = new Dictionary<string, object[]>();
 
         /// <summary>
         /// Quests that have been compleated but the rewards have not been claimed
         /// </summary>
-        private static Dictionary<string, Item> compleatedUnclaimedQuests = new Dictionary<string, Item>();
+        private static Dictionary<string, object[]> compleatedUnclaimedQuests = new Dictionary<string, object[]>();
 
         /// <summary>
         /// Quests the player is currently finishing
         /// </summary>
         private static Dictionary<string, object[]> currentQuests = new Dictionary<string, object[]>()
         {
-            { $"Pickup: {Wood.ID}", new object[] {new CraftingTable(), $"Crafted: {Grass.ID}" } },
-            {$"BeeCrafted: {BeeSpecies.COMMON}", new object[] {new CraftingTable()} }
+            { $"Pickup: {Wood.ID}", new object[] {new CraftingTable(), $"Crafted: {Grass.ID}", "Pickup A Wood Block" } },
+            {$"BeeCrafted: {BeeSpecies.COMMON}", new object[] {new CraftingTable(), "Make a Common Bee"} }
         };
 
         /// <summary>
@@ -33,12 +33,35 @@ namespace BeeGame.Quest
         /// </summary>
         private static Dictionary<string, object[]> lockedQuests = new Dictionary<string, object[]>()
         {
-            { $"Crafted: {Grass.ID}", new object[] {new Dirt(), "nothing" } }
+            { $"Crafted: {Grass.ID}", new object[] {new Dirt(), "nothing", "Use some Dirt in the Workbench" } }
         };
 
-        public static Dictionary<string, Item> ReturnCompleatedQuests()
+        public static Dictionary<string, object[]> ReturnCompleatedQuests()
         {
             return compleatedUnclaimedQuests;
+        }
+
+        public static Dictionary<string, object[]> ReturnCompleatedClaimedQuests()
+        {
+            return compleatedQuests;
+        }
+
+        public static Dictionary<string, object[]> ReturnCurrentQuests()
+        {
+            return currentQuests;
+        }
+        
+        public static Dictionary<string, object[]> ReturnLockedQuests()
+        {
+            return lockedQuests;
+        }
+
+        public static void LoadQuests(Dictionary<string, object[]> compleated, Dictionary<string, object[]> compleatedNotCollected, Dictionary<string, object[]> inProgress, Dictionary<string, object[]> locked)
+        {
+            compleatedQuests = compleated;
+            compleatedUnclaimedQuests = compleatedNotCollected;
+            currentQuests = inProgress;
+            lockedQuests = locked;
         }
 
         public static void ClaimQuest(string key)
@@ -48,7 +71,7 @@ namespace BeeGame.Quest
             compleatedUnclaimedQuests.Remove(key);
 
             var temp = UnityEngine.Object.Instantiate(UnityEngine.Resources.Load("Prefabs/ItemGameObject") as UnityEngine.GameObject, UnityEngine.Object.FindObjectOfType<Player.PlayerMove>().transform.position + UnityEngine.Vector3.one, UnityEngine.Quaternion.identity);
-            temp.GetComponent<ItemGameObject>().item = item;
+            temp.GetComponent<ItemGameObject>().item = (Item)item[0];
         }
 
         public static void AddQuest(string quest, Item result, string nextQuest)
@@ -100,11 +123,11 @@ namespace BeeGame.Quest
 
         private static void UnlockQuests(string key)
         {
-            compleatedUnclaimedQuests.Add(key, (Item)currentQuests[key][0]);
+            compleatedUnclaimedQuests.Add(key, currentQuests[key]);
 
             var objArray = currentQuests[key];
 
-            if(objArray.Length > 1)
+            if(objArray.Length > 2)
             {
                 var next = objArray[1];
 
@@ -127,6 +150,8 @@ namespace BeeGame.Quest
             }
 
             currentQuests.Remove(key);
+
+            Serialization.Serialization.SaveQuests();
         }
     }
 }

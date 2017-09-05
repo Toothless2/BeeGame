@@ -16,15 +16,15 @@ namespace BeeGame
 
         private void Update()
         {
-            var temp = Quest.Quests.ReturnCompleatedQuests();
+            //var temp = Quest.Quests.ReturnCompleatedQuests();
 
-            if(temp.Count > 0)
-            {
-                foreach (var item in temp)
-                {
-                    Quest.Quests.ClaimQuest(item.Key);
-                }
-            }
+            //if(temp.Count > 0)
+            //{
+            //    foreach (var item in temp)
+            //    {
+            //        Quest.Quests.ClaimQuest(item.Key);
+            //    }
+            //}
         }
     }
 }

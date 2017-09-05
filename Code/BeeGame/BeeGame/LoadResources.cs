@@ -16,9 +16,18 @@ namespace BeeGame
             Serialization.Serialization.MakeDirectorys();
 
             Serialization.Serialization.LoadPlayerPosition(GameObject.Find("Player").GetComponent<Transform>());
+            Serialization.Serialization.LoadQuests();
 
             SpriteDictionary.LoadSprites();
             PrefabDictionary.LoadPrefabs();
+        }
+
+        int delay = 0;
+
+        private void Update()
+        {
+            if (delay++ >= 1000)
+                Serialization.Serialization.SaveQuests();
         }
     }
 }

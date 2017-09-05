@@ -6,7 +6,7 @@ using BeeGame.Core;
 using BeeGame.Terrain;
 using BeeGame.Terrain.Chunks;
 using BeeGame.Inventory;
-using BeeGame.Blocks;
+using BeeGame.Quest;
 
 namespace BeeGame.Serialization
 {
@@ -204,6 +204,30 @@ namespace BeeGame.Serialization
         public static string FileName(ChunkWorldPos pos)
         {
             return $"{pos.x}, {pos.y}, {pos.z}";
+        }
+        #endregion
+
+        #region Quests
+        public static void SaveQuests()
+        {
+            var array = new System.Collections.Generic.Dictionary<string, object[]>[] { Quests.ReturnCompleatedClaimedQuests(), Quests.ReturnCompleatedQuests(), Quests.ReturnCurrentQuests(), Quests.ReturnLockedQuests() };
+
+            string saveFile = $"{savePath}/quests.dat";
+
+            SaveFile(array, saveFile);
+        }
+
+        public static void LoadQuests()
+        {
+            string saveFile = $"{savePath}/quests.dat";
+
+            if (!File.Exists(saveFile))
+                return;
+
+            var array = (System.Collections.Generic.Dictionary<string, object[]>[])LoadFile(saveFile);
+
+            Quests.LoadQuests(array[0], array[1], array[2], array[3]);
+
         }
         #endregion
 

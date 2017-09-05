@@ -24,7 +24,8 @@ namespace BeeGame.Quest
         /// </summary>
         private static Dictionary<string, object[]> currentQuests = new Dictionary<string, object[]>()
         {
-            { $"Pickup: {Wood.ID}", new object[] {new CraftingTable(), $"Crafted: {Grass.ID}" } }
+            { $"Pickup: {Wood.ID}", new object[] {new CraftingTable(), $"Crafted: {Grass.ID}" } },
+            {$"BeeCrafted: {BeeSpecies.COMMON}", new object[] {new CraftingTable()} }
         };
 
         /// <summary>
@@ -101,25 +102,30 @@ namespace BeeGame.Quest
         {
             compleatedUnclaimedQuests.Add(key, (Item)currentQuests[key][0]);
 
-            var next = currentQuests[key][1];
+            var objArray = currentQuests[key];
 
-            if(next is string[] sa)
+            if(objArray.Length > 1)
             {
-                foreach (var q in sa)
+                var next = objArray[1];
+
+                if (next is string[] sa)
                 {
-                    currentQuests.Add(q, lockedQuests[q]);
-                    lockedQuests.Remove(q);
+                    foreach (var q in sa)
+                    {
+                        currentQuests.Add(q, lockedQuests[q]);
+                        lockedQuests.Remove(q);
+                    }
+                }
+                else if (next is string ss)
+                {
+                    if (lockedQuests.ContainsKey(ss))
+                    {
+                        currentQuests.Add(ss, lockedQuests[ss]);
+                        lockedQuests.Remove(ss);
+                    }
                 }
             }
-            else if(next is string ss)
-            {
-                if (lockedQuests.ContainsKey(ss))
-                {
-                    currentQuests.Add(ss, lockedQuests[ss]);
-                    lockedQuests.Remove(ss);
-                }
-            }
-            
+
             currentQuests.Remove(key);
         }
     }

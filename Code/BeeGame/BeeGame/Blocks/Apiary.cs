@@ -231,7 +231,7 @@ namespace BeeGame.Blocks
                 sProdSpeed = CombineProductionSpeed(queen.queen.sProdSpeed, queen.drone.sProdSpeed)
             };
 
-            QuestEvents.CallBeeCraftedEvent(nb.pSpecies);
+            //QuestEvents.CallBeeCraftedEvent(nb.pSpecies);
 
             //* returns the new bee
             return new Bee(beeType, nb);

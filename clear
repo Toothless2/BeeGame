@@ -1,0 +1,825 @@
+[33mcommit 2de614a4a66b2b2cd3572bec1e7d0120a31dc296[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Aug 28 13:19:20 2017 +0100
+
+    Crafting/Pickup Quests Work need to add bee qs
+
+[33mcommit 9b7aebe592f0f9fe422f0cfb580fb838024b4529[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Aug 27 21:13:53 2017 +0100
+
+    UNITY FINALLY UPGRADED TO .NET 4.6!!!!!
+
+[33mcommit c66ca6130c7998a7477d2c904f6de5933f8acc91[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Aug 27 20:07:52 2017 +0100
+
+    Finished beealyzer and started quests
+
+[33mcommit 361818fc988f50fc136ded41cdacd5c4e630895e[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Aug 23 11:52:34 2017 +0100
+
+    Added bee models
+
+[33mcommit f2e234a862bfa104ac1076778e205633d1351f49[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Aug 4 21:00:50 2017 +0100
+
+    beealyzer
+
+[33mcommit f748a671e83287a2c3d0ea4058261f41c8778ce9[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Aug 2 15:46:37 2017 +0100
+
+    Begin to add beealyzer
+
+[33mcommit 1851224d7f201c238a6a03022adb6d9b20f4e3e0[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Sat Jul 29 11:23:57 2017 +0100
+
+    Spelling
+
+[33mcommit cb9787fa784efd4f31d335df8cbaaaa2058045af[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Sat Jul 29 11:22:43 2017 +0100
+
+    Spelling
+
+[33mcommit 356764d698c1c897bc99a88a788a1e8f90affbfe[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Sat Jul 29 11:21:44 2017 +0100
+
+    Spelling
+
+[33mcommit a33e7e267500231b63105a5f4e80456b8d406cc6[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Sat Jul 29 11:20:01 2017 +0100
+
+    Spelling
+
+[33mcommit 16497872016d2d97ed819e6abfa30faf4ddf467a[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Sat Jul 29 11:14:56 2017 +0100
+
+    Spelling
+
+[33mcommit a14fc6a566c41a2e485c1ebb6478012e7c7390aa[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Sat Jul 29 11:13:03 2017 +0100
+
+    Edited phrasing for clarity
+    
+    and spelling
+
+[33mcommit 91cdf5e6bd9239103e56ee3aa274fb681f5f198c[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Sat Jul 29 11:09:22 2017 +0100
+
+    Spelling
+
+[33mcommit 503481a90b776a38f7c9fb0bb1cab3846b267770[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Sat Jul 29 06:31:36 2017 +0100
+
+    Spelling
+    
+    (and grammar)
+
+[33mcommit c7ca3f8cee2159453a7b9b73a083f45ea255c0c6[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Jul 26 10:07:26 2017 +0100
+
+    sl;kjhgfds
+
+[33mcommit c2b085d09020474c40b461d04b7c127c0613314e[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Jul 25 20:58:03 2017 +0100
+
+    Fixed flashing item when crafting
+
+[33mcommit a5edefb6e3d43e8ce4275fde2d943eeaa5cc42af[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Jul 25 19:05:38 2017 +0100
+
+    fixed errors
+
+[33mcommit 9b5760e0d76f7ee4aefc7e7cfeeb1ea02d196975[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Jul 25 19:03:59 2017 +0100
+
+    Auto stash before merge of "master" and "origin/master"
+
+[33mcommit 453b9848c4683d7392f4ef32971932fee772cac3[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 16:26:49 2017 +0100
+
+    Update Grass.cs
+
+[33mcommit 4a43854078cbc13e2db667e4b0b88f829726dfd2[m
+Author: Max <max.rose366@gmail.com>
+Date:   Tue Jul 25 16:19:10 2017 +0100
+
+    Update CraftingTable.cs
+
+[33mcommit 99949984cab2d4a53def61a22194a138a480f319[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 16:17:24 2017 +0100
+
+    Update CraftingTable.cs
+
+[33mcommit 7e3d8139e792792eacb380a5026854dd19f93019[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 16:14:38 2017 +0100
+
+    Update Chest.cs
+
+[33mcommit 9f3c1af11d5e180ee8ab17590cb0265f2b5fbc03[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 16:10:34 2017 +0100
+
+    Update Block.cs
+    
+    spelling
+
+[33mcommit 4c473b1fb3cfdf17558f26883dc0c1946e40fad7[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 16:05:42 2017 +0100
+
+    Update Bedrock.cs
+    
+    spelling
+
+[33mcommit b759f381f22716e250b3796fe2d7e3588dfe518f[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 16:05:08 2017 +0100
+
+    Update Air.cs
+    
+    spelling
+
+[33mcommit 691964ee37b5dcf4840b65d9bc6dc99affe62a95[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 16:02:41 2017 +0100
+
+    Update Apiary.cs
+
+[33mcommit c5d5c09bcb9e2f1401695c6ad9557841d27f44ef[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 15:56:02 2017 +0100
+
+    Update Apiary.cs
+
+[33mcommit 03851a49841b67ebb81395e3f65f969c8f974448[m
+Author: Max <max.rose366@gmail.com>
+Date:   Tue Jul 25 15:50:56 2017 +0100
+
+    Update Planks.cs
+
+[33mcommit 856ce35ac4b0b95c7c6acc95fa4f1326ae806bde[m
+Merge: a56ebd8 4278531
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Jul 25 15:26:31 2017 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit a56ebd808a5cd65f5d49310bf49fd40a0c923b23[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Jul 25 15:24:46 2017 +0100
+
+    spelling
+
+[33mcommit 427853163de47f2ae852732399b732522f651e15[m
+Author: LordDesync <30439030+LordDesync@users.noreply.github.com>
+Date:   Tue Jul 25 15:15:46 2017 +0100
+
+    Rename CraftingRecipieAdditionException.cs to CraftingRecipeAdditionException.cs
+
+[33mcommit 7b6968253533ea53b2f4ea6bc3c7d82509479dd9[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Jul 25 15:04:16 2017 +0100
+
+    Added Crafted item slot
+
+[33mcommit f7ec64c1d23a26124aed18d73bc99550a0ea73f9[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Jul 23 22:19:27 2017 +0100
+
+    updated docs
+
+[33mcommit d16d6ae12b70a9fe2dd9e1aa09c78a485c13370a[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Jul 22 21:34:35 2017 +0100
+
+    Added improvements for recipie removal via delegate + setting ^ for quest
+
+[33mcommit 777c50279c7168a9f74334f14b2698167b5beebb[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Jul 21 15:17:54 2017 +0100
+
+    fixed something
+
+[33mcommit d12fce91d518642fb12f2379b93b766be79f8d3e[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Jul 21 15:02:48 2017 +0100
+
+    Added shpless recipe support for the crafitng table
+
+[33mcommit 93646c5c481e9e0a19fb198d133722a15628da0f[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Jul 21 13:08:03 2017 +0100
+
+    Added support for shpless recipies
+    
+    need to add support in the crafting table
+
+[33mcommit 06840a5f0f5c714ad6b20f12717fc8ab8b0893ff[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Jul 21 07:54:06 2017 +0100
+
+    Added Shaped crafting
+
+[33mcommit 3bf4eb4ba673d7466744bfc9108b10f26253e5fd[m
+Author: Max <max.rose366@gmail.com>
+Date:   Fri Jul 21 06:01:39 2017 +0100
+
+    Delete test.md
+
+[33mcommit 65675ca92e3be40d753f75dd2ff4896e73f89deb[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Jul 21 05:59:16 2017 +0100
+
+    sddf
+
+[33mcommit 5b93e64ad519a1b677af1c47fc4ce8af5309f9fe[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Jul 21 05:57:53 2017 +0100
+
+    sdf
+
+[33mcommit 4f00a531200216c589587e843bd2bf9a736a2412[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Jul 21 05:57:05 2017 +0100
+
+    sdf
+
+[33mcommit bd5d7eae96a8dbfa0e7ad382a7fc0dc36b94a497[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Jul 20 18:56:37 2017 +0100
+
+    Added ability to add and retrieve shaped crafting recipies
+
+[33mcommit 334a8c3e67f36a3fced6a6aec1c02ac7b7d0b405[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Jul 20 16:38:18 2017 +0100
+
+    tweaked a few things and chenges how bees are hashed
+
+[33mcommit fefa715467ba157e461d6362f6ca8d52747cfed0[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Jul 20 07:23:14 2017 +0100
+
+    changes how ids are stored ready for implementation of crafting
+
+[33mcommit 1e2cac2f10d61a2addc6dd9f09ac642d21f34ecb[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Jul 19 17:49:05 2017 +0100
+
+    Almost back to where I was ~3 months, 12 days, and 17 hours ago
+
+[33mcommit d709106d3dd2e13682d8cfc6f9d1fc0e24891818[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Jul 19 13:19:49 2017 +0100
+
+    finished adding bee breeding
+    
+    need to add alll combinations and test peoperly and such but for not it is done
+
+[33mcommit 5134a6ccffcf0c58beaf897dfb5999e9503d25de[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Jul 18 18:04:08 2017 +0100
+
+    Added bee combeining and temp fixed a bug
+    
+    Need to add species combineing in the apiary
+
+[33mcommit 909b4b81f485909c64b075c9c83e69c4cb829e6a[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Jul 17 18:23:44 2017 +0100
+
+    Added apiary aceppting and makeing queen bees
+    
+    made some new bugs
+
+[33mcommit a63f046146dc03673829b1ff33828ee58c00d660[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Jul 16 20:58:33 2017 +0100
+
+    added one way slots
+
+[33mcommit ea0c7fd3e95398253ff565abfd3ef3553a395193[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Jul 16 11:48:00 2017 +0100
+
+    Began to implement apiary and fixed a bug
+
+[33mcommit bfe8238e4faeb8ab6633a3d3df8a33d231c1cf39[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Jun 17 08:13:30 2017 +0100
+
+    Auto stash before merge of "master" and "origin/master"
+
+[33mcommit a7de1547b7bc1712105fcd54d218d5341be42231[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Jun 8 16:43:55 2017 +0100
+
+    Fixed item copying and started to add questing
+
+[33mcommit ad51d25ec3d6d2ddb34dce28c15aaa45cb81eef3[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun May 28 13:23:07 2017 +0100
+
+    Updated to unity 5.6.1f
+
+[33mcommit dba800800850a4819826c85e8d6103b87d1cac18[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue May 9 22:25:40 2017 +0100
+
+    Item sprite is drawn at cursor position
+    
+    also inventory cannot be closed whilst items are being moved
+
+[33mcommit 8b27e0732e9fa339319063a58b0e568bfc7cce95[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri May 5 18:44:17 2017 +0100
+
+    Added bees and items can colour themselfs
+
+[33mcommit 3bb053748263e8f52018bf51569b99779e4d9e9b[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu May 4 07:09:36 2017 +0100
+
+    FIxed inventory saveing
+
+[33mcommit 3fcb9936a4cd9031b0e65406b68b0409feea36a6[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon May 1 20:57:43 2017 +0100
+
+    Updated docs
+
+[33mcommit bf556a74a43572b82f09999e32c38fd3e1471029[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon May 1 20:19:12 2017 +0100
+
+    added comments
+
+[33mcommit 85493ccf86bfa2e4c1cec72a76a10885737536d4[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon May 1 19:15:22 2017 +0100
+
+    Added player saveing and honey combs
+
+[33mcommit 2ea34756c593f98d59fa82bd38cd6abb31520220[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Apr 26 07:43:21 2017 +0100
+
+    a
+
+[33mcommit 515c0fc3b7f40d5490db12d047c3c45d556061b8[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Apr 25 11:04:21 2017 +0100
+
+    Chest now works
+    
+    Need to make it so that player inventory is not opened immidiatly after closeing a chest inventory
+
+[33mcommit 57012e20c341710e54bfb7abff5bdb65d65abc6b[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Apr 24 19:14:55 2017 +0100
+
+    Added item icons and started on chest actually haveing inventory
+
+[33mcommit 768582c59c48c294a66c1dcaf35efdfb8909d8f4[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Apr 24 13:37:55 2017 +0100
+
+    Added base chest class
+    
+    Need to add functionality to the chest
+
+[33mcommit c069596fc4b6a8c443c011c37abebd0ce8acb89c[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Apr 19 15:07:54 2017 +0100
+
+    Added trees
+
+[33mcommit 770d89713a953dba7446f4726ead128918ce2108[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Apr 18 11:13:27 2017 +0100
+
+    made docs look better
+
+[33mcommit 105b703cbd9e7d246dd80d31ce7aec006f4ff6f2[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Apr 17 17:47:12 2017 +0100
+
+    Updated Docs
+
+[33mcommit 7816c6bb1d6e44569b60864e3c003b5bff4d64c2[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Apr 17 17:20:49 2017 +0100
+
+    Reached 1st public releast minecraft stage
+
+[33mcommit 532a4d33bae2ffeba549807fc43b0b5acfc96f60[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Apr 17 12:33:25 2017 +0100
+
+    fsdf
+
+[33mcommit b962712162c4175a020da54d6c6d86de515185fd[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 16 15:24:29 2017 +0100
+
+    Inventorys will now serialize
+    
+    Need to set the name for the inventory for it to serialize properly
+    
+    Block/Entity name + pos should do
+
+[33mcommit fdda3bd4419b72dbf05d22a55d0fc9cee140cb3d[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 16 14:35:10 2017 +0100
+
+    Added some optimiseation
+    
+    Chunks build in a seperate thread
+    Collsion meshes only built when needed
+
+[33mcommit 6f8eb4fe9414aeebe187009e5fb5f1890eed1ad8[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Apr 14 22:55:59 2017 +0100
+
+    Finished adding comments to all files not currently being edited
+
+[33mcommit c04f6414130ddc28ebd9b2b16addc856821f2913[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Apr 14 16:57:54 2017 +0100
+
+    Added some XML comments
+
+[33mcommit 5ac977ec67107a0ff3357766d04fe28901e6621b[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Apr 12 23:15:18 2017 +0100
+
+    Added basic player inventory
+    
+    REadding fatures lost when terrain system was changed
+
+[33mcommit 80c9699ea0ff75987f9f3fb94430a23d4a20eff6[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Apr 10 23:50:31 2017 +0100
+
+    Starting work on inventory systems
+
+[33mcommit 69617cd27f1342404c7812f80e90c65af277a33a[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 9 22:14:19 2017 +0100
+
+    Removed accidental dlls
+
+[33mcommit bc2eb0e7c03b0f2506ae0b366327238c4fbb7c29[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 9 22:04:33 2017 +0100
+
+    Updated the ItemGameObject script to hold items not just blocks
+
+[33mcommit 61cf23e7c29b9c02d451828964d28ff3544737ad[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 9 21:48:30 2017 +0100
+
+    Added block breaking
+
+[33mcommit 9d11976ef9299f74e2f7300981242a27aaa29ee3[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 9 18:49:59 2017 +0100
+
+    Moved some namespaces
+
+[33mcommit 9b9d96f1874b6c6d1ed417d0d6a7df2e6ffbce82[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 9 18:39:27 2017 +0100
+
+    Reduced distance required to delete chunks and better chunk faces
+
+[33mcommit a8646456ac1fc17c396d88fa5fe4cf985f13871e[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 9 15:18:59 2017 +0100
+
+    Updated gitignore
+
+[33mcommit 7c010b6f308c89c536ce18d62449221552886b79[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 9 15:16:59 2017 +0100
+
+    Removed all threading
+
+[33mcommit f1f16b8d186f3f8c6929022fc1da427aad3559ff[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 9 10:12:50 2017 +0100
+
+    Added some threading to the game
+    
+    Not sure if threasding improves performace needs testing
+
+[33mcommit 549c61bd5b903bdf156515d3447ac784f91f893b[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Apr 8 20:56:22 2017 +0100
+
+    Added more xml/normal comments
+
+[33mcommit c32b3fab906a25dc12f2acc51a001b9f2535e254[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Apr 8 11:11:58 2017 +0100
+
+    Added commints and player controller/look
+    
+    Also allowed player to "climb" blocks
+
+[33mcommit 6907b20c6094c6fbfb185bf02d9d058012b36615[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Apr 7 16:30:08 2017 +0100
+
+    Beginnign code re-write for the new block system
+
+[33mcommit eda39cf91c902a05882f00cfa63a042caca956e2[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Apr 6 20:38:22 2017 +0100
+
+    Added comments and adjusted how the selector is targeted
+
+[33mcommit 34d7c333c19a4f6bc3b4355e2c8481f77391a131[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Apr 5 22:40:46 2017 +0100
+
+    Added support for non-cube meshes in terrain
+    
+    Collider for non-cube meshes is still a cube, could be overrided to use its owen collider if absolutly required
+
+[33mcommit d020cfadd2b6bc9388788a7bb39e6b44ed1be30b[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Apr 5 17:17:33 2017 +0100
+
+    Begining shift from rooms to random gen voxel terrain
+
+[33mcommit b2eb435445f579a41bb3246d2e70d408f7f449ef[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Apr 5 16:31:15 2017 +0100
+
+    Ignored .meta files
+
+[33mcommit be9c091d12fa190b1db0f8797f9d2dfe95a00dbc[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Tue Apr 4 18:14:55 2017 +0100
+
+    Beginning chnage over to minecraft like generation system
+
+[33mcommit f64f15a60fd4b3a58abc83a3de2f80fe98377c4f[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 2 15:59:16 2017 +0100
+
+    ou
+
+[33mcommit fb9060f32b26d5009081c472ca0ccdd1c998a29b[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 2 15:52:58 2017 +0100
+
+    Quest Book Model
+    
+    Also added some more theading and better item scaleing when out side of the players hand.
+
+[33mcommit 6e8968c072c4a73e757e4e154fd4948d21abb327[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Apr 2 00:14:43 2017 +0100
+
+    Stopped Player Movement/Look being attached to the framerate
+    
+    also stopped tracking the .dll and the .csproj for the code
+
+[33mcommit ac1b5a3ab5505ddd6821d485dcb6ae29cb4d70fb[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Apr 1 23:59:12 2017 +0100
+
+    Further optimised saveing
+
+[33mcommit d0b2236fba979eac2a4de8e1bd3d8eea5defb66a[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Apr 1 23:26:59 2017 +0100
+
+    added some threading
+
+[33mcommit a595012d96bb07343944f6d454d9720b1f4c9186[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Apr 1 23:09:54 2017 +0100
+
+    sdg
+
+[33mcommit d6d4e5255b3b8534e551627d0300509b0efb0321[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Apr 1 19:36:27 2017 +0100
+
+    Cleaned up files
+
+[33mcommit 46c5f536fe38fa57439314741264f61f0c1c06d9[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sat Apr 1 00:24:19 2017 +0100
+
+    Changed way resources are loaded
+    
+    Had to chnage the way resources are loaded as unity changes the folder structure on compile
+
+[33mcommit 6e8ae39b700ea148c83769e9267db0d8abc22c38[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Mar 30 20:08:39 2017 +0100
+
+    Updated sizes
+
+[33mcommit f157ea06b00ef16f2a341e43d5e4e5cf03f5a528[m
+Merge: 80648ba 9f4b69d
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Mar 30 20:01:35 2017 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 80648ba325ff546ae680c1e2958b4bea488b3d9f[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Mar 30 20:01:14 2017 +0100
+
+    Updated so that player cannot destry the inventory that thye are useing
+
+[33mcommit 9f4b69d35c226bed6af6e720f64673452e40a002[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Mar 30 20:01:14 2017 +0100
+
+    UPdated so that player cannot destry the inventory that thye are useing
+
+[33mcommit c32608308fd4afda121d2e78ac342f862aeda190[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Thu Mar 30 19:37:23 2017 +0100
+
+    Updated Shaders for honeycomb and added textures
+
+[33mcommit 7e1c5d9d76d5bce156a044d542d41fb0609210e2[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Mar 29 20:48:01 2017 +0100
+
+    House Keeping
+
+[33mcommit bca3cda6ebef1d6163f6208e4c20aa3bea45b475[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Mar 29 19:37:30 2017 +0100
+
+    Added Honey Comb model, and updated input
+    
+    Honey Comb model changes colour based on the sprites colour, custom shader for it.
+    Updated input code so that multiple keys can be assigned to the same button string
+
+[33mcommit fb0a12a48e4b7d03419ca76ebbbd98630acd06b3[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 27 23:13:38 2017 +0100
+
+    Fixed multiple GUI's being open at once, i think?
+
+[33mcommit 994b0f7d67a870a95abc2077e1dddc430abec33a[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Mar 26 22:04:31 2017 +0100
+
+    fgresy
+
+[33mcommit abf8627c857798d2a20fc206382faa7effafba7a[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Mar 26 20:25:12 2017 +0100
+
+    Updated To Unity 5.5.2f
+
+[33mcommit 3c4e25cd05715c9a004f18d770a89b05833973a8[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Sun Mar 26 20:13:22 2017 +0100
+
+    added quest book stuff
+
+[33mcommit 6e76a83960f061ce3c4dddf171644fd8ae04141b[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Mar 22 19:52:44 2017 +0000
+
+    More Renameing
+
+[33mcommit c652e5caf5d8b9535484ce2af357009b0bd2259a[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Mar 22 19:50:53 2017 +0000
+
+    Renamed things
+
+[33mcommit 4c6d367971f2df79ffcfad058b0e4bf4d9c1c9e7[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Wed Mar 22 08:10:34 2017 +0000
+
+    Started to add quest ui
+
+[33mcommit 3996661497635b8094bfb0249290c71db2f9e810[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 20 22:43:41 2017 +0000
+
+    Added HoneyCoumbs and their icon
+
+[33mcommit 432aa0433722b0ca08b9fa1a273117784c9eec6a[m
+Merge: 6c565a3 102f596
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Mar 17 18:06:14 2017 +0000
+
+    Merge remote-tracking branch 'BeeGame/master'
+
+[33mcommit 6c565a380cbd4601007f47b4e56560b5d3f68333[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Fri Mar 17 18:05:20 2017 +0000
+
+    Added questy things
+
+[33mcommit 102f59680d0d4905d053db462dc333415a45f9a8[m
+Author: Max <max.rose366@gmail.com>
+Date:   Tue Mar 14 08:23:32 2017 +0000
+
+    Update README.md
+
+[33mcommit 87f57078019a2583a51928360f5cdc3b556a1080[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:50:53 2017 +0000
+
+    Removed Documentation Things
+
+[33mcommit 10c944081b6c27e34fbc058d6d1470b501fccb50[m
+Merge: e99d8aa 48cfbce
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:37:52 2017 +0000
+
+    Merge remote-tracking branch 'BeeGame/master'
+
+[33mcommit e99d8aa301a4d1613c8321d8be5f0a2f27fb552a[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:36:48 2017 +0000
+
+    Removed Docs from master
+
+[33mcommit 48cfbce16f1972aab90db062f007cac04dadad7b[m
+Author: Max <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:33:22 2017 +0000
+
+    Set theme jekyll-theme-slate
+
+[33mcommit 2123b68c120cbe69160ed0476a47c4be905d775c[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:32:19 2017 +0000
+
+    Updates Docs name
+
+[33mcommit 7bc8dc3c5e05d2294d152343732d5ff3d58a7f6c[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:30:54 2017 +0000
+
+    detrh
+
+[33mcommit 37d6504c79df93c6908631263facc74df1ed978a[m
+Author: Max <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:24:14 2017 +0000
+
+    Delete Documentation.zip
+
+[33mcommit 72d856b1f33fca79811966c86683deee062a9797[m
+Author: Max <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:19:46 2017 +0000
+
+    Update README.md
+
+[33mcommit 57fa8d933542d07915eeb7e6b57325fba8dff2ea[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:05:23 2017 +0000
+
+    compilled Dll
+
+[33mcommit 353f6b805a2efe63dbae037729b50b37d4f63279[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 22:05:01 2017 +0000
+
+    Cleanedup and better commented code
+
+[33mcommit 8eb17f8a249704194526160065fed5bf64d075b1[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 18:08:33 2017 +0000
+
+    Initial Commit
+
+[33mcommit bb990630c913949d4472a3bd2f61d8d497339b76[m
+Author: Toothless <max.rose366@gmail.com>
+Date:   Mon Mar 13 18:07:01 2017 +0000
+
+    Initial commit

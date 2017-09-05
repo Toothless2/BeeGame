@@ -244,7 +244,7 @@ namespace BeeGame.Items
         {
             unchecked
             {
-                return (int)Int64.Parse($"{queen.GetHashCode()}{drone.GetHashCode()}");
+                return (int)Int64.Parse($"{queen.GetHashCode() ^ drone.GetHashCode()}");
             }
         }
     }

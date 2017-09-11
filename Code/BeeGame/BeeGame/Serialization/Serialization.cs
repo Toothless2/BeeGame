@@ -34,6 +34,15 @@ namespace BeeGame.Serialization
         #endregion
 
         /// <summary>
+        /// Set the save folder name(used by the mainmennu)
+        /// </summary>
+        /// <param name="saveFolder"></param>
+        public static void SetSaveFolderName(string saveFolder)
+        {
+            saveFolderName = saveFolder;
+        }
+
+        /// <summary>
         /// Sets the paths for the save files
         /// </summary>
         public static void MakeDirectorys()

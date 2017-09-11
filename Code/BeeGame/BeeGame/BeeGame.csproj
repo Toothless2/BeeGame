@@ -47,15 +47,15 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEditor">
-      <HintPath>D:\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>D:\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -101,6 +101,8 @@
     <Compile Include="Items\QuestBook.cs" />
     <Compile Include="LoadResources.cs" />
     <Compile Include="Inventory\Inventory.cs" />
+    <Compile Include="MainMenu\DeleteWorld.cs" />
+    <Compile Include="MainMenu\MainMenuManager.cs" />
     <Compile Include="Player\PlayerLook.cs" />
     <Compile Include="Player\PlayerMove.cs" />
     <Compile Include="Player\SavePlayerPosition.cs" />
@@ -144,5 +146,6 @@
   <ItemGroup>
     <Resource Include="Resources\Prefabs.dat" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

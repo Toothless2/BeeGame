@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Linq;
 using UnityEngine;
 using BeeGame.Items;
 
@@ -80,7 +81,19 @@ namespace BeeGame.Core
 
             return objTarget;
         }
-        
+
+        /// <summary>
+        /// Returns the Max value of a given enum as an int
+        /// </summary>
+        /// <typeparam name="T">Should be an enum</typeparam>
+        /// <param name="_enum">value does not matter</param>
+        /// <returns>The max value of the the given enum type and an int</returns>
+        public static int GetMaxEnumValue<T>(T _enum) where T : struct, IConvertible
+        {
+            var temp = Enum.GetValues(typeof(T)).Cast<T>().Last();
+            return (int)(object)temp;
+        }
+
         /// <summary>
         /// Will colour the sprite given a colour and optionaly colours to avoid
         /// </summary>

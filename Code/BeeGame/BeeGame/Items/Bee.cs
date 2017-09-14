@@ -4,6 +4,7 @@ using UnityEngine;
 using BeeGame.Core;
 using BeeGame.Core.Enums;
 using BeeGame.Core.Dictionaries;
+using System.Linq;
 
 namespace BeeGame.Items
 {
@@ -207,6 +208,36 @@ namespace BeeGame.Items
         }
         #endregion
 
+        #region Base Bee Selection
+        public static BeeType ReturnRandomType()
+        {
+            return (BeeType)UnityEngine.Random.Range(1, 3);
+        }
+
+        public static BeeSpecies ReturnRandomBaseSpecies()
+        {
+            int type = UnityEngine.Random.Range(0, 7);
+
+            switch (type)
+            {
+                case 0:
+                    return BeeSpecies.FOREST;
+                case 1:
+                    return BeeSpecies.MEADOWS;
+                case 2:
+                    return BeeSpecies.TROPICAL;
+                case 3:
+                    return BeeSpecies.MODEST;
+                case 4:
+                    return BeeSpecies.WINTRY;
+                case 5:
+                    return BeeSpecies.MARSHY;
+            }
+
+            return 0;
+        }
+        #endregion
+
         #region Overrides
         /// <summary>
         /// Retuens the hashcode for <see cref="this"/> <see cref="Item"/>
@@ -301,6 +332,33 @@ namespace BeeGame.Items
         /// </summary>
         public BeeProductionSpeed sProdSpeed;
         #endregion Secondary
+
+        public NormalBee()
+        {
+
+        }
+
+        public NormalBee(BeeSpecies species)
+        {
+            sSpecies = pSpecies = species;
+
+            RandomizeStats();
+        }
+
+        public void RandomizeStats()
+        {
+            pLifespan = (BeeLifeSpan)UnityEngine.Random.Range(0, Extensions.GetMaxEnumValue(BeeLifeSpan.SEATURTLE) + 1);
+            sLifespan = (BeeLifeSpan)UnityEngine.Random.Range(0, Extensions.GetMaxEnumValue(BeeLifeSpan.SEATURTLE) + 1);
+
+            pEffect = (BeeEffect)UnityEngine.Random.Range(0, Extensions.GetMaxEnumValue(BeeEffect.NONE) + 1);
+            sEffect = (BeeEffect)UnityEngine.Random.Range(0, Extensions.GetMaxEnumValue(BeeEffect.NONE) + 1);
+
+            pProdSpeed = (BeeProductionSpeed)UnityEngine.Random.Range(0, Extensions.GetMaxEnumValue(BeeProductionSpeed.FAST) + 1);
+            sProdSpeed = (BeeProductionSpeed)UnityEngine.Random.Range(0, Extensions.GetMaxEnumValue(BeeProductionSpeed.FAST) + 1);
+
+            pFertility = (uint)UnityEngine.Random.Range(1, 3);
+            sFertility = (uint)UnityEngine.Random.Range(1, 3);
+        }
 
         public override int GetHashCode()
         {

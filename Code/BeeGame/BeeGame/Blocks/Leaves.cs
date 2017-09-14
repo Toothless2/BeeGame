@@ -3,6 +3,7 @@ using UnityEngine;
 using BeeGame.Core.Dictionaries;
 using BeeGame.Core.Enums;
 using BeeGame.Items;
+using BeeGame.Core;
 
 namespace BeeGame.Blocks
 {
@@ -31,6 +32,25 @@ namespace BeeGame.Blocks
         public override bool IsSolid(Direction direction)
         {
             return false;
+        }
+
+        public override void BreakBlock(THVector3 pos)
+        {
+            var temp = new UnityEngine.Random();
+            
+            if(UnityEngine.Random.Range(0, 100) <= 25)
+            {
+                GameObject go = UnityEngine.Object.Instantiate(UnityEngine.Resources.Load("Prefabs/ItemGameObject") as GameObject, pos, Quaternion.identity) as GameObject;
+
+                var species = Bee.ReturnRandomBaseSpecies();
+                var type = Bee.ReturnRandomType();
+
+                go.GetComponent<ItemGameObject>().item = new Bee(type, new NormalBee(species));
+            }
+            else
+            {
+                base.BreakBlock(pos);
+            }
         }
 
         #region Overrides

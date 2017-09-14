@@ -11,7 +11,11 @@ namespace BeeGame.Core.Dictionaries
         private static Dictionary<BeeSpecies, float> beeCombinationWeights = new Dictionary<BeeSpecies, float>()
         {
             {BeeSpecies.COMMON, 0.15f },
-            {BeeSpecies.HEROIC, 0.06f }
+            {BeeSpecies.HEROIC, 0.06f },
+            {BeeSpecies.RURAL, 0.12f },
+            {BeeSpecies.FARMERLY, 0.1f },
+            {BeeSpecies.AGRARIAN, 0.06f },
+            {indus }
         };
 
         public static float[] GetWeights(BeeSpecies[] species)

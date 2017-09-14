@@ -17,6 +17,7 @@ namespace BeeGame.MainMenu
         public Transform scrollList;
         public Text worldInput;
         public string[] currentWorlds;
+        public GameObject failText;
 
         protected void Start()
         {
@@ -24,27 +25,37 @@ namespace BeeGame.MainMenu
             MakeWorldButtons();
         }
 
-        protected void Update()
-        {
-        }
-
         public void NewWorld()
         {
+            string inputText = worldInput.text;
+
+            if(inputText.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+            {
+                Failure($"\"{inputText}\" is an invalid file name please try again");
+                return;
+            }
+
             foreach (var item in currentWorlds)
             {
-                if (worldInput.text.ToLower(new System.Globalization.CultureInfo("en-US")) == item.Split(new char[] { '/', '\\' }).Last().ToLower(new System.Globalization.CultureInfo("en-US")))
+                if (inputText.ToLower(new System.Globalization.CultureInfo("en-US")) == item.Split(new char[] { '/', '\\' }).Last().ToLower(new System.Globalization.CultureInfo("en-US")))
                 {
-                    WorldAlreadyExists();
+                    Failure($"A World with the name \"{inputText}\" already exists");
                     return;
                 }
             }
 
-            LoadWorld(worldInput.text.ToLower(new System.Globalization.CultureInfo("en-US")));
+            LoadWorld(inputText.ToLower(new System.Globalization.CultureInfo("en-US")));
         }
 
-        public void WorldAlreadyExists()
+        public void Failure(string reason)
         {
+            failText.SetActive(true);
+            failText.GetComponentInChildren<Text>().text = reason;
+        }
 
+        public void CloseFailDialog()
+        {
+            failText.SetActive(false);
         }
 
         public void GetWorlds()
@@ -74,6 +85,11 @@ namespace BeeGame.MainMenu
 
                 go.GetComponent<Button>().onClick.AddListener(() => LoadWorld(go.GetComponentInChildren<Text>().text));
             }
+
+            if (currentWorlds.Length <= 0)
+                scrollList.parent.parent.gameObject.SetActive(false);
+            else
+                scrollList.parent.parent.gameObject.SetActive(true);
         }
 
         private void LoadWorld(string worldName)
